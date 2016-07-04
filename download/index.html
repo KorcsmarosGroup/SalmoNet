@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Browse &middot; SalmoNet</title>
+    <link rel="stylesheet" href="http://salmonet.org//css/style.css"/>
+    <script>
+        var data_url_prefix = "http:\/\/salmonet.org\/";
+    </script>
+    <script src="http://salmonet.org//js/app.js"></script>
+</head>
+
+<body>
+<div class="net-top-navbar" data-uk-sticky="">
+    <div class="uk-container uk-container-center">
+        <nav class="uk-navbar">
+            <a class="uk-navbar-brand uk-hidden-small" href="http://salmonet.org/">SalmoNet</a>
+            <ul class="uk-navbar-nav uk-hidden-small">
+                <li class="">
+                    <a href="http://salmonet.org/">Home</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/browse">Browse</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/download">Download</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/index.html#cite">Cite</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/index.html#contact">Contact</a>
+                </li>
+            </ul>
+            <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+            <div class="uk-navbar-brand uk-navbar-center uk-visible-small">Brand</div>
+        </nav>
+    </div>
+</div>
+
+<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-1">
+            <div class="uk-panel uk-panel-box uk-text-center">
+                <h1>Download</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="uk-grid">
+        <div class="uk-width-medium-1-5">
+        </div>
+        <div class="uk-width-medium-3-5">
+            <div id="downloadform"></div>
+            <script>
+    
+    function downloadfn(){
+        var url = "/download/"+downloadform.getValues().strain+"_"+downloadform.getValues().layer+"."+downloadform.getValues().format;
+
+        document.getElementById('downloadframe').src = url;
+    }
+    downloadform = new webix.ui({
+        container: "downloadform",
+        id: "downloadform",
+        view: "form",
+        scroll: false,
+        width: "100%",
+        elements: [
+            { view:"select", label:"Strain", name: "strain", options:[
+                    {id:"", value:"Consensus" },
+                    {id:"Salmonella_enterica_serovar_Agona_SL483", value:"Salmonella enterica serovar Agona SL483" },
+                    {id:"Salmonella_enterica_serovar_Choleraesuis_SC-B67", value:"Salmonella enterica serovar Choleraesuis SC-B67"},
+                    {id:"Salmonella_enterica_serovar_Dublin_CT_02021853", value:"Salmonella enterica serovar Dublin_CT 02021853" },
+                    {id:"Salmonella_enterica_serovar_Enteritidis_P125109", value:"Salmonella enterica serovar Enteritidis P125109" },
+                    {id:"Salmonella_enterica_serovar_Gallinarum_287_91", value:"Salmonella enterica serovar Gallinarum 287 91" },
+                    {id:"Salmonella_enterica_serovar_Heidelberg_SL476", value:"Salmonella enterica serovar Heidelberg SL476" },
+                    {id:"Salmonella_enterica_serovar_Newport_SL254", value:"Salmonella enterica serovar Newport SL254" },
+                    {id:"Salmonella_enterica_serovar_Paratyphi_A_ATCC_9150", value:"Salmonella enterica serovar Paratyphi A ATCC 9150" },
+                    {id:"Salmonella_enterica_serovar_Typhi_strain_CT18", value:"Salmonella enterica serovar Typhi strain CT18" },
+                    {id:"Salmonella_enterica_serovar_Typhimurium_LT2", value:"Salmonella enterica serovar Typhimurium LT2" },
+                    {id:"Salmonella_enterica_serovar_Typhimurium_SL1344", value:"Salmonella enterica serovar Typhimurium SL1344" }
+            ] },
+            { view:"select", label:"Layer", name: "layer", options:[
+                    {id:"", value:"All" },
+                    {id:"PN", value:"Protein-protein interaction" },
+                    {id:"RN", value:"Regulatory" },
+                    {id:"MN", value:"Metabolic" }
+            ] },
+            { view:"select", label:"Format", name: "format", options:[
+                    {id:"csv", value:"CSV" },
+                    {id:"cys", value:"Cyoscape" }
+            ] },
+            { view:"button", value:"Download", name: "download_button", width:200, align:"center", click:downloadfn}
+        ]
+    });
+
+    
+            </script>
+        </div>
+        <div class="uk-width-medium-1-5">
+        </div>
+    </div>
+</div>
+<iframe id="downloadframe" style="display:none"></iframe>
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas">
+                <li class="uk-active">
+                    <a href="http://salmonet.org/">Home</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/browse">Browse</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/download">Download</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/index.html#cite">Cite</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/index.html#contact">Contact</a>
+                </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-xxxxxx-xx', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>
