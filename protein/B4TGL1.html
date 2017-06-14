@@ -76,10 +76,10 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-1">
             <h2>Interactions</h2>
-            <div id="interactiontable"></div>
+            <div id="interactiontablediv"></div>
             <script>
                 interactiontable = webix.ui({
-                    container:"interactiontable",
+                    container:"interactiontablediv",
         			rows: [
                     {
                         id: "interactiontable",
@@ -138,6 +138,12 @@
                     interactiontable.hideColumn("data2");
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
+                };
+                if ($("#interactiontablediv").height() < 500){
+                    $$("interactiontable").config.autoheight = true;
+                    
+                    $$("interactiontable").refresh();
+                    interactiontable.resize();
                 }
             </script>
         </div>
