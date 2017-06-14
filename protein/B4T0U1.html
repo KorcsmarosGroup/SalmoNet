@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>B4T0U1 &middot; SalmoNet</title>
+    <link rel="stylesheet" href="http://salmonet.org//css/style.css"/>
+    <script>
+        var data_url_prefix = "http:\/\/salmonet.org\/";
+    </script>
+    <script src="http://salmonet.org//js/app.js"></script>
+</head>
+
+<body>
+<div class="net-top-navbar" data-uk-sticky="">
+    <div class="uk-container uk-container-center">
+        <nav class="uk-navbar">
+            <a class="uk-navbar-brand uk-hidden-small" href="http://salmonet.org/">SalmoNet</a>
+            <ul class="uk-navbar-nav uk-hidden-small">
+                <li class="">
+                    <a href="http://salmonet.org//">Home</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/browse/">Browse</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/download/">Download</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org//index.html#cite">Cite</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org//index.html#cite">Contact</a>
+                </li>
+            </ul>
+            <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+            <div class="uk-navbar-brand uk-navbar-center uk-visible-small">SalmoNet</div>
+        </nav>
+    </div>
+</div>
+
+
+<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-1">
+            <div class="uk-panel uk-panel-box uk-text-center">
+                <h1>cytR</h1>
+            </div>
+        </div>
+    </div>
+
+    <hr class="uk-grid-divider">
+
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-2">
+            <dl class="uk-description-list-horizontal">
+                <dt>Name</dt>
+                <dd>cytR</dd>
+                <dt>Locus</dt>
+                <dd>SNSL254_A4424</dd>
+                <dt>Uniprot Accession</dt>
+                <dd>B4T0U1</dd>
+                <dt>Strain</dt>
+                <dd><i>Salmonella enterica serovar Newport SL254</i></dd>
+            </dl>
+        </div>
+        <div class="uk-width-medium-1-2">
+
+        </div>
+    </div>
+
+
+    <hr class="uk-grid-divider">
+
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-1">
+            <h2>Interactions</h2>
+            <div id="interactiontable"></div>
+            <script>
+                interactiontable = webix.ui({
+                    container: "interactiontable",
+                    view: "datatable",
+                    css: "salmonet_table",
+                    columns: [
+                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                    ],
+                    height: 500,
+                    autowidth: true,
+
+                    datatype: "csv",
+                    data: 'crp,cytR,Lit Ecoli IntAct,PPI\ncytR,SNSL254_A2226,Lit Ecoli IntAct,PPI\ncytR,eutN,Lit Ecoli IntAct,PPI\nSNSL254_A2994,cytR,Lit Ecoli IntAct,PPI\ncytR,SNSL254_A0459,Ecoli,Transcriptional_regulatory\ncytR,cdd,Ecoli,Transcriptional_regulatory\ncytR,rpoH,Ecoli,Transcriptional_regulatory\ncytR,udp,Ecoli,Transcriptional_regulatory\ncytR,cytR,Ecoli,Transcriptional_regulatory\ncytR,cytR,Ecoli,Transcriptional_regulatory\ncytR,deoC,Ecoli,Transcriptional_regulatory\ncytR,deoD,Ecoli,Transcriptional_regulatory\ncrp,cytR,Ecoli,Transcriptional_regulatory'
+                },
+                {
+                    {
+					view: "form",
+					css: "toolbar",
+					paddingY: 5,
+					paddingX: 10,
+					cols:[
+						{
+							view: "button", label: "Download table", width: 200, click:function(){
+								webix.toExcel($$("interactiontable"), {
+                                    filename: "SalmoNet_B4T0U1",
+                                    name: "cytR",
+                                    columns:{
+                                        "data0":true,
+                                        "data1":true,
+                                        "data2":true,
+                                        "data3":true,
+                                    }
+                                });
+							}
+						}
+					]
+				}
+                });
+                $(window).resize(function() {
+                    if ($(window).width() < 850){
+                        interactiontable.hideColumn("data2");
+                        interactiontable.setColumnWidth("data0", 80);
+                        interactiontable.setColumnWidth("data1", 80);
+                        interactiontable.setColumnWidth("data3", 150);
+                    }
+                    if ($(window).width() >= 850){
+                        interactiontable.showColumn("data2");
+                        interactiontable.setColumnWidth("data0", 120);
+                        interactiontable.setColumnWidth("data1", 120);
+                        interactiontable.setColumnWidth("data3", 200);
+                    }
+                });
+                if ($(window).width() < 850){
+                    interactiontable.hideColumn("data2");
+                    interactiontable.setColumnWidth("data0", 80);
+                    interactiontable.setColumnWidth("data1", 80);
+                }
+            </script>
+        </div>
+    </div>
+    <hr class="uk-grid-divider">
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-2">
+            <h2>Orthologs of cytR</h2>
+            <dl class="uk-description-list-horizontal">
+                
+                <dt><a href="/protein/B5F0S5.html">B5F0S5</a></dt>
+                <dd><i>Salmonella enterica serovar Agona SL483</i></dd>
+                
+                <dt><a href="/protein/Q57HC3.html">Q57HC3</a></dt>
+                <dd><i>Salmonella enterica serovar Choleraesuis SC-B67</i></dd>
+                
+                <dt><a href="/protein/B5FPU3.html">B5FPU3</a></dt>
+                <dd><i>Salmonella enterica serovar Dublin CT 02021853</i></dd>
+                
+                <dt><a href="/protein/B5QXM3.html">B5QXM3</a></dt>
+                <dd><i>Salmonella enterica serovar Enteritidis P125109</i></dd>
+                
+                <dt><a href="/protein/B5RF77.html">B5RF77</a></dt>
+                <dd><i>Salmonella enterica serovar Gallinarum 287 91</i></dd>
+                
+                <dt><a href="/protein/B4TCN1.html">B4TCN1</a></dt>
+                <dd><i>Salmonella enterica serovar Heidelberg SL476</i></dd>
+                
+                <dt><a href="/protein/B4T0U1.html">B4T0U1</a></dt>
+                <dd><i>Salmonella enterica serovar Newport SL254</i></dd>
+                
+                <dt><a href="/protein/Q5PK53.html">Q5PK53</a></dt>
+                <dd><i>Salmonella enterica serovar Paratyphi A ATCC 9150</i></dd>
+                
+                <dt><a href="/protein/Q7CPC1.html">Q7CPC1</a></dt>
+                <dd><i>Salmonella enterica serovar Typhimurium LT2</i></dd>
+                
+                <dt><a href="/protein/E1WEE9.html">E1WEE9</a></dt>
+                <dd><i>Salmonella enterica serovar Typhimurium SL1344</i></dd>
+                
+                <dt><a href="/protein/Q9XDC7.html">Q9XDC7</a></dt>
+                <dd><i>Salmonella enterica serovar Typhi strain CT18</i></dd>
+                
+            </dl>
+        </div>
+    </div>
+
+    <hr class="uk-grid-divider">
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-1">
+            <a name="legend"></a>
+            <h2>Legend for interactions table</h2>
+            <h3>Metabolic layer</h3>
+            <dl class="uk-description-list-horizontal">
+                <dt>Nodes</dt>
+                <dd>Enzymes of the metabolic reaction</dd>
+                <dt>Links</dt>
+                <dd>Two nodes are linked if the rections they catalyse have a common substrate and/or product.</dd>
+                <dt>Source</dt>
+                <dd>
+                    <table class="uk-table">
+                        <tbody>
+                        <tr>
+                            <td>BioModels</td>
+                            <td>The links were obtained from the EC numbers of https://www.ebi.ac.uk/biomodels-main/
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>STM</td>
+                            <td>Orthologous enzymes from a validated mathematical model of S. Typhymurium LT2
+                                (PMID:21244678)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+            <h3>Regulatory layer</h3>
+            <dl class="uk-description-list-horizontal">
+                <dt>Nodes</dt>
+                <dd>TF (Transcription Factors)<br>TG (Target genes)</dd>
+                <dt>Links</dt>
+                <dd>Regulatory links represent binding of transcription factors to gene promoters (undirected links)
+                </dd>
+                <dt>Source</dt>
+                <dd>
+                    <table class="uk-table">
+                        <tbody>
+                        <tr>
+                            <td>Ecoli</td>
+                            <td>The links were obtained by alignement of the promoter regions to binding sites of
+                                orthologous genes from E. coli as described in <a href="http://regulondb.ccg.unam.mx/" target="_blank">RegulonDB</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Salm</td>
+                            <td>The links were obtained using Position Specific Scoring Matrices (PSSMs) from binding
+                                sites
+                                of Salmonellae found in the literature
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Exp(LT)</td>
+                            <td>The links were determined experimentally by low-throughput experiments (PMID indicates
+                                the
+                                pubmed reference)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EXP(HT)</td>
+                            <td>The links were determined experimentally by high-throughput experiments (PMID indicates
+                                the
+                                pubmed reference)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+
+            <h3>PPI layer</h3>
+            <dl class="uk-description-list-horizontal">
+                <dt>Nodes</dt>
+                <dd>Proteins</dd>
+                <dt>Links</dt>
+                <dd>Orthologous proteins of E. coli which bind together</dd>
+                <dt>Source</dt>
+                <dd>
+                    <table class="uk-table">
+                        <tbody>
+                        <tr>
+                            <td>Lit_Ecoli</td>
+                            <td>The links were derived from a <a href="https://www.ncbi.nlm.nih.gov/pubmed/24561554" target="_blank">publication (PMID:24561554)</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>IntAct</td>
+                            <td>The links were derived from the <a href="http://www.ebi.ac.uk/intact/" target="_blank">Intact</a> database
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Biogrid</td>
+                            <td>The links were derived from the <a href="http://thebiogrid.org/" target="_blank">Biogrid</a> database
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Interactome3d</td>
+                            <td>The links were derived from the <a href="http://interactome3d.irbbarcelona.org/)" target="_blank">Interactome3D</a> database
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Exp</td>
+                            <td>The binding interactions were determined experimentally (PMID indicates the pubmed
+                                reference)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+</div>
+
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas">
+                <li class="uk-active">
+                    <a href="http://salmonet.org/">Home</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/browse">Browse</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/download">Download</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/index.html#cite">Cite</a>
+                </li>
+                <li>
+                    <a href="http://salmonet.org/index.html#cite">Contact</a>
+                </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-73347324-4', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>
