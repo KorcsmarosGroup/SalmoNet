@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'hyb0,hycB,STM,Metabolic\nhyb0,hycF,STM,Metabolic\nhyb0,hycC,STM,Metabolic\nhyb0,hycD,STM,Metabolic\nhyb0,hycE,STM,Metabolic\nhyb0,STY2969,STM,Metabolic\nhyb0,hyaA,STM,Metabolic\nhybC,hyb0,STM,Metabolic\nhyaC,hyb0,STM,Metabolic\nt1089,hyb0,STM,Metabolic\ntrxA,hyb0,Lit Ecoli IntAct,PPI\nbolA,hyb0,Lit Ecoli IntAct,PPI\nyojF,hyb0,Lit Ecoli IntAct,PPI\nhyb0,yjfN,Lit Ecoli IntAct,PPI\nglyQ,hyb0,Lit Ecoli IntAct,PPI\nhybE,hyb0,IntAct,PPI\nt3016,hyb0,Lit Ecoli IntAct,PPI\nt1089,hyb0,IntAct Interactome3d,PPI\nhcr,hyb0,Lit Ecoli IntAct,PPI\ndpiA,hyb0,Lit Ecoli IntAct,PPI\ncitB,hyb0,Lit Ecoli IntAct,PPI\nnarL,hyb0,Ecoli,Transcriptional_regulatory\narcA,hyb0,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q8XGL3",
-                                    name: "hyb0",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'hyb0,hycB,STM,Metabolic\nhyb0,hycF,STM,Metabolic\nhyb0,hycC,STM,Metabolic\nhyb0,hycD,STM,Metabolic\nhyb0,hycE,STM,Metabolic\nhyb0,STY2969,STM,Metabolic\nhyb0,hyaA,STM,Metabolic\nhybC,hyb0,STM,Metabolic\nhyaC,hyb0,STM,Metabolic\nt1089,hyb0,STM,Metabolic\ntrxA,hyb0,Lit Ecoli IntAct,PPI\nbolA,hyb0,Lit Ecoli IntAct,PPI\nyojF,hyb0,Lit Ecoli IntAct,PPI\nhyb0,yjfN,Lit Ecoli IntAct,PPI\nglyQ,hyb0,Lit Ecoli IntAct,PPI\nhybE,hyb0,IntAct,PPI\nt3016,hyb0,Lit Ecoli IntAct,PPI\nt1089,hyb0,IntAct Interactome3d,PPI\nhcr,hyb0,Lit Ecoli IntAct,PPI\ndpiA,hyb0,Lit Ecoli IntAct,PPI\ncitB,hyb0,Lit Ecoli IntAct,PPI\nnarL,hyb0,Ecoli,Transcriptional_regulatory\narcA,hyb0,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q8XGL3",
+                                        name: "hyb0",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

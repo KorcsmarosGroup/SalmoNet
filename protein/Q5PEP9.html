@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'mutM,SPA2879,Lit Ecoli IntAct,PPI\ntolB,SPA2879,Lit Ecoli IntAct,PPI\nSPA2879,sgcA,Lit Ecoli IntAct,PPI\nycbG,SPA2879,Lit Ecoli IntAct,PPI\nycbW,SPA2879,Lit Ecoli IntAct,PPI\nfliG,SPA2879,Lit Ecoli IntAct,PPI\nera,SPA2879,Lit Ecoli IntAct,PPI\nidnK,SPA2879,Lit Ecoli IntAct,PPI\nSPA3458,SPA2879,Lit Ecoli IntAct,PPI\nybdM,SPA2879,Lit Ecoli IntAct,PPI\npdxK,SPA2879,Lit Ecoli IntAct,PPI\ngalR,SPA2879,Ecoli,Transcriptional_regulatory\nSPA2879,ybiT,Ecoli,Transcriptional_regulatory\nSPA2879,prpR,Ecoli,Transcriptional_regulatory\ngalS,SPA2879,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q5PEP9",
-                                    name: "SPA2879",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'mutM,SPA2879,Lit Ecoli IntAct,PPI\ntolB,SPA2879,Lit Ecoli IntAct,PPI\nSPA2879,sgcA,Lit Ecoli IntAct,PPI\nycbG,SPA2879,Lit Ecoli IntAct,PPI\nycbW,SPA2879,Lit Ecoli IntAct,PPI\nfliG,SPA2879,Lit Ecoli IntAct,PPI\nera,SPA2879,Lit Ecoli IntAct,PPI\nidnK,SPA2879,Lit Ecoli IntAct,PPI\nSPA3458,SPA2879,Lit Ecoli IntAct,PPI\nybdM,SPA2879,Lit Ecoli IntAct,PPI\npdxK,SPA2879,Lit Ecoli IntAct,PPI\ngalR,SPA2879,Ecoli,Transcriptional_regulatory\nSPA2879,ybiT,Ecoli,Transcriptional_regulatory\nSPA2879,prpR,Ecoli,Transcriptional_regulatory\ngalS,SPA2879,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q5PEP9",
+                                        name: "SPA2879",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

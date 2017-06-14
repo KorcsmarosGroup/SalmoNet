@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'malT,recA,Lit Ecoli IntAct,PPI\nmalT,dnaJ,Lit Ecoli IntAct,PPI\nyrfH,malT,Lit Ecoli IntAct,PPI\ncrp,malT,Lit Ecoli IntAct,PPI\nyfgB,malT,Lit Ecoli IntAct,PPI\nfliJ,malT,Lit Ecoli IntAct,PPI\npyrC,malT,Lit Ecoli IntAct,PPI\nybdM,malT,Lit Ecoli IntAct,PPI\nthiJ,malT,Biogrid,PPI\nfixB,malT,Lit Ecoli IntAct,PPI\nmalT,malQ,Ecoli,Transcriptional_regulatory\nmalT,malP,Ecoli,Transcriptional_regulatory\nmalT,malG,Ecoli,Transcriptional_regulatory\nmalT,malF,Ecoli,Transcriptional_regulatory\nmalT,malE,Ecoli,Transcriptional_regulatory\nmalT,lamB,Ecoli,Transcriptional_regulatory\nmalT,malM,Ecoli,Transcriptional_regulatory\nmlc,malT,Ecoli,Transcriptional_regulatory\ncrp,malT,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q57IV9",
-                                    name: "malT",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'malT,recA,Lit Ecoli IntAct,PPI\nmalT,dnaJ,Lit Ecoli IntAct,PPI\nyrfH,malT,Lit Ecoli IntAct,PPI\ncrp,malT,Lit Ecoli IntAct,PPI\nyfgB,malT,Lit Ecoli IntAct,PPI\nfliJ,malT,Lit Ecoli IntAct,PPI\npyrC,malT,Lit Ecoli IntAct,PPI\nybdM,malT,Lit Ecoli IntAct,PPI\nthiJ,malT,Biogrid,PPI\nfixB,malT,Lit Ecoli IntAct,PPI\nmalT,malQ,Ecoli,Transcriptional_regulatory\nmalT,malP,Ecoli,Transcriptional_regulatory\nmalT,malG,Ecoli,Transcriptional_regulatory\nmalT,malF,Ecoli,Transcriptional_regulatory\nmalT,malE,Ecoli,Transcriptional_regulatory\nmalT,lamB,Ecoli,Transcriptional_regulatory\nmalT,malM,Ecoli,Transcriptional_regulatory\nmlc,malT,Ecoli,Transcriptional_regulatory\ncrp,malT,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q57IV9",
+                                        name: "malT",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

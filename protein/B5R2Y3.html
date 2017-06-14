@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'hyaA,SEN1251,STM,Metabolic\nhycE,SEN1251,STM,Metabolic\nhycC,SEN1251,STM,Metabolic\nhycB,SEN1251,STM,Metabolic\nhybC,SEN1251,STM,Metabolic\nhypO,SEN1251,STM,Metabolic\nSEN1250,SEN1251,STM,Metabolic\nSEN1251,hyaA,STM,Metabolic\nSEN1251,hyaB,STM,Metabolic\nSEN1251,hycG,STM,Metabolic\nSEN1251,hycF,STM,Metabolic\nSEN1251,hycD,STM,Metabolic\nSEN1251,SEN1249,STM,Metabolic\nSEN1251,SEN1251,STM,Metabolic\nSEN1251,SEN1251,STM,Metabolic\nhyaF,SEN1251,Lit Ecoli IntAct,PPI\nhyaF,SEN1251,Lit Ecoli IntAct,PPI\nhyaD,SEN1251,Lit Ecoli IntAct,PPI\nSEN1249,SEN1251,Interactome3d,PPI\nSEN1250,SEN1251,Interactome3d,PPI\narcA,SEN1251,Salm,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5R2Y3",
-                                    name: "SEN1251",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'hyaA,SEN1251,STM,Metabolic\nhycE,SEN1251,STM,Metabolic\nhycC,SEN1251,STM,Metabolic\nhycB,SEN1251,STM,Metabolic\nhybC,SEN1251,STM,Metabolic\nhypO,SEN1251,STM,Metabolic\nSEN1250,SEN1251,STM,Metabolic\nSEN1251,hyaA,STM,Metabolic\nSEN1251,hyaB,STM,Metabolic\nSEN1251,hycG,STM,Metabolic\nSEN1251,hycF,STM,Metabolic\nSEN1251,hycD,STM,Metabolic\nSEN1251,SEN1249,STM,Metabolic\nSEN1251,SEN1251,STM,Metabolic\nSEN1251,SEN1251,STM,Metabolic\nhyaF,SEN1251,Lit Ecoli IntAct,PPI\nhyaF,SEN1251,Lit Ecoli IntAct,PPI\nhyaD,SEN1251,Lit Ecoli IntAct,PPI\nSEN1249,SEN1251,Interactome3d,PPI\nSEN1250,SEN1251,Interactome3d,PPI\narcA,SEN1251,Salm,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5R2Y3",
+                                        name: "SEN1251",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

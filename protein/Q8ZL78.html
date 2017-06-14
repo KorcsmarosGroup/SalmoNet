@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'araB,lyxK,STM,Metabolic\nrhaB,lyxK,BioModels,Metabolic\nsgaU,lyxK,STM,Metabolic\nulaD,lyxK,STM BioModels,Metabolic\nsgbH,lyxK,STM BioModels,Metabolic\nlyxK,rhaA,STM,Metabolic\nlyxK,ygiK,STM,Metabolic\nlyxK,STM4054,STM,Metabolic\nlyxK,yjfR,BioModels,Metabolic\nlyxK,yiaM,STM,Metabolic\nlyxK,STM4053,STM,Metabolic\nlyxK,STM4052,STM,Metabolic\nlyxK,yiaO,STM,Metabolic\nlyxK,yiaN,STM,Metabolic\nlyxK,yiaK,STM,Metabolic\nlyxK,STM3170,STM,Metabolic\nlyxK,STM3169,STM,Metabolic\ncrp,lyxK,Ecoli,Transcriptional_regulatory\nyiaJ,lyxK,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q8ZL78",
-                                    name: "lyxK",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'araB,lyxK,STM,Metabolic\nrhaB,lyxK,BioModels,Metabolic\nsgaU,lyxK,STM,Metabolic\nulaD,lyxK,STM BioModels,Metabolic\nsgbH,lyxK,STM BioModels,Metabolic\nlyxK,rhaA,STM,Metabolic\nlyxK,ygiK,STM,Metabolic\nlyxK,STM4054,STM,Metabolic\nlyxK,yjfR,BioModels,Metabolic\nlyxK,yiaM,STM,Metabolic\nlyxK,STM4053,STM,Metabolic\nlyxK,STM4052,STM,Metabolic\nlyxK,yiaO,STM,Metabolic\nlyxK,yiaN,STM,Metabolic\nlyxK,yiaK,STM,Metabolic\nlyxK,STM3170,STM,Metabolic\nlyxK,STM3169,STM,Metabolic\ncrp,lyxK,Ecoli,Transcriptional_regulatory\nyiaJ,lyxK,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q8ZL78",
+                                        name: "lyxK",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

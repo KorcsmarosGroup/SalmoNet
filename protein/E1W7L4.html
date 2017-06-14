@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'ams,SL1344_1101,IntAct,PPI\nams,dnaK,IntAct,PPI\nams,bcfC,IntAct,PPI\nams,pcnB,IntAct,PPI\nams,SL1344_0471,IntAct,PPI\nams,fimD,IntAct,PPI\nams,eno,IntAct Interactome3d,PPI\nams,rplI,IntAct,PPI\nams,SL1344_1607,IntAct,PPI\nams,tktB,IntAct,PPI\nams,yhjC,IntAct,PPI\nams,rpmB,IntAct,PPI\nams,rhlB,IntAct,PPI\nams,rplA,IntAct,PPI\nams,SL1344_4305,IntAct,PPI\nams,SL1344_3253,IntAct,PPI\nams,pnp,IntAct Interactome3d,PPI\nams,rplO,IntAct,PPI\nams,rplB,IntAct,PPI\nams,srmB,Lit Ecoli IntAct,PPI'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_E1W7L4",
-                                    name: "ams",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'ams,SL1344_1101,IntAct,PPI\nams,dnaK,IntAct,PPI\nams,bcfC,IntAct,PPI\nams,pcnB,IntAct,PPI\nams,SL1344_0471,IntAct,PPI\nams,fimD,IntAct,PPI\nams,eno,IntAct Interactome3d,PPI\nams,rplI,IntAct,PPI\nams,SL1344_1607,IntAct,PPI\nams,tktB,IntAct,PPI\nams,yhjC,IntAct,PPI\nams,rpmB,IntAct,PPI\nams,rhlB,IntAct,PPI\nams,rplA,IntAct,PPI\nams,SL1344_4305,IntAct,PPI\nams,SL1344_3253,IntAct,PPI\nams,pnp,IntAct Interactome3d,PPI\nams,rplO,IntAct,PPI\nams,rplB,IntAct,PPI\nams,srmB,Lit Ecoli IntAct,PPI'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_E1W7L4",
+                                        name: "ams",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

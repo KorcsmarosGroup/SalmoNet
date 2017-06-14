@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'fliG,t2922,Lit Ecoli IntAct,PPI\nt3915,t2922,Lit Ecoli IntAct,PPI\nmutM,t2922,Lit Ecoli IntAct,PPI\nt2922,t1525,Lit Ecoli IntAct,PPI\nera,t2922,Lit Ecoli IntAct,PPI\npdxK,t2922,Lit Ecoli IntAct,PPI\nt1851,t2922,Lit Ecoli IntAct,PPI\nt1861,t2922,Lit Ecoli IntAct,PPI\ntolB,t2922,Lit Ecoli IntAct,PPI\nt2263,t2922,Lit Ecoli IntAct,PPI\ngalR,t2922,Ecoli,Transcriptional_regulatory\nt2922,ybiT,Ecoli,Transcriptional_regulatory\nt2922,prpR,Ecoli,Transcriptional_regulatory\ngalS,t2922,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q8Z404",
-                                    name: "t2922",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'fliG,t2922,Lit Ecoli IntAct,PPI\nt3915,t2922,Lit Ecoli IntAct,PPI\nmutM,t2922,Lit Ecoli IntAct,PPI\nt2922,t1525,Lit Ecoli IntAct,PPI\nera,t2922,Lit Ecoli IntAct,PPI\npdxK,t2922,Lit Ecoli IntAct,PPI\nt1851,t2922,Lit Ecoli IntAct,PPI\nt1861,t2922,Lit Ecoli IntAct,PPI\ntolB,t2922,Lit Ecoli IntAct,PPI\nt2263,t2922,Lit Ecoli IntAct,PPI\ngalR,t2922,Ecoli,Transcriptional_regulatory\nt2922,ybiT,Ecoli,Transcriptional_regulatory\nt2922,prpR,Ecoli,Transcriptional_regulatory\ngalS,t2922,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q8Z404",
+                                        name: "t2922",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

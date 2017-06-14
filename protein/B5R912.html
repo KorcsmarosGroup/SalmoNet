@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'SG1329,SG1328,STM,Metabolic\nSG1329,SG1330,STM,Metabolic\nSG1329,hyaA,STM,Metabolic\nSG1329,hyaB,STM,Metabolic\nSG1329,hycG,STM,Metabolic\nSG1329,hycF,STM,Metabolic\nSG1329,hycE,STM,Metabolic\nSG1329,hycD,STM,Metabolic\nSG1329,hycC,STM,Metabolic\nSG1329,hycB,STM,Metabolic\nSG1329,hybC,STM,Metabolic\nSG1329,hypO,STM,Metabolic\nhyaD,SG1329,Lit Ecoli IntAct,PPI\nSG1329,SG1330,Interactome3d,PPI\nSG1329,hyaA,Interactome3d,PPI\nSG1329,hypO,IntAct Interactome3d,PPI\narcA,SG1329,Salm,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5R912",
-                                    name: "SG1329",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'SG1329,SG1328,STM,Metabolic\nSG1329,SG1330,STM,Metabolic\nSG1329,hyaA,STM,Metabolic\nSG1329,hyaB,STM,Metabolic\nSG1329,hycG,STM,Metabolic\nSG1329,hycF,STM,Metabolic\nSG1329,hycE,STM,Metabolic\nSG1329,hycD,STM,Metabolic\nSG1329,hycC,STM,Metabolic\nSG1329,hycB,STM,Metabolic\nSG1329,hybC,STM,Metabolic\nSG1329,hypO,STM,Metabolic\nhyaD,SG1329,Lit Ecoli IntAct,PPI\nSG1329,SG1330,Interactome3d,PPI\nSG1329,hyaA,Interactome3d,PPI\nSG1329,hypO,IntAct Interactome3d,PPI\narcA,SG1329,Salm,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5R912",
+                                        name: "SG1329",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'sprB,SG0302,Salm,Transcriptional_regulatory\nsprB,acnA,Salm,Transcriptional_regulatory\nsprB,SG1483,Salm,Transcriptional_regulatory\nsprB,SG1484,Salm,Transcriptional_regulatory\nsprB,SG1485,Salm,Transcriptional_regulatory\nsprB,SG1486,Salm,Transcriptional_regulatory\nsprB,SG1487,Salm,Transcriptional_regulatory\nsprB,SG1627,Salm,Transcriptional_regulatory\nsprB,SG1628,Salm,Transcriptional_regulatory\nsprB,SG1629,Salm,Transcriptional_regulatory\nsprB,spr,Salm,Transcriptional_regulatory\nsprB,SG2436,Salm,Transcriptional_regulatory\nsprB,ddg,Salm,Transcriptional_regulatory\nsprB,yijO,Salm,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5RDJ1",
-                                    name: "sprB",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'sprB,SG0302,Salm,Transcriptional_regulatory\nsprB,acnA,Salm,Transcriptional_regulatory\nsprB,SG1483,Salm,Transcriptional_regulatory\nsprB,SG1484,Salm,Transcriptional_regulatory\nsprB,SG1485,Salm,Transcriptional_regulatory\nsprB,SG1486,Salm,Transcriptional_regulatory\nsprB,SG1487,Salm,Transcriptional_regulatory\nsprB,SG1627,Salm,Transcriptional_regulatory\nsprB,SG1628,Salm,Transcriptional_regulatory\nsprB,SG1629,Salm,Transcriptional_regulatory\nsprB,spr,Salm,Transcriptional_regulatory\nsprB,SG2436,Salm,Transcriptional_regulatory\nsprB,ddg,Salm,Transcriptional_regulatory\nsprB,yijO,Salm,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5RDJ1",
+                                        name: "sprB",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

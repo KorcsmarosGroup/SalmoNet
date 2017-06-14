@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'SeHA_C2620,acpP,STM,Metabolic\nSeHA_C4577,acpP,STM,Metabolic\nacpP,acpH,STM,Metabolic\nacpP,tesB,STM,Metabolic\nacpP,glmU,STM,Metabolic\nacpP,accD,STM,Metabolic\nacpP,pldB,STM,Metabolic\nacpP,SeHA_C2634,STM,Metabolic\nacpP,SeHA_C2635,STM,Metabolic\nacpP,SeHA_C2636,STM,Metabolic\nacpP,fabH,STM,Metabolic\nacpP,fabD,STM,Metabolic\nacpP,fabG,STM,Metabolic\nacpP,accB,STM,Metabolic\nacpP,accC,STM,Metabolic\nacpP,lpxA,STM,Metabolic\nacpP,accA,STM,Metabolic\nfabF,acpP,STM,Metabolic\nSeHA_C3223,acpP,STM,Metabolic\nplsC,acpP,STM,Metabolic\nlpxC,acpP,STM,Metabolic\nSeHA_C4068,acpP,IntAct,PPI\nSeHA_C0871,acpP,IntAct,PPI\nSeHA_C2620,acpP,IntAct,PPI\nSeHA_C4577,acpP,IntAct,PPI\nmukB,acpP,IntAct,PPI\nacpP,iscS,IntAct,PPI\nacpP,purB,IntAct,PPI\nacpP,secA,IntAct,PPI\nfabF,acpP,IntAct,PPI\nlpxD,acpP,IntAct Interactome3d,PPI\nSeHA_C3817,acpP,Interactome3d,PPI'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B4TFH1",
-                                    name: "acpP",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'SeHA_C2620,acpP,STM,Metabolic\nSeHA_C4577,acpP,STM,Metabolic\nacpP,acpH,STM,Metabolic\nacpP,tesB,STM,Metabolic\nacpP,glmU,STM,Metabolic\nacpP,accD,STM,Metabolic\nacpP,pldB,STM,Metabolic\nacpP,SeHA_C2634,STM,Metabolic\nacpP,SeHA_C2635,STM,Metabolic\nacpP,SeHA_C2636,STM,Metabolic\nacpP,fabH,STM,Metabolic\nacpP,fabD,STM,Metabolic\nacpP,fabG,STM,Metabolic\nacpP,accB,STM,Metabolic\nacpP,accC,STM,Metabolic\nacpP,lpxA,STM,Metabolic\nacpP,accA,STM,Metabolic\nfabF,acpP,STM,Metabolic\nSeHA_C3223,acpP,STM,Metabolic\nplsC,acpP,STM,Metabolic\nlpxC,acpP,STM,Metabolic\nSeHA_C4068,acpP,IntAct,PPI\nSeHA_C0871,acpP,IntAct,PPI\nSeHA_C2620,acpP,IntAct,PPI\nSeHA_C4577,acpP,IntAct,PPI\nmukB,acpP,IntAct,PPI\nacpP,iscS,IntAct,PPI\nacpP,purB,IntAct,PPI\nacpP,secA,IntAct,PPI\nfabF,acpP,IntAct,PPI\nlpxD,acpP,IntAct Interactome3d,PPI\nSeHA_C3817,acpP,Interactome3d,PPI'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B4TFH1",
+                                        name: "acpP",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

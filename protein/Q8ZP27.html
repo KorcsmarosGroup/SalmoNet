@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'STM1787,hypO,STM,Metabolic\nSTM1787,hycB,STM,Metabolic\nSTM1787,hycF,STM,Metabolic\nSTM1787,hybC,STM,Metabolic\nSTM1787,hycC,STM,Metabolic\nSTM1787,hycD,STM,Metabolic\nSTM1787,hycE,STM,Metabolic\nSTM1787,hycG,STM,Metabolic\nSTM1787,STM1788,STM,Metabolic\nSTM1787,STM1786,STM,Metabolic\nSTM1787,STM1539,STM,Metabolic\nSTM1787,STM1538,STM,Metabolic\nSTM1789,STM1787,Lit Ecoli IntAct,PPI\nSTM1787,hypO,IntAct Interactome3d,PPI\nSTM1787,STM1786,Interactome3d,PPI\nSTM1787,STM1539,Interactome3d,PPI\nyfhP,STM1787,Ecoli,Transcriptional_regulatory\nnarL,STM1787,Ecoli,Transcriptional_regulatory\nnarP,STM1787,Ecoli,Transcriptional_regulatory\nfis,STM1787,Ecoli,Transcriptional_regulatory\narcA,STM1787,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q8ZP27",
-                                    name: "STM1787",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'STM1787,hypO,STM,Metabolic\nSTM1787,hycB,STM,Metabolic\nSTM1787,hycF,STM,Metabolic\nSTM1787,hybC,STM,Metabolic\nSTM1787,hycC,STM,Metabolic\nSTM1787,hycD,STM,Metabolic\nSTM1787,hycE,STM,Metabolic\nSTM1787,hycG,STM,Metabolic\nSTM1787,STM1788,STM,Metabolic\nSTM1787,STM1786,STM,Metabolic\nSTM1787,STM1539,STM,Metabolic\nSTM1787,STM1538,STM,Metabolic\nSTM1789,STM1787,Lit Ecoli IntAct,PPI\nSTM1787,hypO,IntAct Interactome3d,PPI\nSTM1787,STM1786,Interactome3d,PPI\nSTM1787,STM1539,Interactome3d,PPI\nyfhP,STM1787,Ecoli,Transcriptional_regulatory\nnarL,STM1787,Ecoli,Transcriptional_regulatory\nnarP,STM1787,Ecoli,Transcriptional_regulatory\nfis,STM1787,Ecoli,Transcriptional_regulatory\narcA,STM1787,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q8ZP27",
+                                        name: "STM1787",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'nuoN,nuoG,STM,Metabolic\nnuoM,nuoG,STM,Metabolic\nnuoL,nuoG,STM,Metabolic\nnuoK,nuoG,STM,Metabolic\nnuoJ,nuoG,STM,Metabolic\nnuoI,nuoG,STM,Metabolic\nnuoH,nuoG,STM,Metabolic\nnuoG,nuoF,STM,Metabolic\nnuoG,nuoE,STM,Metabolic\nnuoG,nuoC,STM,Metabolic\nnuoG,nuoB,STM,Metabolic\nnuoG,nuoA,STM,Metabolic\nthiJ,nuoG,Biogrid,PPI\nexbB,nuoG,Lit Ecoli IntAct,PPI\nnuoG,hflX,Lit Ecoli IntAct,PPI\nnuoG,nuoC,Lit Ecoli IntAct Interactome3d,PPI\nnuoF,nuoG,IntAct Interactome3d,PPI\nnuoE,nuoG,Lit Ecoli IntAct,PPI\nfnr,nuoG,Ecoli,Transcriptional_regulatory\nnarL,nuoG,Ecoli,Transcriptional_regulatory\nfis,nuoG,Ecoli,Transcriptional_regulatory\narcA,nuoG,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5R304",
-                                    name: "nuoG",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'nuoN,nuoG,STM,Metabolic\nnuoM,nuoG,STM,Metabolic\nnuoL,nuoG,STM,Metabolic\nnuoK,nuoG,STM,Metabolic\nnuoJ,nuoG,STM,Metabolic\nnuoI,nuoG,STM,Metabolic\nnuoH,nuoG,STM,Metabolic\nnuoG,nuoF,STM,Metabolic\nnuoG,nuoE,STM,Metabolic\nnuoG,nuoC,STM,Metabolic\nnuoG,nuoB,STM,Metabolic\nnuoG,nuoA,STM,Metabolic\nthiJ,nuoG,Biogrid,PPI\nexbB,nuoG,Lit Ecoli IntAct,PPI\nnuoG,hflX,Lit Ecoli IntAct,PPI\nnuoG,nuoC,Lit Ecoli IntAct Interactome3d,PPI\nnuoF,nuoG,IntAct Interactome3d,PPI\nnuoE,nuoG,Lit Ecoli IntAct,PPI\nfnr,nuoG,Ecoli,Transcriptional_regulatory\nnarL,nuoG,Ecoli,Transcriptional_regulatory\nfis,nuoG,Ecoli,Transcriptional_regulatory\narcA,nuoG,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5R304",
+                                        name: "nuoG",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

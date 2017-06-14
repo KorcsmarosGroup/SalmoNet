@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'nagA,crr,STM,Metabolic\nmalZ,crr,BioModels,Metabolic\nSPA1312,crr,BioModels,Metabolic\nSPA1311,crr,BioModels,Metabolic\ntreA,crr,BioModels,Metabolic\ntreC,crr,STM,Metabolic\ntreF,crr,BioModels,Metabolic\nyihQ,crr,BioModels,Metabolic\nmalS,crr,BioModels,Metabolic\nmalQ,crr,BioModels,Metabolic\nglgX,crr,BioModels,Metabolic\notsB,crr,STM,Metabolic\ncrr,nagE,STM,Metabolic\ncrr,ptsG,STM,Metabolic\ncrr,SPA0294,BioModels,Metabolic\ncrr,manX,STM,Metabolic\ncrr,manY,STM,Metabolic\ncrr,manZ,STM,Metabolic\ncrr,lamB,STM,Metabolic\ncrr,ptsH,STM,Metabolic\ncrr,ptsI,STM,Metabolic\nptsG,crr,IntAct Interactome3d,PPI\ncrr,yafA,IntAct Interactome3d,PPI\ncrr,glpK,Interactome3d,PPI\ncrr,trxA,IntAct,PPI\ncrr,ptsH,IntAct Interactome3d,PPI\nfruR,crr,Ecoli,Transcriptional_regulatory\nnagC,crr,Ecoli,Transcriptional_regulatory\nmlc,crr,Ecoli,Transcriptional_regulatory\ncrp,crr,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q5PND7",
-                                    name: "crr",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'nagA,crr,STM,Metabolic\nmalZ,crr,BioModels,Metabolic\nSPA1312,crr,BioModels,Metabolic\nSPA1311,crr,BioModels,Metabolic\ntreA,crr,BioModels,Metabolic\ntreC,crr,STM,Metabolic\ntreF,crr,BioModels,Metabolic\nyihQ,crr,BioModels,Metabolic\nmalS,crr,BioModels,Metabolic\nmalQ,crr,BioModels,Metabolic\nglgX,crr,BioModels,Metabolic\notsB,crr,STM,Metabolic\ncrr,nagE,STM,Metabolic\ncrr,ptsG,STM,Metabolic\ncrr,SPA0294,BioModels,Metabolic\ncrr,manX,STM,Metabolic\ncrr,manY,STM,Metabolic\ncrr,manZ,STM,Metabolic\ncrr,lamB,STM,Metabolic\ncrr,ptsH,STM,Metabolic\ncrr,ptsI,STM,Metabolic\nptsG,crr,IntAct Interactome3d,PPI\ncrr,yafA,IntAct Interactome3d,PPI\ncrr,glpK,Interactome3d,PPI\ncrr,trxA,IntAct,PPI\ncrr,ptsH,IntAct Interactome3d,PPI\nfruR,crr,Ecoli,Transcriptional_regulatory\nnagC,crr,Ecoli,Transcriptional_regulatory\nmlc,crr,Ecoli,Transcriptional_regulatory\ncrp,crr,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q5PND7",
+                                        name: "crr",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

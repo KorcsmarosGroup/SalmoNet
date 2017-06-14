@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'SeAg_B2207,galE,STM,Metabolic\nSeAg_B2228,galE,STM,Metabolic\ngalT,galE,BioModels,Metabolic\nSeAg_B3853,galE,Lit Ecoli IntAct,PPI\nSeAg_B0589,galE,Lit Ecoli IntAct,PPI\nSeAg_B2782,galE,Lit Ecoli IntAct,PPI\nSeAg_B2849,galE,Lit Ecoli IntAct,PPI\nSeAg_B2963,galE,Lit Ecoli IntAct,PPI\nSeAg_B3107,galE,Lit Ecoli IntAct,PPI\nSeAg_B3185,galE,Lit Ecoli IntAct,PPI\nSeAg_B4886,galE,Lit Ecoli IntAct,PPI\nSeAg_B0087,galE,Lit Ecoli IntAct,PPI\nfrr,galE,Lit Ecoli IntAct,PPI\nnikR,galE,Lit Ecoli IntAct,PPI\nSeAg_B3160,galE,Ecoli,Transcriptional_regulatory\ncrp,galE,Ecoli,Transcriptional_regulatory\ngalS,galE,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5F054",
-                                    name: "galE",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'SeAg_B2207,galE,STM,Metabolic\nSeAg_B2228,galE,STM,Metabolic\ngalT,galE,BioModels,Metabolic\nSeAg_B3853,galE,Lit Ecoli IntAct,PPI\nSeAg_B0589,galE,Lit Ecoli IntAct,PPI\nSeAg_B2782,galE,Lit Ecoli IntAct,PPI\nSeAg_B2849,galE,Lit Ecoli IntAct,PPI\nSeAg_B2963,galE,Lit Ecoli IntAct,PPI\nSeAg_B3107,galE,Lit Ecoli IntAct,PPI\nSeAg_B3185,galE,Lit Ecoli IntAct,PPI\nSeAg_B4886,galE,Lit Ecoli IntAct,PPI\nSeAg_B0087,galE,Lit Ecoli IntAct,PPI\nfrr,galE,Lit Ecoli IntAct,PPI\nnikR,galE,Lit Ecoli IntAct,PPI\nSeAg_B3160,galE,Ecoli,Transcriptional_regulatory\ncrp,galE,Ecoli,Transcriptional_regulatory\ngalS,galE,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5F054",
+                                        name: "galE",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

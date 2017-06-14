@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'fruR,csgD,Ecoli,Transcriptional_regulatory\ncpxR,csgD,Ecoli,Transcriptional_regulatory\nSeHA_C2395,csgD,Ecoli,Transcriptional_regulatory\ncsgD,pepD,Ecoli,Transcriptional_regulatory\ncsgD,adrA,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1186,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1228,Ecoli,Transcriptional_regulatory\ncsgD,wrbA,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1250,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1251,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1252,Ecoli,Transcriptional_regulatory\ncsgD,csgD,Ecoli,Transcriptional_regulatory\ncsgD,csgD,Ecoli,Transcriptional_regulatory\ncsgD,csgB,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1255,Ecoli,Transcriptional_regulatory\ncsgD,csgC,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C3567,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C3568,Ecoli,Transcriptional_regulatory\ncrp,csgD,Ecoli,Transcriptional_regulatory\nompR,csgD,Ecoli,Transcriptional_regulatory\nSeHA_C4638,csgD,Ecoli,Transcriptional_regulatory\nSeHA_C1643,csgD,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B4TER3",
-                                    name: "csgD",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'fruR,csgD,Ecoli,Transcriptional_regulatory\ncpxR,csgD,Ecoli,Transcriptional_regulatory\nSeHA_C2395,csgD,Ecoli,Transcriptional_regulatory\ncsgD,pepD,Ecoli,Transcriptional_regulatory\ncsgD,adrA,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1186,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1228,Ecoli,Transcriptional_regulatory\ncsgD,wrbA,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1250,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1251,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1252,Ecoli,Transcriptional_regulatory\ncsgD,csgD,Ecoli,Transcriptional_regulatory\ncsgD,csgD,Ecoli,Transcriptional_regulatory\ncsgD,csgB,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C1255,Ecoli,Transcriptional_regulatory\ncsgD,csgC,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C3567,Ecoli,Transcriptional_regulatory\ncsgD,SeHA_C3568,Ecoli,Transcriptional_regulatory\ncrp,csgD,Ecoli,Transcriptional_regulatory\nompR,csgD,Ecoli,Transcriptional_regulatory\nSeHA_C4638,csgD,Ecoli,Transcriptional_regulatory\nSeHA_C1643,csgD,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B4TER3",
+                                        name: "csgD",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

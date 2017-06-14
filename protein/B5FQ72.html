@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'SeD_A1757,SeD_A1064,STM,Metabolic\nSeD_A1849,SeD_A1064,STM,Metabolic\ntdcC,SeD_A1064,STM,Metabolic\nmtr,SeD_A1064,STM,Metabolic\nSeD_A0163,SeD_A1064,STM,Metabolic\nSeD_A0176,SeD_A1064,STM,Metabolic\nSeD_A0183,SeD_A1064,STM,Metabolic\ncodB,SeD_A1064,STM,Metabolic\nSeD_A3698,SeD_A1064,STM,Metabolic\nSeD_A3716,SeD_A1064,STM,Metabolic\npanF,SeD_A1064,STM,Metabolic\nSeD_A0223,SeD_A1064,STM,Metabolic\nSeD_A1994,SeD_A1064,STM,Metabolic\ndctA,SeD_A1064,STM,Metabolic\nampG,SeD_A1064,STM,Metabolic\nnrgA,SeD_A1064,STM,Metabolic\nlldP,SeD_A1064,STM,Metabolic\nSeD_A4084,SeD_A1064,STM,Metabolic\nSeD_A0570,SeD_A1064,STM,Metabolic\nSeD_A2373,SeD_A1064,STM,Metabolic\nSeD_A4133,SeD_A1064,STM,Metabolic\nuhpT,SeD_A1064,STM,Metabolic\nfucP,SeD_A1064,STM,Metabolic\ntorA,SeD_A1064,STM,Metabolic\ntorC,SeD_A1064,STM,Metabolic\nSeD_A4218,SeD_A1064,STM,Metabolic\nSeD_A0669,SeD_A1064,STM,Metabolic\nentE,SeD_A1064,STM,Metabolic\nSeD_A0852,SeD_A1064,STM,Metabolic\nSeD_A2618,SeD_A1064,STM,Metabolic\nSeD_A2634,SeD_A1064,STM,Metabolic\ngalM,SeD_A1064,STM,Metabolic\nSeD_A4445,SeD_A1064,STM,Metabolic\nglpF,SeD_A1064,STM,Metabolic\nSeD_A1064,pagP,STM,Metabolic\nSeD_A1064,ompL,STM,Metabolic\nSeD_A1064,SeD_A3262,STM,Metabolic\nSeD_A2759,SeD_A1064,STM,Metabolic\nnupG,SeD_A1064,STM,Metabolic\neutH,SeD_A1064,STM,Metabolic\nuraA,SeD_A1064,STM,Metabolic\naphA,SeD_A1064,STM,Metabolic\nhpaX,SeD_A1064,STM,Metabolic\nSeD_A1192,SeD_A1064,STM,Metabolic\nSeD_A2929,SeD_A1064,STM,Metabolic\nSeD_A2982,SeD_A1064,STM,Metabolic\nactP,SeD_A1064,STM,Metabolic\nSeD_A4694,SeD_A1064,STM,Metabolic\nputP,SeD_A1064,STM,Metabolic\nfliY,SeD_A1064,STM,Metabolic\ngabP,SeD_A1064,STM,Metabolic\nSeD_A4794,SeD_A1064,STM,Metabolic\nSeD_A4867,SeD_A1064,STM,Metabolic\nSeD_A1498,SeD_A1064,STM,Metabolic\ngudP,SeD_A1064,STM,Metabolic\nfucP,SeD_A1064,STM,Metabolic\nSeD_A3348,SeD_A1064,STM,Metabolic\nSeD_A1646,SeD_A1064,STM,Metabolic\nansB,SeD_A1064,STM,Metabolic\nnupG,SeD_A1064,STM,Metabolic\nexuT,SeD_A1064,STM,Metabolic\nSeD_A3543,SeD_A1064,STM,Metabolic\nSeD_A1064,degP,IntAct,PPI\nSeD_A1064,trxA,IntAct,PPI\ncpxR,SeD_A1064,Ecoli,Transcriptional_regulatory\ncrp,SeD_A1064,Ecoli,Transcriptional_regulatory\nompR,SeD_A1064,Ecoli,Transcriptional_regulatory\nSeD_A1867,SeD_A1064,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5FQ72",
-                                    name: "SeD_A1064",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'SeD_A1757,SeD_A1064,STM,Metabolic\nSeD_A1849,SeD_A1064,STM,Metabolic\ntdcC,SeD_A1064,STM,Metabolic\nmtr,SeD_A1064,STM,Metabolic\nSeD_A0163,SeD_A1064,STM,Metabolic\nSeD_A0176,SeD_A1064,STM,Metabolic\nSeD_A0183,SeD_A1064,STM,Metabolic\ncodB,SeD_A1064,STM,Metabolic\nSeD_A3698,SeD_A1064,STM,Metabolic\nSeD_A3716,SeD_A1064,STM,Metabolic\npanF,SeD_A1064,STM,Metabolic\nSeD_A0223,SeD_A1064,STM,Metabolic\nSeD_A1994,SeD_A1064,STM,Metabolic\ndctA,SeD_A1064,STM,Metabolic\nampG,SeD_A1064,STM,Metabolic\nnrgA,SeD_A1064,STM,Metabolic\nlldP,SeD_A1064,STM,Metabolic\nSeD_A4084,SeD_A1064,STM,Metabolic\nSeD_A0570,SeD_A1064,STM,Metabolic\nSeD_A2373,SeD_A1064,STM,Metabolic\nSeD_A4133,SeD_A1064,STM,Metabolic\nuhpT,SeD_A1064,STM,Metabolic\nfucP,SeD_A1064,STM,Metabolic\ntorA,SeD_A1064,STM,Metabolic\ntorC,SeD_A1064,STM,Metabolic\nSeD_A4218,SeD_A1064,STM,Metabolic\nSeD_A0669,SeD_A1064,STM,Metabolic\nentE,SeD_A1064,STM,Metabolic\nSeD_A0852,SeD_A1064,STM,Metabolic\nSeD_A2618,SeD_A1064,STM,Metabolic\nSeD_A2634,SeD_A1064,STM,Metabolic\ngalM,SeD_A1064,STM,Metabolic\nSeD_A4445,SeD_A1064,STM,Metabolic\nglpF,SeD_A1064,STM,Metabolic\nSeD_A1064,pagP,STM,Metabolic\nSeD_A1064,ompL,STM,Metabolic\nSeD_A1064,SeD_A3262,STM,Metabolic\nSeD_A2759,SeD_A1064,STM,Metabolic\nnupG,SeD_A1064,STM,Metabolic\neutH,SeD_A1064,STM,Metabolic\nuraA,SeD_A1064,STM,Metabolic\naphA,SeD_A1064,STM,Metabolic\nhpaX,SeD_A1064,STM,Metabolic\nSeD_A1192,SeD_A1064,STM,Metabolic\nSeD_A2929,SeD_A1064,STM,Metabolic\nSeD_A2982,SeD_A1064,STM,Metabolic\nactP,SeD_A1064,STM,Metabolic\nSeD_A4694,SeD_A1064,STM,Metabolic\nputP,SeD_A1064,STM,Metabolic\nfliY,SeD_A1064,STM,Metabolic\ngabP,SeD_A1064,STM,Metabolic\nSeD_A4794,SeD_A1064,STM,Metabolic\nSeD_A4867,SeD_A1064,STM,Metabolic\nSeD_A1498,SeD_A1064,STM,Metabolic\ngudP,SeD_A1064,STM,Metabolic\nfucP,SeD_A1064,STM,Metabolic\nSeD_A3348,SeD_A1064,STM,Metabolic\nSeD_A1646,SeD_A1064,STM,Metabolic\nansB,SeD_A1064,STM,Metabolic\nnupG,SeD_A1064,STM,Metabolic\nexuT,SeD_A1064,STM,Metabolic\nSeD_A3543,SeD_A1064,STM,Metabolic\nSeD_A1064,degP,IntAct,PPI\nSeD_A1064,trxA,IntAct,PPI\ncpxR,SeD_A1064,Ecoli,Transcriptional_regulatory\ncrp,SeD_A1064,Ecoli,Transcriptional_regulatory\nompR,SeD_A1064,Ecoli,Transcriptional_regulatory\nSeD_A1867,SeD_A1064,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5FQ72",
+                                        name: "SeD_A1064",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'araD,araB,STM BioModels,Metabolic\naraB,araA,STM,Metabolic\naraB,xylA,STM,Metabolic\naraB,SNSL254_A3949,STM,Metabolic\naraB,SNSL254_A3950,STM,Metabolic\naraB,SNSL254_A3951,STM,Metabolic\naraB,SNSL254_A3952,STM,Metabolic\naraB,SNSL254_A3954,BioModels,Metabolic\naraB,rhaA,STM,Metabolic\naraB,SNSL254_A4338,STM,Metabolic\naraB,SNSL254_A4339,STM,Metabolic\naraB,SNSL254_A4340,STM,Metabolic\naraB,SNSL254_A3425,STM,Metabolic\naraB,SNSL254_A3426,STM,Metabolic\naraB,SNSL254_A3427,STM,Metabolic\nxylB,araB,STM,Metabolic\nsgbE,araB,STM BioModels,Metabolic\nulaE,araB,STM BioModels,Metabolic\nsgaE,araB,STM BioModels,Metabolic\nSNSL254_A0111,araB,Salm Ecoli,Transcriptional_regulatory\ncrp,araB,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B4SU24",
-                                    name: "araB",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'araD,araB,STM BioModels,Metabolic\naraB,araA,STM,Metabolic\naraB,xylA,STM,Metabolic\naraB,SNSL254_A3949,STM,Metabolic\naraB,SNSL254_A3950,STM,Metabolic\naraB,SNSL254_A3951,STM,Metabolic\naraB,SNSL254_A3952,STM,Metabolic\naraB,SNSL254_A3954,BioModels,Metabolic\naraB,rhaA,STM,Metabolic\naraB,SNSL254_A4338,STM,Metabolic\naraB,SNSL254_A4339,STM,Metabolic\naraB,SNSL254_A4340,STM,Metabolic\naraB,SNSL254_A3425,STM,Metabolic\naraB,SNSL254_A3426,STM,Metabolic\naraB,SNSL254_A3427,STM,Metabolic\nxylB,araB,STM,Metabolic\nsgbE,araB,STM BioModels,Metabolic\nulaE,araB,STM BioModels,Metabolic\nsgaE,araB,STM BioModels,Metabolic\nSNSL254_A0111,araB,Salm Ecoli,Transcriptional_regulatory\ncrp,araB,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B4SU24",
+                                        name: "araB",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

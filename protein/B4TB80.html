@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'nagC,SeHA_C0800,Ecoli,Transcriptional_regulatory\nnagC,nagC,Ecoli,Transcriptional_regulatory\nnagC,nagC,Ecoli,Transcriptional_regulatory\nnagC,nagA,Ecoli,Transcriptional_regulatory\nnagC,nagB,Ecoli,Transcriptional_regulatory\nnagC,nagE,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C0807,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C0808,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C0839,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C1240,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C1274,Ecoli,Transcriptional_regulatory\nnagC,manX,Ecoli,Transcriptional_regulatory\nnagC,manY,Ecoli,Transcriptional_regulatory\nnagC,manZ,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C2033,Ecoli,Transcriptional_regulatory\nnagC,ptsH,Ecoli,Transcriptional_regulatory\nnagC,ptsI,Ecoli,Transcriptional_regulatory\nnagC,crr,Ecoli,Transcriptional_regulatory\nnagC,galP,Ecoli,Transcriptional_regulatory\nnagC,feoA,Ecoli,Transcriptional_regulatory\nnagC,feoB,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C3814,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C3815,Ecoli,Transcriptional_regulatory\nnagC,glmU,Ecoli,Transcriptional_regulatory\ncrp,nagC,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B4TB80",
-                                    name: "nagC",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'nagC,SeHA_C0800,Ecoli,Transcriptional_regulatory\nnagC,nagC,Ecoli,Transcriptional_regulatory\nnagC,nagC,Ecoli,Transcriptional_regulatory\nnagC,nagA,Ecoli,Transcriptional_regulatory\nnagC,nagB,Ecoli,Transcriptional_regulatory\nnagC,nagE,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C0807,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C0808,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C0839,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C1240,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C1274,Ecoli,Transcriptional_regulatory\nnagC,manX,Ecoli,Transcriptional_regulatory\nnagC,manY,Ecoli,Transcriptional_regulatory\nnagC,manZ,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C2033,Ecoli,Transcriptional_regulatory\nnagC,ptsH,Ecoli,Transcriptional_regulatory\nnagC,ptsI,Ecoli,Transcriptional_regulatory\nnagC,crr,Ecoli,Transcriptional_regulatory\nnagC,galP,Ecoli,Transcriptional_regulatory\nnagC,feoA,Ecoli,Transcriptional_regulatory\nnagC,feoB,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C3814,Ecoli,Transcriptional_regulatory\nnagC,SeHA_C3815,Ecoli,Transcriptional_regulatory\nnagC,glmU,Ecoli,Transcriptional_regulatory\ncrp,nagC,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B4TB80",
+                                        name: "nagC",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

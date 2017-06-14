@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'galK,SeAg_B2226,STM,Metabolic\ngalK,mglC,STM,Metabolic\ngalK,SeAg_B2336,STM,Metabolic\ngalK,SeAg_B4562,STM BioModels,Metabolic\ngalK,galP,STM,Metabolic\ngalT,galK,STM BioModels,Metabolic\ngalK,SeAg_B2782,Lit Ecoli IntAct,PPI\ngalK,SeAg_B2849,Lit Ecoli IntAct,PPI\ngalK,SeAg_B3185,Lit Ecoli IntAct,PPI\ngalK,SeAg_B0087,Lit Ecoli IntAct,PPI\nfrr,galK,Lit Ecoli IntAct,PPI\nSeAg_B3160,galK,Ecoli,Transcriptional_regulatory\ncrp,galK,Ecoli,Transcriptional_regulatory\ngalS,galK,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5F052",
-                                    name: "galK",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'galK,SeAg_B2226,STM,Metabolic\ngalK,mglC,STM,Metabolic\ngalK,SeAg_B2336,STM,Metabolic\ngalK,SeAg_B4562,STM BioModels,Metabolic\ngalK,galP,STM,Metabolic\ngalT,galK,STM BioModels,Metabolic\ngalK,SeAg_B2782,Lit Ecoli IntAct,PPI\ngalK,SeAg_B2849,Lit Ecoli IntAct,PPI\ngalK,SeAg_B3185,Lit Ecoli IntAct,PPI\ngalK,SeAg_B0087,Lit Ecoli IntAct,PPI\nfrr,galK,Lit Ecoli IntAct,PPI\nSeAg_B3160,galK,Ecoli,Transcriptional_regulatory\ncrp,galK,Ecoli,Transcriptional_regulatory\ngalS,galK,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5F052",
+                                        name: "galK",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

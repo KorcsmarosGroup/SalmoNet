@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'trxB,t1241,BioModels,Metabolic\nmetB,t1241,BioModels,Metabolic\nt2438,t1241,BioModels,Metabolic\ncrp,t1241,Lit Ecoli IntAct,PPI\nt2839,t1241,Lit Ecoli IntAct,PPI\nsufA,t1241,IntAct,PPI\nSTY1753,t1241,IntAct,PPI\nt1242,t1241,IntAct,PPI\nyfhP,t1241,Ecoli,Transcriptional_regulatory\nfur,t1241,Ecoli,Transcriptional_regulatory\nyjeB,t1241,Ecoli,Transcriptional_regulatory\noxyR,t1241,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q8XF77",
-                                    name: "t1241",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'trxB,t1241,BioModels,Metabolic\nmetB,t1241,BioModels,Metabolic\nt2438,t1241,BioModels,Metabolic\ncrp,t1241,Lit Ecoli IntAct,PPI\nt2839,t1241,Lit Ecoli IntAct,PPI\nsufA,t1241,IntAct,PPI\nSTY1753,t1241,IntAct,PPI\nt1242,t1241,IntAct,PPI\nyfhP,t1241,Ecoli,Transcriptional_regulatory\nfur,t1241,Ecoli,Transcriptional_regulatory\nyjeB,t1241,Ecoli,Transcriptional_regulatory\noxyR,t1241,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q8XF77",
+                                        name: "t1241",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

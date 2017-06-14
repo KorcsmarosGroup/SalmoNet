@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'hypO,hycB,STM,Metabolic\nhypO,hycF,STM,Metabolic\nhypO,hycC,STM,Metabolic\nhypO,hycD,STM,Metabolic\nhypO,hycE,STM,Metabolic\nhypO,hycG,STM,Metabolic\nhypO,STM1786,STM,Metabolic\nhypO,STM1539,STM,Metabolic\nhypO,STM1538,STM,Metabolic\nhybC,hypO,STM,Metabolic\nSTM1788,hypO,STM,Metabolic\nSTM1787,hypO,STM,Metabolic\ntrxA,hypO,Lit Ecoli IntAct,PPI\nhypO,yjfN,Lit Ecoli IntAct,PPI\nhypO,citC,Lit Ecoli IntAct,PPI\nnapD,hypO,Lit Ecoli IntAct,PPI\nbolA,hypO,Lit Ecoli IntAct,PPI\nglyQ,hypO,Lit Ecoli IntAct,PPI\nhybE,hypO,IntAct,PPI\nyggW,hypO,Lit Ecoli IntAct,PPI\nSTM1787,hypO,IntAct Interactome3d,PPI\nhcr,hypO,Lit Ecoli IntAct,PPI\ndpiA,hypO,Lit Ecoli IntAct,PPI\nSTM0052,hypO,Lit Ecoli IntAct,PPI\nnarL,hypO,Ecoli,Transcriptional_regulatory\narcA,hypO,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q7CPS8",
-                                    name: "hypO",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'hypO,hycB,STM,Metabolic\nhypO,hycF,STM,Metabolic\nhypO,hycC,STM,Metabolic\nhypO,hycD,STM,Metabolic\nhypO,hycE,STM,Metabolic\nhypO,hycG,STM,Metabolic\nhypO,STM1786,STM,Metabolic\nhypO,STM1539,STM,Metabolic\nhypO,STM1538,STM,Metabolic\nhybC,hypO,STM,Metabolic\nSTM1788,hypO,STM,Metabolic\nSTM1787,hypO,STM,Metabolic\ntrxA,hypO,Lit Ecoli IntAct,PPI\nhypO,yjfN,Lit Ecoli IntAct,PPI\nhypO,citC,Lit Ecoli IntAct,PPI\nnapD,hypO,Lit Ecoli IntAct,PPI\nbolA,hypO,Lit Ecoli IntAct,PPI\nglyQ,hypO,Lit Ecoli IntAct,PPI\nhybE,hypO,IntAct,PPI\nyggW,hypO,Lit Ecoli IntAct,PPI\nSTM1787,hypO,IntAct Interactome3d,PPI\nhcr,hypO,Lit Ecoli IntAct,PPI\ndpiA,hypO,Lit Ecoli IntAct,PPI\nSTM0052,hypO,Lit Ecoli IntAct,PPI\nnarL,hypO,Ecoli,Transcriptional_regulatory\narcA,hypO,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q7CPS8",
+                                        name: "hypO",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'arcA,cpxR,IntAct Interactome3d,PPI\narcA,tolC,IntAct,PPI\narcA,SC1008,Salm,Transcriptional_regulatory\narcA,nmpC,Salm,Transcriptional_regulatory\narcA,yejG,Salm,Transcriptional_regulatory\narcA,ygjU,Salm,Transcriptional_regulatory\narcA,yibF,Salm,Transcriptional_regulatory\narcA,mtlA,Salm,Transcriptional_regulatory\narcA,caiE,Ecoli,Transcriptional_regulatory\narcA,caiD,Ecoli,Transcriptional_regulatory\narcA,caiC,Ecoli,Transcriptional_regulatory\narcA,caiB,Ecoli,Transcriptional_regulatory\narcA,caiA,Ecoli,Transcriptional_regulatory\narcA,caiT,Ecoli,Transcriptional_regulatory\narcA,acnB,Ecoli,Transcriptional_regulatory\narcA,fadE,Ecoli,Transcriptional_regulatory\narcA,cyoE,Ecoli,Transcriptional_regulatory\narcA,cyoD,Ecoli,Transcriptional_regulatory\narcA,cyoC,Ecoli,Transcriptional_regulatory\narcA,cyoB,Ecoli,Transcriptional_regulatory\narcA,cyoA,Ecoli,Transcriptional_regulatory\narcA,gltA,Ecoli,Transcriptional_regulatory\narcA,sdhC,Ecoli,Transcriptional_regulatory\narcA,sdhA,Ecoli,Transcriptional_regulatory\narcA,sdhB,Ecoli,Transcriptional_regulatory\narcA,sucA,Ecoli,Transcriptional_regulatory\narcA,sucB,Ecoli,Transcriptional_regulatory\narcA,sucC,Ecoli,Transcriptional_regulatory\narcA,sucD,Ecoli,Transcriptional_regulatory\narcA,cydA,Ecoli,Transcriptional_regulatory\narcA,cydB,Ecoli,Transcriptional_regulatory\narcA,ybgT,Ecoli,Transcriptional_regulatory\narcA,ybgE,Ecoli,Transcriptional_regulatory\narcA,moeB,Ecoli,Transcriptional_regulatory\narcA,moeA,Ecoli,Transcriptional_regulatory\narcA,pflB,Ecoli,Transcriptional_regulatory\narcA,focA,Ecoli,Transcriptional_regulatory\narcA,elbA,Ecoli,Transcriptional_regulatory\narcA,ptsG,Ecoli,Transcriptional_regulatory\narcA,ndh,Ecoli,Transcriptional_regulatory\narcA,icdA,Ecoli,Transcriptional_regulatory\narcA,tpx,Ecoli,Transcriptional_regulatory\narcA,acnA,Ecoli,Transcriptional_regulatory\narcA,mbhS,Ecoli,Transcriptional_regulatory\narcA,cybH,Ecoli,Transcriptional_regulatory\narcA,hyaD,Ecoli,Transcriptional_regulatory\narcA,hyaE,Ecoli,Transcriptional_regulatory\narcA,hyaF,Ecoli,Transcriptional_regulatory\narcA,nuoN,Ecoli,Transcriptional_regulatory\narcA,nuoM,Ecoli,Transcriptional_regulatory\narcA,nuoL,Ecoli,Transcriptional_regulatory\narcA,nuoK,Ecoli,Transcriptional_regulatory\narcA,nuoJ,Ecoli,Transcriptional_regulatory\narcA,nuoI,Ecoli,Transcriptional_regulatory\narcA,nuoH,Ecoli,Transcriptional_regulatory\narcA,nuoG,Ecoli,Transcriptional_regulatory\narcA,nuoF,Ecoli,Transcriptional_regulatory\narcA,nuoE,Ecoli,Transcriptional_regulatory\narcA,nuoC,Ecoli,Transcriptional_regulatory\narcA,nuoB,Ecoli,Transcriptional_regulatory\narcA,nuoA,Ecoli,Transcriptional_regulatory\narcA,fadJ,Ecoli,Transcriptional_regulatory\narcA,fadI,Ecoli,Transcriptional_regulatory\narcA,fadL,Ecoli,Transcriptional_regulatory\narcA,cadB,Ecoli,Transcriptional_regulatory\narcA,yfiD,Ecoli,Transcriptional_regulatory\narcA,fadH,Ecoli,Transcriptional_regulatory\narcA,mdh,Ecoli,Transcriptional_regulatory\narcA,lldP,Ecoli,Transcriptional_regulatory\narcA,lldR,Ecoli,Transcriptional_regulatory\narcA,lldD,Ecoli,Transcriptional_regulatory\narcA,yibK,Ecoli,Transcriptional_regulatory\narcA,fadA,Ecoli,Transcriptional_regulatory\narcA,fadB,Ecoli,Transcriptional_regulatory\narcA,sodA,Ecoli,Transcriptional_regulatory\narcA,ssb,Ecoli,Transcriptional_regulatory\narcA,pttB,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q57G13",
-                                    name: "arcA",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'arcA,cpxR,IntAct Interactome3d,PPI\narcA,tolC,IntAct,PPI\narcA,SC1008,Salm,Transcriptional_regulatory\narcA,nmpC,Salm,Transcriptional_regulatory\narcA,yejG,Salm,Transcriptional_regulatory\narcA,ygjU,Salm,Transcriptional_regulatory\narcA,yibF,Salm,Transcriptional_regulatory\narcA,mtlA,Salm,Transcriptional_regulatory\narcA,caiE,Ecoli,Transcriptional_regulatory\narcA,caiD,Ecoli,Transcriptional_regulatory\narcA,caiC,Ecoli,Transcriptional_regulatory\narcA,caiB,Ecoli,Transcriptional_regulatory\narcA,caiA,Ecoli,Transcriptional_regulatory\narcA,caiT,Ecoli,Transcriptional_regulatory\narcA,acnB,Ecoli,Transcriptional_regulatory\narcA,fadE,Ecoli,Transcriptional_regulatory\narcA,cyoE,Ecoli,Transcriptional_regulatory\narcA,cyoD,Ecoli,Transcriptional_regulatory\narcA,cyoC,Ecoli,Transcriptional_regulatory\narcA,cyoB,Ecoli,Transcriptional_regulatory\narcA,cyoA,Ecoli,Transcriptional_regulatory\narcA,gltA,Ecoli,Transcriptional_regulatory\narcA,sdhC,Ecoli,Transcriptional_regulatory\narcA,sdhA,Ecoli,Transcriptional_regulatory\narcA,sdhB,Ecoli,Transcriptional_regulatory\narcA,sucA,Ecoli,Transcriptional_regulatory\narcA,sucB,Ecoli,Transcriptional_regulatory\narcA,sucC,Ecoli,Transcriptional_regulatory\narcA,sucD,Ecoli,Transcriptional_regulatory\narcA,cydA,Ecoli,Transcriptional_regulatory\narcA,cydB,Ecoli,Transcriptional_regulatory\narcA,ybgT,Ecoli,Transcriptional_regulatory\narcA,ybgE,Ecoli,Transcriptional_regulatory\narcA,moeB,Ecoli,Transcriptional_regulatory\narcA,moeA,Ecoli,Transcriptional_regulatory\narcA,pflB,Ecoli,Transcriptional_regulatory\narcA,focA,Ecoli,Transcriptional_regulatory\narcA,elbA,Ecoli,Transcriptional_regulatory\narcA,ptsG,Ecoli,Transcriptional_regulatory\narcA,ndh,Ecoli,Transcriptional_regulatory\narcA,icdA,Ecoli,Transcriptional_regulatory\narcA,tpx,Ecoli,Transcriptional_regulatory\narcA,acnA,Ecoli,Transcriptional_regulatory\narcA,mbhS,Ecoli,Transcriptional_regulatory\narcA,cybH,Ecoli,Transcriptional_regulatory\narcA,hyaD,Ecoli,Transcriptional_regulatory\narcA,hyaE,Ecoli,Transcriptional_regulatory\narcA,hyaF,Ecoli,Transcriptional_regulatory\narcA,nuoN,Ecoli,Transcriptional_regulatory\narcA,nuoM,Ecoli,Transcriptional_regulatory\narcA,nuoL,Ecoli,Transcriptional_regulatory\narcA,nuoK,Ecoli,Transcriptional_regulatory\narcA,nuoJ,Ecoli,Transcriptional_regulatory\narcA,nuoI,Ecoli,Transcriptional_regulatory\narcA,nuoH,Ecoli,Transcriptional_regulatory\narcA,nuoG,Ecoli,Transcriptional_regulatory\narcA,nuoF,Ecoli,Transcriptional_regulatory\narcA,nuoE,Ecoli,Transcriptional_regulatory\narcA,nuoC,Ecoli,Transcriptional_regulatory\narcA,nuoB,Ecoli,Transcriptional_regulatory\narcA,nuoA,Ecoli,Transcriptional_regulatory\narcA,fadJ,Ecoli,Transcriptional_regulatory\narcA,fadI,Ecoli,Transcriptional_regulatory\narcA,fadL,Ecoli,Transcriptional_regulatory\narcA,cadB,Ecoli,Transcriptional_regulatory\narcA,yfiD,Ecoli,Transcriptional_regulatory\narcA,fadH,Ecoli,Transcriptional_regulatory\narcA,mdh,Ecoli,Transcriptional_regulatory\narcA,lldP,Ecoli,Transcriptional_regulatory\narcA,lldR,Ecoli,Transcriptional_regulatory\narcA,lldD,Ecoli,Transcriptional_regulatory\narcA,yibK,Ecoli,Transcriptional_regulatory\narcA,fadA,Ecoli,Transcriptional_regulatory\narcA,fadB,Ecoli,Transcriptional_regulatory\narcA,sodA,Ecoli,Transcriptional_regulatory\narcA,ssb,Ecoli,Transcriptional_regulatory\narcA,pttB,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q57G13",
+                                        name: "arcA",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

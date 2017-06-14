@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'dmsA,dmsC,STM,Metabolic\ndmsA,dmsB,STM,Metabolic\ndmsA,SPA0339,STM,Metabolic\ndmsA,SPA0338,STM,Metabolic\nSPA1358,dmsA,STM,Metabolic\ndmsB,dmsA,STM,Metabolic\nSPA1356,dmsA,STM,Metabolic\nygjR,dmsA,Lit Ecoli IntAct,PPI\ndmsA,ynfI,IntAct,PPI\ndmsA,tatC,IntAct,PPI\ndmsA,tatB,IntAct,PPI\ndmsB,dmsA,Interactome3d,PPI\npldB,dmsA,Lit Ecoli IntAct,PPI\nfnr,dmsA,Ecoli,Transcriptional_regulatory\nnarL,dmsA,Ecoli,Transcriptional_regulatory\nssrB,dmsA,Salm,Transcriptional_regulatory\nmodE,dmsA,Ecoli,Transcriptional_regulatory\nfis,dmsA,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q5PGI7",
-                                    name: "dmsA",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'dmsA,dmsC,STM,Metabolic\ndmsA,dmsB,STM,Metabolic\ndmsA,SPA0339,STM,Metabolic\ndmsA,SPA0338,STM,Metabolic\nSPA1358,dmsA,STM,Metabolic\ndmsB,dmsA,STM,Metabolic\nSPA1356,dmsA,STM,Metabolic\nygjR,dmsA,Lit Ecoli IntAct,PPI\ndmsA,ynfI,IntAct,PPI\ndmsA,tatC,IntAct,PPI\ndmsA,tatB,IntAct,PPI\ndmsB,dmsA,Interactome3d,PPI\npldB,dmsA,Lit Ecoli IntAct,PPI\nfnr,dmsA,Ecoli,Transcriptional_regulatory\nnarL,dmsA,Ecoli,Transcriptional_regulatory\nssrB,dmsA,Salm,Transcriptional_regulatory\nmodE,dmsA,Ecoli,Transcriptional_regulatory\nfis,dmsA,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q5PGI7",
+                                        name: "dmsA",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

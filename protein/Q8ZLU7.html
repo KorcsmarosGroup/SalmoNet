@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'pfkA,STM3261,STM BioModels,Metabolic\nSTM3783,STM3261,STM Biomodels,Metabolic\nSTM1616,STM3261,BioModels,Metabolic\nSTM1613,STM3261,BioModels,Metabolic\nSTM3784,STM3261,STM Biomodels,Metabolic\nSTM3261,ptsI,STM,Metabolic\nSTM3261,ptsH,STM,Metabolic\nSTM3261,STM3782,STM BioModels,Metabolic\nSTM3261,STM3260,STM BioModels,Metabolic\nSTM3261,STM3254,BioModels,Metabolic\nSTM3259,STM3261,STM Biomodels,Metabolic\nSTM3258,STM3261,STM Biomodels,Metabolic\ngatZ,STM3261,STM,Metabolic\nSTM1614,STM3261,BioModels,Metabolic\npfkB,STM3261,STM BioModels,Metabolic'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q8ZLU7",
-                                    name: "STM3261",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'pfkA,STM3261,STM BioModels,Metabolic\nSTM3783,STM3261,STM Biomodels,Metabolic\nSTM1616,STM3261,BioModels,Metabolic\nSTM1613,STM3261,BioModels,Metabolic\nSTM3784,STM3261,STM Biomodels,Metabolic\nSTM3261,ptsI,STM,Metabolic\nSTM3261,ptsH,STM,Metabolic\nSTM3261,STM3782,STM BioModels,Metabolic\nSTM3261,STM3260,STM BioModels,Metabolic\nSTM3261,STM3254,BioModels,Metabolic\nSTM3259,STM3261,STM Biomodels,Metabolic\nSTM3258,STM3261,STM Biomodels,Metabolic\ngatZ,STM3261,STM,Metabolic\nSTM1614,STM3261,BioModels,Metabolic\npfkB,STM3261,STM BioModels,Metabolic'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q8ZLU7",
+                                        name: "STM3261",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

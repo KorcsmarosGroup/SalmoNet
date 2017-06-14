@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'galK,SeD_A2441,STM,Metabolic\ngalK,mglC,STM,Metabolic\ngalK,SeD_A4693,STM BioModels,Metabolic\ngalK,galP,STM,Metabolic\ngalT,galK,STM BioModels,Metabolic\nfrr,galK,Lit Ecoli IntAct,PPI\ngalK,SeD_A0085,Lit Ecoli IntAct,PPI\ngalK,SeD_A2248,Lit Ecoli IntAct,PPI\ngalK,SeD_A1124,Lit Ecoli IntAct,PPI\ngalK,SeD_A3032,Lit Ecoli IntAct,PPI\ngalK,SeD_A1428,Lit Ecoli IntAct,PPI\ngalK,SeD_A3364,Lit Ecoli IntAct,PPI\nSeD_A3342,galK,Ecoli,Transcriptional_regulatory\ncrp,galK,Ecoli,Transcriptional_regulatory\ngalS,galK,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5FP41",
-                                    name: "galK",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'galK,SeD_A2441,STM,Metabolic\ngalK,mglC,STM,Metabolic\ngalK,SeD_A4693,STM BioModels,Metabolic\ngalK,galP,STM,Metabolic\ngalT,galK,STM BioModels,Metabolic\nfrr,galK,Lit Ecoli IntAct,PPI\ngalK,SeD_A0085,Lit Ecoli IntAct,PPI\ngalK,SeD_A2248,Lit Ecoli IntAct,PPI\ngalK,SeD_A1124,Lit Ecoli IntAct,PPI\ngalK,SeD_A3032,Lit Ecoli IntAct,PPI\ngalK,SeD_A1428,Lit Ecoli IntAct,PPI\ngalK,SeD_A3364,Lit Ecoli IntAct,PPI\nSeD_A3342,galK,Ecoli,Transcriptional_regulatory\ncrp,galK,Ecoli,Transcriptional_regulatory\ngalS,galK,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5FP41",
+                                        name: "galK",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

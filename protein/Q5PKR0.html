@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'hyaB,hycB,STM,Metabolic\nhyaB,hycC,STM,Metabolic\nhyaB,hycD,STM,Metabolic\nhyaB,hycE,STM,Metabolic\nhyaB,hycF,STM,Metabolic\nhyaB,hycG,STM,Metabolic\nhyaB,hyaB2,STM,Metabolic\nhyaB,hyaA2,STM,Metabolic\nhyaB,hyaC,STM,Metabolic\nhyaB,hyb0,STM,Metabolic\nhyaB,hybC,STM,Metabolic\nhyaD,hyaB,Lit Ecoli IntAct,PPI\nhyaB,hyaA2,Interactome3d,PPI\nhyaB,hyb0,IntAct Interactome3d,PPI\nyfhP,hyaB,Ecoli,Transcriptional_regulatory\nnarL,hyaB,Ecoli,Transcriptional_regulatory\nnarP,hyaB,Ecoli,Transcriptional_regulatory\nfis,hyaB,Ecoli,Transcriptional_regulatory\narcA,hyaB,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q5PKR0",
-                                    name: "hyaB",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'hyaB,hycB,STM,Metabolic\nhyaB,hycC,STM,Metabolic\nhyaB,hycD,STM,Metabolic\nhyaB,hycE,STM,Metabolic\nhyaB,hycF,STM,Metabolic\nhyaB,hycG,STM,Metabolic\nhyaB,hyaB2,STM,Metabolic\nhyaB,hyaA2,STM,Metabolic\nhyaB,hyaC,STM,Metabolic\nhyaB,hyb0,STM,Metabolic\nhyaB,hybC,STM,Metabolic\nhyaD,hyaB,Lit Ecoli IntAct,PPI\nhyaB,hyaA2,Interactome3d,PPI\nhyaB,hyb0,IntAct Interactome3d,PPI\nyfhP,hyaB,Ecoli,Transcriptional_regulatory\nnarL,hyaB,Ecoli,Transcriptional_regulatory\nnarP,hyaB,Ecoli,Transcriptional_regulatory\nfis,hyaB,Ecoli,Transcriptional_regulatory\narcA,hyaB,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q5PKR0",
+                                        name: "hyaB",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

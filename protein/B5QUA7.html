@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'rpoA,marA,Interactome3d,PPI\nsoxS,marA,Ecoli,Transcriptional_regulatory\nmarR,marA,Ecoli,Transcriptional_regulatory\nrob,marA,Ecoli,Transcriptional_regulatory\nfis,marA,Ecoli,Transcriptional_regulatory\nmarA,ybaO,Ecoli,Transcriptional_regulatory\nmarA,mdlA,Ecoli,Transcriptional_regulatory\nmarA,mdlB,Ecoli,Transcriptional_regulatory\nmarA,ybjC,Ecoli,Transcriptional_regulatory\nmarA,acnA,Ecoli,Transcriptional_regulatory\nmarA,SEN1469,Ecoli,Transcriptional_regulatory\nmarA,hdeB,Ecoli,Transcriptional_regulatory\nmarA,marR,Ecoli,Transcriptional_regulatory\nmarA,marA,Ecoli,Transcriptional_regulatory\nmarA,marA,Ecoli,Transcriptional_regulatory\nmarA,marB,Ecoli,Transcriptional_regulatory\nmarA,yeiH,Ecoli,Transcriptional_regulatory\nmarA,nfo,Ecoli,Transcriptional_regulatory\nmarA,tolC,Ecoli,Transcriptional_regulatory\nmarA,mgtC,Ecoli,Transcriptional_regulatory\nmarA,sodA,Ecoli,Transcriptional_regulatory\nmarA,fpr,Ecoli,Transcriptional_regulatory\nmarA,glpX,Ecoli,Transcriptional_regulatory\nmarA,purA,Ecoli,Transcriptional_regulatory\nmarA,rob,Ecoli,Transcriptional_regulatory\ncrp,marA,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5QUA7",
-                                    name: "marA",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'rpoA,marA,Interactome3d,PPI\nsoxS,marA,Ecoli,Transcriptional_regulatory\nmarR,marA,Ecoli,Transcriptional_regulatory\nrob,marA,Ecoli,Transcriptional_regulatory\nfis,marA,Ecoli,Transcriptional_regulatory\nmarA,ybaO,Ecoli,Transcriptional_regulatory\nmarA,mdlA,Ecoli,Transcriptional_regulatory\nmarA,mdlB,Ecoli,Transcriptional_regulatory\nmarA,ybjC,Ecoli,Transcriptional_regulatory\nmarA,acnA,Ecoli,Transcriptional_regulatory\nmarA,SEN1469,Ecoli,Transcriptional_regulatory\nmarA,hdeB,Ecoli,Transcriptional_regulatory\nmarA,marR,Ecoli,Transcriptional_regulatory\nmarA,marA,Ecoli,Transcriptional_regulatory\nmarA,marA,Ecoli,Transcriptional_regulatory\nmarA,marB,Ecoli,Transcriptional_regulatory\nmarA,yeiH,Ecoli,Transcriptional_regulatory\nmarA,nfo,Ecoli,Transcriptional_regulatory\nmarA,tolC,Ecoli,Transcriptional_regulatory\nmarA,mgtC,Ecoli,Transcriptional_regulatory\nmarA,sodA,Ecoli,Transcriptional_regulatory\nmarA,fpr,Ecoli,Transcriptional_regulatory\nmarA,glpX,Ecoli,Transcriptional_regulatory\nmarA,purA,Ecoli,Transcriptional_regulatory\nmarA,rob,Ecoli,Transcriptional_regulatory\ncrp,marA,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5QUA7",
+                                        name: "marA",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

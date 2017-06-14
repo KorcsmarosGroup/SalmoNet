@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'SeAg_B2981,groEL,Lit Ecoli IntAct,PPI\nfnr,SeAg_B2981,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2965,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycI,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2967,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycG,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycF,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycE,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycD,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycC,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycB,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2974,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2975,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypA,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypB,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypC2,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypD,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypE,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2981,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2981,Ecoli,Transcriptional_regulatory\nnsrR,SeAg_B2981,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5F3U2",
-                                    name: "SeAg_B2981",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'SeAg_B2981,groEL,Lit Ecoli IntAct,PPI\nfnr,SeAg_B2981,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2965,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycI,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2967,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycG,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycF,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycE,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycD,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycC,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hycB,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2974,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2975,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypA,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypB,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypC2,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypD,Ecoli,Transcriptional_regulatory\nSeAg_B2981,hypE,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2981,Ecoli,Transcriptional_regulatory\nSeAg_B2981,SeAg_B2981,Ecoli,Transcriptional_regulatory\nnsrR,SeAg_B2981,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5F3U2",
+                                        name: "SeAg_B2981",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

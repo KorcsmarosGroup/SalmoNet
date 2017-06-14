@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'SNSL254_A1692,narI,STM,Metabolic\nSNSL254_A1692,narJ,STM,Metabolic\nSNSL254_A1692,narH,STM,Metabolic\nSNSL254_A1692,narG,STM,Metabolic\nnarY,SNSL254_A1692,STM,Metabolic\nnarW,SNSL254_A1692,STM,Metabolic\nnarV,SNSL254_A1692,STM,Metabolic\nSNSL254_A1692,narJ,IntAct,PPI\nSNSL254_A1692,narH,Lit Ecoli IntAct Interactome3d,PPI\nSNSL254_A1692,pepN,Lit Ecoli IntAct,PPI\nSNSL254_A1692,narW,Lit Ecoli IntAct,PPI\nSNSL254_A1332,SNSL254_A1692,Salm,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B4T5W6",
-                                    name: "SNSL254_A1692",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'SNSL254_A1692,narI,STM,Metabolic\nSNSL254_A1692,narJ,STM,Metabolic\nSNSL254_A1692,narH,STM,Metabolic\nSNSL254_A1692,narG,STM,Metabolic\nnarY,SNSL254_A1692,STM,Metabolic\nnarW,SNSL254_A1692,STM,Metabolic\nnarV,SNSL254_A1692,STM,Metabolic\nSNSL254_A1692,narJ,IntAct,PPI\nSNSL254_A1692,narH,Lit Ecoli IntAct Interactome3d,PPI\nSNSL254_A1692,pepN,Lit Ecoli IntAct,PPI\nSNSL254_A1692,narW,Lit Ecoli IntAct,PPI\nSNSL254_A1332,SNSL254_A1692,Salm,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B4T5W6",
+                                        name: "SNSL254_A1692",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

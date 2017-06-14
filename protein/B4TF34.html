@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'hycG,hycE,STM,Metabolic\nhycF,hycE,STM,Metabolic\nhycE,hycD,STM,Metabolic\nhycE,hycC,STM,Metabolic\nhycE,hycB,STM,Metabolic\nhycE,SeHA_C1709,STM,Metabolic\nhycE,SeHA_C1710,STM,Metabolic\nhycE,SeHA_C1984,STM,Metabolic\nhybC,hycE,STM,Metabolic\nhyb0,hycE,STM,Metabolic\nSeHA_C1985,hycE,STM,Metabolic\ncybH,hycE,STM,Metabolic\nhypA,hycE,IntAct,PPI\nhypB,hycE,IntAct,PPI\nhypE,hycE,Lit Ecoli IntAct,PPI\ngroEL,hycE,IntAct,PPI\nhypC,hycE,Lit Ecoli IntAct,PPI\ndnaK,hycE,IntAct,PPI\nslyD,hycE,IntAct,PPI\nSeHA_C3048,hycE,Ecoli,Transcriptional_regulatory\nnsrR,hycE,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B4TF34",
-                                    name: "hycE",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'hycG,hycE,STM,Metabolic\nhycF,hycE,STM,Metabolic\nhycE,hycD,STM,Metabolic\nhycE,hycC,STM,Metabolic\nhycE,hycB,STM,Metabolic\nhycE,SeHA_C1709,STM,Metabolic\nhycE,SeHA_C1710,STM,Metabolic\nhycE,SeHA_C1984,STM,Metabolic\nhybC,hycE,STM,Metabolic\nhyb0,hycE,STM,Metabolic\nSeHA_C1985,hycE,STM,Metabolic\ncybH,hycE,STM,Metabolic\nhypA,hycE,IntAct,PPI\nhypB,hycE,IntAct,PPI\nhypE,hycE,Lit Ecoli IntAct,PPI\ngroEL,hycE,IntAct,PPI\nhypC,hycE,Lit Ecoli IntAct,PPI\ndnaK,hycE,IntAct,PPI\nslyD,hycE,IntAct,PPI\nSeHA_C3048,hycE,Ecoli,Transcriptional_regulatory\nnsrR,hycE,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B4TF34",
+                                        name: "hycE",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

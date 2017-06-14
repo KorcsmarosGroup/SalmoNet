@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'crr,manY,STM,Metabolic\nptsG,manY,STM,Metabolic\nSTM1129,manY,STM,Metabolic\nmanY,ptsI,STM,Metabolic\nmanY,ptsH,STM,Metabolic\nmanY,manZ,STM,Metabolic\nnanE,manY,STM,Metabolic\nmanX,manY,STM,Metabolic\nnagB,manY,STM,Metabolic\nmanY,manX,IntAct,PPI\ncra,manY,Ecoli,Transcriptional_regulatory\nnagC,manY,Ecoli,Transcriptional_regulatory\nmlc,manY,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_Q7CQD8",
-                                    name: "manY",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'crr,manY,STM,Metabolic\nptsG,manY,STM,Metabolic\nSTM1129,manY,STM,Metabolic\nmanY,ptsI,STM,Metabolic\nmanY,ptsH,STM,Metabolic\nmanY,manZ,STM,Metabolic\nnanE,manY,STM,Metabolic\nmanX,manY,STM,Metabolic\nnagB,manY,STM,Metabolic\nmanY,manX,IntAct,PPI\ncra,manY,Ecoli,Transcriptional_regulatory\nnagC,manY,Ecoli,Transcriptional_regulatory\nmlc,manY,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_Q7CQD8",
+                                        name: "manY",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

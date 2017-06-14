@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'dmsA3,dmsC1,STM,Metabolic\ndmsC1,dmsA,STM,Metabolic\ndmsC1,dmsB,STM,Metabolic\ndmsC1,dmsC,STM,Metabolic\ndmsC1,dmsB2,STM,Metabolic\ndmsC1,dmsC2,STM,Metabolic\ndmsC1,dmsB1,STM,Metabolic\ndmsC1,SG2563,STM,Metabolic\ndmsC1,SG2564,STM,Metabolic\ndmsC1,SG2565,STM,Metabolic\nslyA,dmsC1,Salm,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_B5RAG9",
-                                    name: "dmsC1",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'dmsA3,dmsC1,STM,Metabolic\ndmsC1,dmsA,STM,Metabolic\ndmsC1,dmsB,STM,Metabolic\ndmsC1,dmsC,STM,Metabolic\ndmsC1,dmsB2,STM,Metabolic\ndmsC1,dmsC2,STM,Metabolic\ndmsC1,dmsB1,STM,Metabolic\ndmsC1,SG2563,STM,Metabolic\ndmsC1,SG2564,STM,Metabolic\ndmsC1,SG2565,STM,Metabolic\nslyA,dmsC1,Salm,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_B5RAG9",
+                                        name: "dmsC1",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){

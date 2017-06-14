@@ -79,42 +79,46 @@
             <div id="interactiontable"></div>
             <script>
                 interactiontable = webix.ui({
-                    container: "interactiontable",
-                    view: "datatable",
-                    css: "salmonet_table",
-                    columns: [
-                        {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                        {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                        {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                        {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
-                    ],
-                    height: 500,
-                    autowidth: true,
+                    container:"interactiontable",
+        			rows: [
+                    {
+                        id: "interactiontable",
+                        view: "datatable",
+                        css: "salmonet_table",
+                        columns: [
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                        ],
+                        height: 500,
+                        autowidth: true,
 
-                    datatype: "csv",
-                    data: 'nuoN,nuoL,STM,Metabolic\nnuoM,nuoL,STM,Metabolic\nnuoL,nuoK,STM,Metabolic\nnuoL,nuoJ,STM,Metabolic\nnuoL,nuoI,STM,Metabolic\nnuoL,nuoH,STM,Metabolic\nnuoL,nuoG,STM,Metabolic\nnuoL,nuoF,STM,Metabolic\nnuoL,nuoE,STM,Metabolic\nnuoL,nuoC,STM,Metabolic\nnuoL,nuoB,STM,Metabolic\nnuoL,nuoA,STM,Metabolic\nfnr,nuoL,Ecoli,Transcriptional_regulatory\nnarL,nuoL,Ecoli,Transcriptional_regulatory\nfis,nuoL,Ecoli,Transcriptional_regulatory\narcA,nuoL,Ecoli,Transcriptional_regulatory'
-                },
-                {
-					view: "form",
-					css: "toolbar",
-					paddingY: 5,
-					paddingX: 10,
-					cols:[
-						{
-							view: "button", label: "Download table", width: 200, click:function(){
-								webix.toExcel($$("interactiontable"), {
-                                    filename: "SalmoNet_E1WCF8",
-                                    name: "nuoL",
-                                    columns:{
-                                        "data0":true,
-                                        "data1":true,
-                                        "data2":true,
-                                        "data3":true,
-                                    }
-                                });
-							}
-						}
-					]
+                        datatype: "csv",
+                        data: 'nuoN,nuoL,STM,Metabolic\nnuoM,nuoL,STM,Metabolic\nnuoL,nuoK,STM,Metabolic\nnuoL,nuoJ,STM,Metabolic\nnuoL,nuoI,STM,Metabolic\nnuoL,nuoH,STM,Metabolic\nnuoL,nuoG,STM,Metabolic\nnuoL,nuoF,STM,Metabolic\nnuoL,nuoE,STM,Metabolic\nnuoL,nuoC,STM,Metabolic\nnuoL,nuoB,STM,Metabolic\nnuoL,nuoA,STM,Metabolic\nfnr,nuoL,Ecoli,Transcriptional_regulatory\nnarL,nuoL,Ecoli,Transcriptional_regulatory\nfis,nuoL,Ecoli,Transcriptional_regulatory\narcA,nuoL,Ecoli,Transcriptional_regulatory'
+                    },
+                    {
+    					view: "form",
+    					css: "toolbar",
+    					paddingY: 5,
+    					paddingX: 10,
+    					cols:[
+    						{
+    							view: "button", label: "Download table", width: 200, click:function(){
+    								webix.toExcel($$("interactiontable"), {
+                                        filename: "SalmoNet_E1WCF8",
+                                        name: "nuoL",
+                                        columns:{
+                                            "data0":true,
+                                            "data1":true,
+                                            "data2":true,
+                                            "data3":true,
+                                        }
+                                    });
+    							}
+    						}
+    					]
+                    }]
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
