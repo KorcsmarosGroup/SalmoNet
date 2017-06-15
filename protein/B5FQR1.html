@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "rpoD_lexA", "source": "rpoD", "target": "lexA"}}, {"data": {"id": "SeD_A0108_lexA", "source": "SeD_A0108", "target": "lexA"}}, {"data": {"id": "SeD_A2029_lexA", "source": "SeD_A2029", "target": "lexA"}}, {"data": {"id": "SeD_A2278_lexA", "source": "SeD_A2278", "target": "lexA"}}, {"data": {"id": "lexA_SeD_A4443", "source": "lexA", "target": "SeD_A4443"}}, {"data": {"id": "lexA_SeD_A4444", "source": "lexA", "target": "SeD_A4444"}}, {"data": {"id": "SeD_A1094_lexA", "source": "SeD_A1094", "target": "lexA"}}, {"data": {"id": "lexA_murC", "source": "lexA", "target": "murC"}}, {"data": {"id": "lexA_ftsQ", "source": "lexA", "target": "ftsQ"}}, {"data": {"id": "lexA_ftsA", "source": "lexA", "target": "ftsA"}}, {"data": {"id": "lexA_ftsZ", "source": "lexA", "target": "ftsZ"}}, {"data": {"id": "lexA_lpxC", "source": "lexA", "target": "lpxC"}}, {"data": {"id": "lexA_SeD_A0343", "source": "lexA", "target": "SeD_A0343"}}, {"data": {"id": "lexA_uvrB", "source": "lexA", "target": "uvrB"}}, {"data": {"id": "lexA_dinG", "source": "lexA", "target": "dinG"}}, {"data": {"id": "lexA_SeD_A0917", "source": "lexA", "target": "SeD_A0917"}}, {"data": {"id": "lexA_SeD_A1025", "source": "lexA", "target": "SeD_A1025"}}, {"data": {"id": "lexA_SeD_A1146", "source": "lexA", "target": "SeD_A1146"}}, {"data": {"id": "lexA_ruvA", "source": "lexA", "target": "ruvA"}}, {"data": {"id": "lexA_ruvB", "source": "lexA", "target": "ruvB"}}, {"data": {"id": "lexA_SeD_A1367", "source": "lexA", "target": "SeD_A1367"}}, {"data": {"id": "lexA_SeD_A1368", "source": "lexA", "target": "SeD_A1368"}}, {"data": {"id": "lexA_SeD_A1369", "source": "lexA", "target": "SeD_A1369"}}, {"data": {"id": "lexA_SeD_A2023", "source": "lexA", "target": "SeD_A2023"}}, {"data": {"id": "lexA_SeD_A2036", "source": "lexA", "target": "SeD_A2036"}}, {"data": {"id": "lexA_SeD_A2210", "source": "lexA", "target": "SeD_A2210"}}, {"data": {"id": "lexA_SeD_A2397", "source": "lexA", "target": "SeD_A2397"}}, {"data": {"id": "lexA_recN", "source": "lexA", "target": "recN"}}, {"data": {"id": "lexA_recA", "source": "lexA", "target": "recA"}}, {"data": {"id": "lexA_SeD_A3139", "source": "lexA", "target": "SeD_A3139"}}, {"data": {"id": "lexA_rpsU", "source": "lexA", "target": "rpsU"}}, {"data": {"id": "lexA_rpoD", "source": "lexA", "target": "rpoD"}}, {"data": {"id": "lexA_SeD_A3886", "source": "lexA", "target": "SeD_A3886"}}, {"data": {"id": "lexA_SeD_A3887", "source": "lexA", "target": "SeD_A3887"}}, {"data": {"id": "lexA_uvrD", "source": "lexA", "target": "uvrD"}}, {"data": {"id": "lexA_lexA", "source": "lexA", "target": "lexA"}}, {"data": {"id": "lexA_lexA", "source": "lexA", "target": "lexA"}}, {"data": {"id": "lexA_uvrA", "source": "lexA", "target": "uvrA"}}, {"data": {"id": "lexA_ssb", "source": "lexA", "target": "ssb"}}, {"data": {"id": "rpoD"}}, {"data": {"id": "lexA"}}, {"data": {"id": "SeD_A0108"}}, {"data": {"id": "SeD_A2029"}}, {"data": {"id": "SeD_A2278"}}, {"data": {"id": "SeD_A4443"}}, {"data": {"id": "SeD_A4444"}}, {"data": {"id": "SeD_A1094"}}, {"data": {"id": "murC"}}, {"data": {"id": "ftsQ"}}, {"data": {"id": "ftsA"}}, {"data": {"id": "ftsZ"}}, {"data": {"id": "lpxC"}}, {"data": {"id": "SeD_A0343"}}, {"data": {"id": "uvrB"}}, {"data": {"id": "dinG"}}, {"data": {"id": "SeD_A0917"}}, {"data": {"id": "SeD_A1025"}}, {"data": {"id": "SeD_A1146"}}, {"data": {"id": "ruvA"}}, {"data": {"id": "ruvB"}}, {"data": {"id": "SeD_A1367"}}, {"data": {"id": "SeD_A1368"}}, {"data": {"id": "SeD_A1369"}}, {"data": {"id": "SeD_A2023"}}, {"data": {"id": "SeD_A2036"}}, {"data": {"id": "SeD_A2210"}}, {"data": {"id": "SeD_A2397"}}, {"data": {"id": "recN"}}, {"data": {"id": "recA"}}, {"data": {"id": "SeD_A3139"}}, {"data": {"id": "rpsU"}}, {"data": {"id": "SeD_A3886"}}, {"data": {"id": "SeD_A3887"}}, {"data": {"id": "uvrD"}}, {"data": {"id": "uvrA"}}, {"data": {"id": "ssb"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

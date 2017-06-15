@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "lrp_SeAg_B0656", "source": "lrp", "target": "SeAg_B0656"}}, {"data": {"id": "lrp_citE", "source": "lrp", "target": "citE"}}, {"data": {"id": "lrp_folA", "source": "lrp", "target": "folA"}}, {"data": {"id": "lrp_SeAg_B3725", "source": "lrp", "target": "SeAg_B3725"}}, {"data": {"id": "nsrR_lrp", "source": "nsrR", "target": "lrp"}}, {"data": {"id": "lrp_ilvB", "source": "lrp", "target": "ilvB"}}, {"data": {"id": "lrp_ilvH", "source": "lrp", "target": "ilvH"}}, {"data": {"id": "lrp_SeAg_B0590", "source": "lrp", "target": "SeAg_B0590"}}, {"data": {"id": "lrp_lrp", "source": "lrp", "target": "lrp"}}, {"data": {"id": "lrp_lrp", "source": "lrp", "target": "lrp"}}, {"data": {"id": "lrp_serC", "source": "lrp", "target": "serC"}}, {"data": {"id": "lrp_SeAg_B1330", "source": "lrp", "target": "SeAg_B1330"}}, {"data": {"id": "lrp_dadX", "source": "lrp", "target": "dadX"}}, {"data": {"id": "lrp_adhE", "source": "lrp", "target": "adhE"}}, {"data": {"id": "lrp_SeAg_B1399", "source": "lrp", "target": "SeAg_B1399"}}, {"data": {"id": "lrp_SeAg_B1602", "source": "lrp", "target": "SeAg_B1602"}}, {"data": {"id": "lrp_hdeB", "source": "lrp", "target": "hdeB"}}, {"data": {"id": "lrp_SeAg_B1911", "source": "lrp", "target": "SeAg_B1911"}}, {"data": {"id": "lrp_SeAg_B2399", "source": "lrp", "target": "SeAg_B2399"}}, {"data": {"id": "lrp_SeAg_B2400", "source": "lrp", "target": "SeAg_B2400"}}, {"data": {"id": "lrp_SeAg_B2401", "source": "lrp", "target": "SeAg_B2401"}}, {"data": {"id": "lrp_SeAg_B2403", "source": "lrp", "target": "SeAg_B2403"}}, {"data": {"id": "lrp_SeAg_B2913", "source": "lrp", "target": "SeAg_B2913"}}, {"data": {"id": "lrp_gcvP", "source": "lrp", "target": "gcvP"}}, {"data": {"id": "lrp_SeAg_B3211", "source": "lrp", "target": "SeAg_B3211"}}, {"data": {"id": "lrp_gcvH", "source": "lrp", "target": "gcvH"}}, {"data": {"id": "lrp_gcvT", "source": "lrp", "target": "gcvT"}}, {"data": {"id": "lrp_SeAg_B3228", "source": "lrp", "target": "SeAg_B3228"}}, {"data": {"id": "lrp_gltD", "source": "lrp", "target": "gltD"}}, {"data": {"id": "lrp_tdh", "source": "lrp", "target": "tdh"}}, {"data": {"id": "lrp_kbl", "source": "lrp", "target": "kbl"}}, {"data": {"id": "lrp_SeAg_B3989", "source": "lrp", "target": "SeAg_B3989"}}, {"data": {"id": "lrp_ilvG", "source": "lrp", "target": "ilvG"}}, {"data": {"id": "lrp_ilvM", "source": "lrp", "target": "ilvM"}}, {"data": {"id": "lrp_ilvE", "source": "lrp", "target": "ilvE"}}, {"data": {"id": "lrp_ilvD", "source": "lrp", "target": "ilvD"}}, {"data": {"id": "lrp_ilvA", "source": "lrp", "target": "ilvA"}}, {"data": {"id": "lrp_osmY", "source": "lrp", "target": "osmY"}}, {"data": {"id": "lrp_SeAg_B4883", "source": "lrp", "target": "SeAg_B4883"}}, {"data": {"id": "lrp_SeAg_B4884", "source": "lrp", "target": "SeAg_B4884"}}, {"data": {"id": "lrp_SeAg_B4885", "source": "lrp", "target": "SeAg_B4885"}}, {"data": {"id": "lrp"}}, {"data": {"id": "SeAg_B0656"}}, {"data": {"id": "citE"}}, {"data": {"id": "folA"}}, {"data": {"id": "SeAg_B3725"}}, {"data": {"id": "nsrR"}}, {"data": {"id": "ilvB"}}, {"data": {"id": "ilvH"}}, {"data": {"id": "SeAg_B0590"}}, {"data": {"id": "serC"}}, {"data": {"id": "SeAg_B1330"}}, {"data": {"id": "dadX"}}, {"data": {"id": "adhE"}}, {"data": {"id": "SeAg_B1399"}}, {"data": {"id": "SeAg_B1602"}}, {"data": {"id": "hdeB"}}, {"data": {"id": "SeAg_B1911"}}, {"data": {"id": "SeAg_B2399"}}, {"data": {"id": "SeAg_B2400"}}, {"data": {"id": "SeAg_B2401"}}, {"data": {"id": "SeAg_B2403"}}, {"data": {"id": "SeAg_B2913"}}, {"data": {"id": "gcvP"}}, {"data": {"id": "SeAg_B3211"}}, {"data": {"id": "gcvH"}}, {"data": {"id": "gcvT"}}, {"data": {"id": "SeAg_B3228"}}, {"data": {"id": "gltD"}}, {"data": {"id": "tdh"}}, {"data": {"id": "kbl"}}, {"data": {"id": "SeAg_B3989"}}, {"data": {"id": "ilvG"}}, {"data": {"id": "ilvM"}}, {"data": {"id": "ilvE"}}, {"data": {"id": "ilvD"}}, {"data": {"id": "ilvA"}}, {"data": {"id": "osmY"}}, {"data": {"id": "SeAg_B4883"}}, {"data": {"id": "SeAg_B4884"}}, {"data": {"id": "SeAg_B4885"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

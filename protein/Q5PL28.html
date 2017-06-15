@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "pdxA_stdA", "source": "pdxA", "target": "stdA"}}, {"data": {"id": "hyi_stdA", "source": "hyi", "target": "stdA"}}, {"data": {"id": "SPA2203_stdA", "source": "SPA2203", "target": "stdA"}}, {"data": {"id": "trpC_stdA", "source": "trpC", "target": "stdA"}}, {"data": {"id": "mutT_stdA", "source": "mutT", "target": "stdA"}}, {"data": {"id": "rluA_stdA", "source": "rluA", "target": "stdA"}}, {"data": {"id": "araC_stdA", "source": "araC", "target": "stdA"}}, {"data": {"id": "aroF_stdA", "source": "aroF", "target": "stdA"}}, {"data": {"id": "thiL_stdA", "source": "thiL", "target": "stdA"}}, {"data": {"id": "yaiE_stdA", "source": "yaiE", "target": "stdA"}}, {"data": {"id": "galK_stdA", "source": "galK", "target": "stdA"}}, {"data": {"id": "ydiU_stdA", "source": "ydiU", "target": "stdA"}}, {"data": {"id": "ytfB_stdA", "source": "ytfB", "target": "stdA"}}, {"data": {"id": "yifE_stdA", "source": "yifE", "target": "stdA"}}, {"data": {"id": "argC_stdA", "source": "argC", "target": "stdA"}}, {"data": {"id": "stdA_kdtA", "source": "stdA", "target": "kdtA"}}, {"data": {"id": "stdA_SPA3624", "source": "stdA", "target": "SPA3624"}}, {"data": {"id": "stdA_ddlB", "source": "stdA", "target": "ddlB"}}, {"data": {"id": "stdA_secA", "source": "stdA", "target": "secA"}}, {"data": {"id": "stdA_yabK", "source": "stdA", "target": "yabK"}}, {"data": {"id": "stdA_yohC", "source": "stdA", "target": "yohC"}}, {"data": {"id": "stdA_orgB", "source": "stdA", "target": "orgB"}}, {"data": {"id": "stdA_SPA1935", "source": "stdA", "target": "SPA1935"}}, {"data": {"id": "stdA_galE", "source": "stdA", "target": "galE"}}, {"data": {"id": "stdA_yehR", "source": "stdA", "target": "yehR"}}, {"data": {"id": "stdA_yjeJ", "source": "stdA", "target": "yjeJ"}}, {"data": {"id": "murA_stdA", "source": "murA", "target": "stdA"}}, {"data": {"id": "yrbH_stdA", "source": "yrbH", "target": "stdA"}}, {"data": {"id": "aroB_stdA", "source": "aroB", "target": "stdA"}}, {"data": {"id": "glgX_stdA", "source": "glgX", "target": "stdA"}}, {"data": {"id": "uhpA_stdA", "source": "uhpA", "target": "stdA"}}, {"data": {"id": "cysM_stdA", "source": "cysM", "target": "stdA"}}, {"data": {"id": "purM_stdA", "source": "purM", "target": "stdA"}}, {"data": {"id": "pdxA"}}, {"data": {"id": "stdA"}}, {"data": {"id": "hyi"}}, {"data": {"id": "SPA2203"}}, {"data": {"id": "trpC"}}, {"data": {"id": "mutT"}}, {"data": {"id": "rluA"}}, {"data": {"id": "araC"}}, {"data": {"id": "aroF"}}, {"data": {"id": "thiL"}}, {"data": {"id": "yaiE"}}, {"data": {"id": "galK"}}, {"data": {"id": "ydiU"}}, {"data": {"id": "ytfB"}}, {"data": {"id": "yifE"}}, {"data": {"id": "argC"}}, {"data": {"id": "kdtA"}}, {"data": {"id": "SPA3624"}}, {"data": {"id": "ddlB"}}, {"data": {"id": "secA"}}, {"data": {"id": "yabK"}}, {"data": {"id": "yohC"}}, {"data": {"id": "orgB"}}, {"data": {"id": "SPA1935"}}, {"data": {"id": "galE"}}, {"data": {"id": "yehR"}}, {"data": {"id": "yjeJ"}}, {"data": {"id": "murA"}}, {"data": {"id": "yrbH"}}, {"data": {"id": "aroB"}}, {"data": {"id": "glgX"}}, {"data": {"id": "uhpA"}}, {"data": {"id": "cysM"}}, {"data": {"id": "purM"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

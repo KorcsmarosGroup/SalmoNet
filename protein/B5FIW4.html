@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "fis_SeD_A1463", "source": "fis", "target": "SeD_A1463"}}, {"data": {"id": "fis_SeD_A0044", "source": "fis", "target": "SeD_A0044"}}, {"data": {"id": "fis_fkpB", "source": "fis", "target": "fkpB"}}, {"data": {"id": "fis_ispH", "source": "fis", "target": "ispH"}}, {"data": {"id": "fis_dkgB", "source": "fis", "target": "dkgB"}}, {"data": {"id": "fis_infA", "source": "fis", "target": "infA"}}, {"data": {"id": "fis_SeD_A1771", "source": "fis", "target": "SeD_A1771"}}, {"data": {"id": "fis_fdnH", "source": "fis", "target": "fdnH"}}, {"data": {"id": "fis_SeD_A1775", "source": "fis", "target": "SeD_A1775"}}, {"data": {"id": "fis_SeD_A1934", "source": "fis", "target": "SeD_A1934"}}, {"data": {"id": "fis_SeD_A1935", "source": "fis", "target": "SeD_A1935"}}, {"data": {"id": "fis_SeD_A1936", "source": "fis", "target": "SeD_A1936"}}, {"data": {"id": "fis_eprI", "source": "fis", "target": "eprI"}}, {"data": {"id": "fis_SeD_A2203", "source": "fis", "target": "SeD_A2203"}}, {"data": {"id": "fis_SeD_A2204", "source": "fis", "target": "SeD_A2204"}}, {"data": {"id": "fis_SeD_A2205", "source": "fis", "target": "SeD_A2205"}}, {"data": {"id": "fis_SeD_A2206", "source": "fis", "target": "SeD_A2206"}}, {"data": {"id": "fis_grxB", "source": "fis", "target": "grxB"}}, {"data": {"id": "fis_SeD_A2257", "source": "fis", "target": "SeD_A2257"}}, {"data": {"id": "fis_SeD_A2258", "source": "fis", "target": "SeD_A2258"}}, {"data": {"id": "fis_SeD_A2259", "source": "fis", "target": "SeD_A2259"}}, {"data": {"id": "fis_SeD_A2260", "source": "fis", "target": "SeD_A2260"}}, {"data": {"id": "fis_SeD_A2261", "source": "fis", "target": "SeD_A2261"}}, {"data": {"id": "fis_SeD_A2262", "source": "fis", "target": "SeD_A2262"}}, {"data": {"id": "fis_SeD_A2263", "source": "fis", "target": "SeD_A2263"}}, {"data": {"id": "fis_SeD_A2264", "source": "fis", "target": "SeD_A2264"}}, {"data": {"id": "fis_SeD_A2265", "source": "fis", "target": "SeD_A2265"}}, {"data": {"id": "fis_SeD_A2266", "source": "fis", "target": "SeD_A2266"}}, {"data": {"id": "fis_mglC", "source": "fis", "target": "mglC"}}, {"data": {"id": "fis_SeD_A2582", "source": "fis", "target": "SeD_A2582"}}, {"data": {"id": "fis_SeD_A2586", "source": "fis", "target": "SeD_A2586"}}, {"data": {"id": "fis_SeD_A2754", "source": "fis", "target": "SeD_A2754"}}, {"data": {"id": "fis_SeD_A2755", "source": "fis", "target": "SeD_A2755"}}, {"data": {"id": "fis_SeD_A2983", "source": "fis", "target": "SeD_A2983"}}, {"data": {"id": "fis_SeD_A2993", "source": "fis", "target": "SeD_A2993"}}, {"data": {"id": "fis_gabP", "source": "fis", "target": "gabP"}}, {"data": {"id": "fis_SeD_A3096", "source": "fis", "target": "SeD_A3096"}}, {"data": {"id": "fis_SeD_A3441", "source": "fis", "target": "SeD_A3441"}}, {"data": {"id": "fis_SeD_A4035", "source": "fis", "target": "SeD_A4035"}}, {"data": {"id": "fis_SeD_A4383", "source": "fis", "target": "SeD_A4383"}}, {"data": {"id": "fis_SeD_A4384", "source": "fis", "target": "SeD_A4384"}}, {"data": {"id": "fis_SeD_A4385", "source": "fis", "target": "SeD_A4385"}}, {"data": {"id": "fis_purD", "source": "fis", "target": "purD"}}, {"data": {"id": "fis_purH", "source": "fis", "target": "purH"}}, {"data": {"id": "fis_nrdG", "source": "fis", "target": "nrdG"}}, {"data": {"id": "fis_SeD_A4880", "source": "fis", "target": "SeD_A4880"}}, {"data": {"id": "fis_SeD_A4937", "source": "fis", "target": "SeD_A4937"}}, {"data": {"id": "fis_SeD_A5014", "source": "fis", "target": "SeD_A5014"}}, {"data": {"id": "fis_SeD_B0090", "source": "fis", "target": "SeD_B0090"}}, {"data": {"id": "fis_SeD_B0091", "source": "fis", "target": "SeD_B0091"}}, {"data": {"id": "fis_SeD_B0092", "source": "fis", "target": "SeD_B0092"}}, {"data": {"id": "fis_acnB", "source": "fis", "target": "acnB"}}, {"data": {"id": "fis_queA", "source": "fis", "target": "queA"}}, {"data": {"id": "fis_hupB", "source": "fis", "target": "hupB"}}, {"data": {"id": "fis_SeD_A0926", "source": "fis", "target": "SeD_A0926"}}, {"data": {"id": "fis_SeD_A1029", "source": "fis", "target": "SeD_A1029"}}, {"data": {"id": "fis_dmsB_1", "source": "fis", "target": "dmsB_1"}}, {"data": {"id": "fis_dmsC1", "source": "fis", "target": "dmsC1"}}, {"data": {"id": "fis_pflB2", "source": "fis", "target": "pflB2"}}, {"data": {"id": "fis_SeD_A1038", "source": "fis", "target": "SeD_A1038"}}, {"data": {"id": "fis_pyrD", "source": "fis", "target": "pyrD"}}, {"data": {"id": "fis_SeD_A1558", "source": "fis", "target": "SeD_A1558"}}, {"data": {"id": "fis_narG", "source": "fis", "target": "narG"}}, {"data": {"id": "fis_narH", "source": "fis", "target": "narH"}}, {"data": {"id": "fis_narJ", "source": "fis", "target": "narJ"}}, {"data": {"id": "fis_narI", "source": "fis", "target": "narI"}}, {"data": {"id": "fis_hns", "source": "fis", "target": "hns"}}, {"data": {"id": "fis_adhE", "source": "fis", "target": "adhE"}}, {"data": {"id": "fis_topA", "source": "fis", "target": "topA"}}, {"data": {"id": "fis_SeD_A1674", "source": "fis", "target": "SeD_A1674"}}, {"data": {"id": "fis_SeD_A1716", "source": "fis", "target": "SeD_A1716"}}, {"data": {"id": "fis_marR", "source": "fis", "target": "marR"}}, {"data": {"id": "fis_SeD_A1816", "source": "fis", "target": "SeD_A1816"}}, {"data": {"id": "fis_SeD_A1817", "source": "fis", "target": "SeD_A1817"}}, {"data": {"id": "fis_osmE", "source": "fis", "target": "osmE"}}, {"data": {"id": "fis_ndh", "source": "fis", "target": "ndh"}}, {"data": {"id": "fis_ptsG", "source": "fis", "target": "ptsG"}}, {"data": {"id": "fis_gyrA", "source": "fis", "target": "gyrA"}}, {"data": {"id": "fis_nrdB", "source": "fis", "target": "nrdB"}}, {"data": {"id": "fis_SeD_A2623", "source": "fis", "target": "SeD_A2623"}}, {"data": {"id": "fis_glpQ", "source": "fis", "target": "glpQ"}}, {"data": {"id": "fis_glpT", "source": "fis", "target": "glpT"}}, {"data": {"id": "fis_glpA", "source": "fis", "target": "glpA"}}, {"data": {"id": "fis_SeD_A2629", "source": "fis", "target": "SeD_A2629"}}, {"data": {"id": "fis_glpC", "source": "fis", "target": "glpC"}}, {"data": {"id": "fis_nuoN", "source": "fis", "target": "nuoN"}}, {"data": {"id": "fis_nuoM", "source": "fis", "target": "nuoM"}}, {"data": {"id": "fis_nuoL", "source": "fis", "target": "nuoL"}}, {"data": {"id": "fis_nuoK", "source": "fis", "target": "nuoK"}}, {"data": {"id": "fis_nuoJ", "source": "fis", "target": "nuoJ"}}, {"data": {"id": "fis_nuoI", "source": "fis", "target": "nuoI"}}, {"data": {"id": "fis_nuoH", "source": "fis", "target": "nuoH"}}, {"data": {"id": "fis_nuoG", "source": "fis", "target": "nuoG"}}, {"data": {"id": "fis_nuoF", "source": "fis", "target": "nuoF"}}, {"data": {"id": "fis_nuoE", "source": "fis", "target": "nuoE"}}, {"data": {"id": "fis_nuoC", "source": "fis", "target": "nuoC"}}, {"data": {"id": "fis_SeD_A2673", "source": "fis", "target": "SeD_A2673"}}, {"data": {"id": "fis_nuoA", "source": "fis", "target": "nuoA"}}, {"data": {"id": "fis_SeD_A2707", "source": "fis", "target": "SeD_A2707"}}, {"data": {"id": "fis_SeD_A2708", "source": "fis", "target": "SeD_A2708"}}, {"data": {"id": "fis_SeD_A2709", "source": "fis", "target": "SeD_A2709"}}, {"data": {"id": "fis_SeD_A2710", "source": "fis", "target": "SeD_A2710"}}, {"data": {"id": "fis_guaA", "source": "fis", "target": "guaA"}}, {"data": {"id": "fis_guaB", "source": "fis", "target": "guaB"}}, {"data": {"id": "fis_grcA", "source": "fis", "target": "grcA"}}, {"data": {"id": "fis_mazG", "source": "fis", "target": "mazG"}}, {"data": {"id": "fis_ansB", "source": "fis", "target": "ansB"}}, {"data": {"id": "fis_rocD", "source": "fis", "target": "rocD"}}, {"data": {"id": "fis_rpsO", "source": "fis", "target": "rpsO"}}, {"data": {"id": "fis_truB", "source": "fis", "target": "truB"}}, {"data": {"id": "fis_rbfA", "source": "fis", "target": "rbfA"}}, {"data": {"id": "fis_infB", "source": "fis", "target": "infB"}}, {"data": {"id": "fis_nusA", "source": "fis", "target": "nusA"}}, {"data": {"id": "fis_SeD_A3645", "source": "fis", "target": "SeD_A3645"}}, {"data": {"id": "fis_nanA", "source": "fis", "target": "nanA"}}, {"data": {"id": "fis_rpsI", "source": "fis", "target": "rpsI"}}, {"data": {"id": "fis_rplM", "source": "fis", "target": "rplM"}}, {"data": {"id": "fis_dusB", "source": "fis", "target": "dusB"}}, {"data": {"id": "fis_fis", "source": "fis", "target": "fis"}}, {"data": {"id": "fis_fis", "source": "fis", "target": "fis"}}, {"data": {"id": "fis_crp", "source": "fis", "target": "crp"}}, {"data": {"id": "fis_SeD_A3835", "source": "fis", "target": "SeD_A3835"}}, {"data": {"id": "fis_nirC", "source": "fis", "target": "nirC"}}, {"data": {"id": "fis_cysG", "source": "fis", "target": "cysG"}}, {"data": {"id": "fis_SeD_A4045", "source": "fis", "target": "SeD_A4045"}}, {"data": {"id": "fis_aldB", "source": "fis", "target": "aldB"}}, {"data": {"id": "fis_SeD_A4070", "source": "fis", "target": "SeD_A4070"}}, {"data": {"id": "fis_mtlD", "source": "fis", "target": "mtlD"}}, {"data": {"id": "fis_mtlR", "source": "fis", "target": "mtlR"}}, {"data": {"id": "fis_gyrB", "source": "fis", "target": "gyrB"}}, {"data": {"id": "fis_recF", "source": "fis", "target": "recF"}}, {"data": {"id": "fis_fadA", "source": "fis", "target": "fadA"}}, {"data": {"id": "fis_fadB", "source": "fis", "target": "fadB"}}, {"data": {"id": "fis_glnA", "source": "fis", "target": "glnA"}}, {"data": {"id": "fis_trmA", "source": "fis", "target": "trmA"}}, {"data": {"id": "fis_hupA", "source": "fis", "target": "hupA"}}, {"data": {"id": "fis_SeD_A4578", "source": "fis", "target": "SeD_A4578"}}, {"data": {"id": "fis_malE", "source": "fis", "target": "malE"}}, {"data": {"id": "fis_actP", "source": "fis", "target": "actP"}}, {"data": {"id": "fis_SeD_A4669", "source": "fis", "target": "SeD_A4669"}}, {"data": {"id": "fis_acsA", "source": "fis", "target": "acsA"}}, {"data": {"id": "fis_nrfA", "source": "fis", "target": "nrfA"}}, {"data": {"id": "fis_osmY", "source": "fis", "target": "osmY"}}, {"data": {"id": "fis_SeD_A4977", "source": "fis", "target": "SeD_A4977"}}, {"data": {"id": "fis_SeD_A4978", "source": "fis", "target": "SeD_A4978"}}, {"data": {"id": "fis_SeD_A4979", "source": "fis", "target": "SeD_A4979"}}, {"data": {"id": "fis_deoC", "source": "fis", "target": "deoC"}}, {"data": {"id": "fis_deoA", "source": "fis", "target": "deoA"}}, {"data": {"id": "fis_deoB", "source": "fis", "target": "deoB"}}, {"data": {"id": "fis_gltX", "source": "fis", "target": "gltX"}}, {"data": {"id": "crp_fis", "source": "crp", "target": "fis"}}, {"data": {"id": "fis"}}, {"data": {"id": "SeD_A1463"}}, {"data": {"id": "SeD_A0044"}}, {"data": {"id": "fkpB"}}, {"data": {"id": "ispH"}}, {"data": {"id": "dkgB"}}, {"data": {"id": "infA"}}, {"data": {"id": "SeD_A1771"}}, {"data": {"id": "fdnH"}}, {"data": {"id": "SeD_A1775"}}, {"data": {"id": "SeD_A1934"}}, {"data": {"id": "SeD_A1935"}}, {"data": {"id": "SeD_A1936"}}, {"data": {"id": "eprI"}}, {"data": {"id": "SeD_A2203"}}, {"data": {"id": "SeD_A2204"}}, {"data": {"id": "SeD_A2205"}}, {"data": {"id": "SeD_A2206"}}, {"data": {"id": "grxB"}}, {"data": {"id": "SeD_A2257"}}, {"data": {"id": "SeD_A2258"}}, {"data": {"id": "SeD_A2259"}}, {"data": {"id": "SeD_A2260"}}, {"data": {"id": "SeD_A2261"}}, {"data": {"id": "SeD_A2262"}}, {"data": {"id": "SeD_A2263"}}, {"data": {"id": "SeD_A2264"}}, {"data": {"id": "SeD_A2265"}}, {"data": {"id": "SeD_A2266"}}, {"data": {"id": "mglC"}}, {"data": {"id": "SeD_A2582"}}, {"data": {"id": "SeD_A2586"}}, {"data": {"id": "SeD_A2754"}}, {"data": {"id": "SeD_A2755"}}, {"data": {"id": "SeD_A2983"}}, {"data": {"id": "SeD_A2993"}}, {"data": {"id": "gabP"}}, {"data": {"id": "SeD_A3096"}}, {"data": {"id": "SeD_A3441"}}, {"data": {"id": "SeD_A4035"}}, {"data": {"id": "SeD_A4383"}}, {"data": {"id": "SeD_A4384"}}, {"data": {"id": "SeD_A4385"}}, {"data": {"id": "purD"}}, {"data": {"id": "purH"}}, {"data": {"id": "nrdG"}}, {"data": {"id": "SeD_A4880"}}, {"data": {"id": "SeD_A4937"}}, {"data": {"id": "SeD_A5014"}}, {"data": {"id": "SeD_B0090"}}, {"data": {"id": "SeD_B0091"}}, {"data": {"id": "SeD_B0092"}}, {"data": {"id": "acnB"}}, {"data": {"id": "queA"}}, {"data": {"id": "hupB"}}, {"data": {"id": "SeD_A0926"}}, {"data": {"id": "SeD_A1029"}}, {"data": {"id": "dmsB_1"}}, {"data": {"id": "dmsC1"}}, {"data": {"id": "pflB2"}}, {"data": {"id": "SeD_A1038"}}, {"data": {"id": "pyrD"}}, {"data": {"id": "SeD_A1558"}}, {"data": {"id": "narG"}}, {"data": {"id": "narH"}}, {"data": {"id": "narJ"}}, {"data": {"id": "narI"}}, {"data": {"id": "hns"}}, {"data": {"id": "adhE"}}, {"data": {"id": "topA"}}, {"data": {"id": "SeD_A1674"}}, {"data": {"id": "SeD_A1716"}}, {"data": {"id": "marR"}}, {"data": {"id": "SeD_A1816"}}, {"data": {"id": "SeD_A1817"}}, {"data": {"id": "osmE"}}, {"data": {"id": "ndh"}}, {"data": {"id": "ptsG"}}, {"data": {"id": "gyrA"}}, {"data": {"id": "nrdB"}}, {"data": {"id": "SeD_A2623"}}, {"data": {"id": "glpQ"}}, {"data": {"id": "glpT"}}, {"data": {"id": "glpA"}}, {"data": {"id": "SeD_A2629"}}, {"data": {"id": "glpC"}}, {"data": {"id": "nuoN"}}, {"data": {"id": "nuoM"}}, {"data": {"id": "nuoL"}}, {"data": {"id": "nuoK"}}, {"data": {"id": "nuoJ"}}, {"data": {"id": "nuoI"}}, {"data": {"id": "nuoH"}}, {"data": {"id": "nuoG"}}, {"data": {"id": "nuoF"}}, {"data": {"id": "nuoE"}}, {"data": {"id": "nuoC"}}, {"data": {"id": "SeD_A2673"}}, {"data": {"id": "nuoA"}}, {"data": {"id": "SeD_A2707"}}, {"data": {"id": "SeD_A2708"}}, {"data": {"id": "SeD_A2709"}}, {"data": {"id": "SeD_A2710"}}, {"data": {"id": "guaA"}}, {"data": {"id": "guaB"}}, {"data": {"id": "grcA"}}, {"data": {"id": "mazG"}}, {"data": {"id": "ansB"}}, {"data": {"id": "rocD"}}, {"data": {"id": "rpsO"}}, {"data": {"id": "truB"}}, {"data": {"id": "rbfA"}}, {"data": {"id": "infB"}}, {"data": {"id": "nusA"}}, {"data": {"id": "SeD_A3645"}}, {"data": {"id": "nanA"}}, {"data": {"id": "rpsI"}}, {"data": {"id": "rplM"}}, {"data": {"id": "dusB"}}, {"data": {"id": "crp"}}, {"data": {"id": "SeD_A3835"}}, {"data": {"id": "nirC"}}, {"data": {"id": "cysG"}}, {"data": {"id": "SeD_A4045"}}, {"data": {"id": "aldB"}}, {"data": {"id": "SeD_A4070"}}, {"data": {"id": "mtlD"}}, {"data": {"id": "mtlR"}}, {"data": {"id": "gyrB"}}, {"data": {"id": "recF"}}, {"data": {"id": "fadA"}}, {"data": {"id": "fadB"}}, {"data": {"id": "glnA"}}, {"data": {"id": "trmA"}}, {"data": {"id": "hupA"}}, {"data": {"id": "SeD_A4578"}}, {"data": {"id": "malE"}}, {"data": {"id": "actP"}}, {"data": {"id": "SeD_A4669"}}, {"data": {"id": "acsA"}}, {"data": {"id": "nrfA"}}, {"data": {"id": "osmY"}}, {"data": {"id": "SeD_A4977"}}, {"data": {"id": "SeD_A4978"}}, {"data": {"id": "SeD_A4979"}}, {"data": {"id": "deoC"}}, {"data": {"id": "deoA"}}, {"data": {"id": "deoB"}}, {"data": {"id": "gltX"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

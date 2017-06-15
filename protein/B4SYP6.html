@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "SNSL254_A0752_SNSL254_A0480", "source": "SNSL254_A0752", "target": "SNSL254_A0480"}}, {"data": {"id": "SNSL254_A0752_trxA", "source": "SNSL254_A0752", "target": "trxA"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0752", "source": "SNSL254_A0752", "target": "SNSL254_A0752"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0752", "source": "SNSL254_A0752", "target": "SNSL254_A0752"}}, {"data": {"id": "SNSL254_A4610_SNSL254_A0752", "source": "SNSL254_A4610", "target": "SNSL254_A0752"}}, {"data": {"id": "SNSL254_A0752_carA", "source": "SNSL254_A0752", "target": "carA"}}, {"data": {"id": "SNSL254_A0752_carB", "source": "SNSL254_A0752", "target": "carB"}}, {"data": {"id": "SNSL254_A0752_folK", "source": "SNSL254_A0752", "target": "folK"}}, {"data": {"id": "SNSL254_A0752_pcnB", "source": "SNSL254_A0752", "target": "pcnB"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0619", "source": "SNSL254_A0752", "target": "SNSL254_A0619"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0620", "source": "SNSL254_A0752", "target": "SNSL254_A0620"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0782", "source": "SNSL254_A0752", "target": "SNSL254_A0782"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0783", "source": "SNSL254_A0752", "target": "SNSL254_A0783"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1235", "source": "SNSL254_A0752", "target": "SNSL254_A1235"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1236", "source": "SNSL254_A0752", "target": "SNSL254_A1236"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1237", "source": "SNSL254_A0752", "target": "SNSL254_A1237"}}, {"data": {"id": "SNSL254_A0752_csgD", "source": "SNSL254_A0752", "target": "csgD"}}, {"data": {"id": "SNSL254_A0752_csgB", "source": "SNSL254_A0752", "target": "csgB"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1240", "source": "SNSL254_A0752", "target": "SNSL254_A1240"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1597", "source": "SNSL254_A0752", "target": "SNSL254_A1597"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1598", "source": "SNSL254_A0752", "target": "SNSL254_A1598"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1626", "source": "SNSL254_A0752", "target": "SNSL254_A1626"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1627", "source": "SNSL254_A0752", "target": "SNSL254_A1627"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1669", "source": "SNSL254_A0752", "target": "SNSL254_A1669"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2055", "source": "SNSL254_A0752", "target": "SNSL254_A2055"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2056", "source": "SNSL254_A0752", "target": "SNSL254_A2056"}}, {"data": {"id": "SNSL254_A0752_wcaD", "source": "SNSL254_A0752", "target": "wcaD"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2295", "source": "SNSL254_A0752", "target": "SNSL254_A2295"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2296", "source": "SNSL254_A0752", "target": "SNSL254_A2296"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2297", "source": "SNSL254_A0752", "target": "SNSL254_A2297"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2298", "source": "SNSL254_A0752", "target": "SNSL254_A2298"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2299", "source": "SNSL254_A0752", "target": "SNSL254_A2299"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2300", "source": "SNSL254_A0752", "target": "SNSL254_A2300"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2392", "source": "SNSL254_A0752", "target": "SNSL254_A2392"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2393", "source": "SNSL254_A0752", "target": "SNSL254_A2393"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2395", "source": "SNSL254_A0752", "target": "SNSL254_A2395"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2978", "source": "SNSL254_A0752", "target": "SNSL254_A2978"}}, {"data": {"id": "SNSL254_A0752_eprI", "source": "SNSL254_A0752", "target": "eprI"}}, {"data": {"id": "SNSL254_A0752_eprH", "source": "SNSL254_A0752", "target": "eprH"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3080", "source": "SNSL254_A0752", "target": "SNSL254_A3080"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3371", "source": "SNSL254_A0752", "target": "SNSL254_A3371"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3372", "source": "SNSL254_A0752", "target": "SNSL254_A3372"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3373", "source": "SNSL254_A0752", "target": "SNSL254_A3373"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3611", "source": "SNSL254_A0752", "target": "SNSL254_A3611"}}, {"data": {"id": "SNSL254_A0752_degS", "source": "SNSL254_A0752", "target": "degS"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3918", "source": "SNSL254_A0752", "target": "SNSL254_A3918"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3919", "source": "SNSL254_A0752", "target": "SNSL254_A3919"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0636", "source": "SNSL254_A0752", "target": "SNSL254_A0636"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0637", "source": "SNSL254_A0752", "target": "SNSL254_A0637"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0638", "source": "SNSL254_A0752", "target": "SNSL254_A0638"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0639", "source": "SNSL254_A0752", "target": "SNSL254_A0639"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0640", "source": "SNSL254_A0752", "target": "SNSL254_A0640"}}, {"data": {"id": "SNSL254_A0752_entF", "source": "SNSL254_A0752", "target": "entF"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0642", "source": "SNSL254_A0752", "target": "SNSL254_A0642"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0643", "source": "SNSL254_A0752", "target": "SNSL254_A0643"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0644", "source": "SNSL254_A0752", "target": "SNSL254_A0644"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0645", "source": "SNSL254_A0752", "target": "SNSL254_A0645"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0646", "source": "SNSL254_A0752", "target": "SNSL254_A0646"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0647", "source": "SNSL254_A0752", "target": "SNSL254_A0647"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0648", "source": "SNSL254_A0752", "target": "SNSL254_A0648"}}, {"data": {"id": "SNSL254_A0752_entE", "source": "SNSL254_A0752", "target": "entE"}}, {"data": {"id": "SNSL254_A0752_entB", "source": "SNSL254_A0752", "target": "entB"}}, {"data": {"id": "SNSL254_A0752_entA", "source": "SNSL254_A0752", "target": "entA"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0652", "source": "SNSL254_A0752", "target": "SNSL254_A0652"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0752", "source": "SNSL254_A0752", "target": "SNSL254_A0752"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A0752", "source": "SNSL254_A0752", "target": "SNSL254_A0752"}}, {"data": {"id": "SNSL254_A0752_sdhC", "source": "SNSL254_A0752", "target": "sdhC"}}, {"data": {"id": "SNSL254_A0752_sdhD", "source": "SNSL254_A0752", "target": "sdhD"}}, {"data": {"id": "SNSL254_A0752_sdhA", "source": "SNSL254_A0752", "target": "sdhA"}}, {"data": {"id": "SNSL254_A0752_sdhB", "source": "SNSL254_A0752", "target": "sdhB"}}, {"data": {"id": "SNSL254_A0752_sucA", "source": "SNSL254_A0752", "target": "sucA"}}, {"data": {"id": "SNSL254_A0752_sucB", "source": "SNSL254_A0752", "target": "sucB"}}, {"data": {"id": "SNSL254_A0752_gpmA", "source": "SNSL254_A0752", "target": "gpmA"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1303", "source": "SNSL254_A0752", "target": "SNSL254_A1303"}}, {"data": {"id": "SNSL254_A0752_sufA", "source": "SNSL254_A0752", "target": "sufA"}}, {"data": {"id": "SNSL254_A0752_sufB", "source": "SNSL254_A0752", "target": "sufB"}}, {"data": {"id": "SNSL254_A0752_sufC", "source": "SNSL254_A0752", "target": "sufC"}}, {"data": {"id": "SNSL254_A0752_sufD", "source": "SNSL254_A0752", "target": "sufD"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1486", "source": "SNSL254_A0752", "target": "SNSL254_A1486"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1487", "source": "SNSL254_A0752", "target": "SNSL254_A1487"}}, {"data": {"id": "SNSL254_A0752_purR", "source": "SNSL254_A0752", "target": "purR"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1864", "source": "SNSL254_A0752", "target": "SNSL254_A1864"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1974", "source": "SNSL254_A0752", "target": "SNSL254_A1974"}}, {"data": {"id": "SNSL254_A0752_flhC", "source": "SNSL254_A0752", "target": "flhC"}}, {"data": {"id": "SNSL254_A0752_flhD", "source": "SNSL254_A0752", "target": "flhD"}}, {"data": {"id": "SNSL254_A0752_ftnA", "source": "SNSL254_A0752", "target": "ftnA"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2390", "source": "SNSL254_A0752", "target": "SNSL254_A2390"}}, {"data": {"id": "SNSL254_A0752_hmp", "source": "SNSL254_A0752", "target": "hmp"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2807", "source": "SNSL254_A0752", "target": "SNSL254_A2807"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2808", "source": "SNSL254_A0752", "target": "SNSL254_A2808"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2809", "source": "SNSL254_A0752", "target": "SNSL254_A2809"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2810", "source": "SNSL254_A0752", "target": "SNSL254_A2810"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2811", "source": "SNSL254_A0752", "target": "SNSL254_A2811"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2812", "source": "SNSL254_A0752", "target": "SNSL254_A2812"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2813", "source": "SNSL254_A0752", "target": "SNSL254_A2813"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2814", "source": "SNSL254_A0752", "target": "SNSL254_A2814"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2815", "source": "SNSL254_A0752", "target": "SNSL254_A2815"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A2816", "source": "SNSL254_A0752", "target": "SNSL254_A2816"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3256", "source": "SNSL254_A0752", "target": "SNSL254_A3256"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3474", "source": "SNSL254_A0752", "target": "SNSL254_A3474"}}, {"data": {"id": "SNSL254_A0752_feoA", "source": "SNSL254_A0752", "target": "feoA"}}, {"data": {"id": "SNSL254_A0752_feoB", "source": "SNSL254_A0752", "target": "feoB"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3780", "source": "SNSL254_A0752", "target": "SNSL254_A3780"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3781", "source": "SNSL254_A0752", "target": "SNSL254_A3781"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A3814", "source": "SNSL254_A0752", "target": "SNSL254_A3814"}}, {"data": {"id": "SNSL254_A0752_sodA", "source": "SNSL254_A0752", "target": "sodA"}}, {"data": {"id": "SNSL254_A0752_metJ", "source": "SNSL254_A0752", "target": "metJ"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A4906", "source": "SNSL254_A0752", "target": "SNSL254_A4906"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A4908", "source": "SNSL254_A0752", "target": "SNSL254_A4908"}}, {"data": {"id": "SNSL254_A0752_SNSL254_A1874", "source": "SNSL254_A0752", "target": "SNSL254_A1874"}}, {"data": {"id": "oxyR_SNSL254_A0752", "source": "oxyR", "target": "SNSL254_A0752"}}, {"data": {"id": "SNSL254_A0752"}}, {"data": {"id": "SNSL254_A0480"}}, {"data": {"id": "trxA"}}, {"data": {"id": "SNSL254_A4610"}}, {"data": {"id": "carA"}}, {"data": {"id": "carB"}}, {"data": {"id": "folK"}}, {"data": {"id": "pcnB"}}, {"data": {"id": "SNSL254_A0619"}}, {"data": {"id": "SNSL254_A0620"}}, {"data": {"id": "SNSL254_A0782"}}, {"data": {"id": "SNSL254_A0783"}}, {"data": {"id": "SNSL254_A1235"}}, {"data": {"id": "SNSL254_A1236"}}, {"data": {"id": "SNSL254_A1237"}}, {"data": {"id": "csgD"}}, {"data": {"id": "csgB"}}, {"data": {"id": "SNSL254_A1240"}}, {"data": {"id": "SNSL254_A1597"}}, {"data": {"id": "SNSL254_A1598"}}, {"data": {"id": "SNSL254_A1626"}}, {"data": {"id": "SNSL254_A1627"}}, {"data": {"id": "SNSL254_A1669"}}, {"data": {"id": "SNSL254_A2055"}}, {"data": {"id": "SNSL254_A2056"}}, {"data": {"id": "wcaD"}}, {"data": {"id": "SNSL254_A2295"}}, {"data": {"id": "SNSL254_A2296"}}, {"data": {"id": "SNSL254_A2297"}}, {"data": {"id": "SNSL254_A2298"}}, {"data": {"id": "SNSL254_A2299"}}, {"data": {"id": "SNSL254_A2300"}}, {"data": {"id": "SNSL254_A2392"}}, {"data": {"id": "SNSL254_A2393"}}, {"data": {"id": "SNSL254_A2395"}}, {"data": {"id": "SNSL254_A2978"}}, {"data": {"id": "eprI"}}, {"data": {"id": "eprH"}}, {"data": {"id": "SNSL254_A3080"}}, {"data": {"id": "SNSL254_A3371"}}, {"data": {"id": "SNSL254_A3372"}}, {"data": {"id": "SNSL254_A3373"}}, {"data": {"id": "SNSL254_A3611"}}, {"data": {"id": "degS"}}, {"data": {"id": "SNSL254_A3918"}}, {"data": {"id": "SNSL254_A3919"}}, {"data": {"id": "SNSL254_A0636"}}, {"data": {"id": "SNSL254_A0637"}}, {"data": {"id": "SNSL254_A0638"}}, {"data": {"id": "SNSL254_A0639"}}, {"data": {"id": "SNSL254_A0640"}}, {"data": {"id": "entF"}}, {"data": {"id": "SNSL254_A0642"}}, {"data": {"id": "SNSL254_A0643"}}, {"data": {"id": "SNSL254_A0644"}}, {"data": {"id": "SNSL254_A0645"}}, {"data": {"id": "SNSL254_A0646"}}, {"data": {"id": "SNSL254_A0647"}}, {"data": {"id": "SNSL254_A0648"}}, {"data": {"id": "entE"}}, {"data": {"id": "entB"}}, {"data": {"id": "entA"}}, {"data": {"id": "SNSL254_A0652"}}, {"data": {"id": "sdhC"}}, {"data": {"id": "sdhD"}}, {"data": {"id": "sdhA"}}, {"data": {"id": "sdhB"}}, {"data": {"id": "sucA"}}, {"data": {"id": "sucB"}}, {"data": {"id": "gpmA"}}, {"data": {"id": "SNSL254_A1303"}}, {"data": {"id": "sufA"}}, {"data": {"id": "sufB"}}, {"data": {"id": "sufC"}}, {"data": {"id": "sufD"}}, {"data": {"id": "SNSL254_A1486"}}, {"data": {"id": "SNSL254_A1487"}}, {"data": {"id": "purR"}}, {"data": {"id": "SNSL254_A1864"}}, {"data": {"id": "SNSL254_A1974"}}, {"data": {"id": "flhC"}}, {"data": {"id": "flhD"}}, {"data": {"id": "ftnA"}}, {"data": {"id": "SNSL254_A2390"}}, {"data": {"id": "hmp"}}, {"data": {"id": "SNSL254_A2807"}}, {"data": {"id": "SNSL254_A2808"}}, {"data": {"id": "SNSL254_A2809"}}, {"data": {"id": "SNSL254_A2810"}}, {"data": {"id": "SNSL254_A2811"}}, {"data": {"id": "SNSL254_A2812"}}, {"data": {"id": "SNSL254_A2813"}}, {"data": {"id": "SNSL254_A2814"}}, {"data": {"id": "SNSL254_A2815"}}, {"data": {"id": "SNSL254_A2816"}}, {"data": {"id": "SNSL254_A3256"}}, {"data": {"id": "SNSL254_A3474"}}, {"data": {"id": "feoA"}}, {"data": {"id": "feoB"}}, {"data": {"id": "SNSL254_A3780"}}, {"data": {"id": "SNSL254_A3781"}}, {"data": {"id": "SNSL254_A3814"}}, {"data": {"id": "sodA"}}, {"data": {"id": "metJ"}}, {"data": {"id": "SNSL254_A4906"}}, {"data": {"id": "SNSL254_A4908"}}, {"data": {"id": "SNSL254_A1874"}}, {"data": {"id": "oxyR"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

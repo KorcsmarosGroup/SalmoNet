@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "fis_SL1344_1780", "source": "fis", "target": "SL1344_1780"}}, {"data": {"id": "fis_fkpB", "source": "fis", "target": "fkpB"}}, {"data": {"id": "fis_lytB", "source": "fis", "target": "lytB"}}, {"data": {"id": "fis_cydA", "source": "fis", "target": "cydA"}}, {"data": {"id": "fis_cydB", "source": "fis", "target": "cydB"}}, {"data": {"id": "fis_SL1344_0724", "source": "fis", "target": "SL1344_0724"}}, {"data": {"id": "fis_ninG", "source": "fis", "target": "ninG"}}, {"data": {"id": "fis_SL1344_0960", "source": "fis", "target": "SL1344_0960"}}, {"data": {"id": "fis_SL1344_0961", "source": "fis", "target": "SL1344_0961"}}, {"data": {"id": "fis_sseI", "source": "fis", "target": "sseI"}}, {"data": {"id": "fis_grxB", "source": "fis", "target": "grxB"}}, {"data": {"id": "fis_SL1344_1103", "source": "fis", "target": "SL1344_1103"}}, {"data": {"id": "fis_rimJ", "source": "fis", "target": "rimJ"}}, {"data": {"id": "fis_SL1344_1105", "source": "fis", "target": "SL1344_1105"}}, {"data": {"id": "fis_mviM", "source": "fis", "target": "mviM"}}, {"data": {"id": "fis_ssaG", "source": "fis", "target": "ssaG"}}, {"data": {"id": "fis_ssaH", "source": "fis", "target": "ssaH"}}, {"data": {"id": "fis_ssaI", "source": "fis", "target": "ssaI"}}, {"data": {"id": "fis_ssaJ", "source": "fis", "target": "ssaJ"}}, {"data": {"id": "fis_SL1344_1952", "source": "fis", "target": "SL1344_1952"}}, {"data": {"id": "fis_SL1344_1953", "source": "fis", "target": "SL1344_1953"}}, {"data": {"id": "fis_SL1344_2121", "source": "fis", "target": "SL1344_2121"}}, {"data": {"id": "fis_SL1344_2579", "source": "fis", "target": "SL1344_2579"}}, {"data": {"id": "fis_SL1344_2580", "source": "fis", "target": "SL1344_2580"}}, {"data": {"id": "fis_SL1344_2581", "source": "fis", "target": "SL1344_2581"}}, {"data": {"id": "fis_yfiA", "source": "fis", "target": "yfiA"}}, {"data": {"id": "fis_hxlA", "source": "fis", "target": "hxlA"}}, {"data": {"id": "fis_hxlB", "source": "fis", "target": "hxlB"}}, {"data": {"id": "fis_SL1344_2741", "source": "fis", "target": "SL1344_2741"}}, {"data": {"id": "fis_SL1344_3056", "source": "fis", "target": "SL1344_3056"}}, {"data": {"id": "fis_SL1344_3057", "source": "fis", "target": "SL1344_3057"}}, {"data": {"id": "fis_SL1344_3058", "source": "fis", "target": "SL1344_3058"}}, {"data": {"id": "fis_SL1344_3059", "source": "fis", "target": "SL1344_3059"}}, {"data": {"id": "fis_kdgR", "source": "fis", "target": "kdgR"}}, {"data": {"id": "fis_SL1344_3943", "source": "fis", "target": "SL1344_3943"}}, {"data": {"id": "fis_SL1344_3944", "source": "fis", "target": "SL1344_3944"}}, {"data": {"id": "fis_dsbA", "source": "fis", "target": "dsbA"}}, {"data": {"id": "fis_purD", "source": "fis", "target": "purD"}}, {"data": {"id": "fis_purH", "source": "fis", "target": "purH"}}, {"data": {"id": "fis_treC", "source": "fis", "target": "treC"}}, {"data": {"id": "fis_ydhA", "source": "fis", "target": "ydhA"}}, {"data": {"id": "fis_ydiA", "source": "fis", "target": "ydiA"}}, {"data": {"id": "fis_carA", "source": "fis", "target": "carA"}}, {"data": {"id": "fis_carB", "source": "fis", "target": "carB"}}, {"data": {"id": "fis_acnB", "source": "fis", "target": "acnB"}}, {"data": {"id": "fis_queA", "source": "fis", "target": "queA"}}, {"data": {"id": "fis_hupB", "source": "fis", "target": "hupB"}}, {"data": {"id": "fis_dps", "source": "fis", "target": "dps"}}, {"data": {"id": "fis_dmsA", "source": "fis", "target": "dmsA"}}, {"data": {"id": "fis_dmsB", "source": "fis", "target": "dmsB"}}, {"data": {"id": "fis_dmsC", "source": "fis", "target": "dmsC"}}, {"data": {"id": "fis_pflB", "source": "fis", "target": "pflB"}}, {"data": {"id": "fis_focA", "source": "fis", "target": "focA"}}, {"data": {"id": "fis_pyrD", "source": "fis", "target": "pyrD"}}, {"data": {"id": "fis_ptsG", "source": "fis", "target": "ptsG"}}, {"data": {"id": "fis_ndh", "source": "fis", "target": "ndh"}}, {"data": {"id": "fis_SL1344_1207", "source": "fis", "target": "SL1344_1207"}}, {"data": {"id": "fis_osmE", "source": "fis", "target": "osmE"}}, {"data": {"id": "fis_marB", "source": "fis", "target": "marB"}}, {"data": {"id": "fis_marA", "source": "fis", "target": "marA"}}, {"data": {"id": "fis_marR", "source": "fis", "target": "marR"}}, {"data": {"id": "fis_trg", "source": "fis", "target": "trg"}}, {"data": {"id": "fis_ogt", "source": "fis", "target": "ogt"}}, {"data": {"id": "fis_topA", "source": "fis", "target": "topA"}}, {"data": {"id": "fis_adh", "source": "fis", "target": "adh"}}, {"data": {"id": "fis_hns", "source": "fis", "target": "hns"}}, {"data": {"id": "fis_narI", "source": "fis", "target": "narI"}}, {"data": {"id": "fis_narJ", "source": "fis", "target": "narJ"}}, {"data": {"id": "fis_narH", "source": "fis", "target": "narH"}}, {"data": {"id": "fis_narG", "source": "fis", "target": "narG"}}, {"data": {"id": "fis_narK", "source": "fis", "target": "narK"}}, {"data": {"id": "fis_SL1344_1736", "source": "fis", "target": "SL1344_1736"}}, {"data": {"id": "fis_cspJ", "source": "fis", "target": "cspJ"}}, {"data": {"id": "fis_gyrA", "source": "fis", "target": "gyrA"}}, {"data": {"id": "fis_nrdB", "source": "fis", "target": "nrdB"}}, {"data": {"id": "fis_yfaE", "source": "fis", "target": "yfaE"}}, {"data": {"id": "fis_glpQ", "source": "fis", "target": "glpQ"}}, {"data": {"id": "fis_glpT", "source": "fis", "target": "glpT"}}, {"data": {"id": "fis_glpA", "source": "fis", "target": "glpA"}}, {"data": {"id": "fis_glpB", "source": "fis", "target": "glpB"}}, {"data": {"id": "fis_glpC", "source": "fis", "target": "glpC"}}, {"data": {"id": "fis_nuoN", "source": "fis", "target": "nuoN"}}, {"data": {"id": "fis_nuoM", "source": "fis", "target": "nuoM"}}, {"data": {"id": "fis_nuoL", "source": "fis", "target": "nuoL"}}, {"data": {"id": "fis_nuoK", "source": "fis", "target": "nuoK"}}, {"data": {"id": "fis_nuoJ", "source": "fis", "target": "nuoJ"}}, {"data": {"id": "fis_nuoI", "source": "fis", "target": "nuoI"}}, {"data": {"id": "fis_nuoH", "source": "fis", "target": "nuoH"}}, {"data": {"id": "fis_nuoG", "source": "fis", "target": "nuoG"}}, {"data": {"id": "fis_nuoF", "source": "fis", "target": "nuoF"}}, {"data": {"id": "fis_nuoE", "source": "fis", "target": "nuoE"}}, {"data": {"id": "fis_nuoC", "source": "fis", "target": "nuoC"}}, {"data": {"id": "fis_nuoB", "source": "fis", "target": "nuoB"}}, {"data": {"id": "fis_nuoA", "source": "fis", "target": "nuoA"}}, {"data": {"id": "fis_ubiX", "source": "fis", "target": "ubiX"}}, {"data": {"id": "fis_SL1344_2326", "source": "fis", "target": "SL1344_2326"}}, {"data": {"id": "fis_SL1344_2327", "source": "fis", "target": "SL1344_2327"}}, {"data": {"id": "fis_SL1344_2328", "source": "fis", "target": "SL1344_2328"}}, {"data": {"id": "fis_gltX", "source": "fis", "target": "gltX"}}, {"data": {"id": "fis_guaA", "source": "fis", "target": "guaA"}}, {"data": {"id": "fis_guaB", "source": "fis", "target": "guaB"}}, {"data": {"id": "fis_SL1344_2610", "source": "fis", "target": "SL1344_2610"}}, {"data": {"id": "fis_SL1344_2933", "source": "fis", "target": "SL1344_2933"}}, {"data": {"id": "fis_ansB", "source": "fis", "target": "ansB"}}, {"data": {"id": "fis_SL1344_3191", "source": "fis", "target": "SL1344_3191"}}, {"data": {"id": "fis_pnp", "source": "fis", "target": "pnp"}}, {"data": {"id": "fis_rpsO", "source": "fis", "target": "rpsO"}}, {"data": {"id": "fis_truB", "source": "fis", "target": "truB"}}, {"data": {"id": "fis_rbfA", "source": "fis", "target": "rbfA"}}, {"data": {"id": "fis_infB", "source": "fis", "target": "infB"}}, {"data": {"id": "fis_nusA", "source": "fis", "target": "nusA"}}, {"data": {"id": "fis_SL1344_3261", "source": "fis", "target": "SL1344_3261"}}, {"data": {"id": "fis_nanA", "source": "fis", "target": "nanA"}}, {"data": {"id": "fis_rpsI", "source": "fis", "target": "rpsI"}}, {"data": {"id": "fis_rplM", "source": "fis", "target": "rplM"}}, {"data": {"id": "fis_SL1344_3357", "source": "fis", "target": "SL1344_3357"}}, {"data": {"id": "fis_fis", "source": "fis", "target": "fis"}}, {"data": {"id": "fis_fis", "source": "fis", "target": "fis"}}, {"data": {"id": "fis_cap", "source": "fis", "target": "cap"}}, {"data": {"id": "fis_yhfK", "source": "fis", "target": "yhfK"}}, {"data": {"id": "fis_nirB", "source": "fis", "target": "nirB"}}, {"data": {"id": "fis_nirD", "source": "fis", "target": "nirD"}}, {"data": {"id": "fis_nirC", "source": "fis", "target": "nirC"}}, {"data": {"id": "fis_cysG", "source": "fis", "target": "cysG"}}, {"data": {"id": "fis_xylR", "source": "fis", "target": "xylR"}}, {"data": {"id": "fis_aldB", "source": "fis", "target": "aldB"}}, {"data": {"id": "fis_mtlA", "source": "fis", "target": "mtlA"}}, {"data": {"id": "fis_gyrB", "source": "fis", "target": "gyrB"}}, {"data": {"id": "fis_recF", "source": "fis", "target": "recF"}}, {"data": {"id": "fis_fadA", "source": "fis", "target": "fadA"}}, {"data": {"id": "fis_fadB", "source": "fis", "target": "fadB"}}, {"data": {"id": "fis_glnA", "source": "fis", "target": "glnA"}}, {"data": {"id": "fis_trmA", "source": "fis", "target": "trmA"}}, {"data": {"id": "fis_hupA", "source": "fis", "target": "hupA"}}, {"data": {"id": "fis_SL1344_4110", "source": "fis", "target": "SL1344_4110"}}, {"data": {"id": "fis_malE", "source": "fis", "target": "malE"}}, {"data": {"id": "fis_SL1344_4209", "source": "fis", "target": "SL1344_4209"}}, {"data": {"id": "fis_SL1344_4210", "source": "fis", "target": "SL1344_4210"}}, {"data": {"id": "fis_acs", "source": "fis", "target": "acs"}}, {"data": {"id": "fis_proP", "source": "fis", "target": "proP"}}, {"data": {"id": "fis_msrA", "source": "fis", "target": "msrA"}}, {"data": {"id": "fis_osmY", "source": "fis", "target": "osmY"}}, {"data": {"id": "fis_deoC", "source": "fis", "target": "deoC"}}, {"data": {"id": "fis_deoA", "source": "fis", "target": "deoA"}}, {"data": {"id": "fis_deoB", "source": "fis", "target": "deoB"}}, {"data": {"id": "fis_deoD", "source": "fis", "target": "deoD"}}, {"data": {"id": "fis_srgC", "source": "fis", "target": "srgC"}}, {"data": {"id": "cap_fis", "source": "cap", "target": "fis"}}, {"data": {"id": "fis"}}, {"data": {"id": "SL1344_1780"}}, {"data": {"id": "fkpB"}}, {"data": {"id": "lytB"}}, {"data": {"id": "cydA"}}, {"data": {"id": "cydB"}}, {"data": {"id": "SL1344_0724"}}, {"data": {"id": "ninG"}}, {"data": {"id": "SL1344_0960"}}, {"data": {"id": "SL1344_0961"}}, {"data": {"id": "sseI"}}, {"data": {"id": "grxB"}}, {"data": {"id": "SL1344_1103"}}, {"data": {"id": "rimJ"}}, {"data": {"id": "SL1344_1105"}}, {"data": {"id": "mviM"}}, {"data": {"id": "ssaG"}}, {"data": {"id": "ssaH"}}, {"data": {"id": "ssaI"}}, {"data": {"id": "ssaJ"}}, {"data": {"id": "SL1344_1952"}}, {"data": {"id": "SL1344_1953"}}, {"data": {"id": "SL1344_2121"}}, {"data": {"id": "SL1344_2579"}}, {"data": {"id": "SL1344_2580"}}, {"data": {"id": "SL1344_2581"}}, {"data": {"id": "yfiA"}}, {"data": {"id": "hxlA"}}, {"data": {"id": "hxlB"}}, {"data": {"id": "SL1344_2741"}}, {"data": {"id": "SL1344_3056"}}, {"data": {"id": "SL1344_3057"}}, {"data": {"id": "SL1344_3058"}}, {"data": {"id": "SL1344_3059"}}, {"data": {"id": "kdgR"}}, {"data": {"id": "SL1344_3943"}}, {"data": {"id": "SL1344_3944"}}, {"data": {"id": "dsbA"}}, {"data": {"id": "purD"}}, {"data": {"id": "purH"}}, {"data": {"id": "treC"}}, {"data": {"id": "ydhA"}}, {"data": {"id": "ydiA"}}, {"data": {"id": "carA"}}, {"data": {"id": "carB"}}, {"data": {"id": "acnB"}}, {"data": {"id": "queA"}}, {"data": {"id": "hupB"}}, {"data": {"id": "dps"}}, {"data": {"id": "dmsA"}}, {"data": {"id": "dmsB"}}, {"data": {"id": "dmsC"}}, {"data": {"id": "pflB"}}, {"data": {"id": "focA"}}, {"data": {"id": "pyrD"}}, {"data": {"id": "ptsG"}}, {"data": {"id": "ndh"}}, {"data": {"id": "SL1344_1207"}}, {"data": {"id": "osmE"}}, {"data": {"id": "marB"}}, {"data": {"id": "marA"}}, {"data": {"id": "marR"}}, {"data": {"id": "trg"}}, {"data": {"id": "ogt"}}, {"data": {"id": "topA"}}, {"data": {"id": "adh"}}, {"data": {"id": "hns"}}, {"data": {"id": "narI"}}, {"data": {"id": "narJ"}}, {"data": {"id": "narH"}}, {"data": {"id": "narG"}}, {"data": {"id": "narK"}}, {"data": {"id": "SL1344_1736"}}, {"data": {"id": "cspJ"}}, {"data": {"id": "gyrA"}}, {"data": {"id": "nrdB"}}, {"data": {"id": "yfaE"}}, {"data": {"id": "glpQ"}}, {"data": {"id": "glpT"}}, {"data": {"id": "glpA"}}, {"data": {"id": "glpB"}}, {"data": {"id": "glpC"}}, {"data": {"id": "nuoN"}}, {"data": {"id": "nuoM"}}, {"data": {"id": "nuoL"}}, {"data": {"id": "nuoK"}}, {"data": {"id": "nuoJ"}}, {"data": {"id": "nuoI"}}, {"data": {"id": "nuoH"}}, {"data": {"id": "nuoG"}}, {"data": {"id": "nuoF"}}, {"data": {"id": "nuoE"}}, {"data": {"id": "nuoC"}}, {"data": {"id": "nuoB"}}, {"data": {"id": "nuoA"}}, {"data": {"id": "ubiX"}}, {"data": {"id": "SL1344_2326"}}, {"data": {"id": "SL1344_2327"}}, {"data": {"id": "SL1344_2328"}}, {"data": {"id": "gltX"}}, {"data": {"id": "guaA"}}, {"data": {"id": "guaB"}}, {"data": {"id": "SL1344_2610"}}, {"data": {"id": "SL1344_2933"}}, {"data": {"id": "ansB"}}, {"data": {"id": "SL1344_3191"}}, {"data": {"id": "pnp"}}, {"data": {"id": "rpsO"}}, {"data": {"id": "truB"}}, {"data": {"id": "rbfA"}}, {"data": {"id": "infB"}}, {"data": {"id": "nusA"}}, {"data": {"id": "SL1344_3261"}}, {"data": {"id": "nanA"}}, {"data": {"id": "rpsI"}}, {"data": {"id": "rplM"}}, {"data": {"id": "SL1344_3357"}}, {"data": {"id": "cap"}}, {"data": {"id": "yhfK"}}, {"data": {"id": "nirB"}}, {"data": {"id": "nirD"}}, {"data": {"id": "nirC"}}, {"data": {"id": "cysG"}}, {"data": {"id": "xylR"}}, {"data": {"id": "aldB"}}, {"data": {"id": "mtlA"}}, {"data": {"id": "gyrB"}}, {"data": {"id": "recF"}}, {"data": {"id": "fadA"}}, {"data": {"id": "fadB"}}, {"data": {"id": "glnA"}}, {"data": {"id": "trmA"}}, {"data": {"id": "hupA"}}, {"data": {"id": "SL1344_4110"}}, {"data": {"id": "malE"}}, {"data": {"id": "SL1344_4209"}}, {"data": {"id": "SL1344_4210"}}, {"data": {"id": "acs"}}, {"data": {"id": "proP"}}, {"data": {"id": "msrA"}}, {"data": {"id": "osmY"}}, {"data": {"id": "deoC"}}, {"data": {"id": "deoA"}}, {"data": {"id": "deoB"}}, {"data": {"id": "deoD"}}, {"data": {"id": "srgC"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

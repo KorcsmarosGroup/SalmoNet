@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_thiJ", "source": "fur", "target": "thiJ"}}, {"data": {"id": "fur_trxA", "source": "fur", "target": "trxA"}}, {"data": {"id": "soxS_fur", "source": "soxS", "target": "fur"}}, {"data": {"id": "fur_carA", "source": "fur", "target": "carA"}}, {"data": {"id": "fur_carB", "source": "fur", "target": "carB"}}, {"data": {"id": "fur_folK", "source": "fur", "target": "folK"}}, {"data": {"id": "fur_pcnB", "source": "fur", "target": "pcnB"}}, {"data": {"id": "fur_SL1344_0291", "source": "fur", "target": "SL1344_0291"}}, {"data": {"id": "fur_SL1344_0369", "source": "fur", "target": "SL1344_0369"}}, {"data": {"id": "fur_SL1344_0555", "source": "fur", "target": "SL1344_0555"}}, {"data": {"id": "fur_pheP", "source": "fur", "target": "pheP"}}, {"data": {"id": "fur_SL1344_0704", "source": "fur", "target": "SL1344_0704"}}, {"data": {"id": "fur_SL1344_0705", "source": "fur", "target": "SL1344_0705"}}, {"data": {"id": "fur_SL1344_0830", "source": "fur", "target": "SL1344_0830"}}, {"data": {"id": "fur_SL1344_0831", "source": "fur", "target": "SL1344_0831"}}, {"data": {"id": "fur_SL1344_0832", "source": "fur", "target": "SL1344_0832"}}, {"data": {"id": "fur_csgF", "source": "fur", "target": "csgF"}}, {"data": {"id": "fur_csgE", "source": "fur", "target": "csgE"}}, {"data": {"id": "fur_csgD", "source": "fur", "target": "csgD"}}, {"data": {"id": "fur_csgB", "source": "fur", "target": "csgB"}}, {"data": {"id": "fur_csgA", "source": "fur", "target": "csgA"}}, {"data": {"id": "fur_SL1344_1416", "source": "fur", "target": "SL1344_1416"}}, {"data": {"id": "fur_SL1344_1417", "source": "fur", "target": "SL1344_1417"}}, {"data": {"id": "fur_SL1344_1444", "source": "fur", "target": "SL1344_1444"}}, {"data": {"id": "fur_SL1344_1445", "source": "fur", "target": "SL1344_1445"}}, {"data": {"id": "fur_wzc", "source": "fur", "target": "wzc"}}, {"data": {"id": "fur_wzb", "source": "fur", "target": "wzb"}}, {"data": {"id": "fur_wza", "source": "fur", "target": "wza"}}, {"data": {"id": "fur_yegH", "source": "fur", "target": "yegH"}}, {"data": {"id": "fur_yeiE", "source": "fur", "target": "yeiE"}}, {"data": {"id": "fur_yeiH", "source": "fur", "target": "yeiH"}}, {"data": {"id": "fur_SL1344_2727", "source": "fur", "target": "SL1344_2727"}}, {"data": {"id": "fur_SL1344_2728", "source": "fur", "target": "SL1344_2728"}}, {"data": {"id": "fur_SL1344_2729", "source": "fur", "target": "SL1344_2729"}}, {"data": {"id": "fur_SL1344_2746", "source": "fur", "target": "SL1344_2746"}}, {"data": {"id": "fur_orgC", "source": "fur", "target": "orgC"}}, {"data": {"id": "fur_orgB", "source": "fur", "target": "orgB"}}, {"data": {"id": "fur_orgAa", "source": "fur", "target": "orgAa"}}, {"data": {"id": "fur_prgK", "source": "fur", "target": "prgK"}}, {"data": {"id": "fur_prgJ", "source": "fur", "target": "prgJ"}}, {"data": {"id": "fur_prgI", "source": "fur", "target": "prgI"}}, {"data": {"id": "fur_prgH", "source": "fur", "target": "prgH"}}, {"data": {"id": "fur_hilD", "source": "fur", "target": "hilD"}}, {"data": {"id": "fur_degQ", "source": "fur", "target": "degQ"}}, {"data": {"id": "fur_degS", "source": "fur", "target": "degS"}}, {"data": {"id": "fur_lpfA", "source": "fur", "target": "lpfA"}}, {"data": {"id": "fur_cyoE", "source": "fur", "target": "cyoE"}}, {"data": {"id": "fur_cyoD", "source": "fur", "target": "cyoD"}}, {"data": {"id": "fur_cyoC", "source": "fur", "target": "cyoC"}}, {"data": {"id": "fur_cyoB", "source": "fur", "target": "cyoB"}}, {"data": {"id": "fur_cyoA", "source": "fur", "target": "cyoA"}}, {"data": {"id": "fur_SL1344_0571", "source": "fur", "target": "SL1344_0571"}}, {"data": {"id": "fur_entD", "source": "fur", "target": "entD"}}, {"data": {"id": "fur_fepA", "source": "fur", "target": "fepA"}}, {"data": {"id": "fur_fes", "source": "fur", "target": "fes"}}, {"data": {"id": "fur_SL1344_0575", "source": "fur", "target": "SL1344_0575"}}, {"data": {"id": "fur_entF", "source": "fur", "target": "entF"}}, {"data": {"id": "fur_fepE", "source": "fur", "target": "fepE"}}, {"data": {"id": "fur_fepC", "source": "fur", "target": "fepC"}}, {"data": {"id": "fur_fepG", "source": "fur", "target": "fepG"}}, {"data": {"id": "fur_fepD", "source": "fur", "target": "fepD"}}, {"data": {"id": "fur_ybdA", "source": "fur", "target": "ybdA"}}, {"data": {"id": "fur_fepB", "source": "fur", "target": "fepB"}}, {"data": {"id": "fur_entC", "source": "fur", "target": "entC"}}, {"data": {"id": "fur_entE", "source": "fur", "target": "entE"}}, {"data": {"id": "fur_entB", "source": "fur", "target": "entB"}}, {"data": {"id": "fur_entA", "source": "fur", "target": "entA"}}, {"data": {"id": "fur_SL1344_0587", "source": "fur", "target": "SL1344_0587"}}, {"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_sdhC", "source": "fur", "target": "sdhC"}}, {"data": {"id": "fur_sdhD", "source": "fur", "target": "sdhD"}}, {"data": {"id": "fur_sdhA", "source": "fur", "target": "sdhA"}}, {"data": {"id": "fur_sdhB", "source": "fur", "target": "sdhB"}}, {"data": {"id": "fur_sucA", "source": "fur", "target": "sucA"}}, {"data": {"id": "fur_sucB", "source": "fur", "target": "sucB"}}, {"data": {"id": "fur_fhuE", "source": "fur", "target": "fhuE"}}, {"data": {"id": "fur_SL1344_1303", "source": "fur", "target": "SL1344_1303"}}, {"data": {"id": "fur_SL1344_1304", "source": "fur", "target": "SL1344_1304"}}, {"data": {"id": "fur_SL1344_1305", "source": "fur", "target": "SL1344_1305"}}, {"data": {"id": "fur_SL1344_1306", "source": "fur", "target": "SL1344_1306"}}, {"data": {"id": "fur_SL1344_1307", "source": "fur", "target": "SL1344_1307"}}, {"data": {"id": "fur_SL1344_1308", "source": "fur", "target": "SL1344_1308"}}, {"data": {"id": "fur_purR", "source": "fur", "target": "purR"}}, {"data": {"id": "fur_tonB", "source": "fur", "target": "tonB"}}, {"data": {"id": "fur_SL1344_1763", "source": "fur", "target": "SL1344_1763"}}, {"data": {"id": "fur_flhC", "source": "fur", "target": "flhC"}}, {"data": {"id": "fur_flhD", "source": "fur", "target": "flhD"}}, {"data": {"id": "fur_ftnA", "source": "fur", "target": "ftnA"}}, {"data": {"id": "fur_SL1344_2125", "source": "fur", "target": "SL1344_2125"}}, {"data": {"id": "fur_cirA", "source": "fur", "target": "cirA"}}, {"data": {"id": "fur_mntH", "source": "fur", "target": "mntH"}}, {"data": {"id": "fur_hmpA", "source": "fur", "target": "hmpA"}}, {"data": {"id": "fur_SL1344_2564", "source": "fur", "target": "SL1344_2564"}}, {"data": {"id": "fur_SL1344_2565", "source": "fur", "target": "SL1344_2565"}}, {"data": {"id": "fur_SL1344_2566", "source": "fur", "target": "SL1344_2566"}}, {"data": {"id": "fur_SL1344_2567", "source": "fur", "target": "SL1344_2567"}}, {"data": {"id": "fur_SL1344_2568", "source": "fur", "target": "SL1344_2568"}}, {"data": {"id": "fur_SL1344_2569", "source": "fur", "target": "SL1344_2569"}}, {"data": {"id": "fur_SL1344_2570", "source": "fur", "target": "SL1344_2570"}}, {"data": {"id": "fur_SL1344_2571", "source": "fur", "target": "SL1344_2571"}}, {"data": {"id": "fur_SL1344_2572", "source": "fur", "target": "SL1344_2572"}}, {"data": {"id": "fur_SL1344_2573", "source": "fur", "target": "SL1344_2573"}}, {"data": {"id": "fur_SL1344_3002", "source": "fur", "target": "SL1344_3002"}}, {"data": {"id": "fur_SL1344_3187", "source": "fur", "target": "SL1344_3187"}}, {"data": {"id": "fur_feoA", "source": "fur", "target": "feoA"}}, {"data": {"id": "fur_feoB", "source": "fur", "target": "feoB"}}, {"data": {"id": "fur_SL1344_3474", "source": "fur", "target": "SL1344_3474"}}, {"data": {"id": "fur_SL1344_3512", "source": "fur", "target": "SL1344_3512"}}, {"data": {"id": "fur_sodA", "source": "fur", "target": "sodA"}}, {"data": {"id": "fur_metJ", "source": "fur", "target": "metJ"}}, {"data": {"id": "fur_metH", "source": "fur", "target": "metH"}}, {"data": {"id": "fur_SL1344_4481", "source": "fur", "target": "SL1344_4481"}}, {"data": {"id": "fur_SL1344_4483", "source": "fur", "target": "SL1344_4483"}}, {"data": {"id": "oxyR_fur", "source": "oxyR", "target": "fur"}}, {"data": {"id": "fur"}}, {"data": {"id": "thiJ"}}, {"data": {"id": "trxA"}}, {"data": {"id": "soxS"}}, {"data": {"id": "carA"}}, {"data": {"id": "carB"}}, {"data": {"id": "folK"}}, {"data": {"id": "pcnB"}}, {"data": {"id": "SL1344_0291"}}, {"data": {"id": "SL1344_0369"}}, {"data": {"id": "SL1344_0555"}}, {"data": {"id": "pheP"}}, {"data": {"id": "SL1344_0704"}}, {"data": {"id": "SL1344_0705"}}, {"data": {"id": "SL1344_0830"}}, {"data": {"id": "SL1344_0831"}}, {"data": {"id": "SL1344_0832"}}, {"data": {"id": "csgF"}}, {"data": {"id": "csgE"}}, {"data": {"id": "csgD"}}, {"data": {"id": "csgB"}}, {"data": {"id": "csgA"}}, {"data": {"id": "SL1344_1416"}}, {"data": {"id": "SL1344_1417"}}, {"data": {"id": "SL1344_1444"}}, {"data": {"id": "SL1344_1445"}}, {"data": {"id": "wzc"}}, {"data": {"id": "wzb"}}, {"data": {"id": "wza"}}, {"data": {"id": "yegH"}}, {"data": {"id": "yeiE"}}, {"data": {"id": "yeiH"}}, {"data": {"id": "SL1344_2727"}}, {"data": {"id": "SL1344_2728"}}, {"data": {"id": "SL1344_2729"}}, {"data": {"id": "SL1344_2746"}}, {"data": {"id": "orgC"}}, {"data": {"id": "orgB"}}, {"data": {"id": "orgAa"}}, {"data": {"id": "prgK"}}, {"data": {"id": "prgJ"}}, {"data": {"id": "prgI"}}, {"data": {"id": "prgH"}}, {"data": {"id": "hilD"}}, {"data": {"id": "degQ"}}, {"data": {"id": "degS"}}, {"data": {"id": "lpfA"}}, {"data": {"id": "cyoE"}}, {"data": {"id": "cyoD"}}, {"data": {"id": "cyoC"}}, {"data": {"id": "cyoB"}}, {"data": {"id": "cyoA"}}, {"data": {"id": "SL1344_0571"}}, {"data": {"id": "entD"}}, {"data": {"id": "fepA"}}, {"data": {"id": "fes"}}, {"data": {"id": "SL1344_0575"}}, {"data": {"id": "entF"}}, {"data": {"id": "fepE"}}, {"data": {"id": "fepC"}}, {"data": {"id": "fepG"}}, {"data": {"id": "fepD"}}, {"data": {"id": "ybdA"}}, {"data": {"id": "fepB"}}, {"data": {"id": "entC"}}, {"data": {"id": "entE"}}, {"data": {"id": "entB"}}, {"data": {"id": "entA"}}, {"data": {"id": "SL1344_0587"}}, {"data": {"id": "sdhC"}}, {"data": {"id": "sdhD"}}, {"data": {"id": "sdhA"}}, {"data": {"id": "sdhB"}}, {"data": {"id": "sucA"}}, {"data": {"id": "sucB"}}, {"data": {"id": "fhuE"}}, {"data": {"id": "SL1344_1303"}}, {"data": {"id": "SL1344_1304"}}, {"data": {"id": "SL1344_1305"}}, {"data": {"id": "SL1344_1306"}}, {"data": {"id": "SL1344_1307"}}, {"data": {"id": "SL1344_1308"}}, {"data": {"id": "purR"}}, {"data": {"id": "tonB"}}, {"data": {"id": "SL1344_1763"}}, {"data": {"id": "flhC"}}, {"data": {"id": "flhD"}}, {"data": {"id": "ftnA"}}, {"data": {"id": "SL1344_2125"}}, {"data": {"id": "cirA"}}, {"data": {"id": "mntH"}}, {"data": {"id": "hmpA"}}, {"data": {"id": "SL1344_2564"}}, {"data": {"id": "SL1344_2565"}}, {"data": {"id": "SL1344_2566"}}, {"data": {"id": "SL1344_2567"}}, {"data": {"id": "SL1344_2568"}}, {"data": {"id": "SL1344_2569"}}, {"data": {"id": "SL1344_2570"}}, {"data": {"id": "SL1344_2571"}}, {"data": {"id": "SL1344_2572"}}, {"data": {"id": "SL1344_2573"}}, {"data": {"id": "SL1344_3002"}}, {"data": {"id": "SL1344_3187"}}, {"data": {"id": "feoA"}}, {"data": {"id": "feoB"}}, {"data": {"id": "SL1344_3474"}}, {"data": {"id": "SL1344_3512"}}, {"data": {"id": "sodA"}}, {"data": {"id": "metJ"}}, {"data": {"id": "metH"}}, {"data": {"id": "SL1344_4481"}}, {"data": {"id": "SL1344_4483"}}, {"data": {"id": "oxyR"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

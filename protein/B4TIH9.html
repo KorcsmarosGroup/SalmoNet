@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "SeHA_C0485_SeHA_C0084", "source": "SeHA_C0485", "target": "SeHA_C0084"}}, {"data": {"id": "fliM_SeHA_C0084", "source": "fliM", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C2209_SeHA_C0084", "source": "SeHA_C2209", "target": "SeHA_C0084"}}, {"data": {"id": "sgbE_SeHA_C0084", "source": "sgbE", "target": "SeHA_C0084"}}, {"data": {"id": "entF_SeHA_C0084", "source": "entF", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C0714_SeHA_C0084", "source": "SeHA_C0714", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C0715_SeHA_C0084", "source": "SeHA_C0715", "target": "SeHA_C0084"}}, {"data": {"id": "galK_SeHA_C0084", "source": "galK", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C1474_SeHA_C0084", "source": "SeHA_C1474", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C3339_SeHA_C0084", "source": "SeHA_C3339", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C3343_SeHA_C0084", "source": "SeHA_C3343", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C0084_nikR", "source": "SeHA_C0084", "target": "nikR"}}, {"data": {"id": "SeHA_C0084_SeHA_C3906", "source": "SeHA_C0084", "target": "SeHA_C3906"}}, {"data": {"id": "SeHA_C0084_SeHA_C0489", "source": "SeHA_C0084", "target": "SeHA_C0489"}}, {"data": {"id": "SeHA_C0084_ribD", "source": "SeHA_C0084", "target": "ribD"}}, {"data": {"id": "SeHA_C0084_SeHA_C4007", "source": "SeHA_C0084", "target": "SeHA_C4007"}}, {"data": {"id": "SeHA_C0084_SeHA_C4011", "source": "SeHA_C0084", "target": "SeHA_C4011"}}, {"data": {"id": "SeHA_C0084_hyi", "source": "SeHA_C0084", "target": "hyi"}}, {"data": {"id": "SeHA_C0084_holA", "source": "SeHA_C0084", "target": "holA"}}, {"data": {"id": "SeHA_C0084_SeHA_C2539", "source": "SeHA_C0084", "target": "SeHA_C2539"}}, {"data": {"id": "SeHA_C0084_truA", "source": "SeHA_C0084", "target": "truA"}}, {"data": {"id": "SeHA_C0084_galE", "source": "SeHA_C0084", "target": "galE"}}, {"data": {"id": "SeHA_C0084_murB", "source": "SeHA_C0084", "target": "murB"}}, {"data": {"id": "SeHA_C0084_clpA", "source": "SeHA_C0084", "target": "clpA"}}, {"data": {"id": "SeHA_C0084_ung", "source": "SeHA_C0084", "target": "ung"}}, {"data": {"id": "SeHA_C0084_aroF", "source": "SeHA_C0084", "target": "aroF"}}, {"data": {"id": "SeHA_C0084_SeHA_C2948", "source": "SeHA_C0084", "target": "SeHA_C2948"}}, {"data": {"id": "SeHA_C0084_SeHA_C3058", "source": "SeHA_C0084", "target": "SeHA_C3058"}}, {"data": {"id": "SeHA_C0084_SeHA_C4796", "source": "SeHA_C0084", "target": "SeHA_C4796"}}, {"data": {"id": "SeHA_C0084_SeHA_C3104", "source": "SeHA_C0084", "target": "SeHA_C3104"}}, {"data": {"id": "SeHA_C0084_SeHA_C1579", "source": "SeHA_C0084", "target": "SeHA_C1579"}}, {"data": {"id": "SeHA_C0084_thrC", "source": "SeHA_C0084", "target": "thrC"}}, {"data": {"id": "SeHA_C0084_SeHA_C1848", "source": "SeHA_C0084", "target": "SeHA_C1848"}}, {"data": {"id": "SeHA_C0084_SeHA_C3568", "source": "SeHA_C0084", "target": "SeHA_C3568"}}, {"data": {"id": "SeHA_C0084_folA", "source": "SeHA_C0084", "target": "folA"}}, {"data": {"id": "SeHA_C0084_elbB", "source": "SeHA_C0084", "target": "elbB"}}, {"data": {"id": "SeHA_C1772_SeHA_C0084", "source": "SeHA_C1772", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C3528_SeHA_C0084", "source": "SeHA_C3528", "target": "SeHA_C0084"}}, {"data": {"id": "pdxA_SeHA_C0084", "source": "pdxA", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C1915_SeHA_C0084", "source": "SeHA_C1915", "target": "SeHA_C0084"}}, {"data": {"id": "aroB_SeHA_C0084", "source": "aroB", "target": "SeHA_C0084"}}, {"data": {"id": "SeHA_C0485"}}, {"data": {"id": "SeHA_C0084"}}, {"data": {"id": "fliM"}}, {"data": {"id": "SeHA_C2209"}}, {"data": {"id": "sgbE"}}, {"data": {"id": "entF"}}, {"data": {"id": "SeHA_C0714"}}, {"data": {"id": "SeHA_C0715"}}, {"data": {"id": "galK"}}, {"data": {"id": "SeHA_C1474"}}, {"data": {"id": "SeHA_C3339"}}, {"data": {"id": "SeHA_C3343"}}, {"data": {"id": "nikR"}}, {"data": {"id": "SeHA_C3906"}}, {"data": {"id": "SeHA_C0489"}}, {"data": {"id": "ribD"}}, {"data": {"id": "SeHA_C4007"}}, {"data": {"id": "SeHA_C4011"}}, {"data": {"id": "hyi"}}, {"data": {"id": "holA"}}, {"data": {"id": "SeHA_C2539"}}, {"data": {"id": "truA"}}, {"data": {"id": "galE"}}, {"data": {"id": "murB"}}, {"data": {"id": "clpA"}}, {"data": {"id": "ung"}}, {"data": {"id": "aroF"}}, {"data": {"id": "SeHA_C2948"}}, {"data": {"id": "SeHA_C3058"}}, {"data": {"id": "SeHA_C4796"}}, {"data": {"id": "SeHA_C3104"}}, {"data": {"id": "SeHA_C1579"}}, {"data": {"id": "thrC"}}, {"data": {"id": "SeHA_C1848"}}, {"data": {"id": "SeHA_C3568"}}, {"data": {"id": "folA"}}, {"data": {"id": "elbB"}}, {"data": {"id": "SeHA_C1772"}}, {"data": {"id": "SeHA_C3528"}}, {"data": {"id": "pdxA"}}, {"data": {"id": "SeHA_C1915"}}, {"data": {"id": "aroB"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "hilC_gpt", "source": "hilC", "target": "gpt"}}, {"data": {"id": "hilC_frsA", "source": "hilC", "target": "frsA"}}, {"data": {"id": "hilC_crl", "source": "hilC", "target": "crl"}}, {"data": {"id": "hilC_stpA", "source": "hilC", "target": "stpA"}}, {"data": {"id": "hilC_ygaW", "source": "hilC", "target": "ygaW"}}, {"data": {"id": "hilC_invB", "source": "hilC", "target": "invB"}}, {"data": {"id": "hilC_invA", "source": "hilC", "target": "invA"}}, {"data": {"id": "hilC_invE", "source": "hilC", "target": "invE"}}, {"data": {"id": "hilC_invG", "source": "hilC", "target": "invG"}}, {"data": {"id": "hilC_invF", "source": "hilC", "target": "invF"}}, {"data": {"id": "hilC_invH", "source": "hilC", "target": "invH"}}, {"data": {"id": "hilC_ptsN", "source": "hilC", "target": "ptsN"}}, {"data": {"id": "hilC_yhbJ", "source": "hilC", "target": "yhbJ"}}, {"data": {"id": "hilC_ptsO", "source": "hilC", "target": "ptsO"}}, {"data": {"id": "hilC_yifB", "source": "hilC", "target": "yifB"}}, {"data": {"id": "hilC_ilvM", "source": "hilC", "target": "ilvM"}}, {"data": {"id": "hilC_ilvE", "source": "hilC", "target": "ilvE"}}, {"data": {"id": "hilC_SC4187", "source": "hilC", "target": "SC4187"}}, {"data": {"id": "hilC_SC4188", "source": "hilC", "target": "SC4188"}}, {"data": {"id": "hilC_SC4354", "source": "hilC", "target": "SC4354"}}, {"data": {"id": "hilC"}}, {"data": {"id": "gpt"}}, {"data": {"id": "frsA"}}, {"data": {"id": "crl"}}, {"data": {"id": "stpA"}}, {"data": {"id": "ygaW"}}, {"data": {"id": "invB"}}, {"data": {"id": "invA"}}, {"data": {"id": "invE"}}, {"data": {"id": "invG"}}, {"data": {"id": "invF"}}, {"data": {"id": "invH"}}, {"data": {"id": "ptsN"}}, {"data": {"id": "yhbJ"}}, {"data": {"id": "ptsO"}}, {"data": {"id": "yifB"}}, {"data": {"id": "ilvM"}}, {"data": {"id": "ilvE"}}, {"data": {"id": "SC4187"}}, {"data": {"id": "SC4188"}}, {"data": {"id": "SC4354"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

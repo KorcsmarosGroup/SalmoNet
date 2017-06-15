@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "cueR_hmrR", "source": "cueR", "target": "hmrR"}}, {"data": {"id": "hmrR_yacC", "source": "hmrR", "target": "yacC"}}, {"data": {"id": "hmrR_cueO", "source": "hmrR", "target": "cueO"}}, {"data": {"id": "hmrR_oprM", "source": "hmrR", "target": "oprM"}}, {"data": {"id": "hmrR_mtrC", "source": "hmrR", "target": "mtrC"}}, {"data": {"id": "hmrR_hmrR", "source": "hmrR", "target": "hmrR"}}, {"data": {"id": "hmrR_hmrR", "source": "hmrR", "target": "hmrR"}}, {"data": {"id": "hmrR_hmb", "source": "hmrR", "target": "hmb"}}, {"data": {"id": "hmrR_prpC", "source": "hmrR", "target": "prpC"}}, {"data": {"id": "hmrR_prpD", "source": "hmrR", "target": "prpD"}}, {"data": {"id": "hmrR_prpE", "source": "hmrR", "target": "prpE"}}, {"data": {"id": "hmrR_copA", "source": "hmrR", "target": "copA"}}, {"data": {"id": "hmrR_cueR", "source": "hmrR", "target": "cueR"}}, {"data": {"id": "hmrR_ybdO", "source": "hmrR", "target": "ybdO"}}, {"data": {"id": "hmrR_araH", "source": "hmrR", "target": "araH"}}, {"data": {"id": "hmrR_ftnB", "source": "hmrR", "target": "ftnB"}}, {"data": {"id": "hmrR_SC2006", "source": "hmrR", "target": "SC2006"}}, {"data": {"id": "hmrR_SC2008", "source": "hmrR", "target": "SC2008"}}, {"data": {"id": "hmrR_SC2009", "source": "hmrR", "target": "SC2009"}}, {"data": {"id": "hmrR_SC2012", "source": "hmrR", "target": "SC2012"}}, {"data": {"id": "hmrR_SC2013", "source": "hmrR", "target": "SC2013"}}, {"data": {"id": "hmrR_SC2147", "source": "hmrR", "target": "SC2147"}}, {"data": {"id": "hmrR_yegW", "source": "hmrR", "target": "yegW"}}, {"data": {"id": "hmrR_thiD", "source": "hmrR", "target": "thiD"}}, {"data": {"id": "hmrR_thiM", "source": "hmrR", "target": "thiM"}}, {"data": {"id": "hmrR_yohN", "source": "hmrR", "target": "yohN"}}, {"data": {"id": "hmrR_rplY", "source": "hmrR", "target": "rplY"}}, {"data": {"id": "hmrR_yfhJ", "source": "hmrR", "target": "yfhJ"}}, {"data": {"id": "hmrR_fdx", "source": "hmrR", "target": "fdx"}}, {"data": {"id": "hmrR_ygbF", "source": "hmrR", "target": "ygbF"}}, {"data": {"id": "hmrR_ygbT", "source": "hmrR", "target": "ygbT"}}, {"data": {"id": "hmrR_ygcH", "source": "hmrR", "target": "ygcH"}}, {"data": {"id": "hmrR_ygcI", "source": "hmrR", "target": "ygcI"}}, {"data": {"id": "hmrR_yghJ", "source": "hmrR", "target": "yghJ"}}, {"data": {"id": "hmrR_tnpA", "source": "hmrR", "target": "tnpA"}}, {"data": {"id": "hmrR_SC2875", "source": "hmrR", "target": "SC2875"}}, {"data": {"id": "hmrR_SC3582", "source": "hmrR", "target": "SC3582"}}, {"data": {"id": "hmrR_ibpB", "source": "hmrR", "target": "ibpB"}}, {"data": {"id": "hmrR_ibpA", "source": "hmrR", "target": "ibpA"}}, {"data": {"id": "hmrR_yidQ", "source": "hmrR", "target": "yidQ"}}, {"data": {"id": "hmrR_SCV01", "source": "hmrR", "target": "SCV01"}}, {"data": {"id": "hmrR_spvB", "source": "hmrR", "target": "spvB"}}, {"data": {"id": "cueR"}}, {"data": {"id": "hmrR"}}, {"data": {"id": "yacC"}}, {"data": {"id": "cueO"}}, {"data": {"id": "oprM"}}, {"data": {"id": "mtrC"}}, {"data": {"id": "hmb"}}, {"data": {"id": "prpC"}}, {"data": {"id": "prpD"}}, {"data": {"id": "prpE"}}, {"data": {"id": "copA"}}, {"data": {"id": "ybdO"}}, {"data": {"id": "araH"}}, {"data": {"id": "ftnB"}}, {"data": {"id": "SC2006"}}, {"data": {"id": "SC2008"}}, {"data": {"id": "SC2009"}}, {"data": {"id": "SC2012"}}, {"data": {"id": "SC2013"}}, {"data": {"id": "SC2147"}}, {"data": {"id": "yegW"}}, {"data": {"id": "thiD"}}, {"data": {"id": "thiM"}}, {"data": {"id": "yohN"}}, {"data": {"id": "rplY"}}, {"data": {"id": "yfhJ"}}, {"data": {"id": "fdx"}}, {"data": {"id": "ygbF"}}, {"data": {"id": "ygbT"}}, {"data": {"id": "ygcH"}}, {"data": {"id": "ygcI"}}, {"data": {"id": "yghJ"}}, {"data": {"id": "tnpA"}}, {"data": {"id": "SC2875"}}, {"data": {"id": "SC3582"}}, {"data": {"id": "ibpB"}}, {"data": {"id": "ibpA"}}, {"data": {"id": "yidQ"}}, {"data": {"id": "SCV01"}}, {"data": {"id": "spvB"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

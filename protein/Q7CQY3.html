@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_trxA", "source": "fur", "target": "trxA"}}, {"data": {"id": "fur_STM0433", "source": "fur", "target": "STM0433"}}, {"data": {"id": "soxS_fur", "source": "soxS", "target": "fur"}}, {"data": {"id": "fur_carA", "source": "fur", "target": "carA"}}, {"data": {"id": "fur_carB", "source": "fur", "target": "carB"}}, {"data": {"id": "fur_folK", "source": "fur", "target": "folK"}}, {"data": {"id": "fur_pcnB", "source": "fur", "target": "pcnB"}}, {"data": {"id": "fur_STM0294", "source": "fur", "target": "STM0294"}}, {"data": {"id": "fur_yaiV", "source": "fur", "target": "yaiV"}}, {"data": {"id": "fur_STM0567", "source": "fur", "target": "STM0567"}}, {"data": {"id": "fur_pheP", "source": "fur", "target": "pheP"}}, {"data": {"id": "fur_STM0722", "source": "fur", "target": "STM0722"}}, {"data": {"id": "fur_STM0723", "source": "fur", "target": "STM0723"}}, {"data": {"id": "fur_STM0854", "source": "fur", "target": "STM0854"}}, {"data": {"id": "fur_STM0855", "source": "fur", "target": "STM0855"}}, {"data": {"id": "fur_STM0856", "source": "fur", "target": "STM0856"}}, {"data": {"id": "fur_csgG", "source": "fur", "target": "csgG"}}, {"data": {"id": "fur_csgF", "source": "fur", "target": "csgF"}}, {"data": {"id": "fur_csgE", "source": "fur", "target": "csgE"}}, {"data": {"id": "fur_csgD", "source": "fur", "target": "csgD"}}, {"data": {"id": "fur_csgB", "source": "fur", "target": "csgB"}}, {"data": {"id": "fur_csgA", "source": "fur", "target": "csgA"}}, {"data": {"id": "fur_ynfM", "source": "fur", "target": "ynfM"}}, {"data": {"id": "fur_ynfL", "source": "fur", "target": "ynfL"}}, {"data": {"id": "fur_ydeJ", "source": "fur", "target": "ydeJ"}}, {"data": {"id": "fur_ydeI", "source": "fur", "target": "ydeI"}}, {"data": {"id": "fur_oppA", "source": "fur", "target": "oppA"}}, {"data": {"id": "fur_wzc", "source": "fur", "target": "wzc"}}, {"data": {"id": "fur_wzb", "source": "fur", "target": "wzb"}}, {"data": {"id": "fur_wza", "source": "fur", "target": "wza"}}, {"data": {"id": "fur_yegH", "source": "fur", "target": "yegH"}}, {"data": {"id": "fur_yeiE", "source": "fur", "target": "yeiE"}}, {"data": {"id": "fur_yeiH", "source": "fur", "target": "yeiH"}}, {"data": {"id": "fur_STM2743", "source": "fur", "target": "STM2743"}}, {"data": {"id": "fur_STM2744", "source": "fur", "target": "STM2744"}}, {"data": {"id": "fur_STM2745", "source": "fur", "target": "STM2745"}}, {"data": {"id": "fur_STM2762", "source": "fur", "target": "STM2762"}}, {"data": {"id": "fur_orgC", "source": "fur", "target": "orgC"}}, {"data": {"id": "fur_orgB", "source": "fur", "target": "orgB"}}, {"data": {"id": "fur_orgA", "source": "fur", "target": "orgA"}}, {"data": {"id": "fur_prgK", "source": "fur", "target": "prgK"}}, {"data": {"id": "fur_prgJ", "source": "fur", "target": "prgJ"}}, {"data": {"id": "fur_prgI", "source": "fur", "target": "prgI"}}, {"data": {"id": "fur_prgH", "source": "fur", "target": "prgH"}}, {"data": {"id": "fur_hilD", "source": "fur", "target": "hilD"}}, {"data": {"id": "fur_degQ", "source": "fur", "target": "degQ"}}, {"data": {"id": "fur_degS", "source": "fur", "target": "degS"}}, {"data": {"id": "fur_lpfA", "source": "fur", "target": "lpfA"}}, {"data": {"id": "fur_fhuA", "source": "fur", "target": "fhuA"}}, {"data": {"id": "fur_fhuC", "source": "fur", "target": "fhuC"}}, {"data": {"id": "fur_fhuD", "source": "fur", "target": "fhuD"}}, {"data": {"id": "fur_fhuB", "source": "fur", "target": "fhuB"}}, {"data": {"id": "fur_foxA", "source": "fur", "target": "foxA"}}, {"data": {"id": "fur_cyoE", "source": "fur", "target": "cyoE"}}, {"data": {"id": "fur_cyoD", "source": "fur", "target": "cyoD"}}, {"data": {"id": "fur_cyoC", "source": "fur", "target": "cyoC"}}, {"data": {"id": "fur_cyoB", "source": "fur", "target": "cyoB"}}, {"data": {"id": "fur_cyoA", "source": "fur", "target": "cyoA"}}, {"data": {"id": "fur_ybdK", "source": "fur", "target": "ybdK"}}, {"data": {"id": "fur_entD", "source": "fur", "target": "entD"}}, {"data": {"id": "fur_fepA", "source": "fur", "target": "fepA"}}, {"data": {"id": "fur_fes", "source": "fur", "target": "fes"}}, {"data": {"id": "fur_STM0587", "source": "fur", "target": "STM0587"}}, {"data": {"id": "fur_entF", "source": "fur", "target": "entF"}}, {"data": {"id": "fur_fepE", "source": "fur", "target": "fepE"}}, {"data": {"id": "fur_fepC", "source": "fur", "target": "fepC"}}, {"data": {"id": "fur_fepG", "source": "fur", "target": "fepG"}}, {"data": {"id": "fur_fepD", "source": "fur", "target": "fepD"}}, {"data": {"id": "fur_ybdA", "source": "fur", "target": "ybdA"}}, {"data": {"id": "fur_fepB", "source": "fur", "target": "fepB"}}, {"data": {"id": "fur_entC", "source": "fur", "target": "entC"}}, {"data": {"id": "fur_entE", "source": "fur", "target": "entE"}}, {"data": {"id": "fur_entB", "source": "fur", "target": "entB"}}, {"data": {"id": "fur_entA", "source": "fur", "target": "entA"}}, {"data": {"id": "fur_ybdB", "source": "fur", "target": "ybdB"}}, {"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_fur", "source": "fur", "target": "fur"}}, {"data": {"id": "fur_sdhC", "source": "fur", "target": "sdhC"}}, {"data": {"id": "fur_sdhD", "source": "fur", "target": "sdhD"}}, {"data": {"id": "fur_sdhA", "source": "fur", "target": "sdhA"}}, {"data": {"id": "fur_sdhB", "source": "fur", "target": "sdhB"}}, {"data": {"id": "fur_sucA", "source": "fur", "target": "sucA"}}, {"data": {"id": "fur_sucB", "source": "fur", "target": "sucB"}}, {"data": {"id": "fur_gpmA", "source": "fur", "target": "gpmA"}}, {"data": {"id": "fur_fhuE", "source": "fur", "target": "fhuE"}}, {"data": {"id": "fur_ydiD", "source": "fur", "target": "ydiD"}}, {"data": {"id": "fur_sufA", "source": "fur", "target": "sufA"}}, {"data": {"id": "fur_sufB", "source": "fur", "target": "sufB"}}, {"data": {"id": "fur_sufC", "source": "fur", "target": "sufC"}}, {"data": {"id": "fur_sufD", "source": "fur", "target": "sufD"}}, {"data": {"id": "fur_sufS", "source": "fur", "target": "sufS"}}, {"data": {"id": "fur_ynhA", "source": "fur", "target": "ynhA"}}, {"data": {"id": "fur_purR", "source": "fur", "target": "purR"}}, {"data": {"id": "fur_tonB", "source": "fur", "target": "tonB"}}, {"data": {"id": "fur_oppA", "source": "fur", "target": "oppA"}}, {"data": {"id": "fur_mntP", "source": "fur", "target": "mntP"}}, {"data": {"id": "fur_flhC", "source": "fur", "target": "flhC"}}, {"data": {"id": "fur_flhD", "source": "fur", "target": "flhD"}}, {"data": {"id": "fur_ftn", "source": "fur", "target": "ftn"}}, {"data": {"id": "fur_STM2148", "source": "fur", "target": "STM2148"}}, {"data": {"id": "fur_cirA", "source": "fur", "target": "cirA"}}, {"data": {"id": "fur_mntH", "source": "fur", "target": "mntH"}}, {"data": {"id": "fur_hmpA", "source": "fur", "target": "hmpA"}}, {"data": {"id": "fur_STM2600", "source": "fur", "target": "STM2600"}}, {"data": {"id": "fur_STM2601", "source": "fur", "target": "STM2601"}}, {"data": {"id": "fur_STM2602", "source": "fur", "target": "STM2602"}}, {"data": {"id": "fur_STM2603", "source": "fur", "target": "STM2603"}}, {"data": {"id": "fur_STM2604", "source": "fur", "target": "STM2604"}}, {"data": {"id": "fur_STM2605", "source": "fur", "target": "STM2605"}}, {"data": {"id": "fur_STM2606", "source": "fur", "target": "STM2606"}}, {"data": {"id": "fur_STM2607", "source": "fur", "target": "STM2607"}}, {"data": {"id": "fur_STM2608", "source": "fur", "target": "STM2608"}}, {"data": {"id": "fur_STM2609", "source": "fur", "target": "STM2609"}}, {"data": {"id": "fur_STM2959", "source": "fur", "target": "STM2959"}}, {"data": {"id": "fur_gudD", "source": "fur", "target": "gudD"}}, {"data": {"id": "fur_ygcY", "source": "fur", "target": "ygcY"}}, {"data": {"id": "fur_gudT", "source": "fur", "target": "gudT"}}, {"data": {"id": "fur_yohM", "source": "fur", "target": "yohM"}}, {"data": {"id": "fur_yqjH", "source": "fur", "target": "yqjH"}}, {"data": {"id": "fur_garK", "source": "fur", "target": "garK"}}, {"data": {"id": "fur_garR", "source": "fur", "target": "garR"}}, {"data": {"id": "fur_garL", "source": "fur", "target": "garL"}}, {"data": {"id": "fur_feoA", "source": "fur", "target": "feoA"}}, {"data": {"id": "fur_feoB", "source": "fur", "target": "feoB"}}, {"data": {"id": "fur_yhgG", "source": "fur", "target": "yhgG"}}, {"data": {"id": "fur_yhhY", "source": "fur", "target": "yhhY"}}, {"data": {"id": "fur_sodA", "source": "fur", "target": "sodA"}}, {"data": {"id": "fur_metJ", "source": "fur", "target": "metJ"}}, {"data": {"id": "fur_metH", "source": "fur", "target": "metH"}}, {"data": {"id": "fur_fhuF", "source": "fur", "target": "fhuF"}}, {"data": {"id": "fur_STM4552", "source": "fur", "target": "STM4552"}}, {"data": {"id": "oxyR_fur", "source": "oxyR", "target": "fur"}}, {"data": {"id": "fur"}}, {"data": {"id": "trxA"}}, {"data": {"id": "STM0433"}}, {"data": {"id": "soxS"}}, {"data": {"id": "carA"}}, {"data": {"id": "carB"}}, {"data": {"id": "folK"}}, {"data": {"id": "pcnB"}}, {"data": {"id": "STM0294"}}, {"data": {"id": "yaiV"}}, {"data": {"id": "STM0567"}}, {"data": {"id": "pheP"}}, {"data": {"id": "STM0722"}}, {"data": {"id": "STM0723"}}, {"data": {"id": "STM0854"}}, {"data": {"id": "STM0855"}}, {"data": {"id": "STM0856"}}, {"data": {"id": "csgG"}}, {"data": {"id": "csgF"}}, {"data": {"id": "csgE"}}, {"data": {"id": "csgD"}}, {"data": {"id": "csgB"}}, {"data": {"id": "csgA"}}, {"data": {"id": "ynfM"}}, {"data": {"id": "ynfL"}}, {"data": {"id": "ydeJ"}}, {"data": {"id": "ydeI"}}, {"data": {"id": "oppA"}}, {"data": {"id": "wzc"}}, {"data": {"id": "wzb"}}, {"data": {"id": "wza"}}, {"data": {"id": "yegH"}}, {"data": {"id": "yeiE"}}, {"data": {"id": "yeiH"}}, {"data": {"id": "STM2743"}}, {"data": {"id": "STM2744"}}, {"data": {"id": "STM2745"}}, {"data": {"id": "STM2762"}}, {"data": {"id": "orgC"}}, {"data": {"id": "orgB"}}, {"data": {"id": "orgA"}}, {"data": {"id": "prgK"}}, {"data": {"id": "prgJ"}}, {"data": {"id": "prgI"}}, {"data": {"id": "prgH"}}, {"data": {"id": "hilD"}}, {"data": {"id": "degQ"}}, {"data": {"id": "degS"}}, {"data": {"id": "lpfA"}}, {"data": {"id": "fhuA"}}, {"data": {"id": "fhuC"}}, {"data": {"id": "fhuD"}}, {"data": {"id": "fhuB"}}, {"data": {"id": "foxA"}}, {"data": {"id": "cyoE"}}, {"data": {"id": "cyoD"}}, {"data": {"id": "cyoC"}}, {"data": {"id": "cyoB"}}, {"data": {"id": "cyoA"}}, {"data": {"id": "ybdK"}}, {"data": {"id": "entD"}}, {"data": {"id": "fepA"}}, {"data": {"id": "fes"}}, {"data": {"id": "STM0587"}}, {"data": {"id": "entF"}}, {"data": {"id": "fepE"}}, {"data": {"id": "fepC"}}, {"data": {"id": "fepG"}}, {"data": {"id": "fepD"}}, {"data": {"id": "ybdA"}}, {"data": {"id": "fepB"}}, {"data": {"id": "entC"}}, {"data": {"id": "entE"}}, {"data": {"id": "entB"}}, {"data": {"id": "entA"}}, {"data": {"id": "ybdB"}}, {"data": {"id": "sdhC"}}, {"data": {"id": "sdhD"}}, {"data": {"id": "sdhA"}}, {"data": {"id": "sdhB"}}, {"data": {"id": "sucA"}}, {"data": {"id": "sucB"}}, {"data": {"id": "gpmA"}}, {"data": {"id": "fhuE"}}, {"data": {"id": "ydiD"}}, {"data": {"id": "sufA"}}, {"data": {"id": "sufB"}}, {"data": {"id": "sufC"}}, {"data": {"id": "sufD"}}, {"data": {"id": "sufS"}}, {"data": {"id": "ynhA"}}, {"data": {"id": "purR"}}, {"data": {"id": "tonB"}}, {"data": {"id": "mntP"}}, {"data": {"id": "flhC"}}, {"data": {"id": "flhD"}}, {"data": {"id": "ftn"}}, {"data": {"id": "STM2148"}}, {"data": {"id": "cirA"}}, {"data": {"id": "mntH"}}, {"data": {"id": "hmpA"}}, {"data": {"id": "STM2600"}}, {"data": {"id": "STM2601"}}, {"data": {"id": "STM2602"}}, {"data": {"id": "STM2603"}}, {"data": {"id": "STM2604"}}, {"data": {"id": "STM2605"}}, {"data": {"id": "STM2606"}}, {"data": {"id": "STM2607"}}, {"data": {"id": "STM2608"}}, {"data": {"id": "STM2609"}}, {"data": {"id": "STM2959"}}, {"data": {"id": "gudD"}}, {"data": {"id": "ygcY"}}, {"data": {"id": "gudT"}}, {"data": {"id": "yohM"}}, {"data": {"id": "yqjH"}}, {"data": {"id": "garK"}}, {"data": {"id": "garR"}}, {"data": {"id": "garL"}}, {"data": {"id": "feoA"}}, {"data": {"id": "feoB"}}, {"data": {"id": "yhgG"}}, {"data": {"id": "yhhY"}}, {"data": {"id": "sodA"}}, {"data": {"id": "metJ"}}, {"data": {"id": "metH"}}, {"data": {"id": "fhuF"}}, {"data": {"id": "STM4552"}}, {"data": {"id": "oxyR"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

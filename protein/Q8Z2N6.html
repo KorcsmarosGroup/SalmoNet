@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "rplB_dnaA", "source": "rplB", "target": "dnaA"}}, {"data": {"id": "dnaC_dnaA", "source": "dnaC", "target": "dnaA"}}, {"data": {"id": "dnaA_dnaB", "source": "dnaA", "target": "dnaB"}}, {"data": {"id": "dnaA_hupA", "source": "dnaA", "target": "hupA"}}, {"data": {"id": "dnaA_hupB", "source": "dnaA", "target": "hupB"}}, {"data": {"id": "dnaA_t0361", "source": "dnaA", "target": "t0361"}}, {"data": {"id": "dnaA_oxyR", "source": "dnaA", "target": "oxyR"}}, {"data": {"id": "dnaA_dps", "source": "dnaA", "target": "dps"}}, {"data": {"id": "dnaA_t3186", "source": "dnaA", "target": "t3186"}}, {"data": {"id": "dnaA_nadE", "source": "dnaA", "target": "nadE"}}, {"data": {"id": "adh_dnaA", "source": "adh", "target": "dnaA"}}, {"data": {"id": "dnaA_yfaE", "source": "dnaA", "target": "yfaE"}}, {"data": {"id": "dnaA_nrdB", "source": "dnaA", "target": "nrdB"}}, {"data": {"id": "dnaA_polA", "source": "dnaA", "target": "polA"}}, {"data": {"id": "dnaA_dnaA", "source": "dnaA", "target": "dnaA"}}, {"data": {"id": "dnaA_dnaA", "source": "dnaA", "target": "dnaA"}}, {"data": {"id": "dnaA_dnaN", "source": "dnaA", "target": "dnaN"}}, {"data": {"id": "dnaA_recF", "source": "dnaA", "target": "recF"}}, {"data": {"id": "dnaA_gyrB", "source": "dnaA", "target": "gyrB"}}, {"data": {"id": "dnaA_rpoH", "source": "dnaA", "target": "rpoH"}}, {"data": {"id": "rplB"}}, {"data": {"id": "dnaA"}}, {"data": {"id": "dnaC"}}, {"data": {"id": "dnaB"}}, {"data": {"id": "hupA"}}, {"data": {"id": "hupB"}}, {"data": {"id": "t0361"}}, {"data": {"id": "oxyR"}}, {"data": {"id": "dps"}}, {"data": {"id": "t3186"}}, {"data": {"id": "nadE"}}, {"data": {"id": "adh"}}, {"data": {"id": "yfaE"}}, {"data": {"id": "nrdB"}}, {"data": {"id": "polA"}}, {"data": {"id": "dnaN"}}, {"data": {"id": "recF"}}, {"data": {"id": "gyrB"}}, {"data": {"id": "rpoH"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "SeD_A0085_SeD_B0011", "source": "SeD_A0085", "target": "SeD_B0011"}}, {"data": {"id": "SeD_A0085_thrC", "source": "SeD_A0085", "target": "thrC"}}, {"data": {"id": "SeD_A0085_SeD_A3628", "source": "SeD_A0085", "target": "SeD_A3628"}}, {"data": {"id": "SeD_A0085_folA", "source": "SeD_A0085", "target": "folA"}}, {"data": {"id": "SeD_A0085_elbB", "source": "SeD_A0085", "target": "elbB"}}, {"data": {"id": "SeD_A0085_nikR", "source": "SeD_A0085", "target": "nikR"}}, {"data": {"id": "SeD_A0085_SeD_A3967", "source": "SeD_A0085", "target": "SeD_A3967"}}, {"data": {"id": "SeD_A0085_SeD_A0429", "source": "SeD_A0085", "target": "SeD_A0429"}}, {"data": {"id": "SeD_A0085_ribD", "source": "SeD_A0085", "target": "ribD"}}, {"data": {"id": "SeD_A0085_SeD_A4069", "source": "SeD_A0085", "target": "SeD_A4069"}}, {"data": {"id": "SeD_A0085_SeD_A4073", "source": "SeD_A0085", "target": "SeD_A4073"}}, {"data": {"id": "SeD_A0085_hyi", "source": "SeD_A0085", "target": "hyi"}}, {"data": {"id": "SeD_A0085_holA", "source": "SeD_A0085", "target": "holA"}}, {"data": {"id": "SeD_A0085_SeD_A2643", "source": "SeD_A0085", "target": "SeD_A2643"}}, {"data": {"id": "SeD_A0085_galE", "source": "SeD_A0085", "target": "galE"}}, {"data": {"id": "SeD_A0085_truA", "source": "SeD_A0085", "target": "truA"}}, {"data": {"id": "SeD_A0085_murB", "source": "SeD_A0085", "target": "murB"}}, {"data": {"id": "SeD_A0085_clpA", "source": "SeD_A0085", "target": "clpA"}}, {"data": {"id": "SeD_A0085_ung", "source": "SeD_A0085", "target": "ung"}}, {"data": {"id": "SeD_A0085_SeD_A4775", "source": "SeD_A0085", "target": "SeD_A4775"}}, {"data": {"id": "SeD_A0085_aroF", "source": "SeD_A0085", "target": "aroF"}}, {"data": {"id": "SeD_A0085_SeD_A3179", "source": "SeD_A0085", "target": "SeD_A3179"}}, {"data": {"id": "SeD_A0085_SeD_A1670", "source": "SeD_A0085", "target": "SeD_A1670"}}, {"data": {"id": "pdxA_SeD_A0085", "source": "pdxA", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A2000_SeD_A0085", "source": "SeD_A2000", "target": "SeD_A0085"}}, {"data": {"id": "aroB_SeD_A0085", "source": "aroB", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A0425_SeD_A0085", "source": "SeD_A0425", "target": "SeD_A0085"}}, {"data": {"id": "sgbE_SeD_A0085", "source": "sgbE", "target": "SeD_A0085"}}, {"data": {"id": "entF_SeD_A0085", "source": "entF", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A0700_SeD_A0085", "source": "SeD_A0700", "target": "SeD_A0085"}}, {"data": {"id": "galK_SeD_A0085", "source": "galK", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A1248_SeD_A0085", "source": "SeD_A1248", "target": "SeD_A0085"}}, {"data": {"id": "fliM_SeD_A0085", "source": "fliM", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A1603_SeD_A0085", "source": "SeD_A1603", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A1749_SeD_A0085", "source": "SeD_A1749", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A3443_SeD_A0085", "source": "SeD_A3443", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A3447_SeD_A0085", "source": "SeD_A3447", "target": "SeD_A0085"}}, {"data": {"id": "SeD_A0085"}}, {"data": {"id": "SeD_B0011"}}, {"data": {"id": "thrC"}}, {"data": {"id": "SeD_A3628"}}, {"data": {"id": "folA"}}, {"data": {"id": "elbB"}}, {"data": {"id": "nikR"}}, {"data": {"id": "SeD_A3967"}}, {"data": {"id": "SeD_A0429"}}, {"data": {"id": "ribD"}}, {"data": {"id": "SeD_A4069"}}, {"data": {"id": "SeD_A4073"}}, {"data": {"id": "hyi"}}, {"data": {"id": "holA"}}, {"data": {"id": "SeD_A2643"}}, {"data": {"id": "galE"}}, {"data": {"id": "truA"}}, {"data": {"id": "murB"}}, {"data": {"id": "clpA"}}, {"data": {"id": "ung"}}, {"data": {"id": "SeD_A4775"}}, {"data": {"id": "aroF"}}, {"data": {"id": "SeD_A3179"}}, {"data": {"id": "SeD_A1670"}}, {"data": {"id": "pdxA"}}, {"data": {"id": "SeD_A2000"}}, {"data": {"id": "aroB"}}, {"data": {"id": "SeD_A0425"}}, {"data": {"id": "sgbE"}}, {"data": {"id": "entF"}}, {"data": {"id": "SeD_A0700"}}, {"data": {"id": "galK"}}, {"data": {"id": "SeD_A1248"}}, {"data": {"id": "fliM"}}, {"data": {"id": "SeD_A1603"}}, {"data": {"id": "SeD_A1749"}}, {"data": {"id": "SeD_A3443"}}, {"data": {"id": "SeD_A3447"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

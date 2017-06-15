@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "pdhR_SL1344_4481", "source": "pdhR", "target": "SL1344_4481"}}, {"data": {"id": "fnr_pdhR", "source": "fnr", "target": "pdhR"}}, {"data": {"id": "fruR_pdhR", "source": "fruR", "target": "pdhR"}}, {"data": {"id": "pdhR_mraZ", "source": "pdhR", "target": "mraZ"}}, {"data": {"id": "pdhR_mraW", "source": "pdhR", "target": "mraW"}}, {"data": {"id": "pdhR_ftsL", "source": "pdhR", "target": "ftsL"}}, {"data": {"id": "pdhR_ftsI", "source": "pdhR", "target": "ftsI"}}, {"data": {"id": "pdhR_murE", "source": "pdhR", "target": "murE"}}, {"data": {"id": "pdhR_murF", "source": "pdhR", "target": "murF"}}, {"data": {"id": "pdhR_mraY", "source": "pdhR", "target": "mraY"}}, {"data": {"id": "pdhR_murD", "source": "pdhR", "target": "murD"}}, {"data": {"id": "pdhR_ftsW", "source": "pdhR", "target": "ftsW"}}, {"data": {"id": "pdhR_murG", "source": "pdhR", "target": "murG"}}, {"data": {"id": "pdhR_pdhR", "source": "pdhR", "target": "pdhR"}}, {"data": {"id": "pdhR_pdhR", "source": "pdhR", "target": "pdhR"}}, {"data": {"id": "pdhR_aceE", "source": "pdhR", "target": "aceE"}}, {"data": {"id": "pdhR_aceF", "source": "pdhR", "target": "aceF"}}, {"data": {"id": "pdhR_hemL", "source": "pdhR", "target": "hemL"}}, {"data": {"id": "pdhR_cyoE", "source": "pdhR", "target": "cyoE"}}, {"data": {"id": "pdhR_cyoD", "source": "pdhR", "target": "cyoD"}}, {"data": {"id": "pdhR_cyoC", "source": "pdhR", "target": "cyoC"}}, {"data": {"id": "pdhR_cyoB", "source": "pdhR", "target": "cyoB"}}, {"data": {"id": "pdhR_cyoA", "source": "pdhR", "target": "cyoA"}}, {"data": {"id": "pdhR_hha", "source": "pdhR", "target": "hha"}}, {"data": {"id": "pdhR_SL1344_0467", "source": "pdhR", "target": "SL1344_0467"}}, {"data": {"id": "pdhR_lipA", "source": "pdhR", "target": "lipA"}}, {"data": {"id": "pdhR_ndh", "source": "pdhR", "target": "ndh"}}, {"data": {"id": "pdhR_SL1344_2610", "source": "pdhR", "target": "SL1344_2610"}}, {"data": {"id": "cap_pdhR", "source": "cap", "target": "pdhR"}}, {"data": {"id": "pdhR"}}, {"data": {"id": "SL1344_4481"}}, {"data": {"id": "fnr"}}, {"data": {"id": "fruR"}}, {"data": {"id": "mraZ"}}, {"data": {"id": "mraW"}}, {"data": {"id": "ftsL"}}, {"data": {"id": "ftsI"}}, {"data": {"id": "murE"}}, {"data": {"id": "murF"}}, {"data": {"id": "mraY"}}, {"data": {"id": "murD"}}, {"data": {"id": "ftsW"}}, {"data": {"id": "murG"}}, {"data": {"id": "aceE"}}, {"data": {"id": "aceF"}}, {"data": {"id": "hemL"}}, {"data": {"id": "cyoE"}}, {"data": {"id": "cyoD"}}, {"data": {"id": "cyoC"}}, {"data": {"id": "cyoB"}}, {"data": {"id": "cyoA"}}, {"data": {"id": "hha"}}, {"data": {"id": "SL1344_0467"}}, {"data": {"id": "lipA"}}, {"data": {"id": "ndh"}}, {"data": {"id": "SL1344_2610"}}, {"data": {"id": "cap"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

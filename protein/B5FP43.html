@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "SeD_A2421_galE", "source": "SeD_A2421", "target": "galE"}}, {"data": {"id": "SeD_A2443_galE", "source": "SeD_A2443", "target": "galE"}}, {"data": {"id": "galT_galE", "source": "galT", "target": "galE"}}, {"data": {"id": "SeD_A0085_galE", "source": "SeD_A0085", "target": "galE"}}, {"data": {"id": "frr_galE", "source": "frr", "target": "galE"}}, {"data": {"id": "nikR_galE", "source": "nikR", "target": "galE"}}, {"data": {"id": "SeD_A2248_galE", "source": "SeD_A2248", "target": "galE"}}, {"data": {"id": "SeD_A4023_galE", "source": "SeD_A4023", "target": "galE"}}, {"data": {"id": "SeD_A0591_galE", "source": "SeD_A0591", "target": "galE"}}, {"data": {"id": "SeD_A1124_galE", "source": "SeD_A1124", "target": "galE"}}, {"data": {"id": "SeD_A3032_galE", "source": "SeD_A3032", "target": "galE"}}, {"data": {"id": "SeD_A3152_galE", "source": "SeD_A3152", "target": "galE"}}, {"data": {"id": "SeD_A4980_galE", "source": "SeD_A4980", "target": "galE"}}, {"data": {"id": "SeD_A1428_galE", "source": "SeD_A1428", "target": "galE"}}, {"data": {"id": "SeD_A3287_galE", "source": "SeD_A3287", "target": "galE"}}, {"data": {"id": "SeD_A3364_galE", "source": "SeD_A3364", "target": "galE"}}, {"data": {"id": "SeD_A3342_galE", "source": "SeD_A3342", "target": "galE"}}, {"data": {"id": "crp_galE", "source": "crp", "target": "galE"}}, {"data": {"id": "galS_galE", "source": "galS", "target": "galE"}}, {"data": {"id": "SeD_A2421"}}, {"data": {"id": "galE"}}, {"data": {"id": "SeD_A2443"}}, {"data": {"id": "galT"}}, {"data": {"id": "SeD_A0085"}}, {"data": {"id": "frr"}}, {"data": {"id": "nikR"}}, {"data": {"id": "SeD_A2248"}}, {"data": {"id": "SeD_A4023"}}, {"data": {"id": "SeD_A0591"}}, {"data": {"id": "SeD_A1124"}}, {"data": {"id": "SeD_A3032"}}, {"data": {"id": "SeD_A3152"}}, {"data": {"id": "SeD_A4980"}}, {"data": {"id": "SeD_A1428"}}, {"data": {"id": "SeD_A3287"}}, {"data": {"id": "SeD_A3364"}}, {"data": {"id": "SeD_A3342"}}, {"data": {"id": "crp"}}, {"data": {"id": "galS"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

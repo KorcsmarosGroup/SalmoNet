@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "SeD_A3613_ptsH", "source": "SeD_A3613", "target": "ptsH"}}, {"data": {"id": "SeD_A3614_ptsH", "source": "SeD_A3614", "target": "ptsH"}}, {"data": {"id": "SeD_A3615_ptsH", "source": "SeD_A3615", "target": "ptsH"}}, {"data": {"id": "SeD_A3616_ptsH", "source": "SeD_A3616", "target": "ptsH"}}, {"data": {"id": "SeD_A3697_ptsH", "source": "SeD_A3697", "target": "ptsH"}}, {"data": {"id": "chbC_ptsH", "source": "chbC", "target": "ptsH"}}, {"data": {"id": "ptsG_ptsH", "source": "ptsG", "target": "ptsH"}}, {"data": {"id": "SeD_A4070_ptsH", "source": "SeD_A4070", "target": "ptsH"}}, {"data": {"id": "mtlD_ptsH", "source": "mtlD", "target": "ptsH"}}, {"data": {"id": "nagA_ptsH", "source": "nagA", "target": "ptsH"}}, {"data": {"id": "nagB_ptsH", "source": "nagB", "target": "ptsH"}}, {"data": {"id": "SeD_A2554_ptsH", "source": "SeD_A2554", "target": "ptsH"}}, {"data": {"id": "fruK_ptsH", "source": "fruK", "target": "ptsH"}}, {"data": {"id": "fruB_ptsH", "source": "fruB", "target": "ptsH"}}, {"data": {"id": "ptsH_nagE", "source": "ptsH", "target": "nagE"}}, {"data": {"id": "ptsH_SeD_A0989", "source": "ptsH", "target": "SeD_A0989"}}, {"data": {"id": "ptsH_ptsI", "source": "ptsH", "target": "ptsI"}}, {"data": {"id": "ptsH_lamB", "source": "ptsH", "target": "lamB"}}, {"data": {"id": "ptsH_ulaA", "source": "ptsH", "target": "ulaA"}}, {"data": {"id": "ptsH_ulaC", "source": "ptsH", "target": "ulaC"}}, {"data": {"id": "ptsH_SeD_A3141", "source": "ptsH", "target": "SeD_A3141"}}, {"data": {"id": "ptsH_SeD_A3142", "source": "ptsH", "target": "SeD_A3142"}}, {"data": {"id": "ptsH_srlB", "source": "ptsH", "target": "srlB"}}, {"data": {"id": "crr_ptsH", "source": "crr", "target": "ptsH"}}, {"data": {"id": "SeD_A1204_ptsH", "source": "SeD_A1204", "target": "ptsH"}}, {"data": {"id": "SeD_A4779_ptsH", "source": "SeD_A4779", "target": "ptsH"}}, {"data": {"id": "treC_ptsH", "source": "treC", "target": "ptsH"}}, {"data": {"id": "otsB_ptsH", "source": "otsB", "target": "ptsH"}}, {"data": {"id": "srlD_ptsH", "source": "srlD", "target": "ptsH"}}, {"data": {"id": "manZ_ptsH", "source": "manZ", "target": "ptsH"}}, {"data": {"id": "manY_ptsH", "source": "manY", "target": "ptsH"}}, {"data": {"id": "manX_ptsH", "source": "manX", "target": "ptsH"}}, {"data": {"id": "SeD_A0488_ptsH", "source": "SeD_A0488", "target": "ptsH"}}, {"data": {"id": "SeD_A4070_ptsH", "source": "SeD_A4070", "target": "ptsH"}}, {"data": {"id": "mtlR_ptsH", "source": "mtlR", "target": "ptsH"}}, {"data": {"id": "ptsI_ptsH", "source": "ptsI", "target": "ptsH"}}, {"data": {"id": "crr_ptsH", "source": "crr", "target": "ptsH"}}, {"data": {"id": "SeD_A4572_ptsH", "source": "SeD_A4572", "target": "ptsH"}}, {"data": {"id": "idnK_ptsH", "source": "idnK", "target": "ptsH"}}, {"data": {"id": "manX_ptsH", "source": "manX", "target": "ptsH"}}, {"data": {"id": "nagC_ptsH", "source": "nagC", "target": "ptsH"}}, {"data": {"id": "mic_ptsH", "source": "mic", "target": "ptsH"}}, {"data": {"id": "crp_ptsH", "source": "crp", "target": "ptsH"}}, {"data": {"id": "SeD_A3613"}}, {"data": {"id": "ptsH"}}, {"data": {"id": "SeD_A3614"}}, {"data": {"id": "SeD_A3615"}}, {"data": {"id": "SeD_A3616"}}, {"data": {"id": "SeD_A3697"}}, {"data": {"id": "chbC"}}, {"data": {"id": "ptsG"}}, {"data": {"id": "SeD_A4070"}}, {"data": {"id": "mtlD"}}, {"data": {"id": "nagA"}}, {"data": {"id": "nagB"}}, {"data": {"id": "SeD_A2554"}}, {"data": {"id": "fruK"}}, {"data": {"id": "fruB"}}, {"data": {"id": "nagE"}}, {"data": {"id": "SeD_A0989"}}, {"data": {"id": "ptsI"}}, {"data": {"id": "lamB"}}, {"data": {"id": "ulaA"}}, {"data": {"id": "ulaC"}}, {"data": {"id": "SeD_A3141"}}, {"data": {"id": "SeD_A3142"}}, {"data": {"id": "srlB"}}, {"data": {"id": "crr"}}, {"data": {"id": "SeD_A1204"}}, {"data": {"id": "SeD_A4779"}}, {"data": {"id": "treC"}}, {"data": {"id": "otsB"}}, {"data": {"id": "srlD"}}, {"data": {"id": "manZ"}}, {"data": {"id": "manY"}}, {"data": {"id": "manX"}}, {"data": {"id": "SeD_A0488"}}, {"data": {"id": "mtlR"}}, {"data": {"id": "SeD_A4572"}}, {"data": {"id": "idnK"}}, {"data": {"id": "nagC"}}, {"data": {"id": "mic"}}, {"data": {"id": "crp"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>

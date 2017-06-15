@@ -74,9 +74,9 @@
     <hr class="uk-grid-divider">
 
     <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
+        <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv"></div>
+            <div id="interactiontablediv" style="width:100%;"></div>
             <script>
                 interactiontable = webix.ui({
                     container:"interactiontablediv",
@@ -86,9 +86,9 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
                             {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
@@ -138,23 +138,59 @@
                 });
                 $(window).resize(function() {
                     if ($(window).width() < 850){
-                        interactiontable.hideColumn("data2");
-                        interactiontable.setColumnWidth("data0", 80);
-                        interactiontable.setColumnWidth("data1", 80);
-                        interactiontable.setColumnWidth("data3", 150);
+                        $$('interactiontable').hideColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 80);
+                        $$('interactiontable').setColumnWidth("data1", 80);
+                        $$('interactiontable').setColumnWidth("data3", 100);
                     }
                     if ($(window).width() >= 850){
-                        interactiontable.showColumn("data2");
-                        interactiontable.setColumnWidth("data0", 120);
-                        interactiontable.setColumnWidth("data1", 120);
-                        interactiontable.setColumnWidth("data3", 200);
+                        $$('interactiontable').showColumn("data2");
+                        $$('interactiontable').setColumnWidth("data0", 100);
+                        $$('interactiontable').setColumnWidth("data1", 100);
+                        $$('interactiontable').setColumnWidth("data3", 150);
                     }
                 });
                 if ($(window).width() < 850){
-                    interactiontable.hideColumn("data2");
-                    interactiontable.setColumnWidth("data0", 80);
-                    interactiontable.setColumnWidth("data1", 80);
+                    $$('interactiontable').hideColumn("data2");
+                    $$('interactiontable').setColumnWidth("data0", 80);
+                    $$('interactiontable').setColumnWidth("data1", 80);
                 };
+            </script>
+        </div>
+        <div class="uk-width-medium-1-2">
+            <h2>&nbsp;</h2>
+            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <script>
+                var cy = cytoscape({
+                    container: $('#interactionnetworkdiv'),
+                    elements: [{"data": {"id": "SeD_A4980_SeD_A0874", "source": "SeD_A4980", "target": "SeD_A0874"}}, {"data": {"id": "SeD_A0874_modA", "source": "SeD_A0874", "target": "modA"}}, {"data": {"id": "SeD_A0874_modB", "source": "SeD_A0874", "target": "modB"}}, {"data": {"id": "SeD_A0874_modC", "source": "SeD_A0874", "target": "modC"}}, {"data": {"id": "SeD_A0874_moaA", "source": "SeD_A0874", "target": "moaA"}}, {"data": {"id": "SeD_A0874_moaB", "source": "SeD_A0874", "target": "moaB"}}, {"data": {"id": "SeD_A0874_moaC", "source": "SeD_A0874", "target": "moaC"}}, {"data": {"id": "SeD_A0874_moaD", "source": "SeD_A0874", "target": "moaD"}}, {"data": {"id": "SeD_A0874_moaE", "source": "SeD_A0874", "target": "moaE"}}, {"data": {"id": "SeD_A0874_SeD_A0901", "source": "SeD_A0874", "target": "SeD_A0901"}}, {"data": {"id": "SeD_A0874_SeD_A1029", "source": "SeD_A0874", "target": "SeD_A1029"}}, {"data": {"id": "SeD_A0874_dmsB_1", "source": "SeD_A0874", "target": "dmsB_1"}}, {"data": {"id": "SeD_A0874_dmsC1", "source": "SeD_A0874", "target": "dmsC1"}}, {"data": {"id": "SeD_A0874_narL", "source": "SeD_A0874", "target": "narL"}}, {"data": {"id": "SeD_A0874_SeD_A1557", "source": "SeD_A0874", "target": "SeD_A1557"}}, {"data": {"id": "SeD_A0874_napF", "source": "SeD_A0874", "target": "napF"}}, {"data": {"id": "SeD_A0874_deoC", "source": "SeD_A0874", "target": "deoC"}}, {"data": {"id": "SeD_A4980"}}, {"data": {"id": "SeD_A0874"}}, {"data": {"id": "modA"}}, {"data": {"id": "modB"}}, {"data": {"id": "modC"}}, {"data": {"id": "moaA"}}, {"data": {"id": "moaB"}}, {"data": {"id": "moaC"}}, {"data": {"id": "moaD"}}, {"data": {"id": "moaE"}}, {"data": {"id": "SeD_A0901"}}, {"data": {"id": "SeD_A1029"}}, {"data": {"id": "dmsB_1"}}, {"data": {"id": "dmsC1"}}, {"data": {"id": "narL"}}, {"data": {"id": "SeD_A1557"}}, {"data": {"id": "napF"}}, {"data": {"id": "deoC"}}],
+
+style: [ 
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle'
+    }
+  }
+],
+
+layout: {
+    name: 'grid',
+    fit: true,
+    padding: 30
+}
+                });
             </script>
         </div>
     </div>
