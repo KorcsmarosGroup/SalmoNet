@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hisF,purB,BioModels,Metabolic\nhisH,purB,BioModels,Metabolic\npurT,purB,BioModels,Metabolic\npurH,purB,STM BioModels,Metabolic\npurB,purA,STM,Metabolic\npurB,purC,STM,Metabolic\npurN,purB,BioModels,Metabolic\nacpP,purB,IntAct,PPI'
+                        data: 'hisF,purB,BioModels,Metabolic,SPA0794,SPA1618,Q5PDN6,Q5PMJ2,1098,486\nhisH,purB,BioModels,Metabolic,SPA0796,SPA1618,Q5PDP6,Q5PMJ2,1699,486\npurT,purB,BioModels,Metabolic,SPA0986,SPA1618,Q5PIA0,Q5PMJ2,3737,486\npurH,purB,STM BioModels,Metabolic,SPA4013,SPA1618,Q5PKA9,Q5PMJ2,603,486\npurB,purA,STM,Metabolic,SPA1618,SPA4183,Q5PMJ2,Q5PL58,486,1431\npurB,purC,STM,Metabolic,SPA1618,SPA0382,Q5PMJ2,Q5PLR9,486,1843\npurN,purB,BioModels,Metabolic,SPA0367,SPA1618,Q5PNJ9,Q5PMJ2,3645,486\nacpP,purB,IntAct,PPI,SPA1655,SPA1618,Q5PGU4,Q5PMJ2,883,486'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PMJ2",
                                         name: "purB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

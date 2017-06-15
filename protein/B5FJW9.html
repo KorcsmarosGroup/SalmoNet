@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gpt,SeD_A0056,STM,Metabolic\ngpt,hpt,STM,Metabolic\ngpt,SeD_A4133,STM,Metabolic\ngpt,xapA,STM,Metabolic\ngpt,deoD,STM,Metabolic\nguaA,gpt,STM,Metabolic\nSeD_A2135,gpt,Salm,Transcriptional_regulatory\nSeD_A3177,gpt,Salm,Transcriptional_regulatory'
+                        data: 'gpt,SeD_A0056,STM,Metabolic,SeD_A0347,SeD_A0056,B5FJW9,B5FHE5,762,643\ngpt,hpt,STM,Metabolic,SeD_A0347,SeD_A0185,B5FJW9,B5FIB8,762,4146\ngpt,SeD_A4133,STM,Metabolic,SeD_A0347,SeD_A4133,B5FJW9,B5FM78,762,3204\ngpt,xapA,STM,Metabolic,SeD_A0347,SeD_A2787,B5FJW9,B5FQB4,762,1707\ngpt,deoD,STM,Metabolic,SeD_A0347,SeD_A4985,B5FJW9,B5FTC8,762,234\nguaA,gpt,STM,Metabolic,SeD_A2875,SeD_A0347,B5FR52,B5FJW9,447,762\nSeD_A2135,gpt,Salm,Transcriptional_regulatory,SeD_A2135,SeD_A0347,B5FK73,B5FJW9,1432,762\nSeD_A3177,gpt,Salm,Transcriptional_regulatory,SeD_A3177,SeD_A0347,B5FT18,B5FJW9,1614,762'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FJW9",
                                         name: "gpt",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rfc,rfbX,STM,Metabolic\nrfc,wzzB,STM,Metabolic\nrfc,fepE,STM,Metabolic\nrfc,wzxE,STM,Metabolic\nrfaL,rfc,STM,Metabolic\nphoP,rfc,Salm,Transcriptional_regulatory'
+                        data: 'rfc,rfbX,STM,Metabolic,STM1332,STM2088,P0A235,P26400,1455,1422\nrfc,wzzB,STM,Metabolic,STM1332,STM2079,P0A235,Q04866,1455,89\nrfc,fepE,STM,Metabolic,STM1332,STM0589,P0A235,Q8ZR36,1455,4084\nrfc,wzxE,STM,Metabolic,STM1332,STM3926,P0A235,Q9L6Q9,1455,2568\nrfaL,rfc,STM,Metabolic,STM3713,STM1332,P26471,P0A235,368,1455\nphoP,rfc,Salm,Transcriptional_regulatory,STM1231,STM1332,P0DM78,P0A235,1432,1455'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A235",
                                         name: "rfc",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

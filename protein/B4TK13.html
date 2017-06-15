@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'mrdA,mrcB,STM,Metabolic\npbpC,mrcB,STM,Metabolic\nftsI,mrcB,STM,Metabolic\nmrcB,murG,STM,Metabolic\nmrcB,mrcA,STM,Metabolic\nftsN,mrcB,IntAct,PPI\nSeHA_C1321,mrcB,IntAct,PPI\nmrcB,ftsI,IntAct Interactome3d,PPI\nmrcB,ftsW,IntAct,PPI'
+                        data: 'mrdA,mrcB,STM,Metabolic,SeHA_C0756,SeHA_C0222,B4TB43,B4TK13,2244,2681\npbpC,mrcB,STM,Metabolic,SeHA_C2789,SeHA_C0222,B4TDA1,B4TK13,3411,2681\nftsI,mrcB,STM,Metabolic,SeHA_C0134,SeHA_C0222,B4TJ81,B4TK13,3143,2681\nmrcB,murG,STM,Metabolic,SeHA_C0222,SeHA_C0140,B4TK13,B4TJ87,2681,2882\nmrcB,mrcA,STM,Metabolic,SeHA_C0222,SeHA_C3799,B4TK13,B4TKR8,2681,3788\nftsN,mrcB,IntAct,PPI,SeHA_C4425,SeHA_C0222,B4TCN0,B4TK13,2083,2681\nSeHA_C1321,mrcB,IntAct,PPI,SeHA_C1321,SeHA_C0222,B4TFI2,B4TK13,67,2681\nmrcB,ftsI,IntAct Interactome3d,PPI,SeHA_C0222,SeHA_C0134,B4TK13,B4TJ81,2681,3143\nmrcB,ftsW,IntAct,PPI,SeHA_C0222,SeHA_C0139,B4TK13,B4TJ86,2681,3007'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TK13",
                                         name: "mrcB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

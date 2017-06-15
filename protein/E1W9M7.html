@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'sdhC,sdhA,STM,Metabolic\nsdhD,sdhA,STM,Metabolic\nsdhA,gcd,BioModels,Metabolic\nsdhA,sdhB,STM,Metabolic\nsdhA,sdhC,IntAct,PPI\nsdhB,sdhA,Lit Ecoli IntAct Interactome3d,PPI\nyidC,sdhA,IntAct,PPI\ntrxA,sdhA,IntAct,PPI\nSL1344_3023,sdhA,Lit Ecoli IntAct,PPI\nfur,sdhA,Ecoli,Transcriptional_regulatory\narcA,sdhA,Ecoli,Transcriptional_regulatory\ncap,sdhA,Ecoli,Transcriptional_regulatory'
+                        data: 'sdhC,sdhA,STM,Metabolic,SL1344_0714,SL1344_0716,E1W9M5,E1W9M7,800,3736\nsdhD,sdhA,STM,Metabolic,SL1344_0715,SL1344_0716,E1W9M6,E1W9M7,784,3736\nsdhA,gcd,BioModels,Metabolic,SL1344_0716,SL1344_0170,E1W9M7,E1W841,3736,223\nsdhA,sdhB,STM,Metabolic,SL1344_0716,SL1344_0717,E1W9M7,E1W9M8,3736,1219\nsdhA,sdhC,IntAct,PPI,SL1344_0716,SL1344_0714,E1W9M7,E1W9M5,3736,800\nsdhB,sdhA,Lit Ecoli IntAct Interactome3d,PPI,SL1344_0717,SL1344_0716,E1W9M8,E1W9M7,1219,3736\nyidC,sdhA,IntAct,PPI,SL1344_3809,SL1344_0716,E1WDR8,E1W9M7,3987,3736\ntrxA,sdhA,IntAct,PPI,SL1344_3875,SL1344_0716,E1WDY2,E1W9M7,3171,3736\nSL1344_3023,sdhA,Lit Ecoli IntAct,PPI,SL1344_3023,SL1344_0716,E1WHI7,E1W9M7,3595,3736\nfur,sdhA,Ecoli,Transcriptional_regulatory,SL1344_0675,SL1344_0716,E1W9I7,E1W9M7,552,3736\narcA,sdhA,Ecoli,Transcriptional_regulatory,SL1344_4525,SL1344_0716,E1WBC8,E1W9M7,2438,3736\ncap,sdhA,Ecoli,Transcriptional_regulatory,SL1344_3433,SL1344_0716,E1WIP3,E1W9M7,2484,3736'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1W9M7",
                                         name: "sdhA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

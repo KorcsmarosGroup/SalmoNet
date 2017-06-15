@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'mpl,murB,STM,Metabolic\nldcA,mpl,STM,Metabolic\nmurF,mpl,STM,Metabolic\nmpl,t3156,Lit Ecoli IntAct,PPI\nftsZ,mpl,Lit Ecoli IntAct,PPI\nfruR,mpl,Ecoli,Transcriptional_regulatory\ncrp,mpl,Ecoli,Transcriptional_regulatory'
+                        data: 'mpl,murB,STM,Metabolic,t4470,t3489,Q8Z145,Q8Z316,839,2595\nldcA,mpl,STM,Metabolic,t1077,t4470,Q8Z689,Q8Z145,2164,839\nmurF,mpl,STM,Metabolic,t0128,t4470,Q8Z9H2,Q8Z145,2846,839\nmpl,t3156,Lit Ecoli IntAct,PPI,t4470,t3156,Q8Z145,Q8Z3K9,839,3148\nftsZ,mpl,Lit Ecoli IntAct,PPI,t0137,t4470,Q8Z9G6,Q8Z145,1789,839\nfruR,mpl,Ecoli,Transcriptional_regulatory,t0122,t4470,P0A2P9,Q8Z145,191,839\ncrp,mpl,Ecoli,Transcriptional_regulatory,t4039,t4470,Q8Z1Z2,Q8Z145,2484,839'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z145",
                                         name: "mpl",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

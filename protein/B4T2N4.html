@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dipZ,dsbG,STM,Metabolic\ndipZ,trxA,STM,Metabolic\ndipZ,SNSL254_A2861,STM,Metabolic\nSNSL254_A3277,dipZ,STM,Metabolic\nSNSL254_A4096,dipZ,Interactome3d,PPI\nSNSL254_A3277,dipZ,Interactome3d,PPI'
+                        data: 'dipZ,dsbG,STM,Metabolic,SNSL254_A4684,SNSL254_A0660,B4T2N4,B4SYG4,1334,3048\ndipZ,trxA,STM,Metabolic,SNSL254_A4684,SNSL254_A4196,B4T2N4,B4SZ27,1334,3171\ndipZ,SNSL254_A2861,STM,Metabolic,SNSL254_A4684,SNSL254_A2861,B4T2N4,B4T292,1334,2524\nSNSL254_A3277,dipZ,STM,Metabolic,SNSL254_A3277,SNSL254_A4684,B4T537,B4T2N4,1179,1334\nSNSL254_A4096,dipZ,Interactome3d,PPI,SNSL254_A4096,SNSL254_A4684,B4SY81,B4T2N4,2326,1334\nSNSL254_A3277,dipZ,Interactome3d,PPI,SNSL254_A3277,SNSL254_A4684,B4T537,B4T2N4,1179,1334'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4T2N4",
                                         name: "dipZ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

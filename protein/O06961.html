@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tdcD,ackA,STM,Metabolic\ntdcD,pduW,STM,Metabolic\ntdcD,pta,STM BioModels,Metabolic\ntdcD,purT,STM,Metabolic\ntdcD,pduL,STM BioModels,Metabolic\nprpE,tdcD,STM,Metabolic\nacs,tdcD,STM,Metabolic'
+                        data: 'tdcD,ackA,STM,Metabolic,STM3242,STM2337,O06961,P63411,419,417\ntdcD,pduW,STM,Metabolic,STM3242,STM2057,O06961,P74879,419,3142\ntdcD,pta,STM BioModels,Metabolic,STM3242,STM2338,O06961,Q8ZND6,419,2528\ntdcD,purT,STM,Metabolic,STM3242,STM1883,O06961,Q8ZNW5,419,3737\ntdcD,pduL,STM BioModels,Metabolic,STM3242,STM2047,O06961,Q9XDN5,419,4368\nprpE,tdcD,STM,Metabolic,STM0371,STM3242,P55912,O06961,2751,419\nacs,tdcD,STM,Metabolic,STM4275,STM3242,Q8ZKF6,O06961,3305,419'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_O06961",
                                         name: "tdcD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

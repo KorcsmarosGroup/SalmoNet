@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pepN,pepA,STM,Metabolic\npepA,ggt,BioModels,Metabolic\npepA,pepB,STM,Metabolic\npepD,pepA,STM,Metabolic\npepA,carA,Ecoli,Transcriptional_regulatory\npepA,carB,Ecoli,Transcriptional_regulatory\npepA,pepA,Ecoli,Transcriptional_regulatory\npepA,pepA,Ecoli,Transcriptional_regulatory'
+                        data: 'pepN,pepA,STM,Metabolic,SEN0922,SEN4230,B5QZE7,B5R1K2,3822,2835\npepA,ggt,BioModels,Metabolic,SEN4230,SEN3374,B5R1K2,B5R3A9,2835,2060\npepA,pepB,STM,Metabolic,SEN4230,SEN2516,B5R1K2,B5R595,2835,2788\npepD,pepA,STM,Metabolic,SEN0299,SEN4230,B5R4S0,B5R1K2,4070,2835\npepA,carA,Ecoli,Transcriptional_regulatory,SEN4230,SEN0066,B5R1K2,B5R1Q5,2835,1858\npepA,carB,Ecoli,Transcriptional_regulatory,SEN4230,SEN0067,B5R1K2,B5R1Q6,2835,1521\npepA,pepA,Ecoli,Transcriptional_regulatory,SEN4230,SEN4230,B5R1K2,B5R1K2,2835,2835\npepA,pepA,Ecoli,Transcriptional_regulatory,SEN4230,SEN4230,B5R1K2,B5R1K2,2835,2835'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R1K2",
                                         name: "pepA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

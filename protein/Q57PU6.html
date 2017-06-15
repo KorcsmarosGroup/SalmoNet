@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'eutT,btuC,STM,Metabolic\npduO,btuC,STM,Metabolic\nbtuR,btuC,STM,Metabolic\nbtuC,btuF,STM,Metabolic\nbtuF,btuC,IntAct Interactome3d,PPI\nfur,btuC,Salm,Transcriptional_regulatory\ncueR,btuC,Salm,Transcriptional_regulatory'
+                        data: 'eutT,btuC,STM,Metabolic,SC2463,SC1359,Q57LP3,Q57PU6,2101,3956\npduO,btuC,STM,Metabolic,SC2058,SC1359,Q57MU7,Q57PU6,1040,3956\nbtuR,btuC,STM,Metabolic,SC1715,SC1359,Q57NU0,Q57PU6,1229,3956\nbtuC,btuF,STM,Metabolic,SC1359,SC0206,Q57PU6,Q57T49,3956,2972\nbtuF,btuC,IntAct Interactome3d,PPI,SC0206,SC1359,Q57T49,Q57PU6,2972,3956\nfur,btuC,Salm,Transcriptional_regulatory,SC0713,SC1359,Q57RP2,Q57PU6,552,3956\ncueR,btuC,Salm,Transcriptional_regulatory,SC0540,SC1359,Q57S65,Q57PU6,687,3956'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57PU6",
                                         name: "btuC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

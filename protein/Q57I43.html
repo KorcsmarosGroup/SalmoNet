@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'deoC,rbsK,STM BioModels,Metabolic\nrbsK,rbsK,STM,Metabolic\nrbsK,deoB,BioModels,Metabolic\nrbsK,fucP,STM,Metabolic\nrbsK,fucP,STM,Metabolic\ninvF,rbsK,Salm,Transcriptional_regulatory'
+                        data: 'deoC,rbsK,STM BioModels,Metabolic,SC4415,SC3713,Q57G41,Q57I43,1845,2641\nrbsK,rbsK,STM,Metabolic,SC3798,SC3713,Q57HV8,Q57I43,248,2641\nrbsK,deoB,BioModels,Metabolic,SC3713,SC4417,Q57I43,Q57G39,2641,1641\nrbsK,fucP,STM,Metabolic,SC3713,SC3712,Q57I43,Q57I44,2641,2076\nrbsK,fucP,STM,Metabolic,SC3713,SC2915,Q57I43,Q57KE1,2641,2076\ninvF,rbsK,Salm,Transcriptional_regulatory,SC2831,SC3713,Q57KM5,Q57I43,2003,2641'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57I43",
                                         name: "rbsK",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

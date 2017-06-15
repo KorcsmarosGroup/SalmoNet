@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ahpF,SG0414,STM,Metabolic\nahpF,ahpC,STM,Metabolic\nahpF,trxC,STM,Metabolic\nahpF,trxA,STM,Metabolic\naraC,ahpF,Salm,Transcriptional_regulatory\noxyR,ahpF,Ecoli,Transcriptional_regulatory'
+                        data: 'ahpF,SG0414,STM,Metabolic,SG0613,SG0414,B5R731,B5R6Q4,4017,90\nahpF,ahpC,STM,Metabolic,SG0613,SG0612,B5R731,B5R730,4017,1258\nahpF,trxC,STM,Metabolic,SG0613,SG2633,B5R731,B5RD64,4017,2524\nahpF,trxA,STM,Metabolic,SG0613,SG3527,B5R731,B5RFS2,4017,3171\naraC,ahpF,Salm,Transcriptional_regulatory,SG0105,SG0613,B5RGD5,B5R731,2319,4017\noxyR,ahpF,Ecoli,Transcriptional_regulatory,SG3291,SG0613,B5RF44,B5R731,3398,4017'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R731",
                                         name: "ahpF",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

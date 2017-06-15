@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pflA,yfiD,STM,Metabolic\npflA,pflD,STM,Metabolic\npflA,pflC,STM,Metabolic\npflA,pflF,STM,Metabolic\npflA,pflE,STM,Metabolic\npflA,pflB,STM,Metabolic\npflA,tdcE,STM,Metabolic\nydcY,pflA,Lit Ecoli IntAct,PPI\nyffB,pflA,Lit Ecoli IntAct,PPI'
+                        data: 'pflA,yfiD,STM,Metabolic,SEN0874,SEN2573,B5QYQ0,B5QTW0,517,3300\npflA,pflD,STM,Metabolic,SEN0874,SEN3908,B5QYQ0,B5QXP6,517,4150\npflA,pflC,STM,Metabolic,SEN0874,SEN3909,B5QYQ0,B5QXP7,517,3449\npflA,pflF,STM,Metabolic,SEN0874,SEN0789,B5QYQ0,B5QXU7,517,2703\npflA,pflE,STM,Metabolic,SEN0874,SEN0790,B5QYQ0,B5QXU8,517,3316\npflA,pflB,STM,Metabolic,SEN0874,SEN0877,B5QYQ0,B5QYQ3,517,2570\npflA,tdcE,STM,Metabolic,SEN0874,SEN3082,B5QYQ0,B5QZR9,517,380\nydcY,pflA,Lit Ecoli IntAct,PPI,SEN1463,SEN0874,B5QTL0,B5QYQ0,2534,517\nyffB,pflA,Lit Ecoli IntAct,PPI,SEN2461,SEN0874,B5R4I9,B5QYQ0,3309,517'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QYQ0",
                                         name: "pflA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ldcC,SeD_A2935,STM,Metabolic\ncadB,SeD_A2935,STM,Metabolic\nSeD_A2935,SeD_A2711,BioModels,Metabolic\nSeD_A2935,lysA,BioModels,Metabolic\nldcC,SeD_A2935,IntAct Interactome3d,PPI\nSeD_A4271,SeD_A2935,IntAct,PPI'
+                        data: 'ldcC,SeD_A2935,STM,Metabolic,SeD_A0256,SeD_A2935,B5FJ34,B5FRA3,1234,429\ncadB,SeD_A2935,STM,Metabolic,SeD_A2934,SeD_A2935,B5FRA2,B5FRA3,1744,429\nSeD_A2935,SeD_A2711,BioModels,Metabolic,SeD_A2935,SeD_A2711,B5FRA3,B5FPK4,429,383\nSeD_A2935,lysA,BioModels,Metabolic,SeD_A2935,SeD_A3345,B5FRA3,B5FUC3,429,2791\nldcC,SeD_A2935,IntAct Interactome3d,PPI,SeD_A0256,SeD_A2935,B5FJ34,B5FRA3,1234,429\nSeD_A4271,SeD_A2935,IntAct,PPI,SeD_A4271,SeD_A2935,B5FN49,B5FRA3,3012,429'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FRA3",
                                         name: "SeD_A2935",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

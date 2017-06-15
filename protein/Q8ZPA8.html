@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'STM1627,eutG,STM,Metabolic\nSTM1627,adhP,STM,Metabolic\nSTM1627,glpF,STM,Metabolic\nSTM1627,adhE,STM,Metabolic\nfliK,STM1627,Lit Ecoli IntAct,PPI\nSTM1628,STM1627,Ecoli,Transcriptional_regulatory\nyohL,STM1627,Ecoli,Transcriptional_regulatory'
+                        data: 'STM1627,eutG,STM,Metabolic,STM1627,STM2461,Q8ZPA8,P41795,3871,348\nSTM1627,adhP,STM,Metabolic,STM1627,STM1567,Q8ZPA8,Q7CQI9,3871,1102\nSTM1627,glpF,STM,Metabolic,STM1627,STM4087,Q8ZPA8,Q8ZKP2,3871,890\nSTM1627,adhE,STM,Metabolic,STM1627,STM1749,Q8ZPA8,Q8ZP45,3871,205\nfliK,STM1627,Lit Ecoli IntAct,PPI,STM1974,STM1627,P26416,Q8ZPA8,1271,3871\nSTM1628,STM1627,Ecoli,Transcriptional_regulatory,STM1628,STM1627,Q8ZPA7,Q8ZPA8,1254,3871\nyohL,STM1627,Ecoli,Transcriptional_regulatory,STM3023,STM1627,Q7CPV3,Q8ZPA8,1254,3871'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZPA8",
                                         name: "STM1627",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpoE,rpsS,IntAct,PPI\nrpsH,rpsS,Lit Ecoli IntAct,PPI\nrpsS,SeHA_C2137,IntAct,PPI\nrpsS,fliG,IntAct,PPI\nrpsS,SeHA_C0535,IntAct Biogrid,PPI\nrpsS,gyrA,IntAct,PPI\nrpsS,rimM,Lit Ecoli IntAct,PPI\nrpsS,rpsM,Interactome3d,PPI\nrpsS,rpsN,Interactome3d,PPI\ngph,rpsS,IntAct,PPI'
+                        data: 'rpoE,rpsS,IntAct,PPI,SeHA_C2854,SeHA_C3740,B4TE21,B4TKL1,3460,3017\nrpsH,rpsS,Lit Ecoli IntAct,PPI,SeHA_C3730,SeHA_C3740,B4TKK1,B4TKL1,3598,3017\nrpsS,SeHA_C2137,IntAct,PPI,SeHA_C3740,SeHA_C2137,B4TKL1,B4T821,3017,1259\nrpsS,fliG,IntAct,PPI,SeHA_C3740,SeHA_C2186,B4TKL1,B4T8S5,3017,2795\nrpsS,SeHA_C0535,IntAct Biogrid,PPI,SeHA_C3740,SeHA_C0535,B4TKL1,B4T9C8,3017,1011\nrpsS,gyrA,IntAct,PPI,SeHA_C3740,SeHA_C2512,B4TKL1,B4TAU5,3017,3730\nrpsS,rimM,Lit Ecoli IntAct,PPI,SeHA_C3740,SeHA_C2891,B4TKL1,B4TE52,3017,2812\nrpsS,rpsM,Interactome3d,PPI,SeHA_C3740,SeHA_C3721,B4TKL1,B4TJY8,3017,613\nrpsS,rpsN,Interactome3d,PPI,SeHA_C3740,SeHA_C3731,B4TKL1,B4TKK2,3017,1046\ngph,rpsS,IntAct,PPI,SeHA_C3788,SeHA_C3740,B4TKQ8,B4TKL1,1323,3017'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TKL1",
                                         name: "rpsS",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

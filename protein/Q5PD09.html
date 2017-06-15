@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cysB,yciW,Lit Ecoli IntAct,PPI\ncysB,cysP,Ecoli,Transcriptional_regulatory\ncysB,cysU,Ecoli,Transcriptional_regulatory\ncysB,cysW,Ecoli,Transcriptional_regulatory\ncysB,cysA,Ecoli,Transcriptional_regulatory\ncysB,cysK,Ecoli,Transcriptional_regulatory\ncysB,cysB,Ecoli,Transcriptional_regulatory\ncysB,cysB,Ecoli,Transcriptional_regulatory\ncysB,ygbE,Ecoli,Transcriptional_regulatory\ncysB,cysC,Ecoli,Transcriptional_regulatory\ncysB,cysN,Ecoli,Transcriptional_regulatory\ncysB,cysD,Ecoli,Transcriptional_regulatory\ncysB,cysH,Ecoli,Transcriptional_regulatory\ncysB,cysI,Ecoli,Transcriptional_regulatory\ncysB,cysJ,Ecoli,Transcriptional_regulatory\nphoP,cysB,Ecoli,Transcriptional_regulatory'
+                        data: 'cysB,yciW,Lit Ecoli IntAct,PPI,SPA1163,SPA1176,Q5PD09,Q5PCZ5,598,3887\ncysB,cysP,Ecoli,Transcriptional_regulatory,SPA1163,SPA0422,Q5PD09,Q5PNC7,598,2781\ncysB,cysU,Ecoli,Transcriptional_regulatory,SPA1163,SPA0423,Q5PD09,Q5PNC6,598,3802\ncysB,cysW,Ecoli,Transcriptional_regulatory,SPA1163,SPA0424,Q5PD09,Q5PNC5,598,1302\ncysB,cysA,Ecoli,Transcriptional_regulatory,SPA1163,SPA0425,Q5PD09,Q5PNC4,598,1260\ncysB,cysK,Ecoli,Transcriptional_regulatory,SPA1163,SPA0435,Q5PD09,Q5PND4,598,2032\ncysB,cysB,Ecoli,Transcriptional_regulatory,SPA1163,SPA1163,Q5PD09,Q5PD09,598,598\ncysB,cysB,Ecoli,Transcriptional_regulatory,SPA1163,SPA1163,Q5PD09,Q5PD09,598,598\ncysB,ygbE,Ecoli,Transcriptional_regulatory,SPA1163,SPA2788,Q5PD09,Q5PEF9,598,3502\ncysB,cysC,Ecoli,Transcriptional_regulatory,SPA1163,SPA2789,Q5PD09,Q5PEH3,598,2794\ncysB,cysN,Ecoli,Transcriptional_regulatory,SPA1163,SPA2790,Q5PD09,Q5PEH2,598,2921\ncysB,cysD,Ecoli,Transcriptional_regulatory,SPA1163,SPA2791,Q5PD09,Q5PEH1,598,1070\ncysB,cysH,Ecoli,Transcriptional_regulatory,SPA1163,SPA2802,Q5PD09,Q5PEH9,598,240\ncysB,cysI,Ecoli,Transcriptional_regulatory,SPA1163,SPA2803,Q5PD09,Q5PEH8,598,1899\ncysB,cysJ,Ecoli,Transcriptional_regulatory,SPA1163,SPA2804,Q5PD09,Q5PEH7,598,548\nphoP,cysB,Ecoli,Transcriptional_regulatory,SPA1619,SPA1163,Q5PMJ1,Q5PD09,1432,598'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PD09",
                                         name: "cysB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

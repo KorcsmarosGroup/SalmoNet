@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SeD_A0218,cas2,Lit Ecoli IntAct,PPI\nSeD_A2098,cas2,Lit Ecoli IntAct,PPI\ncas1,cas2,Interactome3d,PPI\nSeD_A3273,cas2,Lit Ecoli IntAct,PPI\nfruR,cas2,Salm,Transcriptional_regulatory\nleuO,cas2,Ecoli,Transcriptional_regulatory\nSeD_A3186,cas2,Salm,Transcriptional_regulatory\ncueR,cas2,Salm,Transcriptional_regulatory'
+                        data: 'SeD_A0218,cas2,Lit Ecoli IntAct,PPI,SeD_A0218,SeD_A3248,B5FIZ8,B5FTT3,112,391\nSeD_A2098,cas2,Lit Ecoli IntAct,PPI,SeD_A2098,SeD_A3248,B5FK43,B5FTT3,965,391\ncas1,cas2,Interactome3d,PPI,SeD_A3249,SeD_A3248,B5FTT4,B5FTT3,3242,391\nSeD_A3273,cas2,Lit Ecoli IntAct,PPI,SeD_A3273,SeD_A3248,B5FTV6,B5FTT3,112,391\nfruR,cas2,Salm,Transcriptional_regulatory,SeD_A0127,SeD_A3248,B5FI62,B5FTT3,191,391\nleuO,cas2,Ecoli,Transcriptional_regulatory,SeD_A0124,SeD_A3248,B5FI59,B5FTT3,863,391\nSeD_A3186,cas2,Salm,Transcriptional_regulatory,SeD_A3186,SeD_A3248,B5FT27,B5FTT3,1036,391\ncueR,cas2,Salm,Transcriptional_regulatory,SeD_A0385,SeD_A3248,B5FK03,B5FTT3,3600,391'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FTT3",
                                         name: "cas2",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

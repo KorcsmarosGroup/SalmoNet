@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tsr,cheY,IntAct,PPI\narcB,cheY,Interactome3d,PPI\ngyrA,cheY,IntAct,PPI\nfliM,cheY,Interactome3d,PPI\ncheA,cheY,IntAct Interactome3d,PPI\ncheM,cheY,IntAct,PPI\ncheY,cheZ,IntAct Interactome3d,PPI\nflgE,cheY,IntAct,PPI'
+                        data: 'tsr,cheY,IntAct,PPI,SC4385,SC1923,Q57G71,Q57N82,1740,2383\narcB,cheY,Interactome3d,PPI,SC3266,SC1923,Q57JE0,Q57N82,2803,2383\ngyrA,cheY,IntAct,PPI,SC2275,SC1923,Q57M81,Q57N82,3730,2383\nfliM,cheY,Interactome3d,PPI,SC1981,SC1923,Q57N24,Q57N82,1344,2383\ncheA,cheY,IntAct Interactome3d,PPI,SC1928,SC1923,Q57N77,Q57N82,1259,2383\ncheM,cheY,IntAct,PPI,SC1926,SC1923,Q57N79,Q57N82,1740,2383\ncheY,cheZ,IntAct Interactome3d,PPI,SC1923,SC1922,Q57N82,Q57N83,2383,1114\nflgE,cheY,IntAct,PPI,SC1124,SC1923,Q57QI1,Q57N82,1912,2383'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57N82",
                                         name: "cheY",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

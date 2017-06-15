@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'sucA,sucB,STM BioModels,Metabolic\naceE,sucA,BioModels,Metabolic\naceF,sucA,BioModels,Metabolic\nlpdA,sucA,STM BioModels,Metabolic\nSeHA_C0535,sucA,Biogrid,PPI\nsucA,sucB,Lit Ecoli IntAct,PPI\nSeHA_C0813,sucA,Ecoli,Transcriptional_regulatory\narcA,sucA,Ecoli,Transcriptional_regulatory'
+                        data: 'sucA,sucB,STM BioModels,Metabolic,SeHA_C0859,SeHA_C0860,B4TBD5,B4TBD6,1016,2189\naceE,sucA,BioModels,Metabolic,SeHA_C0166,SeHA_C0859,B4TJB1,B4TBD5,2895,1016\naceF,sucA,BioModels,Metabolic,SeHA_C0167,SeHA_C0859,B4TJB2,B4TBD5,68,1016\nlpdA,sucA,STM BioModels,Metabolic,SeHA_C0168,SeHA_C0859,B4TJB3,B4TBD5,3188,1016\nSeHA_C0535,sucA,Biogrid,PPI,SeHA_C0535,SeHA_C0859,B4T9C8,B4TBD5,1011,1016\nsucA,sucB,Lit Ecoli IntAct,PPI,SeHA_C0859,SeHA_C0860,B4TBD5,B4TBD6,1016,2189\nSeHA_C0813,sucA,Ecoli,Transcriptional_regulatory,SeHA_C0813,SeHA_C0859,B4TB92,B4TBD5,552,1016\narcA,sucA,Ecoli,Transcriptional_regulatory,SeHA_C5008,SeHA_C0859,B4TH30,B4TBD5,2438,1016'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TBD5",
                                         name: "sucA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

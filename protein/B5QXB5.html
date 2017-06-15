@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glmS,SEN1828,BioModels,Metabolic\nSEN1828,nagA,BioModels,Metabolic\nSEN1828,nagB,BioModels,Metabolic\nSEN1828,pncB,STM,Metabolic\nSEN1828,glmM,BioModels,Metabolic\nSEN1828,nadC,STM,Metabolic\ncobT,SEN1828,STM,Metabolic\ncobS,SEN1828,STM,Metabolic\nyccR,SEN1828,Lit Ecoli IntAct,PPI'
+                        data: 'glmS,SEN1828,BioModels,Metabolic,SEN3675,SEN1828,B5QUS0,B5QXB5,2457,2636\nSEN1828,nagA,BioModels,Metabolic,SEN1828,SEN0647,B5QXB5,B5QWC7,2636,313\nSEN1828,nagB,BioModels,Metabolic,SEN1828,SEN0648,B5QXB5,B5QWC8,2636,231\nSEN1828,pncB,STM,Metabolic,SEN1828,SEN0908,B5QXB5,B5QZD8,2636,3279\nSEN1828,glmM,BioModels,Metabolic,SEN1828,SEN3127,B5QXB5,B5QZW4,2636,3243\nSEN1828,nadC,STM,Metabolic,SEN1828,SEN0149,B5QXB5,B5R2P3,2636,861\ncobT,SEN1828,STM,Metabolic,SEN2014,SEN1828,B5QYX3,B5QXB5,1463,2636\ncobS,SEN1828,STM,Metabolic,SEN2015,SEN1828,B5QYX4,B5QXB5,3459,2636\nyccR,SEN1828,Lit Ecoli IntAct,PPI,SEN0937,SEN1828,B5QZG2,B5QXB5,852,2636'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QXB5",
                                         name: "SEN1828",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

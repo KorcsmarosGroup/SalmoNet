@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'napC,napH,STM,Metabolic\nnapB,napH,STM,Metabolic\nnapG,napH,STM,Metabolic\nnapA,napH,STM,Metabolic\nnapH,napC,IntAct,PPI\nyfhP,napH,Ecoli,Transcriptional_regulatory\nfnr,napH,Ecoli,Transcriptional_regulatory\nnarL,napH,Ecoli,Transcriptional_regulatory\nnarP,napH,Ecoli,Transcriptional_regulatory\nmodE,napH,Ecoli,Transcriptional_regulatory'
+                        data: 'napC,napH,STM,Metabolic,SPA0609,SPA0607,Q5PI56,Q5PI59,2188,3241\nnapB,napH,STM,Metabolic,SPA0608,SPA0607,Q5PI57,Q5PI59,2492,3241\nnapG,napH,STM,Metabolic,SPA0606,SPA0607,Q5PI60,Q5PI59,455,3241\nnapA,napH,STM,Metabolic,SPA0605,SPA0607,Q5PI61,Q5PI59,2263,3241\nnapH,napC,IntAct,PPI,SPA0607,SPA0609,Q5PI59,Q5PI56,3241,2188\nyfhP,napH,Ecoli,Transcriptional_regulatory,SPA0322,SPA0607,Q5PNG2,Q5PI59,107,3241\nfnr,napH,Ecoli,Transcriptional_regulatory,SPA1224,SPA0607,Q5PHR1,Q5PI59,147,3241\nnarL,napH,Ecoli,Transcriptional_regulatory,SPA1106,SPA0607,Q5PCS3,Q5PI59,265,3241\nnarP,napH,Ecoli,Transcriptional_regulatory,SPA0618,SPA0607,Q5PE16,Q5PI59,697,3241\nmodE,napH,Ecoli,Transcriptional_regulatory,SPA1973,SPA0607,Q5PG66,Q5PI59,710,3241'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PI59",
                                         name: "napH",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

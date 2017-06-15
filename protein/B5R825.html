@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'nagA,nagE,STM,Metabolic\nptsG,nagE,STM,Metabolic\nptsH,nagE,STM,Metabolic\nptsI,nagE,STM,Metabolic\ncrr,nagE,STM,Metabolic\nnagC,nagE,Ecoli,Transcriptional_regulatory\ncrp,nagE,Ecoli,Transcriptional_regulatory'
+                        data: 'nagA,nagE,STM,Metabolic,SG0680,SG0682,B5R823,B5R825,313,2489\nptsG,nagE,STM,Metabolic,SG1919,SG0682,B5RB99,B5R825,3800,2489\nptsH,nagE,STM,Metabolic,SG2463,SG0682,B5RCQ3,B5R825,561,2489\nptsI,nagE,STM,Metabolic,SG2464,SG0682,B5RCQ4,B5R825,1686,2489\ncrr,nagE,STM,Metabolic,SG2465,SG0682,B5RCQ5,B5R825,1728,2489\nnagC,nagE,Ecoli,Transcriptional_regulatory,SG0679,SG0682,B5R822,B5R825,773,2489\ncrp,nagE,Ecoli,Transcriptional_regulatory,SG3973,SG0682,B5RGZ0,B5R825,2484,2489'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R825",
                                         name: "nagE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

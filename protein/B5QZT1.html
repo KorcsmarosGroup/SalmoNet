@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SEN3093,SEN3094,STM,Metabolic\nSEN3094,SEN3095,STM,Metabolic\nSEN3094,SEN3096,STM Biomodels,Metabolic\nSEN3094,ptsH,STM,Metabolic\nSEN3094,ptsI,STM,Metabolic\nSEN3094,frr,Lit Ecoli IntAct,PPI\ninvF,SEN3094,Salm,Transcriptional_regulatory'
+                        data: 'SEN3093,SEN3094,STM,Metabolic,SEN3093,SEN3094,B5QZT0,B5QZT1,2004,271\nSEN3094,SEN3095,STM,Metabolic,SEN3094,SEN3095,B5QZT1,B5QZT2,271,1642\nSEN3094,SEN3096,STM Biomodels,Metabolic,SEN3094,SEN3096,B5QZT1,B5QZT3,271,17\nSEN3094,ptsH,STM,Metabolic,SEN3094,SEN2412,B5QZT1,B5R4E0,271,561\nSEN3094,ptsI,STM,Metabolic,SEN3094,SEN2413,B5QZT1,B5R4E1,271,1686\nSEN3094,frr,Lit Ecoli IntAct,PPI,SEN3094,SEN0226,B5QZT1,B5R3I5,271,424\ninvF,SEN3094,Salm,Transcriptional_regulatory,SEN2740,SEN3094,B5QVY9,B5QZT1,2003,271'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QZT1",
                                         name: "SEN3094",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fadR,fadE,Ecoli,Transcriptional_regulatory\nfadR,ybaW,Ecoli,Transcriptional_regulatory\nfadR,fabA,Ecoli,Transcriptional_regulatory\nfadR,lonH,Ecoli,Transcriptional_regulatory\nfadR,plsX,Ecoli,Transcriptional_regulatory\nfadR,fabH,Ecoli,Transcriptional_regulatory\nfadR,fabD,Ecoli,Transcriptional_regulatory\nfadR,fabG,Ecoli,Transcriptional_regulatory\nfadR,fadR,Ecoli,Transcriptional_regulatory\nfadR,fadR,Ecoli,Transcriptional_regulatory\nfadR,fabB,Ecoli,Transcriptional_regulatory\nfadR,fadJ,Ecoli,Transcriptional_regulatory\nfadR,fadI,Ecoli,Transcriptional_regulatory\nfadR,fadL,Ecoli,Transcriptional_regulatory\nfadR,fadH,Ecoli,Transcriptional_regulatory\nfadR,uspA,Ecoli,Transcriptional_regulatory\nfadR,fadA,Ecoli,Transcriptional_regulatory\nfadR,fadB,Ecoli,Transcriptional_regulatory\nfadR,SC4065,Ecoli,Transcriptional_regulatory\nfadR,iclR,Ecoli,Transcriptional_regulatory'
+                        data: 'fadR,fadE,Ecoli,Transcriptional_regulatory,SC1798,SC0310,Q57NK7,Q57SU5,397,1018\nfadR,ybaW,Ecoli,Transcriptional_regulatory,SC1798,SC0496,Q57NK7,Q57SA9,397,226\nfadR,fabA,Ecoli,Transcriptional_regulatory,SC1798,SC1019,Q57NK7,Q57QT6,397,1132\nfadR,lonH,Ecoli,Transcriptional_regulatory,SC1798,SC1020,Q57NK7,Q57QT5,397,2986\nfadR,plsX,Ecoli,Transcriptional_regulatory,SC1798,SC1140,Q57NK7,Q57QG5,397,2365\nfadR,fabH,Ecoli,Transcriptional_regulatory,SC1798,SC1141,Q57NK7,Q57QG4,397,38\nfadR,fabD,Ecoli,Transcriptional_regulatory,SC1798,SC1142,Q57NK7,Q57QG3,397,2177\nfadR,fabG,Ecoli,Transcriptional_regulatory,SC1798,SC1143,Q57NK7,Q57QG2,397,41\nfadR,fadR,Ecoli,Transcriptional_regulatory,SC1798,SC1798,Q57NK7,Q57NK7,397,397\nfadR,fadR,Ecoli,Transcriptional_regulatory,SC1798,SC1798,Q57NK7,Q57NK7,397,397\nfadR,fabB,Ecoli,Transcriptional_regulatory,SC1798,SC2380,Q57NK7,Q57LX6,397,2227\nfadR,fadJ,Ecoli,Transcriptional_regulatory,SC1798,SC2390,Q57NK7,Q57LW6,397,499\nfadR,fadI,Ecoli,Transcriptional_regulatory,SC1798,SC2391,Q57NK7,Q57LW5,397,2474\nfadR,fadL,Ecoli,Transcriptional_regulatory,SC1798,SC2393,Q57NK7,Q57LW3,397,1790\nfadR,fadH,Ecoli,Transcriptional_regulatory,SC1798,SC3166,Q57NK7,Q57JP0,397,2940\nfadR,uspA,Ecoli,Transcriptional_regulatory,SC1798,SC3520,Q57NK7,Q57IN6,397,972\nfadR,fadA,Ecoli,Transcriptional_regulatory,SC1798,SC3879,Q57NK7,Q57HM7,397,2432\nfadR,fadB,Ecoli,Transcriptional_regulatory,SC1798,SC3880,Q57NK7,Q57HM6,397,1160\nfadR,SC4065,Ecoli,Transcriptional_regulatory,SC1798,SC4065,Q57NK7,Q57H41,397,659\nfadR,iclR,Ecoli,Transcriptional_regulatory,SC1798,SC4066,Q57NK7,Q57H40,397,3011'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57NK7",
                                         name: "fadR",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

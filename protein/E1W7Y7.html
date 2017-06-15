@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'leuO,baeR,Lit Ecoli IntAct,PPI\nSL1344_1144,leuO,Lit Ecoli IntAct,PPI\naccC,leuO,Lit Ecoli IntAct,PPI\nleuO,leuL,Salm,Transcriptional_regulatory\nleuO,SL1344_3333,Salm,Transcriptional_regulatory\nleuO,leuO,Salm Ecoli,Transcriptional_regulatory\nleuO,leuO,Salm Ecoli,Transcriptional_regulatory'
+                        data: 'leuO,baeR,Lit Ecoli IntAct,PPI,SL1344_0115,SL1344_2108,E1W7Y7,E1WH64,863,46\nSL1344_1144,leuO,Lit Ecoli IntAct,PPI,SL1344_1144,SL1344_0115,E1WF76,E1W7Y7,67,863\naccC,leuO,Lit Ecoli IntAct,PPI,SL1344_3353,SL1344_0115,E1WIG3,E1W7Y7,1824,863\nleuO,leuL,Salm,Transcriptional_regulatory,SL1344_0115,SL1344_0114,E1W7Y7,E1W7Y6,863,4569\nleuO,SL1344_3333,Salm,Transcriptional_regulatory,SL1344_0115,SL1344_3333,E1W7Y7,E1WIE4,863,108\nleuO,leuO,Salm Ecoli,Transcriptional_regulatory,SL1344_0115,SL1344_0115,E1W7Y7,E1W7Y7,863,863\nleuO,leuO,Salm Ecoli,Transcriptional_regulatory,SL1344_0115,SL1344_0115,E1W7Y7,E1W7Y7,863,863'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1W7Y7",
                                         name: "leuO",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

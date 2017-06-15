@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hemF,bioB,BioModels,Metabolic\nhemF,hemE,STM BioModels,Metabolic\nhemF,hemN,BioModels,Metabolic\nhemF,yggW,BioModels,Metabolic\nhemG,hemF,STM BioModels,Metabolic\nSPA3853,hemF,BioModels,Metabolic\nssrB,hemF,Salm,Transcriptional_regulatory'
+                        data: 'hemF,bioB,BioModels,Metabolic,SPA0415,SPA1958,Q5PI28,Q5PG48,3160,1192\nhemF,hemE,STM BioModels,Metabolic,SPA0415,SPA4004,Q5PI28,Q5PKA3,3160,2897\nhemF,hemN,BioModels,Metabolic,SPA0415,SPA3845,Q5PI28,Q5PKC3,3160,676\nhemF,yggW,BioModels,Metabolic,SPA0415,SPA2967,Q5PI28,Q5PMK8,3160,1110\nhemG,hemF,STM BioModels,Metabolic,SPA3827,SPA0415,Q5PKB6,Q5PI28,817,3160\nSPA3853,hemF,BioModels,Metabolic,SPA3853,SPA0415,Q5PKD9,Q5PI28,1107,3160\nssrB,hemF,Salm,Transcriptional_regulatory,SPA1462,SPA0415,Q5PH47,Q5PI28,549,3160'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PI28",
                                         name: "hemF",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

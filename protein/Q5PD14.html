@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'btuR,eutT,STM,Metabolic\nbtuR,btuF,STM,Metabolic\nbtuR,btuC,STM,Metabolic\npduO,btuR,STM,Metabolic\ncbiB,btuR,BioModels,Metabolic\ncobU,btuR,STM BioModels,Metabolic\ncbiP,btuR,STM,Metabolic\nptpS,btuR,BioModels,Metabolic\nycfN,btuR,STM,Metabolic'
+                        data: 'btuR,eutT,STM,Metabolic,SPA1158,SPA0401,Q5PD14,Q5PCP5,1229,2101\nbtuR,btuF,STM,Metabolic,SPA1158,SPA0212,Q5PD14,Q5PD47,1229,2972\nbtuR,btuC,STM,Metabolic,SPA1158,SPA1503,Q5PD14,Q5PH87,1229,3956\npduO,btuR,STM,Metabolic,SPA0821,SPA1158,Q5PDR2,Q5PD14,1040,1229\ncbiB,btuR,BioModels,Metabolic,SPA0837,SPA1158,Q5PDS9,Q5PD14,858,1229\ncobU,btuR,STM BioModels,Metabolic,SPA0853,SPA1158,Q5PDU2,Q5PD14,4099,1229\ncbiP,btuR,STM,Metabolic,SPA0852,SPA1158,Q5PDU3,Q5PD14,4148,1229\nptpS,btuR,BioModels,Metabolic,SPA2805,SPA1158,Q5PEH6,Q5PD14,4167,1229\nycfN,btuR,STM,Metabolic,SPA1643,SPA1158,Q5PGS9,Q5PD14,3425,1229'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PD14",
                                         name: "btuR",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

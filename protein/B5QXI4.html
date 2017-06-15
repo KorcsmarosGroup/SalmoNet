@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ubiE,ubiH,STM BioModels,Metabolic\nubiH,ubiG,STM BioModels,Metabolic\nrimM,ubiH,Lit Ecoli IntAct,PPI\nubiH,trmE,Lit Ecoli IntAct,PPI\nubiH,citC,Lit Ecoli IntAct,PPI\nybiH,ubiH,Lit Ecoli IntAct,PPI\nybjM,ubiH,Lit Ecoli IntAct,PPI\nubiG,ubiH,Lit Ecoli IntAct,PPI'
+                        data: 'ubiE,ubiH,STM BioModels,Metabolic,SEN3765,SEN2900,B5QW73,B5QXI4,1659,2666\nubiH,ubiG,STM BioModels,Metabolic,SEN2900,SEN2258,B5QXI4,B5R249,2666,1095\nrimM,ubiH,Lit Ecoli IntAct,PPI,SEN2596,SEN2900,B5QUG3,B5QXI4,2812,2666\nubiH,trmE,Lit Ecoli IntAct,PPI,SEN2900,SEN3660,B5QXI4,B5QUQ5,2666,2909\nubiH,citC,Lit Ecoli IntAct,PPI,SEN2900,SEN0593,B5QXI4,B5QVM5,2666,2843\nybiH,ubiH,Lit Ecoli IntAct,PPI,SEN0765,SEN2900,B5QXS5,B5QXI4,3413,2666\nybjM,ubiH,Lit Ecoli IntAct,PPI,SEN0817,SEN2900,B5QXX5,B5QXI4,3860,2666\nubiG,ubiH,Lit Ecoli IntAct,PPI,SEN2258,SEN2900,B5R249,B5QXI4,1095,2666'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QXI4",
                                         name: "ubiH",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

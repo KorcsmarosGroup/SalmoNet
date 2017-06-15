@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'narV,narY,STM,Metabolic\nnarY,narG,STM,Metabolic\nnarY,narH,STM,Metabolic\nnarY,narJ,STM,Metabolic\nnarY,narI,STM,Metabolic\nnarY,fadH,Lit Ecoli IntAct,PPI\nnarY,narG,Lit Ecoli IntAct Interactome3d,PPI\nnarY,narH,Lit Ecoli IntAct Interactome3d,PPI\nnarY,narV,Lit Ecoli IntAct,PPI\nnarY,pepN,Lit Ecoli IntAct,PPI'
+                        data: 'narV,narY,STM,Metabolic,SC1578,SC1577,Q57P77,Q57P78,3079,885\nnarY,narG,STM,Metabolic,SC1577,SC1758,Q57P78,Q57NP7,885,65\nnarY,narH,STM,Metabolic,SC1577,SC1757,Q57P78,Q57NP8,885,3872\nnarY,narJ,STM,Metabolic,SC1577,SC1756,Q57P78,Q57NP9,885,3138\nnarY,narI,STM,Metabolic,SC1577,SC1755,Q57P78,Q57NQ0,885,1321\nnarY,fadH,Lit Ecoli IntAct,PPI,SC1577,SC3166,Q57P78,Q57JP0,885,2940\nnarY,narG,Lit Ecoli IntAct Interactome3d,PPI,SC1577,SC1758,Q57P78,Q57NP7,885,65\nnarY,narH,Lit Ecoli IntAct Interactome3d,PPI,SC1577,SC1757,Q57P78,Q57NP8,885,3872\nnarY,narV,Lit Ecoli IntAct,PPI,SC1577,SC1578,Q57P78,Q57P77,885,3079\nnarY,pepN,Lit Ecoli IntAct,PPI,SC1577,SC1010,Q57P78,Q57QU5,885,3822'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57P78",
                                         name: "narY",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

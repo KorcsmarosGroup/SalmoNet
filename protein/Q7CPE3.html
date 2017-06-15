@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'atpE,atpB,STM,Metabolic\natpB,atpC,STM,Metabolic\natpB,atpA,STM,Metabolic\natpB,atpD,STM,Metabolic\natpB,atpH,STM,Metabolic\natpB,atpI,STM,Metabolic\natpB,atpG,STM,Metabolic\natpF,atpB,STM,Metabolic\natpE,atpB,IntAct Interactome3d,PPI'
+                        data: 'atpE,atpB,STM,Metabolic,STM3870,STM3871,P68704,Q7CPE3,666,877\natpB,atpC,STM,Metabolic,STM3871,STM3864,Q7CPE3,P0A1B7,877,3343\natpB,atpA,STM,Metabolic,STM3871,STM3867,Q7CPE3,Q7CPE1,877,2601\natpB,atpD,STM,Metabolic,STM3871,STM3865,Q7CPE3,Q7CPE2,877,2818\natpB,atpH,STM,Metabolic,STM3871,STM3868,Q7CPE3,Q7CPE5,877,3635\natpB,atpI,STM,Metabolic,STM3871,STM3872,Q7CPE3,Q8ZKW7,877,206\natpB,atpG,STM,Metabolic,STM3871,STM3866,Q7CPE3,Q8ZKW8,877,3194\natpF,atpB,STM,Metabolic,STM3869,STM3871,Q7CPE4,Q7CPE3,2722,877\natpE,atpB,IntAct Interactome3d,PPI,STM3870,STM3871,P68704,Q7CPE3,666,877'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q7CPE3",
                                         name: "atpB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tsr,metA,IntAct,PPI\ntsr,cheA,IntAct,PPI\ntsr,cheB,IntAct,PPI\ntsr,cheY,IntAct,PPI\ntsr,cheZ,IntAct,PPI\ntsr,flgJ,IntAct,PPI\ncheW,tsr,Lit Ecoli IntAct,PPI'
+                        data: 'tsr,metA,IntAct,PPI,SC4385,SC4061,Q57G71,Q57H45,1740,262\ntsr,cheA,IntAct,PPI,SC4385,SC1928,Q57G71,Q57N77,1740,1259\ntsr,cheB,IntAct,PPI,SC4385,SC1924,Q57G71,Q57N81,1740,1518\ntsr,cheY,IntAct,PPI,SC4385,SC1923,Q57G71,Q57N82,1740,2383\ntsr,cheZ,IntAct,PPI,SC4385,SC1922,Q57G71,Q57N83,1740,1114\ntsr,flgJ,IntAct,PPI,SC4385,SC1129,Q57G71,Q57QH6,1740,2165\ncheW,tsr,Lit Ecoli IntAct,PPI,SC1927,SC4385,Q57N78,Q57G71,3859,1740'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57G71",
                                         name: "tsr",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

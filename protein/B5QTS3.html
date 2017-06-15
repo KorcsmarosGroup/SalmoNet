@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glyA,pdxY,STM,Metabolic\nglyA,ltaA,STM,Metabolic\nglyA,ddl,BioModels,Metabolic\nglyA,pdxK,STM,Metabolic\nglyA,ddl,BioModels,Metabolic\ngip,glyA,BioModels,Metabolic\nygbM,glyA,BioModels,Metabolic\ngcvP,glyA,BioModels,Metabolic\nycdW,glyA,BioModels,Metabolic\npurR,glyA,Ecoli,Transcriptional_regulatory\nmetR,glyA,Ecoli,Transcriptional_regulatory'
+                        data: 'glyA,pdxY,STM,Metabolic,SEN2535,SEN1597,B5QTS3,B5QV09,2280,4060\nglyA,ltaA,STM,Metabolic,SEN2535,SEN0842,B5QTS3,B5QYL8,2280,3712\nglyA,ddl,BioModels,Metabolic,SEN2535,SEN0131,B5QTS3,B5R2M6,2280,1913\nglyA,pdxK,STM,Metabolic,SEN2535,SEN2416,B5QTS3,B5R4E4,2280,435\nglyA,ddl,BioModels,Metabolic,SEN2535,SEN0363,B5QTS3,B5R4Y1,2280,1125\ngip,glyA,BioModels,Metabolic,SEN0499,SEN2535,B5QUT2,B5QTS3,1567,2280\nygbM,glyA,BioModels,Metabolic,SEN2754,SEN2535,B5QW03,B5QTS3,1567,2280\ngcvP,glyA,BioModels,Metabolic,SEN2896,SEN2535,B5QXI0,B5QTS3,836,2280\nycdW,glyA,BioModels,Metabolic,SEN1913,SEN2535,B5QY30,B5QTS3,2605,2280\npurR,glyA,Ecoli,Transcriptional_regulatory,SEN1617,SEN2535,B5QV29,B5QTS3,2100,2280\nmetR,glyA,Ecoli,Transcriptional_regulatory,SEN3759,SEN2535,B5QW67,B5QTS3,3412,2280'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QTS3",
                                         name: "glyA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

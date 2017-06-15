@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'osmY,dcrB,Lit Ecoli IntAct,PPI\nyraP,dcrB,IntAct,PPI\nyegS,dcrB,Lit Ecoli IntAct,PPI\nosmE,dcrB,IntAct,PPI\nycbL,dcrB,Lit Ecoli IntAct,PPI\nmoaB,dcrB,IntAct,PPI\nyajG,dcrB,IntAct,PPI'
+                        data: 'osmY,dcrB,Lit Ecoli IntAct,PPI,SC4409,SC3509,Q57G47,Q57IP7,127,1265\nyraP,dcrB,IntAct,PPI,SC3208,SC3509,Q57JJ8,Q57IP7,622,1265\nyegS,dcrB,Lit Ecoli IntAct,PPI,SC2155,SC3509,Q57MK0,Q57IP7,3840,1265\nosmE,dcrB,IntAct,PPI,SC1332,SC3509,Q57PX3,Q57IP7,686,1265\nycbL,dcrB,Lit Ecoli IntAct,PPI,SC0954,SC3509,Q57R01,Q57IP7,484,1265\nmoaB,dcrB,IntAct,PPI,SC0801,SC3509,Q57RF4,Q57IP7,2276,1265\nyajG,dcrB,IntAct,PPI,SC0487,SC3509,Q57SB8,Q57IP7,3263,1265'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57IP7",
                                         name: "dcrB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

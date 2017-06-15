@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'npdA,nagB,BioModels,Metabolic\nnagB,glmM,STM BioModels,Metabolic\nnagB,uhpT,STM,Metabolic\nnagB,glmS,STM BioModels,Metabolic\nnagB,nagA,STM BioModels,Metabolic\nnagB,ptsH,STM,Metabolic\nnagB,ptsI,STM,Metabolic\nnagB,manZ,STM,Metabolic\nnagB,manY,STM,Metabolic\nnagB,manX,STM,Metabolic\nnagC,nagB,Ecoli,Transcriptional_regulatory\ncrp,nagB,Ecoli,Transcriptional_regulatory'
+                        data: 'npdA,nagB,BioModels,Metabolic,SeD_A2147,SeD_A0790,B5FK85,B5FNB9,2636,231\nnagB,glmM,STM BioModels,Metabolic,SeD_A0790,SeD_A3651,B5FNB9,B5FI19,231,3243\nnagB,uhpT,STM,Metabolic,SeD_A0790,SeD_A4176,B5FNB9,B5FMA7,231,2705\nnagB,glmS,STM BioModels,Metabolic,SeD_A0790,SeD_A4250,B5FNB9,B5FN28,231,2457\nnagB,nagA,STM BioModels,Metabolic,SeD_A0790,SeD_A0789,B5FNB9,B5FNB8,231,313\nnagB,ptsH,STM,Metabolic,SeD_A0790,SeD_A2797,B5FNB9,B5FQC4,231,561\nnagB,ptsI,STM,Metabolic,SeD_A0790,SeD_A2798,B5FNB9,B5FQC5,231,1686\nnagB,manZ,STM,Metabolic,SeD_A0790,SeD_A1484,B5FNB9,B5FTK1,231,3056\nnagB,manY,STM,Metabolic,SeD_A0790,SeD_A1485,B5FNB9,B5FTK2,231,2212\nnagB,manX,STM,Metabolic,SeD_A0790,SeD_A1486,B5FNB9,B5FTK3,231,111\nnagC,nagB,Ecoli,Transcriptional_regulatory,SeD_A0788,SeD_A0790,B5FNB7,B5FNB9,773,231\ncrp,nagB,Ecoli,Transcriptional_regulatory,SeD_A3834,SeD_A0790,B5FJN9,B5FNB9,2484,231'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FNB9",
                                         name: "nagB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'araB,araA,STM,Metabolic\naraB,rhaA,STM,Metabolic\naraB,SPA3897,STM,Metabolic\naraB,SPA3896,STM,Metabolic\naraB,SPA3895,STM,Metabolic\naraB,yiaM,STM,Metabolic\naraB,yiaN,STM,Metabolic\naraB,yiaR,BioModels,Metabolic\naraB,yiaO,STM,Metabolic\naraD,araB,STM BioModels,Metabolic\nsgaE,araB,STM BioModels,Metabolic\nsgaU,araB,STM BioModels,Metabolic\nxylB,araB,STM,Metabolic\nyiaS,araB,STM BioModels,Metabolic\naraC,araB,Salm Ecoli,Transcriptional_regulatory\ncrp,araB,Ecoli,Transcriptional_regulatory'
+                        data: 'araB,araA,STM,Metabolic,SPA0105,SPA0104,Q5PDF1,Q5PDF2,1029,180\naraB,rhaA,STM,Metabolic,SPA0105,SPA3889,Q5PDF1,Q5PKG4,1029,1164\naraB,SPA3897,STM,Metabolic,SPA0105,SPA3897,Q5PDF1,Q5PKH6,1029,181\naraB,SPA3896,STM,Metabolic,SPA0105,SPA3896,Q5PDF1,Q5PKH7,1029,2155\naraB,SPA3895,STM,Metabolic,SPA0105,SPA3895,Q5PDF1,Q5PKH8,1029,1599\naraB,yiaM,STM,Metabolic,SPA0105,SPA3522,Q5PDF1,Q5PLN4,1029,2155\naraB,yiaN,STM,Metabolic,SPA0105,SPA3523,Q5PDF1,Q5PLP3,1029,1599\naraB,yiaR,BioModels,Metabolic,SPA0105,SPA3527,Q5PDF1,Q5PLP6,1029,1056\naraB,yiaO,STM,Metabolic,SPA0105,SPA3524,Q5PDF1,Q5PLP9,1029,181\naraD,araB,STM BioModels,Metabolic,SPA0103,SPA0105,Q5PDF3,Q5PDF1,709,1029\nsgaE,araB,STM BioModels,Metabolic,SPA4205,SPA0105,Q5PJ61,Q5PDF1,3474,1029\nsgaU,araB,STM BioModels,Metabolic,SPA4204,SPA0105,Q5PJ62,Q5PDF1,1663,1029\nxylB,araB,STM,Metabolic,SPA3511,SPA0105,Q5PLM7,Q5PDF1,3384,1029\nyiaS,araB,STM BioModels,Metabolic,SPA3528,SPA0105,Q5PLP5,Q5PDF1,4275,1029\naraC,araB,Salm Ecoli,Transcriptional_regulatory,SPA0106,SPA0105,Q5PDG0,Q5PDF1,2319,1029\ncrp,araB,Ecoli,Transcriptional_regulatory,SPA3332,SPA0105,Q5PLV0,Q5PDF1,2484,1029'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PDF1",
                                         name: "araB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

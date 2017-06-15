@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tktA,talA,BioModels,Metabolic\nSEN2322,talA,BioModels,Metabolic\nSEN2323,talA,BioModels,Metabolic\ngmhA,talA,BioModels,Metabolic\ntalA,talB,STM,Metabolic\ntktB,talA,BioModels,Metabolic\ncreB,talA,Ecoli,Transcriptional_regulatory'
+                        data: 'tktA,talA,BioModels,Metabolic,SEN2919,SEN2452,B5QXK3,B5R4I0,2398,873\nSEN2322,talA,BioModels,Metabolic,SEN2322,SEN2452,B5R321,B5R4I0,2994,873\nSEN2323,talA,BioModels,Metabolic,SEN2323,SEN2452,B5R322,B5R4I0,434,873\ngmhA,talA,BioModels,Metabolic,SEN0293,SEN2452,B5R470,B5R4I0,931,873\ntalA,talB,STM,Metabolic,SEN2452,SEN0006,B5R4I0,B5R5H9,873,3087\ntktB,talA,BioModels,Metabolic,SEN2453,SEN2452,B5R4I1,B5R4I0,3649,873\ncreB,talA,Ecoli,Transcriptional_regulatory,SEN4344,SEN2452,B5R3C0,B5R4I0,483,873'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R4I0",
                                         name: "talA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

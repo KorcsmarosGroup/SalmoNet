@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'flgM,fliA,Lit Ecoli IntAct Interactome3d,PPI\nyjeK,fliA,IntAct,PPI\nfliI,fliA,IntAct,PPI\nfliA,flgN,IntAct,PPI\nfliA,katE,Lit Ecoli IntAct,PPI\nfliA,flgC,IntAct,PPI\nfliA,proS,IntAct,PPI\nflhD,fliA,IntAct,PPI\nyabB,fliA,IntAct,PPI\nyjeB,fliA,Ecoli,Transcriptional_regulatory'
+                        data: 'flgM,fliA,Lit Ecoli IntAct Interactome3d,PPI,SC1119,SC1960,H9L4V0,Q57N45,3697,678\nyjeK,fliA,IntAct,PPI,SC4212,SC1960,Q57GP4,Q57N45,2668,678\nfliI,fliA,IntAct,PPI,SC1977,SC1960,Q57N28,Q57N45,703,678\nfliA,flgN,IntAct,PPI,SC1960,SC1118,Q57N45,H9L4U8,678,2389\nfliA,katE,Lit Ecoli IntAct,PPI,SC1960,SC1339,Q57N45,Q57PW6,678,464\nfliA,flgC,IntAct,PPI,SC1960,SC1122,Q57N45,Q57QI3,678,1694\nfliA,proS,IntAct,PPI,SC1960,SC0241,Q57N45,Q57T14,678,357\nflhD,fliA,IntAct,PPI,SC1932,SC1960,Q57N73,Q57N45,1977,678\nyabB,fliA,IntAct,PPI,SC0116,SC1960,Q57TD9,Q57N45,2902,678\nyjeB,fliA,Ecoli,Transcriptional_regulatory,SC4243,SC1960,Q57GL3,Q57N45,2218,678'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57N45",
                                         name: "fliA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

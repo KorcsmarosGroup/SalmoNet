@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fliG,STY2499,IntAct,PPI\nsbmC,STY2499,IntAct,PPI\ngyrB,STY2499,IntAct Interactome3d,PPI\ngidB,STY2499,IntAct,PPI\nrpsS,STY2499,IntAct,PPI\nSTY2499,cheY,IntAct,PPI\nSTY2499,marR,IntAct,PPI\nSTY2499,rpmJ,IntAct,PPI\nSTY2499,rpmA,IntAct,PPI\nSTY2499,parC,IntAct Interactome3d,PPI\nSTY2499,dnaK,IntAct,PPI\nfliS,STY2499,IntAct,PPI\nflgM,STY2499,IntAct,PPI'
+                        data: 'fliG,STY2499,IntAct,PPI,t0907,STY2499,P0A1K0,Q8Z562,2795,3730\nsbmC,STY2499,IntAct,PPI,t0813,STY2499,P0A213,Q8Z562,2262,3730\ngyrB,STY2499,IntAct Interactome3d,PPI,t3684,STY2499,P0A2I4,Q8Z562,962,3730\ngidB,STY2499,IntAct,PPI,t3646,STY2499,P64238,Q8Z562,1385,3730\nrpsS,STY2499,IntAct,PPI,t4069,STY2499,P66492,Q8Z562,3017,3730\nSTY2499,cheY,IntAct,PPI,STY2499,t0961,Q8Z562,P0A2D6,3730,2383\nSTY2499,marR,IntAct,PPI,STY2499,t1441,Q8Z562,P0A2T5,3730,764\nSTY2499,rpmJ,IntAct,PPI,STY2499,t4086,Q8Z562,P0A7Q9,3730,4358\nSTY2499,rpmA,IntAct,PPI,STY2499,t3220,Q8Z562,P66132,3730,27\nSTY2499,parC,IntAct Interactome3d,PPI,STY2499,t3095,Q8Z562,Q8Z3P4,3730,3879\nSTY2499,dnaK,IntAct,PPI,STY2499,t0012,Q8Z562,Q8Z9R1,3730,2512\nfliS,STY2499,IntAct,PPI,t0916,STY2499,Q8Z5S6,Q8Z562,796,3730\nflgM,STY2499,IntAct,PPI,STY1211;t1748,STY2499,Q8Z7K6,Q8Z562,3697,3730'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z562",
                                         name: "STY2499",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

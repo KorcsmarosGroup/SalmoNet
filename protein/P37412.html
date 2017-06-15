@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ilvE,leuB,STM BioModels,Metabolic\nleuC1,leuB,BioModels,Metabolic\nleuB,leuD1,BioModels,Metabolic\ntyrB,leuB,STM,Metabolic\nSTM0330,leuB,BioModels,Metabolic\nSTM0329,leuB,BioModels,Metabolic\nleuB,ilvI,Lit Ecoli IntAct,PPI\nyafJ,leuB,Lit Ecoli IntAct,PPI\nleuO,leuB,Exp(LT),Transcriptional_regulatory\nfis,leuB,Exp(HT),Transcriptional_regulatory'
+                        data: 'ilvE,leuB,STM BioModels,Metabolic,STM3903,STM0112,P0A1A5,P37412,1118,3616\nleuC1,leuB,BioModels,Metabolic,STM0111,STM0112,P15717,P37412,3973,3616\nleuB,leuD1,BioModels,Metabolic,STM0112,STM0110,P37412,P04787,3616,3377\ntyrB,leuB,STM,Metabolic,STM4248,STM0112,P74861,P37412,1188,3616\nSTM0330,leuB,BioModels,Metabolic,STM0330,STM0112,Q8ZRI9,P37412,2764,3616\nSTM0329,leuB,BioModels,Metabolic,STM0329,STM0112,Q8ZRJ0,P37412,2560,3616\nleuB,ilvI,Lit Ecoli IntAct,PPI,STM0112,STM0116,P37412,P40811,3616,3747\nyafJ,leuB,Lit Ecoli IntAct,PPI,STM0311,STM0112,Q8ZRJ6,P37412,328,3616\nleuO,leuB,Exp(LT),Transcriptional_regulatory,STM0119,STM0112,P46924,P37412,863,3616\nfis,leuB,Exp(HT),Transcriptional_regulatory,STM3385,STM0112,P0A6R6,P37412,1300,3616'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P37412",
                                         name: "leuB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

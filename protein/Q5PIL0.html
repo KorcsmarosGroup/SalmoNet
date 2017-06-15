@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'caiC,proX,STM,Metabolic\ncaiC,proW,STM,Metabolic\ncaiC,caiB,STM,Metabolic\ncaiC,caiT,STM,Metabolic\ncaiC,proP,STM,Metabolic\ncaiD,caiC,STM,Metabolic\nallR,caiC,Lit Ecoli IntAct,PPI\nfnr,caiC,Ecoli,Transcriptional_regulatory\nssrB,caiC,Salm,Transcriptional_regulatory\narcA,caiC,Ecoli,Transcriptional_regulatory'
+                        data: 'caiC,proX,STM,Metabolic,SPA0072,SPA2669,Q5PIL0,Q5PF00,3631,2042\ncaiC,proW,STM,Metabolic,SPA0072,SPA2668,Q5PIL0,Q5PF01,3631,554\ncaiC,caiB,STM,Metabolic,SPA0072,SPA0073,Q5PIL0,Q5PIK9,3631,2154\ncaiC,caiT,STM,Metabolic,SPA0072,SPA0075,Q5PIL0,Q5PIN5,3631,450\ncaiC,proP,STM,Metabolic,SPA0072,SPA4108,Q5PIL0,Q5PJ09,3631,384\ncaiD,caiC,STM,Metabolic,SPA0071,SPA0072,Q5PIL1,Q5PIL0,871,3631\nallR,caiC,Lit Ecoli IntAct,PPI,SPA2206,SPA0072,Q5PCF5,Q5PIL0,2988,3631\nfnr,caiC,Ecoli,Transcriptional_regulatory,SPA1224,SPA0072,Q5PHR1,Q5PIL0,147,3631\nssrB,caiC,Salm,Transcriptional_regulatory,SPA1462,SPA0072,Q5PH47,Q5PIL0,549,3631\narcA,caiC,Ecoli,Transcriptional_regulatory,SPA4408,SPA0072,Q5PN99,Q5PIL0,2438,3631'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PIL0",
                                         name: "caiC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

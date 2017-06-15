@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'accD,accB,STM BioModels,Metabolic\nSeAg_B4381,accB,BioModels,Metabolic\naccB,accC,STM BioModels,Metabolic\naccB,SeAg_B0203,STM,Metabolic\naccA,accB,STM BioModels,Metabolic\nacpP,accB,STM,Metabolic\nfabD,accB,STM,Metabolic\naccC,accB,Lit Ecoli IntAct Interactome3d,PPI'
+                        data: 'accD,accB,STM BioModels,Metabolic,SeAg_B2508,SeAg_B3570,B5EZQ0,B5F7N9,2027,1341\nSeAg_B4381,accB,BioModels,Metabolic,SeAg_B4381,SeAg_B3570,B5F0V7,B5F7N9,1145,1341\naccB,accC,STM BioModels,Metabolic,SeAg_B3570,SeAg_B3571,B5F7N9,B5F7P0,1341,1824\naccB,SeAg_B0203,STM,Metabolic,SeAg_B3570,SeAg_B0203,B5F7N9,B5F820,1341,3047\naccA,accB,STM BioModels,Metabolic,SeAg_B0273,SeAg_B3570,B5F8U6,B5F7N9,501,1341\nacpP,accB,STM,Metabolic,SeAg_B1990,SeAg_B3570,B5F911,B5F7N9,883,1341\nfabD,accB,STM,Metabolic,SeAg_B1992,SeAg_B3570,B5F913,B5F7N9,2177,1341\naccC,accB,Lit Ecoli IntAct Interactome3d,PPI,SeAg_B3571,SeAg_B3570,B5F7P0,B5F7N9,1824,1341'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5F7N9",
                                         name: "accB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

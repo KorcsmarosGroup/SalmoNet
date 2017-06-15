@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dacA,SL1344_3272,STM,Metabolic\nSL1344_3272,dacC,STM,Metabolic\nSL1344_3272,mepA,STM,Metabolic\nSL1344_3272,dacD,STM,Metabolic\nSL1344_3272,pbpG,STM,Metabolic\nargG,SL1344_3272,Lit Ecoli IntAct,PPI'
+                        data: 'dacA,SL1344_3272,STM,Metabolic,SL1344_0625,SL1344_3272,E1W9D8,E1WI83,1746,853\nSL1344_3272,dacC,STM,Metabolic,SL1344_3272,SL1344_0839,E1WI83,E1W9Z9,853,1053\nSL1344_3272,mepA,STM,Metabolic,SL1344_3272,SL1344_2352,E1WI83,E1WCM3,853,752\nSL1344_3272,dacD,STM,Metabolic,SL1344_3272,SL1344_2038,E1WI83,E1WGZ5,853,2210\nSL1344_3272,pbpG,STM,Metabolic,SL1344_3272,SL1344_2146,E1WI83,E1WHA2,853,3345\nargG,SL1344_3272,Lit Ecoli IntAct,PPI,SL1344_3262,SL1344_3272,E1WI73,E1WI83,3845,853'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WI83",
                                         name: "SL1344_3272",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

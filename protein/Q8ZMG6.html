@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'garL,ygbM,BioModels,Metabolic\ngarR,ygbM,STM BioModels,Metabolic\nygbM,glyA,BioModels,Metabolic\nglxR,ygbM,STM BioModels,Metabolic\nygbM,stdA,Lit Ecoli IntAct,PPI\nfixX,ygbM,Lit Ecoli IntAct,PPI'
+                        data: 'garL,ygbM,BioModels,Metabolic,STM3249,STM2915,Q7CPQ8,Q8ZMG6,3878,1567\ngarR,ygbM,STM BioModels,Metabolic,STM3248,STM2915,Q8ZLV8,Q8ZMG6,1252,1567\nygbM,glyA,BioModels,Metabolic,STM2915,STM2555,Q8ZMG6,P0A2E1,1567,2280\nglxR,ygbM,STM BioModels,Metabolic,STM0519,STM2915,Q8ZR83,Q8ZMG6,2095,1567\nygbM,stdA,Lit Ecoli IntAct,PPI,STM2915,STM3029,Q8ZMG6,Q8ZM89,1567,4451\nfixX,ygbM,Lit Ecoli IntAct,PPI,STM0078,STM2915,Q8ZRW8,Q8ZMG6,2000,1567'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZMG6",
                                         name: "ygbM",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

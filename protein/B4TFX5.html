@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cas1,udk,Lit Ecoli IntAct,PPI\ncas1,glnA,Lit Ecoli IntAct,PPI\ncas1,SeHA_C4340,Lit Ecoli IntAct,PPI\ncas1,bioB,Lit Ecoli IntAct,PPI\ncas1,SeHA_C1205,Lit Ecoli IntAct,PPI\ncas1,cas2,Interactome3d,PPI\ncas1,SeHA_C1505,Lit Ecoli IntAct,PPI\ncas1,SeHA_C2050,Lit Ecoli IntAct,PPI\nastE,cas1,Lit Ecoli IntAct,PPI\nSeHA_C1817,cas1,IntAct,PPI\nSeHA_C3518,cas1,Lit Ecoli IntAct,PPI'
+                        data: 'cas1,udk,Lit Ecoli IntAct,PPI,SeHA_C3132,SeHA_C2349,B4TFX5,B4T9T4,3242,1109\ncas1,glnA,Lit Ecoli IntAct,PPI,SeHA_C3132,SeHA_C4335,B4TFX5,B4TBU3,3242,1022\ncas1,SeHA_C4340,Lit Ecoli IntAct,PPI,SeHA_C3132,SeHA_C4340,B4TFX5,B4TBU8,3242,386\ncas1,bioB,Lit Ecoli IntAct,PPI,SeHA_C3132,SeHA_C0921,B4TFX5,B4TC48,3242,1192\ncas1,SeHA_C1205,Lit Ecoli IntAct,PPI,SeHA_C3132,SeHA_C1205,B4TFX5,B4TEL9,3242,132\ncas1,cas2,Interactome3d,PPI,SeHA_C3132,SeHA_C3131,B4TFX5,B4TFX4,3242,391\ncas1,SeHA_C1505,Lit Ecoli IntAct,PPI,SeHA_C3132,SeHA_C1505,B4TFX5,B4TGK9,3242,1741\ncas1,SeHA_C2050,Lit Ecoli IntAct,PPI,SeHA_C3132,SeHA_C2050,B4TFX5,B4TKH9,3242,586\nastE,cas1,Lit Ecoli IntAct,PPI,SeHA_C1434,SeHA_C3132,B4TGE4,B4TFX5,3506,3242\nSeHA_C1817,cas1,IntAct,PPI,SeHA_C1817,SeHA_C3132,B4TIQ9,B4TFX5,3248,3242\nSeHA_C3518,cas1,Lit Ecoli IntAct,PPI,SeHA_C3518,SeHA_C3132,B4TIV1,B4TFX5,3259,3242'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TFX5",
                                         name: "cas1",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'nrdD,udk,BioModels,Metabolic\nudp,udk,BioModels,Metabolic\ncdd,udk,BioModels,Metabolic\nSL1344_3078,udk,BioModels,Metabolic\nSL1344_0602,udk,Lit Ecoli IntAct,PPI\nSL1344_2917,udk,Lit Ecoli IntAct,PPI'
+                        data: 'nrdD,udk,BioModels,Metabolic,SL1344_4382,SL1344_2099,E1WAY6,E1WH55,3575,1109\nudp,udk,BioModels,Metabolic,SL1344_3922,SL1344_2099,E1WE30,E1WH55,2760,1109\ncdd,udk,BioModels,Metabolic,SL1344_2160,SL1344_2099,E1WHB6,E1WH55,2753,1109\nSL1344_3078,udk,BioModels,Metabolic,SL1344_3078,SL1344_2099,E1WHP2,E1WH55,654,1109\nSL1344_0602,udk,Lit Ecoli IntAct,PPI,SL1344_0602,SL1344_2099,E1W9B5,E1WH55,466,1109\nSL1344_2917,udk,Lit Ecoli IntAct,PPI,SL1344_2917,SL1344_2099,E1WAI2,E1WH55,3242,1109'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WH55",
                                         name: "udk",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

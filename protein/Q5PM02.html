@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'malP,malQ,STM,Metabolic\nmalQ,malZ,STM,Metabolic\nmalQ,malE,STM,Metabolic\nmalQ,malF,STM,Metabolic\nmalQ,malG,STM,Metabolic\nmalQ,malS,STM,Metabolic\nmalQ,crr,BioModels,Metabolic\nfnr,malQ,Ecoli,Transcriptional_regulatory\nmalT,malQ,Ecoli,Transcriptional_regulatory'
+                        data: 'malP,malQ,STM,Metabolic,SPA3379,SPA3378,Q5PM01,Q5PM02,1952,4035\nmalQ,malZ,STM,Metabolic,SPA3378,SPA2322,Q5PM02,Q5PFT2,4035,1825\nmalQ,malE,STM,Metabolic,SPA3378,SPA4046,Q5PM02,Q5PKZ9,4035,189\nmalQ,malF,STM,Metabolic,SPA3378,SPA4045,Q5PM02,Q5PL00,4035,389\nmalQ,malG,STM,Metabolic,SPA3378,SPA4044,Q5PM02,Q5PL01,4035,876\nmalQ,malS,STM,Metabolic,SPA3378,SPA3515,Q5PM02,Q5PLP0,4035,1825\nmalQ,crr,BioModels,Metabolic,SPA3378,SPA0432,Q5PM02,Q5PND7,4035,1728\nfnr,malQ,Ecoli,Transcriptional_regulatory,SPA1224,SPA3378,Q5PHR1,Q5PM02,147,4035\nmalT,malQ,Ecoli,Transcriptional_regulatory,SPA3380,SPA3378,Q5PM00,Q5PM02,1035,4035'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PM02",
                                         name: "malQ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

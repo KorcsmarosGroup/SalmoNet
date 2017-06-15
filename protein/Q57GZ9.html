@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'malE,malF,STM,Metabolic\nmalF,lamB,STM,Metabolic\nmalF,malG,STM,Metabolic\nmalF,malZ,STM,Metabolic\nmalQ,malF,STM,Metabolic\namyA,malF,STM,Metabolic\nmaa,malF,STM,Metabolic\nmalF,malE,IntAct Interactome3d,PPI\nmalG,malF,Interactome3d,PPI\nmalT,malF,Ecoli,Transcriptional_regulatory'
+                        data: 'malE,malF,STM,Metabolic,SC4108,SC4107,Q57GZ8,Q57GZ9,189,389\nmalF,lamB,STM,Metabolic,SC4107,SC4110,Q57GZ9,Q57GZ6,389,3308\nmalF,malG,STM,Metabolic,SC4107,SC4106,Q57GZ9,Q57H00,389,876\nmalF,malZ,STM,Metabolic,SC4107,SC0443,Q57GZ9,Q57SG2,389,1825\nmalQ,malF,STM,Metabolic,SC3445,SC4107,Q57IW1,Q57GZ9,4035,389\namyA,malF,STM,Metabolic,SC1967,SC4107,Q57N38,Q57GZ9,2881,389\nmaa,malF,STM,Metabolic,SC0514,SC4107,Q57S91,Q57GZ9,2504,389\nmalF,malE,IntAct Interactome3d,PPI,SC4107,SC4108,Q57GZ9,Q57GZ8,389,189\nmalG,malF,Interactome3d,PPI,SC4106,SC4107,Q57H00,Q57GZ9,876,389\nmalT,malF,Ecoli,Transcriptional_regulatory,SC3447,SC4107,Q57IV9,Q57GZ9,1035,389'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57GZ9",
                                         name: "malF",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

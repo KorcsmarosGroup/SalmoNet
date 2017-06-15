@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'yfaO,adk,STM,Metabolic\nrfbA,adk,STM,Metabolic\nadk,rfbN,STM,Metabolic\nadk,mazG,STM,Metabolic\nadk,tmk,STM,Metabolic\nadk,SPA3767,STM,Metabolic\nadk,ntpA,STM,Metabolic\nadk,ndk,STM,Metabolic\nrffH,adk,STM,Metabolic\nybdL,adk,Lit Ecoli IntAct,PPI'
+                        data: 'yfaO,adk,STM,Metabolic,SPA0568,SPA2234,Q5PC77,Q5PFK8,1942,3593\nrfbA,adk,STM,Metabolic,SPA0771,SPA2234,Q5PDZ6,Q5PFK8,2426,3593\nadk,rfbN,STM,Metabolic,SPA2234,SPA0786,Q5PFK8,Q5PDN5,3593,2654\nadk,mazG,STM,Metabolic,SPA2234,SPA2811,Q5PFK8,Q5PEI9,3593,3476\nadk,tmk,STM,Metabolic,SPA2234,SPA1651,Q5PFK8,Q5PGT4,3593,910\nadk,SPA3767,STM,Metabolic,SPA2234,SPA3767,Q5PFK8,Q5PKK9,3593,453\nadk,ntpA,STM,Metabolic,SPA2234,SPA0969,Q5PFK8,Q5PMZ5,3593,1216\nadk,ndk,STM,Metabolic,SPA2234,SPA0341,Q5PFK8,Q5PNH7,3593,2887\nrffH,adk,STM,Metabolic,SPA3763,SPA2234,Q5PKL3,Q5PFK8,2426,3593\nybdL,adk,Lit Ecoli IntAct,PPI,SPA2131,SPA2234,Q5PMD1,Q5PFK8,1498,3593'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PFK8",
                                         name: "adk",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

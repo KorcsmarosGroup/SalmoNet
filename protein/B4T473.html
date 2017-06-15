@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cysH,grxC,STM,Metabolic\ncysH,trxA,STM,Metabolic\ncysH,grxA,STM,Metabolic\ncysH,acpS,BioModels,Metabolic\ncysH,SNSL254_A2861,STM,Metabolic\ncysH,grxB,STM,Metabolic\ncysH,cysC,STM BioModels,Metabolic\ncysH,SNSL254_A1543,STM,Metabolic\ntrxA,cysH,Interactome3d,PPI\ncysB,cysH,Ecoli,Transcriptional_regulatory'
+                        data: 'cysH,grxC,STM,Metabolic,SNSL254_A3157,SNSL254_A3982,B4T473,B4SXB3,240,1788\ncysH,trxA,STM,Metabolic,SNSL254_A3157,SNSL254_A4196,B4T473,B4SZ27,240,3171\ncysH,grxA,STM,Metabolic,SNSL254_A3157,SNSL254_A0945,B4T473,B4T0D3,240,3866\ncysH,acpS,BioModels,Metabolic,SNSL254_A3157,SNSL254_A2780,B4T473,B4T1F4,240,1197\ncysH,SNSL254_A2861,STM,Metabolic,SNSL254_A3157,SNSL254_A2861,B4T473,B4T292,240,2524\ncysH,grxB,STM,Metabolic,SNSL254_A3157,SNSL254_A1262,B4T473,B4T2Z7,240,1200\ncysH,cysC,STM BioModels,Metabolic,SNSL254_A3157,SNSL254_A3139,B4T473,B4T460,240,2794\ncysH,SNSL254_A1543,STM,Metabolic,SNSL254_A3157,SNSL254_A1543,B4T473,B4T570,240,1938\ntrxA,cysH,Interactome3d,PPI,SNSL254_A4196,SNSL254_A3157,B4SZ27,B4T473,3171,240\ncysB,cysH,Ecoli,Transcriptional_regulatory,SNSL254_A1840,SNSL254_A3157,B4T6V8,B4T473,598,240'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4T473",
                                         name: "cysH",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

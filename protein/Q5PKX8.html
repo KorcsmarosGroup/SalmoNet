@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpsB,rpsU,Interactome3d,PPI\nrpsH,rpsU,Lit Ecoli IntAct,PPI\nrpsU,rpsG,Interactome3d,PPI\nrpsU,rpsR,Interactome3d,PPI\nrpsU,rpsK,Interactome3d,PPI\nlexA,rpsU,Ecoli,Transcriptional_regulatory'
+                        data: 'rpsB,rpsU,Interactome3d,PPI,SPA0223,SPA3077,Q5PD63,Q5PKX8,2913,2521\nrpsH,rpsU,Lit Ecoli IntAct,PPI,SPA3292,SPA3077,Q5PIU7,Q5PKX8,3598,2521\nrpsU,rpsG,Interactome3d,PPI,SPA3077,SPA3313,Q5PKX8,Q5PIW2,2521,1032\nrpsU,rpsR,Interactome3d,PPI,SPA3077,SPA4210,Q5PKX8,Q5PJ56,2521,2540\nrpsU,rpsK,Interactome3d,PPI,SPA3077,SPA3283,Q5PKX8,Q5PK08,2521,1517\nlexA,rpsU,Ecoli,Transcriptional_regulatory,SPA4054,SPA3077,Q5PL14,Q5PKX8,2732,2521'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PKX8",
                                         name: "rpsU",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

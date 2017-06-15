@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gmhA,talB,BioModels,Metabolic\ntktA,talB,BioModels,Metabolic\ntktB,talB,BioModels,Metabolic\ntalA,talB,STM,Metabolic\nSTM2341,talB,BioModels,Metabolic\nSTM2340,talB,BioModels,Metabolic\nleuD1,talB,Lit Ecoli IntAct,PPI\ntrxA,talB,IntAct,PPI\nfis,talB,Exp(HT),Transcriptional_regulatory'
+                        data: 'gmhA,talB,BioModels,Metabolic,STM0310,STM0007,P63223,P66955,931,3087\ntktA,talB,BioModels,Metabolic,STM3076,STM0007,Q8ZM63,P66955,2398,3087\ntktB,talB,BioModels,Metabolic,STM2474,STM0007,Q8ZN82,P66955,3649,3087\ntalA,talB,STM,Metabolic,STM2473,STM0007,Q8ZN83,P66955,873,3087\nSTM2341,talB,BioModels,Metabolic,STM2341,STM0007,Q8ZND4,P66955,434,3087\nSTM2340,talB,BioModels,Metabolic,STM2340,STM0007,Q8ZND5,P66955,2994,3087\nleuD1,talB,Lit Ecoli IntAct,PPI,STM0110,STM0007,P04787,P66955,3377,3087\ntrxA,talB,IntAct,PPI,STM3915,STM0007,P0AA28,P66955,3171,3087\nfis,talB,Exp(HT),Transcriptional_regulatory,STM3385,STM0007,P0A6R6,P66955,1300,3087'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P66955",
                                         name: "talB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

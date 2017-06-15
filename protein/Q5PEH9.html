@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cysH,grxC,STM,Metabolic\ncysH,cysC,STM BioModels,Metabolic\ncysH,grxA,STM,Metabolic\ncysH,grxB,STM,Metabolic\ncysH,ydhD,STM,Metabolic\ncysH,yfiG,STM,Metabolic\ncysH,acpS,BioModels,Metabolic\ncysH,trxA,STM,Metabolic\ntrxA,cysH,Interactome3d,PPI\ncysB,cysH,Ecoli,Transcriptional_regulatory'
+                        data: 'cysH,grxC,STM,Metabolic,SPA2802,SPA3554,Q5PEH9,Q5PBZ4,240,1788\ncysH,cysC,STM BioModels,Metabolic,SPA2802,SPA2789,Q5PEH9,Q5PEH3,240,2794\ncysH,grxA,STM,Metabolic,SPA2802,SPA1890,Q5PEH9,Q5PGP0,240,3866\ncysH,grxB,STM,Metabolic,SPA2802,SPA1686,Q5PEH9,Q5PGW6,240,1200\ncysH,ydhD,STM,Metabolic,SPA2802,SPA1420,Q5PEH9,Q5PH12,240,1938\ncysH,yfiG,STM,Metabolic,SPA2802,SPA0268,Q5PEH9,Q5PID7,240,2524\ncysH,acpS,BioModels,Metabolic,SPA2802,SPA0288,Q5PEH9,Q5PIJ4,240,1197\ncysH,trxA,STM,Metabolic,SPA2802,SPA3756,Q5PEH9,Q5PKK3,240,3171\ntrxA,cysH,Interactome3d,PPI,SPA3756,SPA2802,Q5PKK3,Q5PEH9,3171,240\ncysB,cysH,Ecoli,Transcriptional_regulatory,SPA1163,SPA2802,Q5PD09,Q5PEH9,598,240'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PEH9",
                                         name: "cysH",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

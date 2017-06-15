@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'frdD,frdC,STM,Metabolic\nfrdD,frdA,STM,Metabolic\nfrdD,frdB,STM,Metabolic\nfrdD,gcd,BioModels,Metabolic\nfrdC,frdD,Interactome3d,PPI\nfrdD,frdB,Interactome3d,PPI\nfrdA,frdD,IntAct,PPI\nfnr,frdD,Ecoli,Transcriptional_regulatory\nnarL,frdD,Ecoli,Transcriptional_regulatory\ndcuR,frdD,Ecoli,Transcriptional_regulatory'
+                        data: 'frdD,frdC,STM,Metabolic,STM4340,STM4341,P67645,P67638,291,2646\nfrdD,frdA,STM,Metabolic,STM4340,STM4343,P67645,Q7CP97,291,1770\nfrdD,frdB,STM,Metabolic,STM4340,STM4342,P67645,Q8ZKB4,291,2693\nfrdD,gcd,BioModels,Metabolic,STM4340,STM0169,P67645,Q8ZRS1,291,223\nfrdC,frdD,Interactome3d,PPI,STM4341,STM4340,P67638,P67645,2646,291\nfrdD,frdB,Interactome3d,PPI,STM4340,STM4342,P67645,Q8ZKB4,291,2693\nfrdA,frdD,IntAct,PPI,STM4343,STM4340,Q7CP97,P67645,1770,291\nfnr,frdD,Ecoli,Transcriptional_regulatory,STM1660.S,STM4340,P0A2T8,P67645,147,291\nnarL,frdD,Ecoli,Transcriptional_regulatory,STM1767,STM4340,Q8ZP34,P67645,265,291\ndcuR,frdD,Ecoli,Transcriptional_regulatory,STM4303,STM4340,Q8ZKD9,P67645,4086,291'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P67645",
                                         name: "frdD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'aceA,tctA,STM,Metabolic\naceA,tctB,STM,Metabolic\naceA,tctC,STM,Metabolic\naceA,acnA,STM BioModels,Metabolic\naceA,icdA,BioModels,Metabolic\naceA,acnB,STM BioModels,Metabolic\nfruR,aceA,Ecoli,Transcriptional_regulatory\ncrp,aceA,Ecoli,Transcriptional_regulatory\niclR,aceA,Ecoli,Transcriptional_regulatory'
+                        data: 'aceA,tctA,STM,Metabolic,SC4063,SC2720,Q57H43,Q57KY6,1123,1881\naceA,tctB,STM,Metabolic,SC4063,SC2719,Q57H43,Q57KY7,1123,882\naceA,tctC,STM,Metabolic,SC4063,SC2718,Q57H43,Q57KY8,1123,1236\naceA,acnA,STM BioModels,Metabolic,SC4063,SC1707,Q57H43,Q57NU8,1123,2511\naceA,icdA,BioModels,Metabolic,SC4063,SC1189,Q57H43,Q57QB6,1123,158\naceA,acnB,STM BioModels,Metabolic,SC4063,SC0157,Q57H43,Q57T98,1123,4241\nfruR,aceA,Ecoli,Transcriptional_regulatory,SC0115,SC4063,Q57TE0,Q57H43,191,1123\ncrp,aceA,Ecoli,Transcriptional_regulatory,SC3400,SC4063,Q57J06,Q57H43,2484,1123\niclR,aceA,Ecoli,Transcriptional_regulatory,SC4066,SC4063,Q57H40,Q57H43,3011,1123'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57H43",
                                         name: "aceA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

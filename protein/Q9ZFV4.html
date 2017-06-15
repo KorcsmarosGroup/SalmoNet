@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cobA,eutT,STM,Metabolic\ncbiP,eutT,STM,Metabolic\ncobS,eutT,BioModels,Metabolic\nptpS,eutT,BioModels,Metabolic\npduO,eutT,STM,Metabolic\neutT,btuC,STM,Metabolic\neutT,btuF,STM,Metabolic'
+                        data: 'cobA,eutT,STM,Metabolic,STM1718,STM2467,P31570,Q9ZFV4,1229,2101\ncbiP,eutT,STM,Metabolic,STM2019,STM2467,Q05597,Q9ZFV4,4148,2101\ncobS,eutT,BioModels,Metabolic,STM2017,STM2467,Q05602,Q9ZFV4,3459,2101\nptpS,eutT,BioModels,Metabolic,STM2949,STM2467,Q7CPW5,Q9ZFV4,4167,2101\npduO,eutT,STM,Metabolic,STM2050,STM2467,Q8ZNR5,Q9ZFV4,1040,2101\neutT,btuC,STM,Metabolic,STM2467,STM1340,Q9ZFV4,Q8ZPS8,2101,3956\neutT,btuF,STM,Metabolic,STM2467,STM0206,Q9ZFV4,Q8ZRP7,2101,2972'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q9ZFV4",
                                         name: "eutT",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

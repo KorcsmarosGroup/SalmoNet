@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'lpxD,lpxC,STM,Metabolic\nlpxC,lpxA,STM,Metabolic\nlpxC,acpP,STM,Metabolic\nlpxC,murD,Lit Ecoli IntAct,PPI\nlpxC,ygbQ,Lit Ecoli IntAct,PPI\nlexA,lpxC,Ecoli,Transcriptional_regulatory'
+                        data: 'lpxD,lpxC,STM,Metabolic,SPA0233,SPA0136,Q5PD75,Q5PDD1,4103,1501\nlpxC,lpxA,STM,Metabolic,SPA0136,SPA0235,Q5PDD1,Q5PD73,1501,2626\nlpxC,acpP,STM,Metabolic,SPA0136,SPA1655,Q5PDD1,Q5PGU4,1501,883\nlpxC,murD,Lit Ecoli IntAct,PPI,SPA0136,SPA0128,Q5PDD1,Q5PDC2,1501,914\nlpxC,ygbQ,Lit Ecoli IntAct,PPI,SPA0136,SPA2787,Q5PDD1,Q5PEG0,1501,981\nlexA,lpxC,Ecoli,Transcriptional_regulatory,SPA4054,SPA0136,Q5PL14,Q5PDD1,2732,1501'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PDD1",
                                         name: "lpxC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

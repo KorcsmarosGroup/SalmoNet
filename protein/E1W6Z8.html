@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dmsA,dmsC,STM,Metabolic\ndmsB,dmsC,STM,Metabolic\ndmsC,SL1344_4242,STM,Metabolic\ndmsC,dmsB,STM,Metabolic\ndmsC,dmsC,STM,Metabolic\ndmsC,SL1344_2490,STM,Metabolic\ndmsC,SL1344_2491,STM,Metabolic\ndmsC,SL1344_2492,STM,Metabolic\ndmsC,dmsC,STM,Metabolic\nSL1344_1427,dmsC,STM,Metabolic\ndmsA2,dmsC,STM,Metabolic\ndmsA1,dmsC,STM,Metabolic\nfnr,dmsC,Ecoli,Transcriptional_regulatory\nnarL,dmsC,Ecoli,Transcriptional_regulatory\nssrB,dmsC,Salm,Transcriptional_regulatory\nmodE,dmsC,Ecoli,Transcriptional_regulatory\nfis,dmsC,Ecoli,Transcriptional_regulatory'
+                        data: 'dmsA,dmsC,STM,Metabolic,SL1344_0902,SL1344_0904,E1W6Z6,E1W6Z8,3216,1060\ndmsB,dmsC,STM,Metabolic,SL1344_0903,SL1344_0904,E1W6Z7,E1W6Z8,3610,1060\ndmsC,SL1344_4242,STM,Metabolic,SL1344_0904,SL1344_4242,E1W6Z8,E1WEZ5,1060,672\ndmsC,dmsB,STM,Metabolic,SL1344_0904,SL1344_4243,E1W6Z8,E1WEZ6,1060,1025\ndmsC,dmsC,STM,Metabolic,SL1344_0904,SL1344_4244,E1W6Z8,E1WEZ7,1060,2246\ndmsC,SL1344_2490,STM,Metabolic,SL1344_0904,SL1344_2490,E1W6Z8,E1WJ04,1060,3624\ndmsC,SL1344_2491,STM,Metabolic,SL1344_0904,SL1344_2491,E1W6Z8,E1WJ05,1060,523\ndmsC,SL1344_2492,STM,Metabolic,SL1344_0904,SL1344_2492,E1W6Z8,E1WJ06,1060,3597\ndmsC,dmsC,STM,Metabolic,SL1344_1426,SL1344_0904,E1WBH8,E1W6Z8,1906,1060\nSL1344_1427,dmsC,STM,Metabolic,SL1344_1427,SL1344_0904,E1WBH9,E1W6Z8,3610,1060\ndmsA2,dmsC,STM,Metabolic,SL1344_1428,SL1344_0904,E1WBI0,E1W6Z8,3321,1060\ndmsA1,dmsC,STM,Metabolic,SL1344_1429,SL1344_0904,E1WBI1,E1W6Z8,3321,1060\nfnr,dmsC,Ecoli,Transcriptional_regulatory,SL1344_1591,SL1344_0904,E1WBZ1,E1W6Z8,147,1060\nnarL,dmsC,Ecoli,Transcriptional_regulatory,SL1344_1695,SL1344_0904,E1WG04,E1W6Z8,265,1060\nssrB,dmsC,Salm,Transcriptional_regulatory,SL1344_1325,SL1344_0904,E1WFQ7,E1W6Z8,549,1060\nmodE,dmsC,Ecoli,Transcriptional_regulatory,SL1344_0756,SL1344_0904,E1W9R7,E1W6Z8,710,1060\nfis,dmsC,Ecoli,Transcriptional_regulatory,SL1344_3358,SL1344_0904,E1WIG8,E1W6Z8,1300,1060'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1W6Z8",
                                         name: "dmsC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

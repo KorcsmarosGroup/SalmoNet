@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fadR,SeHA_C0557,Ecoli,Transcriptional_regulatory\nfadR,fabA,Ecoli,Transcriptional_regulatory\nfadR,SeHA_C1177,Ecoli,Transcriptional_regulatory\nfadR,plsX,Ecoli,Transcriptional_regulatory\nfadR,fabH,Ecoli,Transcriptional_regulatory\nfadR,fabD,Ecoli,Transcriptional_regulatory\nfadR,fabG,Ecoli,Transcriptional_regulatory\nfadR,fadR,Ecoli,Transcriptional_regulatory\nfadR,fadR,Ecoli,Transcriptional_regulatory\nfadR,SeHA_C2620,Ecoli,Transcriptional_regulatory\nfadR,fadJ,Ecoli,Transcriptional_regulatory\nfadR,fadI,Ecoli,Transcriptional_regulatory\nfadR,SeHA_C2634,Ecoli,Transcriptional_regulatory\nfadR,SeHA_C3514,Ecoli,Transcriptional_regulatory\nfadR,uspA,Ecoli,Transcriptional_regulatory\nfadR,SeHA_C4520,Ecoli,Transcriptional_regulatory\nfadR,SeHA_C4521,Ecoli,Transcriptional_regulatory'
+                        data: 'fadR,SeHA_C0557,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C0557,B4TKD5,B4T9E9,397,226\nfadR,fabA,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C1176,B4TKD5,B4TDZ4,397,1132\nfadR,SeHA_C1177,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C1177,B4TKD5,B4TDZ5,397,2986\nfadR,plsX,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C1306,B4TKD5,B4TFG7,397,2365\nfadR,fabH,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C1307,B4TKD5,B4TFG8,397,38\nfadR,fabD,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C1308,B4TKD5,B4TFG9,397,2177\nfadR,fabG,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C1309,B4TKD5,B4TFH0,397,41\nfadR,fadR,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C2003,B4TKD5,B4TKD5,397,397\nfadR,fadR,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C2003,B4TKD5,B4TKD5,397,397\nfadR,SeHA_C2620,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C2620,B4TKD5,B4TC99,397,2227\nfadR,fadJ,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C2630,B4TKD5,B4TCA8,397,499\nfadR,fadI,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C2631,B4TKD5,B4TCA9,397,2474\nfadR,SeHA_C2634,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C2634,B4TKD5,B4TCB2,397,1790\nfadR,SeHA_C3514,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C3514,B4TKD5,B4TIU7,397,2940\nfadR,uspA,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C3904,B4TKD5,B4T8C5,397,972\nfadR,SeHA_C4520,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C4520,B4TKD5,B4TDG2,397,659\nfadR,SeHA_C4521,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C4521,B4TKD5,B4TDG3,397,3011'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TKD5",
                                         name: "fadR",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

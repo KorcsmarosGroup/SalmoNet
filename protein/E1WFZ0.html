@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pyrH,tdk,STM,Metabolic\nthyA,tdk,STM BioModels,Metabolic\nSL1344_4487,tdk,STM,Metabolic\ndeoA,tdk,BioModels,Metabolic\ndeoD,tdk,BioModels,Metabolic\ntdk,tmk,BioModels,Metabolic\ntdk,SL1344_3078,BioModels,Metabolic\ntdk,trxA,IntAct,PPI'
+                        data: 'pyrH,tdk,STM,Metabolic,SL1344_0219,SL1344_1681,E1W890,E1WFZ0,1349,72\nthyA,tdk,STM BioModels,Metabolic,SL1344_2979,SL1344_1681,E1WAP4,E1WFZ0,494,72\nSL1344_4487,tdk,STM,Metabolic,SL1344_4487,SL1344_1681,E1WB90,E1WFZ0,215,72\ndeoA,tdk,BioModels,Metabolic,SL1344_4495,SL1344_1681,E1WB98,E1WFZ0,2201,72\ndeoD,tdk,BioModels,Metabolic,SL1344_4497,SL1344_1681,E1WBA0,E1WFZ0,234,72\ntdk,tmk,BioModels,Metabolic,SL1344_1681,SL1344_1137,E1WFZ0,E1WF69,72,910\ntdk,SL1344_3078,BioModels,Metabolic,SL1344_1681,SL1344_3078,E1WFZ0,E1WHP2,72,654\ntdk,trxA,IntAct,PPI,SL1344_1681,SL1344_3875,E1WFZ0,E1WDY2,72,3171'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WFZ0",
                                         name: "tdk",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

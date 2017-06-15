@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'araB,xylA,STM,Metabolic\nxylA,STM0042,STM,Metabolic\nxylB,xylA,STM,Metabolic\nyajF,xylA,STM,Metabolic\naraC,xylA,Ecoli,Transcriptional_regulatory\ncrp,xylA,Ecoli,Transcriptional_regulatory\nxylR,xylA,Ecoli,Transcriptional_regulatory'
+                        data: 'araB,xylA,STM,Metabolic,STM0103,STM3661,P06188,Q8ZL90,1029,1214\nxylA,STM0042,STM,Metabolic,STM3661,STM0042,Q8ZL90,Q8ZRZ1,1214,1773\nxylB,xylA,STM,Metabolic,STM3660,STM3661,Q8ZL91,Q8ZL90,3384,1214\nyajF,xylA,STM,Metabolic,STM0393,STM3661,Q8ZRE5,Q8ZL90,2802,1214\naraC,xylA,Ecoli,Transcriptional_regulatory,STM0104,STM3661,P03022,Q8ZL90,2319,1214\ncrp,xylA,Ecoli,Transcriptional_regulatory,STM3466,STM3661,P0A2T6,Q8ZL90,2484,1214\nxylR,xylA,Ecoli,Transcriptional_regulatory,STM3662,STM3661,Q8ZL89,Q8ZL90,3378,1214'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZL90",
                                         name: "xylA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

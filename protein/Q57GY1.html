@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dnaT,dnaB,IntAct,PPI\ndnaC,dnaB,Lit Ecoli IntAct,PPI\npriB,dnaB,IntAct,PPI\ndnaB,tus,IntAct,PPI\nrep,dnaB,IntAct,PPI\ndnaA,dnaB,IntAct,PPI\nrplB,dnaB,IntAct,PPI\ndnaG,dnaB,IntAct,PPI'
+                        data: 'dnaT,dnaB,IntAct,PPI,SC4396,SC4125,Q57G60,Q57GY1,4291,1004\ndnaC,dnaB,Lit Ecoli IntAct,PPI,SC4395,SC4125,Q57G61,Q57GY1,698,1004\npriB,dnaB,IntAct,PPI,SC4266,SC4125,Q57GJ0,Q57GY1,28,1004\ndnaB,tus,IntAct,PPI,SC4125,SC1487,Q57GY1,Q57PG8,1004,1543\nrep,dnaB,IntAct,PPI,SC3818,SC4125,Q57HT8,Q57GY1,2749,1004\ndnaA,dnaB,IntAct,PPI,SC3756,SC4125,Q57I00,Q57GY1,195,1004\nrplB,dnaB,IntAct,PPI,SC3371,SC4125,Q57J35,Q57GY1,246,1004\ndnaG,dnaB,IntAct,PPI,SC3157,SC4125,Q57JP9,Q57GY1,2045,1004'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57GY1",
                                         name: "dnaB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'garL,garD,STM BioModels,Metabolic\ngarD,SNSL254_A3977,STM,Metabolic\ngarD,SNSL254_A3978,STM,Metabolic\ngarD,gudP,STM,Metabolic\ngarD,kduD,BioModels,Metabolic\nSNSL254_A0111,garD,Lit Ecoli IntAct,PPI'
+                        data: 'garL,garD,STM BioModels,Metabolic,SNSL254_A3511,SNSL254_A3513,B4T6B6,B4T6B8,3878,3921\ngarD,SNSL254_A3977,STM,Metabolic,SNSL254_A3513,SNSL254_A3977,B4T6B8,B4SXA8,3921,3704\ngarD,SNSL254_A3978,STM,Metabolic,SNSL254_A3513,SNSL254_A3978,B4T6B8,B4SXA9,3921,1474\ngarD,gudP,STM,Metabolic,SNSL254_A3513,SNSL254_A3184,B4T6B8,B4T499,3921,1474\ngarD,kduD,BioModels,Metabolic,SNSL254_A3513,SNSL254_A3248,B4T6B8,B4T511,3921,2771\nSNSL254_A0111,garD,Lit Ecoli IntAct,PPI,SNSL254_A0111,SNSL254_A3513,B4SU25,B4T6B8,2319,3921'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4T6B8",
                                         name: "garD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

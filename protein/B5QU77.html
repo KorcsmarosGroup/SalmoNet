@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'adk,SEN3732,STM,Metabolic\nadk,mazG,STM,Metabolic\nadk,tmk,STM,Metabolic\nadk,rfbN,STM,Metabolic\nadk,ntpA,STM,Metabolic\nadk,ndk,STM,Metabolic\nrfbA,adk,STM,Metabolic\nyfaO,adk,STM,Metabolic\nybdL,adk,Lit Ecoli IntAct,PPI'
+                        data: 'adk,SEN3732,STM,Metabolic,SEN0469,SEN3732,B5QU77,B5QVI4,3593,453\nadk,mazG,STM,Metabolic,SEN0469,SEN2793,B5QU77,B5QW42,3593,3476\nadk,tmk,STM,Metabolic,SEN0469,SEN1849,B5QU77,B5QXD6,3593,910\nadk,rfbN,STM,Metabolic,SEN0469,SEN2084,B5QU77,B5QZM5,3593,2654\nadk,ntpA,STM,Metabolic,SEN0469,SEN1103,B5QU77,B5R1V3,3593,1216\nadk,ndk,STM,Metabolic,SEN0469,SEN2506,B5QU77,B5R585,3593,2887\nrfbA,adk,STM,Metabolic,SEN2091,SEN0469,B5QZN6,B5QU77,2426,3593\nyfaO,adk,STM,Metabolic,SEN2277,SEN0469,B5R268,B5QU77,1942,3593\nybdL,adk,Lit Ecoli IntAct,PPI,SEN0572,SEN0469,B5QVK4,B5QU77,1498,3593'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QU77",
                                         name: "adk",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

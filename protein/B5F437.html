@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SeAg_B4330,nrdD,STM,Metabolic\nnrdD,dcd,BioModels,Metabolic\nnrdD,udk,BioModels,Metabolic\nnrdD,fldA,STM,Metabolic\nnrdD,ndk,BioModels,Metabolic\nnrdD,nrdG,STM,Metabolic\nSeAg_B3201,nrdD,STM,Metabolic\ntrxA,nrdD,IntAct,PPI\nSeAg_B4405,nrdD,Lit Ecoli IntAct,PPI\nnrdG,nrdD,Lit Ecoli IntAct,PPI\nfnr,nrdD,Ecoli,Transcriptional_regulatory\nSeAg_B1780,nrdD,Salm,Transcriptional_regulatory\nnrdR,nrdD,Ecoli,Transcriptional_regulatory'
+                        data: 'SeAg_B4330,nrdD,STM,Metabolic,SeAg_B4330,SeAg_B4734,B5F0R5,B5F437,916,3575\nnrdD,dcd,BioModels,Metabolic,SeAg_B4734,SeAg_B2248,B5F437,B5EXU9,3575,106\nnrdD,udk,BioModels,Metabolic,SeAg_B4734,SeAg_B2249,B5F437,B5EXV0,3575,1109\nnrdD,fldA,STM,Metabolic,SeAg_B4734,SeAg_B0741,B5F437,B5EZD1,3575,564\nnrdD,ndk,BioModels,Metabolic,SeAg_B4734,SeAg_B2678,B5F437,B5F1A1,3575,2887\nnrdD,nrdG,STM,Metabolic,SeAg_B4734,SeAg_B4733,B5F437,B5F436,3575,1285\nSeAg_B3201,nrdD,STM,Metabolic,SeAg_B3201,SeAg_B4734,B5F5G8,B5F437,3198,3575\ntrxA,nrdD,IntAct,PPI,SeAg_B4142,SeAg_B4734,B5EZ41,B5F437,3171,3575\nSeAg_B4405,nrdD,Lit Ecoli IntAct,PPI,SeAg_B4405,SeAg_B4734,B5F1H5,B5F437,1509,3575\nnrdG,nrdD,Lit Ecoli IntAct,PPI,SeAg_B4733,SeAg_B4734,B5F436,B5F437,1285,3575\nfnr,nrdD,Ecoli,Transcriptional_regulatory,SeAg_B1491,SeAg_B4734,B5F5B3,B5F437,147,3575\nSeAg_B1780,nrdD,Salm,Transcriptional_regulatory,SeAg_B1780,SeAg_B4734,B5F7A7,B5F437,549,3575\nnrdR,nrdD,Ecoli,Transcriptional_regulatory,SeAg_B0454,SeAg_B4734,B5EXF6,B5F437,813,3575'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5F437",
                                         name: "nrdD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

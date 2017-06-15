@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hupA,hupB,IntAct Interactome3d,PPI\nhupB,ihfA,IntAct Interactome3d,PPI\nhupB,trxA,IntAct,PPI\nhupB,ihfB,IntAct Interactome3d,PPI\nhupB,fhuF,Lit Ecoli IntAct,PPI\ndnaA,hupB,IntAct,PPI\nfis,hupB,Ecoli,Transcriptional_regulatory\ncrp,hupB,Ecoli,Transcriptional_regulatory'
+                        data: 'hupA,hupB,IntAct Interactome3d,PPI,STM4170,STM0451,P0A1R6,P0A1R8,2117,2776\nhupB,ihfA,IntAct Interactome3d,PPI,STM0451,STM1339,P0A1R8,P0A1S0,2776,2956\nhupB,trxA,IntAct,PPI,STM0451,STM3915,P0A1R8,P0AA28,2776,3171\nhupB,ihfB,IntAct Interactome3d,PPI,STM0451,STM0982,P0A1R8,P64394,2776,894\nhupB,fhuF,Lit Ecoli IntAct,PPI,STM0451,STM4550,P0A1R8,Q8ZJW9,2776,1758\ndnaA,hupB,IntAct,PPI,STM3838,STM0451,P35891,P0A1R8,195,2776\nfis,hupB,Ecoli,Transcriptional_regulatory,STM3385,STM0451,P0A6R6,P0A1R8,1300,2776\ncrp,hupB,Ecoli,Transcriptional_regulatory,STM3466,STM0451,P0A2T6,P0A1R8,2484,2776'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A1R8",
                                         name: "hupB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

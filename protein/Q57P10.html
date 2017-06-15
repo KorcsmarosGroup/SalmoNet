@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'nifJ,fldB,STM,Metabolic\nfldA,nifJ,STM,Metabolic\nyjeK,nifJ,IntAct,PPI\nflhD,nifJ,IntAct,PPI\ncheR,nifJ,IntAct,PPI\nflhE,nifJ,IntAct,PPI\ntopA,nifJ,IntAct,PPI\nflgJ,nifJ,IntAct,PPI\nflgH,nifJ,IntAct,PPI\nsoxS,nifJ,Ecoli,Transcriptional_regulatory'
+                        data: 'nifJ,fldB,STM,Metabolic,SC1645,SC2985,Q57P10,Q57K71,3295,3198\nfldA,nifJ,STM,Metabolic,SC0714,SC1645,Q57RP1,Q57P10,564,3295\nyjeK,nifJ,IntAct,PPI,SC4212,SC1645,Q57GP4,Q57P10,2668,3295\nflhD,nifJ,IntAct,PPI,SC1932,SC1645,Q57N73,Q57P10,1977,3295\ncheR,nifJ,IntAct,PPI,SC1925,SC1645,Q57N80,Q57P10,692,3295\nflhE,nifJ,IntAct,PPI,SC1919,SC1645,Q57N86,Q57P10,758,3295\ntopA,nifJ,IntAct,PPI,SC1711,SC1645,Q57NU4,Q57P10,420,3295\nflgJ,nifJ,IntAct,PPI,SC1129,SC1645,Q57QH6,Q57P10,2165,3295\nflgH,nifJ,IntAct,PPI,SC1127,SC1645,Q57QH8,Q57P10,224,3295\nsoxS,nifJ,Ecoli,Transcriptional_regulatory,SC4144,SC1645,Q57GW2,Q57P10,451,3295'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57P10",
                                         name: "nifJ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

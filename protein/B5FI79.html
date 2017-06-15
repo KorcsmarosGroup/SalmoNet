@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'secG,secA,Lit Ecoli IntAct Interactome3d,PPI\nsecA,lamB,IntAct Interactome3d,PPI\nsecA,SeD_A4945,IntAct,PPI\nSeD_A1877,secA,IntAct,PPI\nsecY,secA,IntAct Interactome3d,PPI\nacpP,secA,IntAct,PPI\nSeD_A0474,secA,Biogrid,PPI\nsecB,secA,IntAct Interactome3d,PPI\nSeD_A0840,secA,Lit Ecoli IntAct,PPI\nsecE,secA,IntAct,PPI\nSeD_A3364,secA,Lit Ecoli IntAct,PPI\nSeD_A1950,secA,Salm,Transcriptional_regulatory'
+                        data: 'secG,secA,Lit Ecoli IntAct Interactome3d,PPI,SeD_A3650,SeD_A0145,B5FI18,B5FI79,952,2356\nsecA,lamB,IntAct Interactome3d,PPI,SeD_A0145,SeD_A4625,B5FI79,B5FQQ5,2356,3308\nsecA,SeD_A4945,IntAct,PPI,SeD_A0145,SeD_A4945,B5FI79,B5FT91,2356,2085\nSeD_A1877,secA,IntAct,PPI,SeD_A1877,SeD_A0145,B5FIE0,B5FI79,175,2356\nsecY,secA,IntAct Interactome3d,PPI,SeD_A3787,SeD_A0145,B5FJJ4,B5FI79,3888,2356\nacpP,secA,IntAct,PPI,SeD_A2173,SeD_A0145,B5FKB1,B5FI79,883,2356\nSeD_A0474,secA,Biogrid,PPI,SeD_A0474,SeD_A0145,B5FKT8,B5FI79,1011,2356\nsecB,secA,IntAct Interactome3d,PPI,SeD_A4087,SeD_A0145,B5FLH9,B5FI79,2367,2356\nSeD_A0840,secA,Lit Ecoli IntAct,PPI,SeD_A0840,SeD_A0145,B5FNG7,B5FI79,2632,2356\nsecE,secA,IntAct,PPI,SeD_A4553,SeD_A0145,B5FPY7,B5FI79,3041,2356\nSeD_A3364,secA,Lit Ecoli IntAct,PPI,SeD_A3364,SeD_A0145,B5FUE2,B5FI79,4451,2356\nSeD_A1950,secA,Salm,Transcriptional_regulatory,SeD_A1950,SeD_A0145,B5FIK7,B5FI79,549,2356'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FI79",
                                         name: "secA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

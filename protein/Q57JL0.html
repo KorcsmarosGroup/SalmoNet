@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'garL,yin,STM,Metabolic\ngarL,gudD,STM BioModels,Metabolic\ngarL,ygbM,BioModels,Metabolic\ngarL,gip,BioModels,Metabolic\ngarR,garL,STM,Metabolic\nglxR,garL,STM,Metabolic\nfur,garL,Ecoli,Transcriptional_regulatory'
+                        data: 'garL,yin,STM,Metabolic,SC3196,SC3621,Q57JL0,Q57ID5,3878,3704\ngarL,gudD,STM BioModels,Metabolic,SC3196,SC2900,Q57JL0,Q57KF6,3878,1146\ngarL,ygbM,BioModels,Metabolic,SC3196,SC2845,Q57JL0,Q57KL1,3878,1567\ngarL,gip,BioModels,Metabolic,SC3196,SC0558,Q57JL0,Q57S47,3878,1567\ngarR,garL,STM,Metabolic,SC3195,SC3196,Q57JL1,Q57JL0,1252,3878\nglxR,garL,STM,Metabolic,SC0559,SC3196,Q57S46,Q57JL0,2095,3878\nfur,garL,Ecoli,Transcriptional_regulatory,SC0713,SC3196,Q57RP2,Q57JL0,552,3878'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57JL0",
                                         name: "garL",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

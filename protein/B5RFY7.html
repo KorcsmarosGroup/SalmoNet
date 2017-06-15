@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'adhE,dnaA,IntAct,PPI\ndnaC,dnaA,IntAct,PPI\ndnaA,hupB,IntAct,PPI\ndnaA,dps,IntAct,PPI\ndnaA,dnaB,IntAct,PPI\ndnaA,nadE,Lit Ecoli IntAct,PPI\ndnaA,yfgE,IntAct,PPI\ndnaA,yraO,IntAct,PPI\ndnaA,oxyR,IntAct,PPI\ndnaA,hupA,IntAct,PPI\nrplB,dnaA,IntAct,PPI\ndnaA,nrdB,Ecoli,Transcriptional_regulatory\ndnaA,yfaE,Ecoli,Transcriptional_regulatory\ndnaA,polA,Ecoli,Transcriptional_regulatory\ndnaA,dnaA,Ecoli,Transcriptional_regulatory\ndnaA,dnaA,Ecoli,Transcriptional_regulatory\ndnaA,dnaN,Ecoli,Transcriptional_regulatory\ndnaA,recF,Ecoli,Transcriptional_regulatory\ndnaA,gyrB,Ecoli,Transcriptional_regulatory\ndnaA,rpoH,Ecoli,Transcriptional_regulatory'
+                        data: 'adhE,dnaA,IntAct,PPI,SG1367,SG3593,B5R6K4,B5RFY7,205,195\ndnaC,dnaA,IntAct,PPI,SG4373,SG3593,B5R9S9,B5RFY7,698,195\ndnaA,hupB,IntAct,PPI,SG3593,SG0462,B5RFY7,B5R6V2,195,2776\ndnaA,dps,IntAct,PPI,SG3593,SG0810,B5RFY7,B5R797,195,2497\ndnaA,dnaB,IntAct,PPI,SG3593,SG4089,B5RFY7,B5R7U5,195,1004\ndnaA,nadE,Lit Ecoli IntAct,PPI,SG3593,SG1806,B5RFY7,B5RAZ4,195,1983\ndnaA,yfgE,IntAct,PPI,SG3593,SG2528,B5RFY7,B5RCW8,195,1743\ndnaA,yraO,IntAct,PPI,SG3593,SG3157,B5RFY7,B5REL6,195,2087\ndnaA,oxyR,IntAct,PPI,SG3593,SG3291,B5RFY7,B5RF44,195,3398\ndnaA,hupA,IntAct,PPI,SG3593,SG3436,B5RFY7,B5RFI4,195,2117\nrplB,dnaA,IntAct,PPI,SG4002,SG3593,B5RH18,B5RFY7,246,195\ndnaA,nrdB,Ecoli,Transcriptional_regulatory,SG3593,SG2306,B5RFY7,B5RCA3,195,1760\ndnaA,yfaE,Ecoli,Transcriptional_regulatory,SG3593,SG2307,B5RFY7,B5RCA4,195,2460\ndnaA,polA,Ecoli,Transcriptional_regulatory,SG3593,SG3423,B5RFY7,B5RFH1,195,3338\ndnaA,dnaA,Ecoli,Transcriptional_regulatory,SG3593,SG3593,B5RFY7,B5RFY7,195,195\ndnaA,dnaA,Ecoli,Transcriptional_regulatory,SG3593,SG3593,B5RFY7,B5RFY7,195,195\ndnaA,dnaN,Ecoli,Transcriptional_regulatory,SG3593,SG3594,B5RFY7,B5RFY8,195,3473\ndnaA,recF,Ecoli,Transcriptional_regulatory,SG3593,SG3595,B5RFY7,B5RFY9,195,2387\ndnaA,gyrB,Ecoli,Transcriptional_regulatory,SG3593,SG3596,B5RFY7,B5RFZ0,195,962\ndnaA,rpoH,Ecoli,Transcriptional_regulatory,SG3593,SG3869,B5RFY7,B5RGV8,195,2741'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RFY7",
                                         name: "dnaA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

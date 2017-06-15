@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glpA,glpB,STM,Metabolic\nglpB,glpC,STM,Metabolic\nglpB,glpD,STM,Metabolic\nSeHA_C0715,glpB,Lit Ecoli IntAct,PPI\nfnr,glpB,Ecoli,Transcriptional_regulatory\nfis,glpB,Ecoli,Transcriptional_regulatory\nSeHA_C3831,glpB,Ecoli,Transcriptional_regulatory\ncrp,glpB,Ecoli,Transcriptional_regulatory'
+                        data: 'glpA,glpB,STM,Metabolic,SeHA_C2524,SeHA_C2525,B4TBF1,B4TBF2,954,1890\nglpB,glpC,STM,Metabolic,SeHA_C2525,SeHA_C2526,B4TBF2,B4TBF3,1890,2998\nglpB,glpD,STM,Metabolic,SeHA_C2525,SeHA_C3834,B4TBF2,B4TKV2,1890,3182\nSeHA_C0715,glpB,Lit Ecoli IntAct,PPI,SeHA_C0715,SeHA_C2525,B4TAF4,B4TBF2,1498,1890\nfnr,glpB,Ecoli,Transcriptional_regulatory,SeHA_C1845,SeHA_C2525,B4TIT4,B4TBF2,147,1890\nfis,glpB,Ecoli,Transcriptional_regulatory,SeHA_C3683,SeHA_C2525,B4TJV9,B4TBF2,1300,1890\nSeHA_C3831,glpB,Ecoli,Transcriptional_regulatory,SeHA_C3831,SeHA_C2525,B4TKU9,B4TBF2,2287,1890\ncrp,glpB,Ecoli,Transcriptional_regulatory,SeHA_C3771,SeHA_C2525,B4TKP1,B4TBF2,2484,1890'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TBF2",
                                         name: "glpB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

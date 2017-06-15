@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'argT,artQ,STM,Metabolic\nargT,artI,STM,Metabolic\nargT,artJ,STM,Metabolic\nargT,artM,STM,Metabolic\nargT,hisM,STM,Metabolic\nargT,hisQ,STM,Metabolic\niagA,argT,Salm,Transcriptional_regulatory'
+                        data: 'argT,artQ,STM,Metabolic,SPA0509,SPA1873,Q5PN30,Q5PGL0,1042,1127\nargT,artI,STM,Metabolic,SPA0509,SPA1872,Q5PN30,Q5PGL1,1042,3579\nargT,artJ,STM,Metabolic,SPA0509,SPA1875,Q5PN30,Q5PGM3,1042,1074\nargT,artM,STM,Metabolic,SPA0509,SPA1874,Q5PN30,Q5PGM4,1042,2555\nargT,hisM,STM,Metabolic,SPA0509,SPA0512,Q5PN30,Q5PN27,1042,986\nargT,hisQ,STM,Metabolic,SPA0509,SPA0511,Q5PN30,Q5PN28,1042,1194\niagA,argT,Salm,Transcriptional_regulatory,SPA2734,SPA0509,Q5PEB1,Q5PN30,1036,1042'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PN30",
                                         name: "argT",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

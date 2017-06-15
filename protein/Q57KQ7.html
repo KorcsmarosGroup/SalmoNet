@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hilC,gpt,Salm,Transcriptional_regulatory\nhilC,frsA,Salm,Transcriptional_regulatory\nhilC,crl,Salm,Transcriptional_regulatory\nhilC,stpA,Salm,Transcriptional_regulatory\nhilC,ygaW,Salm,Transcriptional_regulatory\nhilC,invB,Salm,Transcriptional_regulatory\nhilC,invA,Salm,Transcriptional_regulatory\nhilC,invE,Salm,Transcriptional_regulatory\nhilC,invG,Salm,Transcriptional_regulatory\nhilC,invF,Salm,Transcriptional_regulatory\nhilC,invH,Salm,Transcriptional_regulatory\nhilC,ptsN,Salm,Transcriptional_regulatory\nhilC,yhbJ,Salm,Transcriptional_regulatory\nhilC,ptsO,Salm,Transcriptional_regulatory\nhilC,yifB,Salm,Transcriptional_regulatory\nhilC,ilvM,Salm,Transcriptional_regulatory\nhilC,ilvE,Salm,Transcriptional_regulatory\nhilC,SC4187,Salm,Transcriptional_regulatory\nhilC,SC4188,Salm,Transcriptional_regulatory\nhilC,SC4354,Salm,Transcriptional_regulatory'
+                        data: 'hilC,gpt,Salm,Transcriptional_regulatory,SC2799,SC0318,Q57KQ7,Q57ST7,1614,762\nhilC,frsA,Salm,Transcriptional_regulatory,SC2799,SC0319,Q57KQ7,Q57ST6,1614,103\nhilC,crl,Salm,Transcriptional_regulatory,SC2799,SC0320,Q57KQ7,Q57ST5,1614,2916\nhilC,stpA,Salm,Transcriptional_regulatory,SC2799,SC2732,Q57KQ7,Q57KX4,1614,1703\nhilC,ygaW,Salm,Transcriptional_regulatory,SC2799,SC2733,Q57KQ7,Q57KX3,1614,2917\nhilC,invB,Salm,Transcriptional_regulatory,SC2799,SC2827,Q57KQ7,Q57KM9,1614,1633\nhilC,invA,Salm,Transcriptional_regulatory,SC2799,SC2828,Q57KQ7,Q57KM8,1614,2018\nhilC,invE,Salm,Transcriptional_regulatory,SC2799,SC2829,Q57KQ7,Q57KM7,1614,1413\nhilC,invG,Salm,Transcriptional_regulatory,SC2799,SC2830,Q57KQ7,Q57KM6,1614,4290\nhilC,invF,Salm,Transcriptional_regulatory,SC2799,SC2831,Q57KQ7,Q57KM5,1614,2003\nhilC,invH,Salm,Transcriptional_regulatory,SC2799,SC2832,Q57KQ7,P37422,1614,52\nhilC,ptsN,Salm,Transcriptional_regulatory,SC2799,SC3260,Q57KQ7,Q57JE6,1614,2691\nhilC,yhbJ,Salm,Transcriptional_regulatory,SC2799,SC3261,Q57KQ7,Q57JE5,1614,23\nhilC,ptsO,Salm,Transcriptional_regulatory,SC2799,SC3262,Q57KQ7,Q57JE4,1614,2336\nhilC,yifB,Salm,Transcriptional_regulatory,SC2799,SC3806,Q57KQ7,Q57HV0,1614,788\nhilC,ilvM,Salm,Transcriptional_regulatory,SC2799,SC3807,Q57KQ7,Q57HU9,1614,1471\nhilC,ilvE,Salm,Transcriptional_regulatory,SC2799,SC3808,Q57KQ7,Q57HU8,1614,1118\nhilC,SC4187,Salm,Transcriptional_regulatory,SC2799,SC4187,Q57KQ7,Q57GR9,1614,995\nhilC,SC4188,Salm,Transcriptional_regulatory,SC2799,SC4188,Q57KQ7,Q57GR8,1614,2405\nhilC,SC4354,Salm,Transcriptional_regulatory,SC2799,SC4354,Q57KQ7,Q57GA2,1614,2619'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57KQ7",
                                         name: "hilC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

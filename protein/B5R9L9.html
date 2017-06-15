@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gntT,idnT,STM,Metabolic\nidnT,ompF,STM,Metabolic\nidnT,gntU,STM,Metabolic\nidnO,idnT,STM,Metabolic\nidnD,idnT,STM,Metabolic\nidnK,idnT,STM,Metabolic\ngntK,idnT,STM,Metabolic\ncrp,idnT,Ecoli,Transcriptional_regulatory'
+                        data: 'gntT,idnT,STM,Metabolic,SG3926,SG4306,B5R7K2,B5R9L9,674,457\nidnT,ompF,STM,Metabolic,SG4306,SG0941,B5R9L9,B5R8L6,457,2449\nidnT,gntU,STM,Metabolic,SG4306,SG3896,B5R9L9,B5RGY5,457,1262\nidnO,idnT,STM,Metabolic,SG4307,SG4306,B5R9M0,B5R9L9,82,457\nidnD,idnT,STM,Metabolic,SG4308,SG4306,B5R9M1,B5R9L9,3590,457\nidnK,idnT,STM,Metabolic,SG4309,SG4306,B5R9M2,B5R9L9,33,457\ngntK,idnT,STM,Metabolic,SG3895,SG4306,B5RGY4,B5R9L9,403,457\ncrp,idnT,Ecoli,Transcriptional_regulatory,SG3973,SG4306,B5RGZ0,B5R9L9,2484,457'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R9L9",
                                         name: "idnT",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

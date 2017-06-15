@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glmS,cobB,BioModels,Metabolic\ncobB,pncB,STM,Metabolic\ncobB,nadC,STM,Metabolic\ncobB,nagA,BioModels,Metabolic\ncobB,nagB,BioModels,Metabolic\ncobB,SL1344_3265,BioModels,Metabolic\ncobT,cobB,STM,Metabolic\ncobS,cobB,STM,Metabolic\nSL1344_1012,cobB,Lit Ecoli IntAct,PPI'
+                        data: 'glmS,cobB,BioModels,Metabolic,SL1344_3828,SL1344_1158,E1WDT7,E1WF90,2457,2636\ncobB,pncB,STM,Metabolic,SL1344_1158,SL1344_0941,E1WF90,E1W735,2636,3279\ncobB,nadC,STM,Metabolic,SL1344_1158,SL1344_0145,E1WF90,E1W817,2636,861\ncobB,nagA,BioModels,Metabolic,SL1344_1158,SL1344_0665,E1WF90,E1W9H7,2636,313\ncobB,nagB,BioModels,Metabolic,SL1344_1158,SL1344_0666,E1WF90,E1W9H8,2636,231\ncobB,SL1344_3265,BioModels,Metabolic,SL1344_1158,SL1344_3265,E1WF90,E1WI76,2636,3243\ncobT,cobB,STM,Metabolic,SL1344_1992,SL1344_1158,E1WGU9,E1WF90,1463,2636\ncobS,cobB,STM,Metabolic,SL1344_1993,SL1344_1158,E1WGV0,E1WF90,3459,2636\nSL1344_1012,cobB,Lit Ecoli IntAct,PPI,SL1344_1012,SL1344_1158,E1W7A4,E1WF90,852,2636'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WF90",
                                         name: "cobB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

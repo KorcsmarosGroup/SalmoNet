@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SC2300,folD,STM,Metabolic\nfmt,folD,STM,Metabolic\ngcvT,folD,BioModels,Metabolic\npurN,folD,STM BioModels,Metabolic\npurT,folD,BioModels,Metabolic\npurU,folD,STM,Metabolic\nfolD,ygfA,BioModels,Metabolic\nfimZ,folD,Salm,Transcriptional_regulatory'
+                        data: 'SC2300,folD,STM,Metabolic,SC2300;SC2300.1,SC0581,P0C0R6,Q57S24,2125,1396\nfmt,folD,STM,Metabolic,SC3343,SC0581,Q57J63,Q57S24,3043,1396\ngcvT,folD,BioModels,Metabolic,SC2996,SC0581,Q57K60,Q57S24,1583,1396\npurN,folD,STM BioModels,Metabolic,SC2497,SC0581,Q57LK9,Q57S24,3645,1396\npurT,folD,BioModels,Metabolic,SC1888,SC0581,Q57NB7,Q57S24,3737,1396\npurU,folD,STM,Metabolic,SC1751,SC0581,Q57NQ4,Q57S24,1718,1396\nfolD,ygfA,BioModels,Metabolic,SC0581,SC3002,Q57S24,Q57K54,1396,865\nfimZ,folD,Salm,Transcriptional_regulatory,SC0588,SC0581,Q57S17,Q57S24,511,1396'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57S24",
                                         name: "folD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

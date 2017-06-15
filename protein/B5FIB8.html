@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hpt,SeD_A0056,STM,Metabolic\nhpt,SeD_A4133,STM,Metabolic\nhpt,xapA,STM,Metabolic\nhpt,deoD,STM,Metabolic\ngpt,hpt,STM,Metabolic\nSeD_A4146,hpt,Lit Ecoli IntAct,PPI\ncrp,hpt,Ecoli,Transcriptional_regulatory'
+                        data: 'hpt,SeD_A0056,STM,Metabolic,SeD_A0185,SeD_A0056,B5FIB8,B5FHE5,4146,643\nhpt,SeD_A4133,STM,Metabolic,SeD_A0185,SeD_A4133,B5FIB8,B5FM78,4146,3204\nhpt,xapA,STM,Metabolic,SeD_A0185,SeD_A2787,B5FIB8,B5FQB4,4146,1707\nhpt,deoD,STM,Metabolic,SeD_A0185,SeD_A4985,B5FIB8,B5FTC8,4146,234\ngpt,hpt,STM,Metabolic,SeD_A0347,SeD_A0185,B5FJW9,B5FIB8,762,4146\nSeD_A4146,hpt,Lit Ecoli IntAct,PPI,SeD_A4146,SeD_A0185,B5FM84,B5FIB8,2310,4146\ncrp,hpt,Ecoli,Transcriptional_regulatory,SeD_A3834,SeD_A0185,B5FJN9,B5FIB8,2484,4146'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FIB8",
                                         name: "hpt",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cadB,SeHA_C2822,STM,Metabolic\nSeHA_C2822,SeHA_C2602,BioModels,Metabolic\nSeHA_C2822,lysA,BioModels,Metabolic\nSeHA_C0272,SeHA_C2822,STM,Metabolic\nSeHA_C4212,SeHA_C2822,IntAct,PPI\nSeHA_C0272,SeHA_C2822,IntAct Interactome3d,PPI'
+                        data: 'cadB,SeHA_C2822,STM,Metabolic,SeHA_C2821,SeHA_C2822,B4TDD2,B4TDD3,1744,429\nSeHA_C2822,SeHA_C2602,BioModels,Metabolic,SeHA_C2822,SeHA_C2602,B4TDD3,B4TBM9,429,383\nSeHA_C2822,lysA,BioModels,Metabolic,SeHA_C2822,SeHA_C3229,B4TDD3,B4TGR9,429,2791\nSeHA_C0272,SeHA_C2822,STM,Metabolic,SeHA_C0272,SeHA_C2822,B4TK62,B4TDD3,1234,429\nSeHA_C4212,SeHA_C2822,IntAct,PPI,SeHA_C4212,SeHA_C2822,B4TAY8,B4TDD3,3012,429\nSeHA_C0272,SeHA_C2822,IntAct Interactome3d,PPI,SeHA_C0272,SeHA_C2822,B4TK62,B4TDD3,1234,429'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TDD3",
                                         name: "SeHA_C2822",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tonB,exbD,STM,Metabolic\nfepA,exbD,STM,Metabolic\nfhuE,exbD,STM,Metabolic\ncirA,exbD,STM,Metabolic\niroN,exbD,STM,Metabolic\nexbD,exbB,STM,Metabolic\nbtuB,exbD,STM,Metabolic\nfhuA,exbD,STM,Metabolic\ntonB,exbD,IntAct,PPI\nexbB,exbD,IntAct,PPI'
+                        data: 'tonB,exbD,STM,Metabolic,SG1378,SG3055,B5R6L4,B5REB7,1820,3311\nfepA,exbD,STM,Metabolic,SG0589,SG3055,B5R707,B5REB7,70,3311\nfhuE,exbD,STM,Metabolic,SG1918,SG3055,B5RB98,B5REB7,2056,3311\ncirA,exbD,STM,Metabolic,SG2236,SG3055,B5RC38,B5REB7,574,3311\niroN,exbD,STM,Metabolic,SG2683,SG3055,B5RDA9,B5REB7,2617,3311\nexbD,exbB,STM,Metabolic,SG3055,SG3056,B5REB7,B5REB8,3311,1712\nbtuB,exbD,STM,Metabolic,SG3286,SG3055,B5REZ2,B5REB7,3964,3311\nfhuA,exbD,STM,Metabolic,SG0195,SG3055,B5RHD0,B5REB7,2724,3311\ntonB,exbD,IntAct,PPI,SG1378,SG3055,B5R6L4,B5REB7,1820,3311\nexbB,exbD,IntAct,PPI,SG3056,SG3055,B5REB8,B5REB7,1712,3311'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5REB7",
                                         name: "exbD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

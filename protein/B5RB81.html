@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SG1900,nagA,BioModels,Metabolic\nSG1900,nagB,BioModels,Metabolic\nSG1900,pncB,STM,Metabolic\nSG1900,glmM,BioModels,Metabolic\nSG1900,nadC,STM,Metabolic\ncobT,SG1900,STM,Metabolic\ncobS,SG1900,STM,Metabolic\nglmS,SG1900,BioModels,Metabolic\nyccR,SG1900,Lit Ecoli IntAct,PPI'
+                        data: 'SG1900,nagA,BioModels,Metabolic,SG1900,SG0680,B5RB81,B5R823,2636,313\nSG1900,nagB,BioModels,Metabolic,SG1900,SG0681,B5RB81,B5R824,2636,231\nSG1900,pncB,STM,Metabolic,SG1900,SG0946,B5RB81,B5R8M1,2636,3279\nSG1900,glmM,BioModels,Metabolic,SG1900,SG3184,B5RB81,B5REP2,2636,3243\nSG1900,nadC,STM,Metabolic,SG1900,SG0147,B5RB81,B5RH83,2636,861\ncobT,SG1900,STM,Metabolic,SG2040,SG1900,B5RBK6,B5RB81,1463,2636\ncobS,SG1900,STM,Metabolic,SG2041,SG1900,B5RBK7,B5RB81,3459,2636\nglmS,SG1900,BioModels,Metabolic,SG3572,SG1900,B5RFW7,B5RB81,2457,2636\nyccR,SG1900,Lit Ecoli IntAct,PPI,SG0962,SG1900,B5R6C5,B5RB81,852,2636'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RB81",
                                         name: "SG1900",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ybhE,zwf,STM,Metabolic\npepD,zwf,IntAct,PPI\nclpB,zwf,IntAct,PPI\nzwf,pgm,IntAct,PPI\nfruR,zwf,Ecoli,Transcriptional_regulatory\nsoxS,zwf,Ecoli,Transcriptional_regulatory\nssrB,zwf,Salm,Transcriptional_regulatory\nompR,zwf,Salm,Transcriptional_regulatory'
+                        data: 'ybhE,zwf,STM,Metabolic,SPA1967,SPA0983,Q5PG56,Q5PN04,1294,452\npepD,zwf,IntAct,PPI,SPA2439,SPA0983,Q5PF79,Q5PN04,4070,452\nclpB,zwf,IntAct,PPI,SPA2521,SPA0983,Q5PFF3,Q5PN04,2097,452\nzwf,pgm,IntAct,PPI,SPA0983,SPA2043,Q5PN04,Q5PCJ0,452,1852\nfruR,zwf,Ecoli,Transcriptional_regulatory,SPA0120,SPA0983,Q5PDG6,Q5PN04,191,452\nsoxS,zwf,Ecoli,Transcriptional_regulatory,SPA4081,SPA0983,Q5PIZ3,Q5PN04,451,452\nssrB,zwf,Salm,Transcriptional_regulatory,SPA1462,SPA0983,Q5PH47,Q5PN04,549,452\nompR,zwf,Salm,Transcriptional_regulatory,SPA3367,SPA0983,Q5PLZ5,Q5PN04,3552,452'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PN04",
                                         name: "zwf",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

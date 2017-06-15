@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'birA,accB,BioModels,Metabolic\naccB,accC,STM BioModels,Metabolic\naccB,yadF,STM,Metabolic\naccD,accB,STM BioModels,Metabolic\nacpP,accB,STM,Metabolic\nfabD,accB,STM,Metabolic\naccA,accB,STM BioModels,Metabolic\naccC,accB,Lit Ecoli IntAct Interactome3d,PPI'
+                        data: 'birA,accB,BioModels,Metabolic,SC4026,SC3317,Q57H80,Q57J89,1145,1341\naccB,accC,STM BioModels,Metabolic,SC3317,SC3318,Q57J89,Q57J88,1341,1824\naccB,yadF,STM,Metabolic,SC3317,SC0171,Q57J89,Q57T84,1341,3047\naccD,accB,STM BioModels,Metabolic,SC2368,SC3317,Q57LY8,Q57J89,2027,1341\nacpP,accB,STM,Metabolic,SC1144,SC3317,Q57QG1,Q57J89,883,1341\nfabD,accB,STM,Metabolic,SC1142,SC3317,Q57QG3,Q57J89,2177,1341\naccA,accB,STM BioModels,Metabolic,SC0232,SC3317,Q57T23,Q57J89,501,1341\naccC,accB,Lit Ecoli IntAct Interactome3d,PPI,SC3318,SC3317,Q57J88,Q57J89,1824,1341'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57J89",
                                         name: "accB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

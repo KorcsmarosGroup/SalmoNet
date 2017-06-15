@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'sucA,sucB,STM BioModels,Metabolic\nsucB,aceE,BioModels,Metabolic\nsucB,aceF,BioModels,Metabolic\nlpdA,sucB,STM BioModels,Metabolic\nsucA,sucB,Lit Ecoli IntAct,PPI\nlpdA,sucB,Lit Ecoli IntAct Interactome3d,PPI\nfur,sucB,Ecoli,Transcriptional_regulatory\narcA,sucB,Ecoli,Transcriptional_regulatory'
+                        data: 'sucA,sucB,STM BioModels,Metabolic,SeAg_B0769,SeAg_B0770,B5EZF9,B5EZG0,1016,2189\nsucB,aceE,BioModels,Metabolic,SeAg_B0770,SeAg_B0174,B5EZG0,B5F7Z1,2189,2895\nsucB,aceF,BioModels,Metabolic,SeAg_B0770,SeAg_B0175,B5EZG0,B5F7Z2,2189,68\nlpdA,sucB,STM BioModels,Metabolic,SeAg_B0176,SeAg_B0770,B5F7Z3,B5EZG0,3188,2189\nsucA,sucB,Lit Ecoli IntAct,PPI,SeAg_B0769,SeAg_B0770,B5EZF9,B5EZG0,1016,2189\nlpdA,sucB,Lit Ecoli IntAct Interactome3d,PPI,SeAg_B0176,SeAg_B0770,B5F7Z3,B5EZG0,3188,2189\nfur,sucB,Ecoli,Transcriptional_regulatory,SeAg_B0740,SeAg_B0770,B5EZD0,B5EZG0,552,2189\narcA,sucB,Ecoli,Transcriptional_regulatory,SeAg_B4922,SeAg_B0770,B5F555,B5EZG0,2438,2189'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5EZG0",
                                         name: "sucB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

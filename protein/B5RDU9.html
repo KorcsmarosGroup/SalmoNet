@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'sdaA,sdaB,STM,Metabolic\nsdaB,SG2233,STM,Metabolic\nsdaB,ilvA,STM,Metabolic\ntdcB,sdaB,STM,Metabolic\nsdaB,trxA,IntAct,PPI\nssrB,sdaB,Salm,Transcriptional_regulatory'
+                        data: 'sdaA,sdaB,STM,Metabolic,SG1291,SG2881,B5R8X5,B5RDU9,1048,3869\nsdaB,SG2233,STM,Metabolic,SG2881,SG2233,B5RDU9,B5RC35,3869,2275\nsdaB,ilvA,STM,Metabolic,SG2881,SG3537,B5RDU9,B5RFT2,3869,1994\ntdcB,sdaB,STM,Metabolic,SG3141,SG2881,B5REK0,B5RDU9,3586,3869\nsdaB,trxA,IntAct,PPI,SG2881,SG3527,B5RDU9,B5RFS2,3869,3171\nssrB,sdaB,Salm,Transcriptional_regulatory,SG1725,SG2881,B5RAR6,B5RDU9,549,3869'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RDU9",
                                         name: "sdaB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

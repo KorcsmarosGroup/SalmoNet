@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'plsC,fabI,STM,Metabolic\nfabI,fabZ,STM,Metabolic\nfabI,fabA,STM,Metabolic\nfabB,fabI,STM,Metabolic\nyajB,fabI,STM,Metabolic\nplsB,fabI,STM,Metabolic\nfabF,fabI,STM,Metabolic\nlipB,fabI,BioModels,Metabolic\ntrxA,fabI,IntAct,PPI'
+                        data: 'plsC,fabI,STM,Metabolic,STM3173,STM1700,P0A257,P16657,1617,3239\nfabI,fabZ,STM,Metabolic,STM1700,STM0227,P16657,P0A1H9,3239,3458\nfabI,fabA,STM,Metabolic,STM1700,STM1067,P16657,P64105,3239,1132\nfabB,fabI,STM,Metabolic,STM2378,STM1700,Q7CQ36,P16657,2227,3239\nyajB,fabI,STM,Metabolic,STM0403,STM1700,Q7CR41,P16657,3118,3239\nplsB,fabI,STM,Metabolic,STM4235,STM1700,Q8ZKH9,P16657,1267,3239\nfabF,fabI,STM,Metabolic,STM1197,STM1700,Q8ZQ14,P16657,1982,3239\nlipB,fabI,BioModels,Metabolic,STM0635,STM1700,Q8ZR03,P16657,1020,3239\ntrxA,fabI,IntAct,PPI,STM3915,STM1700,P0AA28,P16657,3171,3239'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P16657",
                                         name: "fabI",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

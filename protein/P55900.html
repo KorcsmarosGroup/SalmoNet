@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'serC,pdxB,STM BioModels,Metabolic\nserC,serA,STM BioModels,Metabolic\npdxA1,serC,STM BioModels,Metabolic\npdxA2,serC,STM BioModels,Metabolic\nserB,serC,STM,Metabolic\ncrp,serC,Ecoli,Transcriptional_regulatory\nlrp,serC,Ecoli,Transcriptional_regulatory'
+                        data: 'serC,pdxB,STM BioModels,Metabolic,STM0977,STM2370,P55900,P60802,427,3062\nserC,serA,STM BioModels,Metabolic,STM0977,STM3062,P55900,Q8ZM69,427,3261\npdxA1,serC,STM BioModels,Metabolic,STM0091,STM0977,P58717,P55900,310,427\npdxA2,serC,STM BioModels,Metabolic,STM0163,STM0977,P58718,P55900,1919,427\nserB,serC,STM,Metabolic,STM4578,STM0977,Q7CP65,P55900,1850,427\ncrp,serC,Ecoli,Transcriptional_regulatory,STM3466,STM0977,P0A2T6,P55900,2484,427\nlrp,serC,Ecoli,Transcriptional_regulatory,STM0959,STM0977,P0A2S0,P55900,3848,427'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P55900",
                                         name: "serC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

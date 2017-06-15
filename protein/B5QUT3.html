@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glxR,gcl,STM BioModels,Metabolic\nglxR,gip,STM BioModels,Metabolic\nglxR,ygbM,STM BioModels,Metabolic\nglxR,garR,STM,Metabolic\nglxR,garL,STM,Metabolic\nfrr,glxR,Lit Ecoli IntAct,PPI'
+                        data: 'glxR,gcl,STM BioModels,Metabolic,SEN0500,SEN0498,B5QUT3,B5QUT1,2095,303\nglxR,gip,STM BioModels,Metabolic,SEN0500,SEN0499,B5QUT3,B5QUT2,2095,1567\nglxR,ygbM,STM BioModels,Metabolic,SEN0500,SEN2754,B5QUT3,B5QW03,2095,1567\nglxR,garR,STM,Metabolic,SEN0500,SEN3088,B5QUT3,B5QZS5,2095,1252\nglxR,garL,STM,Metabolic,SEN0500,SEN3089,B5QUT3,B5QZS6,2095,3878\nfrr,glxR,Lit Ecoli IntAct,PPI,SEN0226,SEN0500,B5R3I5,B5QUT3,424,2095'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QUT3",
                                         name: "glxR",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

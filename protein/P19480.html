@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ahpF,ahpC,STM,Metabolic\nahpF,trxA,STM,Metabolic\nahpF,STM0402,STM,Metabolic\nahpF,trxC,STM,Metabolic\naraC,ahpF,Salm,Transcriptional_regulatory\noxyR,ahpF,Ecoli,Transcriptional_regulatory'
+                        data: 'ahpF,ahpC,STM,Metabolic,STM0609,STM0608,P19480,P0A251,4017,1258\nahpF,trxA,STM,Metabolic,STM0609,STM3915,P19480,P0AA28,4017,3171\nahpF,STM0402,STM,Metabolic,STM0609,STM0402,P19480,Q7CR42,4017,90\nahpF,trxC,STM,Metabolic,STM0609,STM2649,P19480,Q8ZMX4,4017,2524\naraC,ahpF,Salm,Transcriptional_regulatory,STM0104,STM0609,P03022,P19480,2319,4017\noxyR,ahpF,Ecoli,Transcriptional_regulatory,STM4125,STM0609,Q7CPB9,P19480,3398,4017'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P19480",
                                         name: "ahpF",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'guaA,gpt,STM,Metabolic\ngpt,deoD,STM,Metabolic\ngpt,yicE,STM,Metabolic\ngpt,xapA,STM,Metabolic\ngpt,hpt,STM,Metabolic\ngpt,rihC,STM,Metabolic\nphoP,gpt,Salm,Transcriptional_regulatory\nhilC,gpt,Salm,Transcriptional_regulatory'
+                        data: 'guaA,gpt,STM,Metabolic,SC2508,SC0318,Q57LJ8,Q57ST7,447,762\ngpt,deoD,STM,Metabolic,SC0318,SC4418,Q57ST7,Q57G38,762,234\ngpt,yicE,STM,Metabolic,SC0318,SC3671,Q57ST7,Q57I85,762,3204\ngpt,xapA,STM,Metabolic,SC0318,SC2420,Q57ST7,Q57LT6,762,1707\ngpt,hpt,STM,Metabolic,SC0318,SC0170,Q57ST7,Q57T85,762,4146\ngpt,rihC,STM,Metabolic,SC0318,SC0045,Q57ST7,Q57TL0,762,643\nphoP,gpt,Salm,Transcriptional_regulatory,SC1182,SC0318,Q57QC3,Q57ST7,1432,762\nhilC,gpt,Salm,Transcriptional_regulatory,SC2799,SC0318,Q57KQ7,Q57ST7,1614,762'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57ST7",
                                         name: "gpt",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

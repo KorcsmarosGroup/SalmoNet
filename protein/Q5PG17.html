@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ybiS,ycfS,STM,Metabolic\nybiS,ynhG,STM,Metabolic\nybiS,lppA,STM,Metabolic\nybiS,lnt,STM,Metabolic\nyohN,ybiS,Lit Ecoli IntAct,PPI\ncrp,ybiS,Ecoli,Transcriptional_regulatory'
+                        data: 'ybiS,ycfS,STM,Metabolic,SPA1916,SPA1635,Q5PG17,Q5PGR3,3111,2278\nybiS,ynhG,STM,Metabolic,SPA1916,SPA1479,Q5PG17,Q5PH61,3111,1528\nybiS,lppA,STM,Metabolic,SPA1916,SPA1476,Q5PG17,Q5PH64,3111,2977\nybiS,lnt,STM,Metabolic,SPA1916,SPA2074,Q5PG17,Q5PLS6,3111,1177\nyohN,ybiS,Lit Ecoli IntAct,PPI,SPA0704,SPA1916,Q5PMW0,Q5PG17,1301,3111\ncrp,ybiS,Ecoli,Transcriptional_regulatory,SPA3332,SPA1916,Q5PLV0,Q5PG17,2484,3111'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PG17",
                                         name: "ybiS",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

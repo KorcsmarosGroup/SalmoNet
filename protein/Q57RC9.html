@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dnaA,dps,IntAct,PPI\nclpA,dps,IntAct,PPI\nclpS,dps,IntAct Interactome3d,PPI\nfis,dps,Ecoli,Transcriptional_regulatory\nmntR,dps,Ecoli,Transcriptional_regulatory\noxyR,dps,Ecoli,Transcriptional_regulatory'
+                        data: 'dnaA,dps,IntAct,PPI,SC3756,SC0826,Q57I00,Q57RC9,195,2497\nclpA,dps,IntAct,PPI,SC0900,SC0826,Q57R55,Q57RC9,2135,2497\nclpS,dps,IntAct Interactome3d,PPI,SC0899,SC0826,Q57R56,Q57RC9,3655,2497\nfis,dps,Ecoli,Transcriptional_regulatory,SC3323,SC0826,Q57J83,Q57RC9,1300,2497\nmntR,dps,Ecoli,Transcriptional_regulatory,SC0832,SC0826,Q57RC3,Q57RC9,2413,2497\noxyR,dps,Ecoli,Transcriptional_regulatory,SC4014,SC0826,Q57H92,Q57RC9,3398,2497'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57RC9",
                                         name: "dps",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

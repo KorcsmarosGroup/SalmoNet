@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fhuA,SeAg_B1409,STM,Metabolic\nfhuA,exbD,STM,Metabolic\nfhuA,exbB,STM,Metabolic\nSeAg_B0229,fhuA,STM,Metabolic\nSeAg_B0230,fhuA,STM,Metabolic\nfhuA,SeAg_B1409,Interactome3d,PPI'
+                        data: 'fhuA,SeAg_B1409,STM,Metabolic,SeAg_B0227,SeAg_B1409,B5F844,B5F4L3,2724,1820\nfhuA,exbD,STM,Metabolic,SeAg_B0227,SeAg_B3332,B5F844,B5F646,2724,3311\nfhuA,exbB,STM,Metabolic,SeAg_B0227,SeAg_B3333,B5F844,B5F647,2724,1712\nSeAg_B0229,fhuA,STM,Metabolic,SeAg_B0229,SeAg_B0227,B5F8Q5,B5F844,2141,2724\nSeAg_B0230,fhuA,STM,Metabolic,SeAg_B0230,SeAg_B0227,B5F8Q6,B5F844,4058,2724\nfhuA,SeAg_B1409,Interactome3d,PPI,SeAg_B0227,SeAg_B1409,B5F844,B5F4L3,2724,1820'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5F844",
                                         name: "fhuA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

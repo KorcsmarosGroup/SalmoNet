@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glnD,glnB,Lit Ecoli IntAct,PPI\nglnK,glnB,Lit Ecoli IntAct Interactome3d,PPI\namtB,glnB,Lit Ecoli IntAct Interactome3d,PPI\nSL1344_4400,glnB,Lit Ecoli IntAct,PPI\nglnL,glnB,Lit Ecoli IntAct,PPI\nglnE,glnB,IntAct,PPI\nrcsB,glnB,Salm,Transcriptional_regulatory'
+                        data: 'glnD,glnB,Lit Ecoli IntAct,PPI,SL1344_0215,SL1344_2523,E1W886,E1WJ37,3020,2233\nglnK,glnB,Lit Ecoli IntAct Interactome3d,PPI,SL1344_0456,SL1344_2523,E1W8X2,E1WJ37,3436,2233\namtB,glnB,Lit Ecoli IntAct Interactome3d,PPI,SL1344_0457,SL1344_2523,E1W8X3,E1WJ37,2863,2233\nSL1344_4400,glnB,Lit Ecoli IntAct,PPI,SL1344_4400,SL1344_2523,E1WB04,E1WJ37,2816,2233\nglnL,glnB,Lit Ecoli IntAct,PPI,SL1344_3953,SL1344_2523,E1WE60,E1WJ37,2959,2233\nglnE,glnB,IntAct,PPI,SL1344_3174,SL1344_2523,E1WHY8,E1WJ37,2219,2233\nrcsB,glnB,Salm,Transcriptional_regulatory,SL1344_2239,SL1344_2523,E1WCB0,E1WJ37,2328,2233'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WJ37",
                                         name: "glnB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

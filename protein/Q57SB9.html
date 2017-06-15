@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ldcA,ampG,STM,Metabolic\nnagZ,ampG,STM,Metabolic\nampG,amiB,STM,Metabolic\nampG,amiC,STM,Metabolic\nampG,amiA,STM,Metabolic\nampG,ompF,STM,Metabolic\nampD,ampG,STM,Metabolic\naraC,ampG,Salm,Transcriptional_regulatory'
+                        data: 'ldcA,ampG,STM,Metabolic,SC1793,SC0486,Q57NL2,Q57SB9,2164,2425\nnagZ,ampG,STM,Metabolic,SC1159,SC0486,Q57QE6,Q57SB9,2661,2425\nampG,amiB,STM,Metabolic,SC0486,SC4234,Q57SB9,Q57GM2,2425,3680\nampG,amiC,STM,Metabolic,SC0486,SC2929,Q57SB9,Q57KC7,2425,4089\nampG,amiA,STM,Metabolic,SC0486,SC2449,Q57SB9,Q57LQ7,2425,1325\nampG,ompF,STM,Metabolic,SC0486,SC0956,Q57SB9,Q57QZ9,2425,2449\nampD,ampG,STM,Metabolic,SC0145,SC0486,Q57TB0,Q57SB9,1439,2425\naraC,ampG,Salm,Transcriptional_regulatory,SC0098,SC0486,Q57TF7,Q57SB9,2319,2425'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57SB9",
                                         name: "ampG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

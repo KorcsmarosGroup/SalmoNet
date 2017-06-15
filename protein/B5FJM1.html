@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpsU,rpsG,Interactome3d,PPI\nrpsI,rpsG,IntAct Interactome3d,PPI\ninfC,rpsG,IntAct,PPI\nrpsG,rpsK,Interactome3d,PPI\nrluB,rpsG,Lit Ecoli IntAct,PPI'
+                        data: 'rpsU,rpsG,Interactome3d,PPI,SeD_A3565,SeD_A3815,B5FHU4,B5FJM1,2521,1032\nrpsI,rpsG,IntAct Interactome3d,PPI,SeD_A3704,SeD_A3815,B5FIS2,B5FJM1,713,1032\ninfC,rpsG,IntAct,PPI,SeD_A2011,SeD_A3815,B5FJA7,B5FJM1,3273,1032\nrpsG,rpsK,Interactome3d,PPI,SeD_A3815,SeD_A3783,B5FJM1,B5FJJ2,1032,1517\nrluB,rpsG,Lit Ecoli IntAct,PPI,SeD_A1609,SeD_A3815,B5FU72,B5FJM1,2408,1032'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FJM1",
                                         name: "rpsG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

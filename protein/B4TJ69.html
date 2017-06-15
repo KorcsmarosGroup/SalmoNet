@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'leuD,leuC,STM BioModels,Metabolic\nleuD,leuD,STM BioModels,Metabolic\nleuD,leuC,STM BioModels,Metabolic\nleuD,leuA,BioModels,Metabolic\nleuB,leuD,BioModels,Metabolic\nleuD,tal2,Lit Ecoli IntAct,PPI\nleuD,leuC,Lit Ecoli IntAct,PPI\nleuO,leuD,Salm,Transcriptional_regulatory'
+                        data: 'leuD,leuC,STM BioModels,Metabolic,SeHA_C0121,SeHA_C0421,B4TJ69,B4T7V9,3377,2560\nleuD,leuD,STM BioModels,Metabolic,SeHA_C0121,SeHA_C0422,B4TJ69,B4T7W0,3377,2764\nleuD,leuC,STM BioModels,Metabolic,SeHA_C0121,SeHA_C0122,B4TJ69,B4TJ70,3377,3973\nleuD,leuA,BioModels,Metabolic,SeHA_C0121,SeHA_C0124,B4TJ69,B4TJ72,3377,3577\nleuB,leuD,BioModels,Metabolic,SeHA_C0123,SeHA_C0121,B4TJ71,B4TJ69,3616,3377\nleuD,tal2,Lit Ecoli IntAct,PPI,SeHA_C0121,SeHA_C0007,B4TJ69,B4TIA8,3377,3087\nleuD,leuC,Lit Ecoli IntAct,PPI,SeHA_C0121,SeHA_C0122,B4TJ69,B4TJ70,3377,3973\nleuO,leuD,Salm,Transcriptional_regulatory,SeHA_C0126,SeHA_C0121,B4TJ73,B4TJ69,863,3377'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TJ69",
                                         name: "leuD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

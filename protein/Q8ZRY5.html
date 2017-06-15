@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dcuS,STM0053,IntAct Interactome3d,PPI\nnarL,STM0053,Ecoli,Transcriptional_regulatory\nfis,STM0053,Exp(HT),Transcriptional_regulatory\nSTM0052,STM0053,Ecoli,Transcriptional_regulatory\ndpiA,STM0053,Ecoli,Transcriptional_regulatory\ndcuR,STM0053,Ecoli,Transcriptional_regulatory'
+                        data: 'dcuS,STM0053,IntAct Interactome3d,PPI,STM4304,STM0053,Q8ZKD8,Q8ZRY5,4162,2161\nnarL,STM0053,Ecoli,Transcriptional_regulatory,STM1767,STM0053,Q8ZP34,Q8ZRY5,265,2161\nfis,STM0053,Exp(HT),Transcriptional_regulatory,STM3385,STM0053,P0A6R6,Q8ZRY5,1300,2161\nSTM0052,STM0053,Ecoli,Transcriptional_regulatory,STM0052,STM0053,Q8ZRY6,Q8ZRY5,2976,2161\ndpiA,STM0053,Ecoli,Transcriptional_regulatory,STM0626,STM0053,Q8ZR08,Q8ZRY5,2976,2161\ndcuR,STM0053,Ecoli,Transcriptional_regulatory,STM4303,STM0053,Q8ZKD9,Q8ZRY5,4086,2161'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZRY5",
                                         name: "STM0053",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

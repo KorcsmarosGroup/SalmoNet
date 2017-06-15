@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpsC,rpsJ,Interactome3d,PPI\nnusG,rpsJ,IntAct Interactome3d,PPI\nSTM0433,rpsJ,IntAct Biogrid,PPI\nSTM3427,rpsJ,Interactome3d,PPI\nrpsI,rpsJ,Interactome3d,PPI\nnusB,rpsJ,IntAct Interactome3d,PPI'
+                        data: 'rpsC,rpsJ,Interactome3d,PPI,STM3434,STM3441,P0A7V6,P67904,3754,1695\nnusG,rpsJ,IntAct Interactome3d,PPI,STM4148,STM3441,P0AA02,P67904,913,1695\nSTM0433,rpsJ,IntAct Biogrid,PPI,STM0433,STM3441,P55880,P67904,1011,1695\nSTM3427,rpsJ,Interactome3d,PPI,STM3427,STM3441,P66409,P67904,1046,1695\nrpsI,rpsJ,Interactome3d,PPI,STM3344,STM3441,P66643,P67904,713,1695\nnusB,rpsJ,IntAct Interactome3d,PPI,STM0418,STM3441,Q8ZRD3,P67904,895,1695'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P67904",
                                         name: "rpsJ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

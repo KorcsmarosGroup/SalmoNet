@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fruK,fruA,STM,Metabolic\nfruA,ptsI,STM,Metabolic\nfruA,ptsH,STM,Metabolic\nfruA,fruB,STM,Metabolic\nfruA,STM1219,Lit Ecoli IntAct,PPI\ncra,fruA,Salm Ecoli,Transcriptional_regulatory'
+                        data: 'fruK,fruA,STM,Metabolic,STM2205,STM2204,Q7CQ78,Q8ZNK5,3137,121\nfruA,ptsI,STM,Metabolic,STM2204,STM2432,Q8ZNK5,P0A249,121,1686\nfruA,ptsH,STM,Metabolic,STM2204,STM2431,Q8ZNK5,P0AA07,121,561\nfruA,fruB,STM,Metabolic,STM2204,STM2206,Q8ZNK5,P17127,121,3615\nfruA,STM1219,Lit Ecoli IntAct,PPI,STM2204,STM1219,Q8ZNK5,Q8ZQ00,121,190\ncra,fruA,Salm Ecoli,Transcriptional_regulatory,STM0118,STM2204,P0A2P8,Q8ZNK5,191,121'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZNK5",
                                         name: "fruA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

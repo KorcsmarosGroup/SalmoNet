@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'yeiG,SEN1425,STM,Metabolic\nSEN1425,adhP,STM,Metabolic\nSEN1425,glpF,STM,Metabolic\nSEN1425,adhE,STM,Metabolic\nSEN1425,eutG,STM,Metabolic\nfliK,SEN1425,Lit Ecoli IntAct,PPI'
+                        data: 'yeiG,SEN1425,STM,Metabolic,SEN2187,SEN1425,B5R164,B5R530,990,3871\nSEN1425,adhP,STM,Metabolic,SEN1425,SEN1488,B5R530,B5QTN5,3871,1102\nSEN1425,glpF,STM,Metabolic,SEN1425,SEN3877,B5R530,B5QXL6,3871,890\nSEN1425,adhE,STM,Metabolic,SEN1425,SEN1287,B5R530,B5R3M3,3871,205\nSEN1425,eutG,STM,Metabolic,SEN1425,SEN2441,B5R530,B5R4G9,3871,348\nfliK,SEN1425,Lit Ecoli IntAct,PPI,SEN1035,SEN1425,B5R0Y4,B5R530,1271,3871'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R530",
                                         name: "SEN1425",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

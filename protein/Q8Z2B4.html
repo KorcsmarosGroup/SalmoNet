@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glyS,glyQ,STM,Metabolic\nt0478,glyQ,Lit Ecoli IntAct,PPI\nglyQ,yhdJ,Lit Ecoli IntAct,PPI\nglyQ,hyb0,Lit Ecoli IntAct,PPI\nglyQ,glyS,Lit Ecoli IntAct,PPI\nglyQ,t2263,Lit Ecoli IntAct,PPI\nglyQ,polB,Lit Ecoli IntAct,PPI'
+                        data: 'glyS,glyQ,STM,Metabolic,t3864,t3863,Q8Z2B3,Q8Z2B4,1184,2057\nt0478,glyQ,Lit Ecoli IntAct,PPI,t0478,t3863,P67247,Q8Z2B4,1268,2057\nglyQ,yhdJ,Lit Ecoli IntAct,PPI,t3863,t3301,Q8Z2B4,Q8XF74,2057,2370\nglyQ,hyb0,Lit Ecoli IntAct,PPI,t3863,t3071,Q8Z2B4,Q8XGL3,2057,2290\nglyQ,glyS,Lit Ecoli IntAct,PPI,t3863,t3864,Q8Z2B4,Q8Z2B3,2057,1184\nglyQ,t2263,Lit Ecoli IntAct,PPI,t3863,t2263,Q8Z2B4,Q8Z8K4,2057,3654\nglyQ,polB,Lit Ecoli IntAct,PPI,t3863,t0100,Q8Z2B4,Q8Z9J3,2057,589'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z2B4",
                                         name: "glyQ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

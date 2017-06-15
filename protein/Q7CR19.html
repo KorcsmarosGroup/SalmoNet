@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'amtB,ompF,STM,Metabolic\namtB,ansB,STM,Metabolic\namtB,nrfD,STM,Metabolic\namtB,nrfC,STM,Metabolic\namtB,nrfB,STM,Metabolic\namtB,nrfA,STM,Metabolic\namtB,glnL,Lit Ecoli IntAct,PPI\namtB,glnB,Lit Ecoli IntAct Interactome3d,PPI\namtB,glnK,Lit Ecoli IntAct Interactome3d,PPI'
+                        data: 'amtB,ompF,STM,Metabolic,STM0463,STM0999,Q7CR19,P37432,2863,2449\namtB,ansB,STM,Metabolic,STM0463,STM3106,Q7CR19,Q7CPT7,2863,30\namtB,nrfD,STM,Metabolic,STM0463,STM4280,Q7CR19,Q8ZKF2,2863,3778\namtB,nrfC,STM,Metabolic,STM0463,STM4279,Q7CR19,Q8ZKF3,2863,3282\namtB,nrfB,STM,Metabolic,STM0463,STM4278,Q7CR19,Q8ZKF4,2863,338\namtB,nrfA,STM,Metabolic,STM0463,STM4277,Q7CR19,Q8ZKF5,2863,3235\namtB,glnL,Lit Ecoli IntAct,PPI,STM0463,STM4006,Q7CR19,P0A2D9,2863,2959\namtB,glnB,Lit Ecoli IntAct Interactome3d,PPI,STM0463,STM2561,Q7CR19,P0A9Z4,2863,2233\namtB,glnK,Lit Ecoli IntAct Interactome3d,PPI,STM0463,STM0462,Q7CR19,Q7CR20,2863,3436'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q7CR19",
                                         name: "amtB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'argC,argD,STM,Metabolic\nargE,argD,STM BioModels,Metabolic\nargD,argD,STM,Metabolic\nargD,dapD,BioModels,Metabolic\nargD,pepT,IntAct,PPI\nargD,cbpA,IntAct,PPI\nphoP,argD,Salm,Transcriptional_regulatory\nargR,argD,Ecoli,Transcriptional_regulatory'
+                        data: 'argC,argD,STM,Metabolic,SC4011,SC3402,Q57H95,Q57J04,1251,1628\nargE,argD,STM BioModels,Metabolic,SC4010,SC3402,Q57H96,Q57J04,1685,1628\nargD,argD,STM,Metabolic,SC3402,SC1326,Q57J04,Q57PX9,1628,1408\nargD,dapD,BioModels,Metabolic,SC3402,SC0213,Q57J04,Q57T42,1628,3089\nargD,pepT,IntAct,PPI,SC3402,SC1178,Q57J04,Q57QC7,1628,2172\nargD,cbpA,IntAct,PPI,SC3402,SC1063,Q57J04,Q57QP2,1628,2080\nphoP,argD,Salm,Transcriptional_regulatory,SC1182,SC3402,Q57QC3,Q57J04,1432,1628\nargR,argD,Ecoli,Transcriptional_regulatory,SC3298,SC3402,Q57JA8,Q57J04,2842,1628'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57J04",
                                         name: "argD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

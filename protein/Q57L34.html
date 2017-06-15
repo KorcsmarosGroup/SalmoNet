@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'aroB,aroF,STM,Metabolic\naroF,aroH,STM,Metabolic\naroF,aroG,STM,Metabolic\naroF,stdA,Lit Ecoli IntAct,PPI\nfixX,aroF,Lit Ecoli IntAct,PPI\ntyrR,aroF,Ecoli,Transcriptional_regulatory\nhilD,aroF,Salm,Transcriptional_regulatory'
+                        data: 'aroB,aroF,STM,Metabolic,SC3418,SC2672,Q57IY8,Q57L34,1539,92\naroF,aroH,STM,Metabolic,SC2672,SC1366,Q57L34,Q57PT9,92,3673\naroF,aroG,STM,Metabolic,SC2672,SC0759,Q57L34,Q57RJ6,92,2962\naroF,stdA,Lit Ecoli IntAct,PPI,SC2672,SC2969,Q57L34,Q57K87,92,4451\nfixX,aroF,Lit Ecoli IntAct,PPI,SC0073,SC2672,Q57TI2,Q57L34,2000,92\ntyrR,aroF,Ecoli,Transcriptional_regulatory,SC1676,SC2672,Q57NX9,Q57L34,760,92\nhilD,aroF,Salm,Transcriptional_regulatory,SC4191,SC2672,Q57GR5,Q57L34,3531,92'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57L34",
                                         name: "aroF",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

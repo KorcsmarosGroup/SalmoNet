@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glpC,glpD,STM,Metabolic\nglpB,glpC,STM,Metabolic\nglpA,glpC,STM,Metabolic\nglpC,kdgK,IntAct,PPI\nglpC,uvrB,Lit Ecoli IntAct,PPI\nfnr,glpC,Ecoli,Transcriptional_regulatory\nfis,glpC,Ecoli,Transcriptional_regulatory\nglpR,glpC,Ecoli,Transcriptional_regulatory\ncrp,glpC,Ecoli,Transcriptional_regulatory'
+                        data: 'glpC,glpD,STM,Metabolic,STM2286,STM3526,Q8ZNG3,Q8ZLH4,2998,3182\nglpB,glpC,STM,Metabolic,STM2285,STM2286,Q8ZNG4,Q8ZNG3,1890,2998\nglpA,glpC,STM,Metabolic,STM2284,STM2286,Q8ZNG5,Q8ZNG3,954,2998\nglpC,kdgK,IntAct,PPI,STM2286,STM3612,Q8ZNG3,Q8ZLC0,2998,3312\nglpC,uvrB,Lit Ecoli IntAct,PPI,STM2286,STM0798,Q8ZNG3,Q8ZQQ4,2998,1831\nfnr,glpC,Ecoli,Transcriptional_regulatory,STM1660.S,STM2286,P0A2T8,Q8ZNG3,147,2998\nfis,glpC,Ecoli,Transcriptional_regulatory,STM3385,STM2286,P0A6R6,Q8ZNG3,1300,2998\nglpR,glpC,Ecoli,Transcriptional_regulatory,STM3523,STM2286,Q8ZLH6,Q8ZNG3,2287,2998\ncrp,glpC,Ecoli,Transcriptional_regulatory,STM3466,STM2286,P0A2T6,Q8ZNG3,2484,2998'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZNG3",
                                         name: "glpC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

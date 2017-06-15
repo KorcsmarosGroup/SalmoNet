@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hybF,mog,IntAct,PPI\nmobB,mog,IntAct,PPI\nmog,yebC,Lit Ecoli IntAct,PPI\nmog,moeA,IntAct,PPI\nmog,yniC,IntAct,PPI\nfis,mog,Exp(HT),Transcriptional_regulatory'
+                        data: 'hybF,mog,IntAct,PPI,STM3144,STM0008,P64421,Q8ZS15,3619,4145\nmobB,mog,IntAct,PPI,STM3993,STM0008,Q8ZKV0,Q8ZS15,2020,4145\nmog,yebC,Lit Ecoli IntAct,PPI,STM0008,STM1899,Q8ZS15,P67179,4145,3350\nmog,moeA,IntAct,PPI,STM0008,STM0846,Q8ZS15,Q56066,4145,306\nmog,yniC,IntAct,PPI,STM0008,STM1322,Q8ZS15,Q8ZPT7,4145,4006\nfis,mog,Exp(HT),Transcriptional_regulatory,STM3385,STM0008,P0A6R6,Q8ZS15,1300,4145'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZS15",
                                         name: "mog",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

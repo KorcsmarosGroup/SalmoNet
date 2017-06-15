@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pgm,udp,BioModels,Metabolic\ndeoB,udp,STM BioModels,Metabolic\ndeoD,udp,BioModels,Metabolic\nupp,udp,BioModels,Metabolic\nudp,udk,BioModels,Metabolic\nudp,cdd,BioModels,Metabolic\nyidC,udp,IntAct,PPI\ntrxA,udp,IntAct,PPI\ncytR,udp,Ecoli,Transcriptional_regulatory\ncap,udp,Ecoli,Transcriptional_regulatory'
+                        data: 'pgm,udp,BioModels,Metabolic,SL1344_0680,SL1344_3922,E1W9J2,E1WE30,1852,2760\ndeoB,udp,STM BioModels,Metabolic,SL1344_4496,SL1344_3922,E1WB99,E1WE30,1641,2760\ndeoD,udp,BioModels,Metabolic,SL1344_4497,SL1344_3922,E1WBA0,E1WE30,234,2760\nupp,udp,BioModels,Metabolic,SL1344_2461,SL1344_3922,E1WCY2,E1WE30,1352,2760\nudp,udk,BioModels,Metabolic,SL1344_3922,SL1344_2099,E1WE30,E1WH55,2760,1109\nudp,cdd,BioModels,Metabolic,SL1344_3922,SL1344_2160,E1WE30,E1WHB6,2760,2753\nyidC,udp,IntAct,PPI,SL1344_3809,SL1344_3922,E1WDR8,E1WE30,3987,2760\ntrxA,udp,IntAct,PPI,SL1344_3875,SL1344_3922,E1WDY2,E1WE30,3171,2760\ncytR,udp,Ecoli,Transcriptional_regulatory,SL1344_4043,SL1344_3922,E1WEE9,E1WE30,2465,2760\ncap,udp,Ecoli,Transcriptional_regulatory,SL1344_3433,SL1344_3922,E1WIP3,E1WE30,2484,2760'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WE30",
                                         name: "udp",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

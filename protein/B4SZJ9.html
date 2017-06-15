@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'bioC,SNSL254_A2567,BioModels,Metabolic\nbioC,fabF,BioModels,Metabolic\nfabH,bioC,BioModels,Metabolic\nfabD,bioC,BioModels,Metabolic\nSNSL254_A1612,bioC,Lit Ecoli IntAct,PPI\nSNSL254_A4471,bioC,Ecoli,Transcriptional_regulatory'
+                        data: 'bioC,SNSL254_A2567,BioModels,Metabolic,SNSL254_A0860,SNSL254_A2567,B4SZJ9,B4SZQ1,3726,2227\nbioC,fabF,BioModels,Metabolic,SNSL254_A0860,SNSL254_A1296,B4SZJ9,B4T329,3726,1982\nfabH,bioC,BioModels,Metabolic,SNSL254_A1292,SNSL254_A0860,B4T325,B4SZJ9,38,3726\nfabD,bioC,BioModels,Metabolic,SNSL254_A1293,SNSL254_A0860,B4T326,B4SZJ9,2177,3726\nSNSL254_A1612,bioC,Lit Ecoli IntAct,PPI,SNSL254_A1612,SNSL254_A0860,B4T5D8,B4SZJ9,623,3726\nSNSL254_A4471,bioC,Ecoli,Transcriptional_regulatory,SNSL254_A4471,SNSL254_A0860,B4T0X9,B4SZJ9,1145,3726'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4SZJ9",
                                         name: "bioC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

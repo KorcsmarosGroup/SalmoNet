@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ftsI,mrcB,STM,Metabolic\npbpC,mrcB,STM,Metabolic\npbpA,mrcB,STM,Metabolic\nmrcB,mrcA,STM,Metabolic\nmrcB,murG,STM,Metabolic\nSTY3777,mrcB,IntAct,PPI\nt1713,mrcB,IntAct,PPI\nmrcB,ftsW,IntAct,PPI\nmrcB,ftsI,IntAct Interactome3d,PPI'
+                        data: 'ftsI,mrcB,STM,Metabolic,t0126,t0198,Q8XGV8,Q8Z9B8,3143,2681\npbpC,mrcB,STM,Metabolic,t0325,t0198,Q8Z4N8,Q8Z9B8,3411,2681\npbpA,mrcB,STM,Metabolic,t2227,t0198,Q8Z8H9,Q8Z9B8,2244,2681\nmrcB,mrcA,STM,Metabolic,t0198,t4013,Q8Z9B8,Q8Z211,2681,3788\nmrcB,murG,STM,Metabolic,t0198,t0132,Q8Z9B8,Q8Z9G9,2681,2882\nSTY3777,mrcB,IntAct,PPI,STY3777,t0198,Q8Z2Z1,Q8Z9B8,2083,2681\nt1713,mrcB,IntAct,PPI,t1713,t0198,Q8Z7I8,Q8Z9B8,67,2681\nmrcB,ftsW,IntAct,PPI,t0198,t0131,Q8Z9B8,Q8XGF1,2681,3007\nmrcB,ftsI,IntAct Interactome3d,PPI,t0198,t0126,Q8Z9B8,Q8XGV8,2681,3143'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z9B8",
                                         name: "mrcB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

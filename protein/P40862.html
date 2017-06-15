@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'proP,caiT,STM,Metabolic\ncaiB,proP,STM,Metabolic\ncaiC,proP,STM,Metabolic\nfis,proP,Ecoli,Transcriptional_regulatory\nphoP,proP,Exp(HT),Transcriptional_regulatory\ncrp,proP,Ecoli,Transcriptional_regulatory'
+                        data: 'proP,caiT,STM,Metabolic,STM4290,STM0074,P40862,Q8ZRX1,384,450\ncaiB,proP,STM,Metabolic,STM0072,STM4290,Q8ZRX3,P40862,2154,384\ncaiC,proP,STM,Metabolic,STM0071,STM4290,Q8ZRX4,P40862,3631,384\nfis,proP,Ecoli,Transcriptional_regulatory,STM3385,STM4290,P0A6R6,P40862,1300,384\nphoP,proP,Exp(HT),Transcriptional_regulatory,STM1231,STM4290,P0DM78,P40862,1432,384\ncrp,proP,Ecoli,Transcriptional_regulatory,STM3466,STM4290,P0A2T6,P40862,2484,384'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P40862",
                                         name: "proP",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

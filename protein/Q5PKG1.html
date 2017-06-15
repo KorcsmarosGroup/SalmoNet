@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'celD,rhaR,Lit Ecoli IntAct,PPI\nrpoD,rhaR,Lit Ecoli IntAct,PPI\nlexA,rhaR,Lit Ecoli IntAct,PPI\nrhaR,rhaS,Ecoli,Transcriptional_regulatory\nrhaR,rhaR,Ecoli,Transcriptional_regulatory\nrhaR,rhaR,Ecoli,Transcriptional_regulatory\nrhaS,rhaR,Ecoli,Transcriptional_regulatory'
+                        data: 'celD,rhaR,Lit Ecoli IntAct,PPI,SPA1529,SPA3892,Q5PHB1,Q5PKG1,3464,1476\nrpoD,rhaR,Lit Ecoli IntAct,PPI,SPA3079,SPA3892,Q5PKX6,Q5PKG1,3123,1476\nlexA,rhaR,Lit Ecoli IntAct,PPI,SPA4054,SPA3892,Q5PL14,Q5PKG1,2732,1476\nrhaR,rhaS,Ecoli,Transcriptional_regulatory,SPA3892,SPA3891,Q5PKG1,Q5PKG2,1476,3396\nrhaR,rhaR,Ecoli,Transcriptional_regulatory,SPA3892,SPA3892,Q5PKG1,Q5PKG1,1476,1476\nrhaR,rhaR,Ecoli,Transcriptional_regulatory,SPA3892,SPA3892,Q5PKG1,Q5PKG1,1476,1476\nrhaS,rhaR,Ecoli,Transcriptional_regulatory,SPA3891,SPA3892,Q5PKG2,Q5PKG1,3396,1476'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PKG1",
                                         name: "rhaR",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ompC,trxA,IntAct,PPI\nompC,htrA,IntAct Interactome3d,PPI\nyidC,ompC,IntAct,PPI\ncpxR,ompC,Ecoli,Transcriptional_regulatory\nrcsB,ompC,Salm,Transcriptional_regulatory\nompR,ompC,Ecoli Exp(HT),Transcriptional_regulatory\nlrp,ompC,Ecoli,Transcriptional_regulatory'
+                        data: 'ompC,trxA,IntAct,PPI,t0597,t3381,P0A264,P0AA29,881,3171\nompC,htrA,IntAct Interactome3d,PPI,t0597,t0210,P0A264,Q8Z9B0,881,1158\nyidC,ompC,IntAct,PPI,t3678,t0597,Q8Z2N7,P0A264,3987,881\ncpxR,ompC,Ecoli,Transcriptional_regulatory,t3560,t0597,Q8Z2W2,P0A264,290,881\nrcsB,ompC,Salm,Transcriptional_regulatory,t0595,t0597,Q56127,P0A264,2328,881\nompR,ompC,Ecoli Exp(HT),Transcriptional_regulatory,t4004,t0597,P0AA20,P0A264,3552,881\nlrp,ompC,Ecoli,Transcriptional_regulatory,t1975,t0597,Q8Z815,P0A264,3848,881'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A264",
                                         name: "ompC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

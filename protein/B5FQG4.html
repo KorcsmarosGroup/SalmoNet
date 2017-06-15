@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tkt,tal2,BioModels,Metabolic\ntkt,SeD_A2689,STM,Metabolic\ntkt,SeD_A2690,STM,Metabolic\ntkt,tal1,BioModels,Metabolic\ntktA,tkt,STM,Metabolic\nrne,tkt,IntAct,PPI\ntkt,tktA,Interactome3d,PPI\nSeD_A5000,tkt,Ecoli,Transcriptional_regulatory'
+                        data: 'tkt,tal2,BioModels,Metabolic,SeD_A2840,SeD_A0007,B5FQG4,B5FHA1,3649,3087\ntkt,SeD_A2689,STM,Metabolic,SeD_A2840,SeD_A2689,B5FQG4,B5FPI2,3649,2994\ntkt,SeD_A2690,STM,Metabolic,SeD_A2840,SeD_A2690,B5FQG4,B5FPI3,3649,434\ntkt,tal1,BioModels,Metabolic,SeD_A2840,SeD_A2839,B5FQG4,B5FQG3,3649,873\ntktA,tkt,STM,Metabolic,SeD_A3418,SeD_A2840,B5FUI9,B5FQG4,2398,3649\nrne,tkt,IntAct,PPI,SeD_A2187,SeD_A2840,B5FKC1,B5FQG4,2307,3649\ntkt,tktA,Interactome3d,PPI,SeD_A2840,SeD_A3418,B5FQG4,B5FUI9,3649,2398\nSeD_A5000,tkt,Ecoli,Transcriptional_regulatory,SeD_A5000,SeD_A2840,B5FTE2,B5FQG4,483,3649'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FQG4",
                                         name: "tkt",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

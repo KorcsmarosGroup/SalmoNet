@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dxr,thiG,BioModels,Metabolic\nthiG,thiI,STM,Metabolic\nthiG,thiS,STM,Metabolic\nthiH,thiG,STM BioModels,Metabolic\nthiF,thiG,STM BioModels,Metabolic\nthiE,thiG,STM BioModels,Metabolic\nthiM,thiG,BioModels,Metabolic\nnifS,thiG,STM,Metabolic\nthiG,thiH,IntAct,PPI\nssrB,thiG,Salm,Transcriptional_regulatory'
+                        data: 'dxr,thiG,BioModels,Metabolic,SPA0227,SPA3997,Q5PD59,Q5PK87,1058,1749\nthiG,thiI,STM,Metabolic,SPA3997,SPA2298,Q5PK87,Q5PFQ4,1749,2071\nthiG,thiS,STM,Metabolic,SPA3997,SPA3998,Q5PK87,Q5PK86,1749,1494\nthiH,thiG,STM BioModels,Metabolic,SPA3996,SPA3997,Q5PK88,Q5PK87,2016,1749\nthiF,thiG,STM BioModels,Metabolic,SPA3999,SPA3997,Q5PK97,Q5PK87,1509,1749\nthiE,thiG,STM BioModels,Metabolic,SPA4000,SPA3997,Q5PKA7,Q5PK87,307,1749\nthiM,thiG,BioModels,Metabolic,SPA0705,SPA3997,Q5PMV9,Q5PK87,3083,1749\nnifS,thiG,STM,Metabolic,SPA0323,SPA3997,Q5PNG1,Q5PK87,3518,1749\nthiG,thiH,IntAct,PPI,SPA3997,SPA3996,Q5PK87,Q5PK88,1749,2016\nssrB,thiG,Salm,Transcriptional_regulatory,SPA1462,SPA3997,Q5PH47,Q5PK87,549,1749'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PK87",
                                         name: "thiG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

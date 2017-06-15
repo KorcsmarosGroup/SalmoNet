@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rfbC,rfbB,STM BioModels,Metabolic\nrfbB,rfbA,STM BioModels,Metabolic\nrfbB,rfbB2,STM,Metabolic\nwecE,rfbB,STM,Metabolic\nrfbB,putA,Lit Ecoli IntAct,PPI\nrfbB,SeHA_C1927,Lit Ecoli IntAct,PPI'
+                        data: 'rfbC,rfbB,STM BioModels,Metabolic,SeHA_C2320,SeHA_C2323,B4T9Q6,B4T9Q9,2267,88\nrfbB,rfbA,STM BioModels,Metabolic,SeHA_C2323,SeHA_C2321,B4T9Q9,B4T9Q7,88,2426\nrfbB,rfbB2,STM,Metabolic,SeHA_C2323,SeHA_C4251,B4T9Q9,B4TB20,88,4074\nwecE,rfbB,STM,Metabolic,SeHA_C4254,SeHA_C2323,B4TB23,B4T9Q9,3952,88\nrfbB,putA,Lit Ecoli IntAct,PPI,SeHA_C2323,SeHA_C1233,B4T9Q9,B4TEP6,88,3469\nrfbB,SeHA_C1927,Lit Ecoli IntAct,PPI,SeHA_C2323,SeHA_C1927,B4T9Q9,B4TJL9,88,1820'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4T9Q9",
                                         name: "rfbB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

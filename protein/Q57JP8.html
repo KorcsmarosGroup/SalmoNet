@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpoB,rpoD,IntAct Interactome3d,PPI\nrpoD,idnK,Lit Ecoli IntAct,PPI\nrpoD,melR,Lit Ecoli IntAct,PPI\nrpoD,lexA,Lit Ecoli IntAct,PPI\nrpoD,rsd,Lit Ecoli IntAct Interactome3d,PPI\nrpoD,secE,Lit Ecoli IntAct,PPI\nrpoD,rhaR,Lit Ecoli IntAct,PPI\nrpoD,rhaS,Lit Ecoli IntAct,PPI\nrpoD,crp,Lit Ecoli IntAct,PPI\nrpoD,rpoA,IntAct Interactome3d,PPI\nrpoD,ada,Lit Ecoli IntAct,PPI\nrpoD,celD,Lit Ecoli IntAct,PPI\nrpoD,hepA,Lit Ecoli IntAct,PPI\naraC,rpoD,Lit Ecoli IntAct,PPI'
+                        data: 'rpoB,rpoD,IntAct Interactome3d,PPI,SC4037,SC3158,Q57H69,Q57JP8,2611,3123\nrpoD,idnK,Lit Ecoli IntAct,PPI,SC3158,SC4341,Q57JP8,Q57GB5,3123,33\nrpoD,melR,Lit Ecoli IntAct,PPI,SC3158,SC4176,Q57JP8,Q57GT0,3123,1492\nrpoD,lexA,Lit Ecoli IntAct,PPI,SC3158,SC4116,Q57JP8,Q57GZ0,3123,2732\nrpoD,rsd,Lit Ecoli IntAct Interactome3d,PPI,SC3158,SC4046,Q57JP8,Q57H60,3123,75\nrpoD,secE,Lit Ecoli IntAct,PPI,SC3158,SC4031,Q57JP8,Q57H75,3123,3041\nrpoD,rhaR,Lit Ecoli IntAct,PPI,SC3158,SC3939,Q57JP8,Q57HG7,3123,1476\nrpoD,rhaS,Lit Ecoli IntAct,PPI,SC3158,SC3938,Q57JP8,Q57HG8,3123,3396\nrpoD,crp,Lit Ecoli IntAct,PPI,SC3158,SC3400,Q57JP8,Q57J06,3123,2484\nrpoD,rpoA,IntAct Interactome3d,PPI,SC3158,SC3350,Q57JP8,Q57J56,3123,1508\nrpoD,ada,Lit Ecoli IntAct,PPI,SC3158,SC2269,Q57JP8,Q57M87,3123,2884\nrpoD,celD,Lit Ecoli IntAct,PPI,SC3158,SC1336,Q57JP8,Q57PW9,3123,3464\nrpoD,hepA,Lit Ecoli IntAct,PPI,SC3158,SC0091,Q57JP8,Q57TG4,3123,345\naraC,rpoD,Lit Ecoli IntAct,PPI,SC0098,SC3158,Q57TF7,Q57JP8,2319,3123'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57JP8",
                                         name: "rpoD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

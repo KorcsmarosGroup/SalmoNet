@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pduC,pduE,STM,Metabolic\npduD,pduE,STM,Metabolic\npduE,pduP,BioModels,Metabolic\npduE,pduG,STM,Metabolic\npduE,pduH,STM,Metabolic\npduE,fucO,STM,Metabolic\npduE,gldA,STM,Metabolic\npduE,SPA3887,STM,Metabolic'
+                        data: 'pduC,pduE,STM,Metabolic,SPA0831,SPA0829,Q5PDS5,Q5PDS7,3128,1401\npduD,pduE,STM,Metabolic,SPA0830,SPA0829,Q5PDS6,Q5PDS7,3985,1401\npduE,pduP,BioModels,Metabolic,SPA0829,SPA0820,Q5PDS7,Q5PDR3,1401,1777\npduE,pduG,STM,Metabolic,SPA0829,SPA0828,Q5PDS7,Q5PDR7,1401,3894\npduE,pduH,STM,Metabolic,SPA0829,SPA0827,Q5PDS7,Q5PDR8,1401,1730\npduE,fucO,STM,Metabolic,SPA0829,SPA2837,Q5PDS7,Q5PEL2,1401,948\npduE,gldA,STM,Metabolic,SPA0829,SPA3953,Q5PDS7,Q5PK59,1401,2162\npduE,SPA3887,STM,Metabolic,SPA0829,SPA3887,Q5PDS7,Q5PKG6,1401,948'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PDS7",
                                         name: "pduE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cirA,tonB,STM,Metabolic\ncirA,fepA,STM,Metabolic\ncirA,iroN,STM,Metabolic\ncirA,exbD,STM,Metabolic\ncirA,exbB,STM,Metabolic\ncirA,atpA,Lit Ecoli IntAct,PPI\nfur,cirA,Ecoli,Transcriptional_regulatory'
+                        data: 'cirA,tonB,STM,Metabolic,SG2236,SG1378,B5RC38,B5R6L4,574,1820\ncirA,fepA,STM,Metabolic,SG2236,SG0589,B5RC38,B5R707,574,70\ncirA,iroN,STM,Metabolic,SG2236,SG2683,B5RC38,B5RDA9,574,2617\ncirA,exbD,STM,Metabolic,SG2236,SG3055,B5RC38,B5REB7,574,3311\ncirA,exbB,STM,Metabolic,SG2236,SG3056,B5RC38,B5REB8,574,1712\ncirA,atpA,Lit Ecoli IntAct,PPI,SG2236,SG3566,B5RC38,B5RFW1,574,2601\nfur,cirA,Ecoli,Transcriptional_regulatory,SG0690,SG2236,B5R658,B5RC38,552,574'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RC38",
                                         name: "cirA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

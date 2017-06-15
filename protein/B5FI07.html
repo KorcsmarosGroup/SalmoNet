@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'mtr,SeD_A3754,STM,Metabolic\nmtr,SeD_A1064,STM,Metabolic\nSeD_A0163,mtr,STM,Metabolic\ntrpS,mtr,STM,Metabolic\ntrpA,mtr,STM,Metabolic\ntrpB,mtr,STM,Metabolic\nSeD_A1649,mtr,Ecoli,Transcriptional_regulatory\ntrpR,mtr,Ecoli,Transcriptional_regulatory'
+                        data: 'mtr,SeD_A3754,STM,Metabolic,SeD_A3634,SeD_A3754,B5FI07,B5FIX0,1800,1917\nmtr,SeD_A1064,STM,Metabolic,SeD_A3634,SeD_A1064,B5FI07,B5FQ72,1800,2449\nSeD_A0163,mtr,STM,Metabolic,SeD_A0163,SeD_A3634,B5FI96,B5FI07,3270,1800\ntrpS,mtr,STM,Metabolic,SeD_A3849,SeD_A3634,B5FJQ4,B5FI07,2807,1800\ntrpA,mtr,STM,Metabolic,SeD_A1601,SeD_A3634,B5FU65,B5FI07,2089,1800\ntrpB,mtr,STM,Metabolic,SeD_A1602,SeD_A3634,B5FU66,B5FI07,955,1800\nSeD_A1649,mtr,Ecoli,Transcriptional_regulatory,SeD_A1649,SeD_A3634,B5FUL0,B5FI07,760,1800\ntrpR,mtr,Ecoli,Transcriptional_regulatory,SeD_A4995,SeD_A3634,B5FTD7,B5FI07,2479,1800'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FI07",
                                         name: "mtr",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

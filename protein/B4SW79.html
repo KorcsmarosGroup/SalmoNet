@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpsH,fliI,Lit Ecoli IntAct,PPI\nfliI,proS,IntAct,PPI\nfliI,cheR,Lit Ecoli IntAct,PPI\nfliI,rpe,IntAct,PPI\nfliI,flhD,IntAct,PPI\nfliI,fliA,IntAct,PPI\nfliI,fliS,IntAct,PPI\nfliI,SNSL254_A2124,IntAct,PPI\nfliI,fliG,IntAct,PPI\nfliI,fliN,Lit Ecoli IntAct,PPI\nfliI,flgJ,IntAct,PPI\nfliI,flgL,IntAct,PPI\nfliI,metK,IntAct,PPI\nrpoE,fliI,Lit Ecoli IntAct,PPI\nSNSL254_A4694,fliI,IntAct,PPI\nflgH,fliI,IntAct,PPI\nfliI,flhA,IntAct,PPI\nfliI,SNSL254_A3101,IntAct,PPI'
+                        data: 'rpsH,fliI,Lit Ecoli IntAct,PPI,SNSL254_A3695,SNSL254_A2135,B4SUS6,B4SW79,3598,703\nfliI,proS,IntAct,PPI,SNSL254_A2135,SNSL254_A0264,B4SW79,B4SV24,703,357\nfliI,cheR,Lit Ecoli IntAct,PPI,SNSL254_A2135,SNSL254_A2078,B4SW79,B4SVG9,703,692\nfliI,rpe,IntAct,PPI,SNSL254_A2135,SNSL254_A3755,B4SW79,B4SVI5,703,3757\nfliI,flhD,IntAct,PPI,SNSL254_A2135,SNSL254_A2086,B4SW79,B4SW34,703,1977\nfliI,fliA,IntAct,PPI,SNSL254_A2135,SNSL254_A2118,B4SW79,B4SW62,703,678\nfliI,fliS,IntAct,PPI,SNSL254_A2135,SNSL254_A2123,B4SW79,B4SW67,703,796\nfliI,SNSL254_A2124,IntAct,PPI,SNSL254_A2135,SNSL254_A2124,B4SW79,B4SW68,703,3288\nfliI,fliG,IntAct,PPI,SNSL254_A2135,SNSL254_A2133,B4SW79,B4SW77,703,2795\nfliI,fliN,Lit Ecoli IntAct,PPI,SNSL254_A2135,SNSL254_A2140,B4SW79,B4SW84,703,1656\nfliI,flgJ,IntAct,PPI,SNSL254_A2135,SNSL254_A1279,B4SW79,B4T314,703,2165\nfliI,flgL,IntAct,PPI,SNSL254_A2135,SNSL254_A1281,B4SW79,B4T316,703,292\nfliI,metK,IntAct,PPI,SNSL254_A2135,SNSL254_A3336,B4SW79,B4T5J6,703,93\nrpoE,fliI,Lit Ecoli IntAct,PPI,SNSL254_A2850,SNSL254_A2135,B4T1M0,B4SW79,3460,703\nSNSL254_A4694,fliI,IntAct,PPI,SNSL254_A4694,SNSL254_A2135,B4T2P4,B4SW79,2668,703\nflgH,fliI,IntAct,PPI,SNSL254_A1277,SNSL254_A2135,B4T312,B4SW79,224,703\nfliI,flhA,IntAct,PPI,SNSL254_A2135,SNSL254_A2073,B4SW79,B4SVG4,703,2018\nfliI,SNSL254_A3101,IntAct,PPI,SNSL254_A2135,SNSL254_A3101,B4SW79,B4T423,703,2018'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4SW79",
                                         name: "fliI",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

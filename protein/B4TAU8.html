@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dnaN,SeHA_C0354,IntAct Interactome3d,PPI\ndnaN,SeHA_C2457,Lit Ecoli IntAct,PPI\ndnaN,holA,Lit Ecoli IntAct Interactome3d,PPI\ndnaN,hda,Lit Ecoli IntAct,PPI\ndnaN,holC,IntAct,PPI\ndnaN,holD,IntAct,PPI\ndnaN,dnaE,Lit Ecoli IntAct,PPI\nfrr,dnaN,Lit Ecoli IntAct,PPI\ndnaQ,dnaN,IntAct,PPI\ngph,dnaN,IntAct,PPI\nrpe,dnaN,Lit Ecoli IntAct,PPI\ndnaA,dnaN,Ecoli,Transcriptional_regulatory'
+                        data: 'dnaN,SeHA_C0354,IntAct Interactome3d,PPI,SeHA_C4171,SeHA_C0354,B4TAU8,B4T7P6,3473,1616\ndnaN,SeHA_C2457,Lit Ecoli IntAct,PPI,SeHA_C4171,SeHA_C2457,B4TAU8,B4TAP4,3473,3746\ndnaN,holA,Lit Ecoli IntAct Interactome3d,PPI,SeHA_C4171,SeHA_C0762,B4TAU8,B4TB49,3473,298\ndnaN,hda,Lit Ecoli IntAct,PPI,SeHA_C4171,SeHA_C2755,B4TAU8,B4TD71,3473,1743\ndnaN,holC,IntAct,PPI,SeHA_C4171,SeHA_C4881,B4TAU8,B4TG57,3473,156\ndnaN,holD,IntAct,PPI,SeHA_C4171,SeHA_C4965,B4TAU8,B4TGY9,3473,2169\ndnaN,dnaE,Lit Ecoli IntAct,PPI,SeHA_C4171,SeHA_C0269,B4TAU8,B4TK59,3473,587\nfrr,dnaN,Lit Ecoli IntAct,PPI,SeHA_C0257,SeHA_C4171,B4TK47,B4TAU8,424,3473\ndnaQ,dnaN,IntAct,PPI,SeHA_C0302,SeHA_C4171,B4TK86,B4TAU8,3713,3473\ngph,dnaN,IntAct,PPI,SeHA_C3788,SeHA_C4171,B4TKQ8,B4TAU8,1323,3473\nrpe,dnaN,Lit Ecoli IntAct,PPI,SeHA_C3789,SeHA_C4171,B4TKQ9,B4TAU8,3757,3473\ndnaA,dnaN,Ecoli,Transcriptional_regulatory,SeHA_C4172,SeHA_C4171,B4TAU9,B4TAU8,195,3473'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TAU8",
                                         name: "dnaN",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

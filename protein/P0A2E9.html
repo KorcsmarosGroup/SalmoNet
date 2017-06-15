@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fliA,flgC,IntAct,PPI\nfliA,flgN,IntAct,PPI\nfliA,proS,IntAct,PPI\nfliA,katE,Lit Ecoli IntAct,PPI\nflhD,fliA,IntAct,PPI\nyjeK,fliA,IntAct,PPI\nfliI,fliA,IntAct,PPI\nflgM,fliA,Lit Ecoli IntAct Interactome3d,PPI\nyabB,fliA,IntAct,PPI\nfis,fliA,Salm,Transcriptional_regulatory\nyjeB,fliA,Ecoli,Transcriptional_regulatory'
+                        data: 'fliA,flgC,IntAct,PPI,t0920,t1745,P0A2E9,P0A1I8,678,1694\nfliA,flgN,IntAct,PPI,t0920,t1749,P0A2E9,P0A1J8,678,2389\nfliA,proS,IntAct,PPI,t0920,t0245,P0A2E9,Q8XEY9,678,357\nfliA,katE,Lit Ecoli IntAct,PPI,t0920,t1198,P0A2E9,Q8Z6H1,678,464\nflhD,fliA,IntAct,PPI,t0952,t0920,P0A2R3,P0A2E9,1977,678\nyjeK,fliA,IntAct,PPI,t4385,t0920,Q8Z1A2,P0A2E9,2668,678\nfliI,fliA,IntAct,PPI,STY2180;t0905,t0920,Q8Z5R8,P0A2E9,703,678\nflgM,fliA,Lit Ecoli IntAct Interactome3d,PPI,STY1211;t1748,t0920,Q8Z7K6,P0A2E9,3697,678\nyabB,fliA,IntAct,PPI,t0123,t0920,Q8Z9H5,P0A2E9,2902,678\nfis,fliA,Salm,Transcriptional_regulatory,t3300,t0920,P0A6R7,P0A2E9,1300,678\nyjeB,fliA,Ecoli,Transcriptional_regulatory,t4418,t0920,Q8Z183,P0A2E9,2218,678'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A2E9",
                                         name: "fliA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

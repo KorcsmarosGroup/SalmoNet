@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'trpS,trpA,STM BioModels,Metabolic\nacrF,trpA,STM,Metabolic\ntrpA,trpS2,BioModels,Metabolic\ntrpA,mtr,STM,Metabolic\ntrpA,trpB,STM BioModels,Metabolic\ntrpA,trpC,STM,Metabolic\ntrpB,trpA,IntAct Interactome3d,PPI\ntrpR,trpA,Ecoli,Transcriptional_regulatory'
+                        data: 'trpS,trpA,STM BioModels,Metabolic,SC3413,SC1723,Q57IZ3,Q57NT2,2807,2089\nacrF,trpA,STM,Metabolic,SC3328,SC1723,Q57J78,Q57NT2,1917,2089\ntrpA,trpS2,BioModels,Metabolic,SC1723,SC4363,Q57NT2,Q57G93,2089,4032\ntrpA,mtr,STM,Metabolic,SC1723,SC3220,Q57NT2,Q57JI6,2089,1800\ntrpA,trpB,STM BioModels,Metabolic,SC1723,SC1722,Q57NT2,Q57NT3,2089,955\ntrpA,trpC,STM,Metabolic,SC1723,SC1721,Q57NT2,Q57NT4,2089,1560\ntrpB,trpA,IntAct Interactome3d,PPI,SC1722,SC1723,Q57NT3,Q57NT2,955,2089\ntrpR,trpA,Ecoli,Transcriptional_regulatory,SC4428,SC1723,Q57G28,Q57NT2,2479,2089'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57NT2",
                                         name: "trpA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

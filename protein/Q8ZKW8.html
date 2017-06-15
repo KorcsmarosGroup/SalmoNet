@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'atpC,atpG,STM,Metabolic\natpE,atpG,STM,Metabolic\natpD,atpG,STM,Metabolic\natpB,atpG,STM,Metabolic\natpF,atpG,STM,Metabolic\natpG,atpA,STM,Metabolic\natpG,atpH,STM,Metabolic\natpG,atpI,STM,Metabolic\natpG,atpC,Lit Ecoli IntAct Interactome3d,PPI\natpG,atpA,IntAct Interactome3d,PPI\natpG,atpD,IntAct Interactome3d,PPI\natpG,fhuF,Lit Ecoli IntAct,PPI\natpG,yhjB,Lit Ecoli IntAct,PPI'
+                        data: 'atpC,atpG,STM,Metabolic,STM3864,STM3866,P0A1B7,Q8ZKW8,3343,3194\natpE,atpG,STM,Metabolic,STM3870,STM3866,P68704,Q8ZKW8,666,3194\natpD,atpG,STM,Metabolic,STM3865,STM3866,Q7CPE2,Q8ZKW8,2818,3194\natpB,atpG,STM,Metabolic,STM3871,STM3866,Q7CPE3,Q8ZKW8,877,3194\natpF,atpG,STM,Metabolic,STM3869,STM3866,Q7CPE4,Q8ZKW8,2722,3194\natpG,atpA,STM,Metabolic,STM3866,STM3867,Q8ZKW8,Q7CPE1,3194,2601\natpG,atpH,STM,Metabolic,STM3866,STM3868,Q8ZKW8,Q7CPE5,3194,3635\natpG,atpI,STM,Metabolic,STM3866,STM3872,Q8ZKW8,Q8ZKW7,3194,206\natpG,atpC,Lit Ecoli IntAct Interactome3d,PPI,STM3866,STM3864,Q8ZKW8,P0A1B7,3194,3343\natpG,atpA,IntAct Interactome3d,PPI,STM3866,STM3867,Q8ZKW8,Q7CPE1,3194,2601\natpG,atpD,IntAct Interactome3d,PPI,STM3866,STM3865,Q8ZKW8,Q7CPE2,3194,2818\natpG,fhuF,Lit Ecoli IntAct,PPI,STM3866,STM4550,Q8ZKW8,Q8ZJW9,3194,1758\natpG,yhjB,Lit Ecoli IntAct,PPI,STM3866,STM3606,Q8ZKW8,Q8ZLC5,3194,3599'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZKW8",
                                         name: "atpG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pdxA,serC,STM BioModels,Metabolic\npdxA,pdxA,STM,Metabolic\npdxA,thrB,STM,Metabolic\nthrC,pdxA,BioModels,Metabolic\nbioD,pdxA,Lit Ecoli IntAct,PPI\npdxA,stdA,Lit Ecoli IntAct,PPI\npdxA,fixX,Lit Ecoli IntAct,PPI'
+                        data: 'pdxA,serC,STM BioModels,Metabolic,SC0086,SC0931,Q57TG9,Q57R24,310,427\npdxA,pdxA,STM,Metabolic,SC0086,SC0163,Q57TG9,Q57T92,310,1919\npdxA,thrB,STM,Metabolic,SC0086,SC0003,Q57TG9,Q57TQ2,310,708\nthrC,pdxA,BioModels,Metabolic,SC0004,SC0086,Q57TQ1,Q57TG9,3397,310\nbioD,pdxA,Lit Ecoli IntAct,PPI,SC1507,SC0086,Q57PE8,Q57TG9,3173,310\npdxA,stdA,Lit Ecoli IntAct,PPI,SC0086,SC2969,Q57TG9,Q57K87,310,4451\npdxA,fixX,Lit Ecoli IntAct,PPI,SC0086,SC0073,Q57TG9,Q57TI2,310,2000'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57TG9",
                                         name: "pdxA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

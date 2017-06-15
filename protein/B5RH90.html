@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'sucB,aceE,BioModels,Metabolic\naceE,sucA,BioModels,Metabolic\naceE,aceF,STM BioModels,Metabolic\naceE,lpdA,STM BioModels,Metabolic\nthiJ,aceE,IntAct Biogrid,PPI\nfnr,aceE,Ecoli,Transcriptional_regulatory\nyjeB,aceE,Ecoli,Transcriptional_regulatory\ncrp,aceE,Ecoli,Transcriptional_regulatory'
+                        data: 'sucB,aceE,BioModels,Metabolic,SG0720,SG0154,B5R688,B5RH90,2189,2895\naceE,sucA,BioModels,Metabolic,SG0154,SG0719,B5RH90,B5R687,2895,1016\naceE,aceF,STM BioModels,Metabolic,SG0154,SG0155,B5RH90,B5RH91,2895,68\naceE,lpdA,STM BioModels,Metabolic,SG0154,SG0156,B5RH90,B5RH92,2895,3188\nthiJ,aceE,IntAct Biogrid,PPI,SG0444,SG0154,B5R6T4,B5RH90,1011,2895\nfnr,aceE,Ecoli,Transcriptional_regulatory,SG1457,SG0154,B5RA19,B5RH90,147,2895\nyjeB,aceE,Ecoli,Transcriptional_regulatory,SG4207,SG0154,B5R9C4,B5RH90,2218,2895\ncrp,aceE,Ecoli,Transcriptional_regulatory,SG3973,SG0154,B5RGZ0,B5RH90,2484,2895'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RH90",
                                         name: "aceE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

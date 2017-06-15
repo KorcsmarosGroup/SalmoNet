@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SeD_A1910,cysC,STM,Metabolic\ngrxB,cysC,STM,Metabolic\ngrxC,cysC,STM,Metabolic\ntrxA,cysC,STM,Metabolic\ngrxA,cysC,STM,Metabolic\nSeD_A2977,cysC,STM,Metabolic\ncysC,cysN,STM BioModels,Metabolic\ncysC,cysD,STM BioModels,Metabolic\ncysH,cysC,STM BioModels,Metabolic\ncysB,cysC,Ecoli,Transcriptional_regulatory'
+                        data: 'SeD_A1910,cysC,STM,Metabolic,SeD_A1910,SeD_A3243,B5FIH0,B5FTS8,1938,2794\ngrxB,cysC,STM,Metabolic,SeD_A2207,SeD_A3243,B5FKZ9,B5FTS8,1200,2794\ngrxC,cysC,STM,Metabolic,SeD_A4088,SeD_A3243,B5FLI0,B5FTS8,1788,2794\ntrxA,cysC,STM,Metabolic,SeD_A4304,SeD_A3243,B5FN75,B5FTS8,3171,2794\ngrxA,cysC,STM,Metabolic,SeD_A0977,SeD_A3243,B5FPD9,B5FTS8,3866,2794\nSeD_A2977,cysC,STM,Metabolic,SeD_A2977,SeD_A3243,B5FRE1,B5FTS8,2524,2794\ncysC,cysN,STM BioModels,Metabolic,SeD_A3243,SeD_A3244,B5FTS8,B5FTS9,2794,2921\ncysC,cysD,STM BioModels,Metabolic,SeD_A3243,SeD_A3245,B5FTS8,B5FTT0,2794,1070\ncysH,cysC,STM BioModels,Metabolic,SeD_A3258,SeD_A3243,B5FTU1,B5FTS8,240,2794\ncysB,cysC,Ecoli,Transcriptional_regulatory,SeD_A1615,SeD_A3243,B5FU78,B5FTS8,598,2794'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FTS8",
                                         name: "cysC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

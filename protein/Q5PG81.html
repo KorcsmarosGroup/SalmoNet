@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'prpE,putP,STM,Metabolic\nputP,ompF,STM,Metabolic\nacs,putP,STM,Metabolic\nputP,ubiG,Lit Ecoli IntAct,PPI\nputP,yneB,Lit Ecoli IntAct,PPI\nhimD,putP,Salm,Transcriptional_regulatory\ncrp,putP,Ecoli,Transcriptional_regulatory\nhimA,putP,Salm,Transcriptional_regulatory\nputA,putP,Ecoli,Transcriptional_regulatory'
+                        data: 'prpE,putP,STM,Metabolic,SPA2352,SPA1726,Q5PFW9,Q5PG81,2751,604\nputP,ompF,STM,Metabolic,SPA1726,SPA1799,Q5PG81,Q5PGE9,604,2449\nacs,putP,STM,Metabolic,SPA4092,SPA1726,Q5PJ04,Q5PG81,3305,604\nputP,ubiG,Lit Ecoli IntAct,PPI,SPA1726,SPA0588,Q5PG81,Q5PCY1,604,1095\nputP,yneB,Lit Ecoli IntAct,PPI,SPA1726,SPA3921,Q5PG81,Q5PJE3,604,1405\nhimD,putP,Salm,Transcriptional_regulatory,SPA1816,SPA1726,Q5PGG9,Q5PG81,894,604\ncrp,putP,Ecoli,Transcriptional_regulatory,SPA3332,SPA1726,Q5PLV0,Q5PG81,2484,604\nhimA,putP,Salm,Transcriptional_regulatory,SPA1504,SPA1726,Q5PH86,Q5PG81,2956,604\nputA,putP,Ecoli,Transcriptional_regulatory,SPA1727,SPA1726,Q5PG80,Q5PG81,3469,604'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PG81",
                                         name: "putP",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

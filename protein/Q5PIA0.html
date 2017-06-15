@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tdcD,purT,STM,Metabolic\npurT,folD,BioModels,Metabolic\npurT,apt,BioModels,Metabolic\npurT,ygfA,BioModels,Metabolic\npurT,purD,STM BioModels,Metabolic\npurT,purB,BioModels,Metabolic\npurL,purT,STM BioModels,Metabolic\npurH,purT,BioModels,Metabolic\nackA,purT,STM,Metabolic\npurN,purT,BioModels,Metabolic\nispA,purT,Lit Ecoli IntAct,PPI'
+                        data: 'tdcD,purT,STM,Metabolic,SPA3111,SPA0986,Q5PCA9,Q5PIA0,419,3737\npurT,folD,BioModels,Metabolic,SPA0986,SPA2183,Q5PIA0,Q5PCE5,3737,1396\npurT,apt,BioModels,Metabolic,SPA0986,SPA2239,Q5PIA0,Q5PFK3,3737,4124\npurT,ygfA,BioModels,Metabolic,SPA0986,SPA2931,Q5PIA0,Q5PJH3,3737,865\npurT,purD,STM BioModels,Metabolic,SPA0986,SPA4012,Q5PIA0,Q5PKB0,3737,1821\npurT,purB,BioModels,Metabolic,SPA0986,SPA1618,Q5PIA0,Q5PMJ2,3737,486\npurL,purT,STM BioModels,Metabolic,SPA0300,SPA0986,Q5PIG8,Q5PIA0,1282,3737\npurH,purT,BioModels,Metabolic,SPA4013,SPA0986,Q5PKA9,Q5PIA0,603,3737\nackA,purT,STM,Metabolic,SPA0527,SPA0986,Q5PN47,Q5PIA0,417,3737\npurN,purT,BioModels,Metabolic,SPA0367,SPA0986,Q5PNJ9,Q5PIA0,3645,3737\nispA,purT,Lit Ecoli IntAct,PPI,SPA2300,SPA0986,Q5PFR7,Q5PIA0,277,3737'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PIA0",
                                         name: "purT",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

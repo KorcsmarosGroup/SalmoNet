@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'astE,astD,STM BioModels,Metabolic\nastE,acrR,Lit Ecoli IntAct,PPI\nastE,envR,Lit Ecoli IntAct,PPI\nastE,yifA,Lit Ecoli IntAct,PPI\nargR,astE,Ecoli,Transcriptional_regulatory'
+                        data: 'astE,astD,STM BioModels,Metabolic,SPA1537,SPA1539,Q5PHC2,Q5PHC0,3506,136\nastE,acrR,Lit Ecoli IntAct,PPI,SPA1537,SPA2245,Q5PHC2,Q5PFL3,3506,64\nastE,envR,Lit Ecoli IntAct,PPI,SPA1537,SPA3256,Q5PHC2,Q5PJW0,3506,64\nastE,yifA,Lit Ecoli IntAct,PPI,SPA1537,SPA3735,Q5PHC2,Q5PJZ0,3506,3093\nargR,astE,Ecoli,Transcriptional_regulatory,SPA3227,SPA1537,Q5PJU3,Q5PHC2,2842,3506'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PHC2",
                                         name: "astE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

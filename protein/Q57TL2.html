@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ispB,ispH,STM,Metabolic\nidi,ispH,STM BioModels,Metabolic\nispA,ispH,STM,Metabolic\nuppS,ispH,STM,Metabolic\nispH,ispG,STM,Metabolic\nyhdJ,ispH,Lit Ecoli IntAct,PPI\nfis,ispH,Salm,Transcriptional_regulatory'
+                        data: 'ispB,ispH,STM,Metabolic,SC3243,SC0043,Q57JG3,Q57TL2,2699,3060\nidi,ispH,STM BioModels,Metabolic,SC2979,SC0043,Q57K77,Q57TL2,1793,3060\nispA,ispH,STM,Metabolic,SC0464,SC0043,Q57SE1,Q57TL2,277,3060\nuppS,ispH,STM,Metabolic,SC0221,SC0043,Q57T34,Q57TL2,312,3060\nispH,ispG,STM,Metabolic,SC0043,SC2520,Q57TL2,Q57LI6,3060,2055\nyhdJ,ispH,Lit Ecoli IntAct,PPI,SC3324,SC0043,Q57J82,Q57TL2,2370,3060\nfis,ispH,Salm,Transcriptional_regulatory,SC3323,SC0043,Q57J83,Q57TL2,1300,3060'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57TL2",
                                         name: "ispH",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

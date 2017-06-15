@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'trpGD,trpE,STM,Metabolic\ntrpGD,aroC,STM,Metabolic\ntrpC,trpGD,STM BioModels,Metabolic\nnhoA,trpGD,STM,Metabolic\ntrpE,trpGD,IntAct,PPI\ntrpR,trpGD,Ecoli,Transcriptional_regulatory'
+                        data: 'trpGD,trpE,STM,Metabolic,STM1724,STM1723,P00905,P00898,1176,1668\ntrpGD,aroC,STM,Metabolic,STM1724,STM2384,P00905,P58729,1176,798\ntrpC,trpGD,STM BioModels,Metabolic,STM1725,STM1724,P00910,P00905,1560,1176\nnhoA,trpGD,STM,Metabolic,STM1582,STM1724,Q00267,P00905,2899,1176\ntrpE,trpGD,IntAct,PPI,STM1723,STM1724,P00898,P00905,1668,1176\ntrpR,trpGD,Ecoli,Transcriptional_regulatory,STM4583,STM1724,P37444,P00905,2479,1176'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P00905",
                                         name: "trpGD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

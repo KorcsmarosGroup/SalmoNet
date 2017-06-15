@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tesB,fadI,STM,Metabolic\nfadI,fadA,STM,Metabolic\nfadI,fadB,STM BioModels,Metabolic\nfadI,fadJ,STM BioModels,Metabolic\nSeHA_C0989,fadI,BioModels,Metabolic\nadhE,fadI,BioModels,Metabolic\nfadR,fadI,Ecoli,Transcriptional_regulatory\narcA,fadI,Ecoli,Transcriptional_regulatory'
+                        data: 'tesB,fadI,STM,Metabolic,SeHA_C0567,SeHA_C2631,B4T9F9,B4TCA9,1389,2474\nfadI,fadA,STM,Metabolic,SeHA_C2631,SeHA_C4308,B4TCA9,B4TBS4,2474,2432\nfadI,fadB,STM BioModels,Metabolic,SeHA_C2631,SeHA_C4309,B4TCA9,B4TBS5,2474,1160\nfadI,fadJ,STM BioModels,Metabolic,SeHA_C2631,SeHA_C2630,B4TCA9,B4TCA8,2474,499\nSeHA_C0989,fadI,BioModels,Metabolic,SeHA_C0989,SeHA_C2631,B4TCV6,B4TCA9,3331,2474\nadhE,fadI,BioModels,Metabolic,SeHA_C1939,SeHA_C2631,B4TJN0,B4TCA9,205,2474\nfadR,fadI,Ecoli,Transcriptional_regulatory,SeHA_C2003,SeHA_C2631,B4TKD5,B4TCA9,397,2474\narcA,fadI,Ecoli,Transcriptional_regulatory,SeHA_C5008,SeHA_C2631,B4TH30,B4TCA9,2438,2474'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TCA9",
                                         name: "fadI",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

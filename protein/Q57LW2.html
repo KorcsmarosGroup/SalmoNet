@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'aas,vacJ,STM,Metabolic\nvacJ,pldA,STM,Metabolic\nvacJ,fadL,STM,Metabolic\nvacJ,tesA,STM,Metabolic\nacpP,vacJ,STM,Metabolic\ntdcG,vacJ,Lit Ecoli IntAct,PPI\nvacJ,trpB,Lit Ecoli IntAct,PPI\nvacJ,accA,Lit Ecoli IntAct,PPI'
+                        data: 'aas,vacJ,STM,Metabolic,SC2949,SC2394,Q57KA7,Q57LW2,3199,433\nvacJ,pldA,STM,Metabolic,SC2394,SC3856,Q57LW2,Q57HQ0,433,1320\nvacJ,fadL,STM,Metabolic,SC2394,SC2393,Q57LW2,Q57LW3,433,1790\nvacJ,tesA,STM,Metabolic,SC2394,SC0547,Q57LW2,Q57S58,433,2502\nacpP,vacJ,STM,Metabolic,SC1144,SC2394,Q57QG1,Q57LW2,883,433\ntdcG,vacJ,Lit Ecoli IntAct,PPI,SC3186,SC2394,Q57JM0,Q57LW2,2833,433\nvacJ,trpB,Lit Ecoli IntAct,PPI,SC2394,SC1722,Q57LW2,Q57NT3,433,955\nvacJ,accA,Lit Ecoli IntAct,PPI,SC2394,SC0232,Q57LW2,Q57T23,433,501'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57LW2",
                                         name: "vacJ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

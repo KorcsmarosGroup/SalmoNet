@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pdxA1,serC,STM BioModels,Metabolic\npdxA1,pdxA2,STM,Metabolic\npdxA1,thrB,STM,Metabolic\nthrC,pdxA1,BioModels,Metabolic\npdxA1,stdA,Lit Ecoli IntAct,PPI\npdxA1,fixX,Lit Ecoli IntAct,PPI\nbioD,pdxA1,Lit Ecoli IntAct,PPI\nfis,pdxA1,Exp(HT),Transcriptional_regulatory'
+                        data: 'pdxA1,serC,STM BioModels,Metabolic,STM0091,STM0977,P58717,P55900,310,427\npdxA1,pdxA2,STM,Metabolic,STM0091,STM0163,P58717,P58718,310,1919\npdxA1,thrB,STM,Metabolic,STM0091,STM0003,P58717,P65226,310,708\nthrC,pdxA1,BioModels,Metabolic,STM0004,STM0091,Q8ZS18,P58717,3397,310\npdxA1,stdA,Lit Ecoli IntAct,PPI,STM0091,STM3029,P58717,Q8ZM89,310,4451\npdxA1,fixX,Lit Ecoli IntAct,PPI,STM0091,STM0078,P58717,Q8ZRW8,310,2000\nbioD,pdxA1,Lit Ecoli IntAct,PPI,STM1489,STM0091,Q8ZPK6,P58717,3173,310\nfis,pdxA1,Exp(HT),Transcriptional_regulatory,STM3385,STM0091,P0A6R6,P58717,1300,310'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P58717",
                                         name: "pdxA1",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

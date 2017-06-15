@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cheR,cheZ,IntAct,PPI\ncheR,flgC,IntAct,PPI\ncheR,fliN,IntAct,PPI\ncheR,nifJ,IntAct,PPI\nrpoE,cheR,Lit Ecoli IntAct,PPI\nflhD,cheR,IntAct,PPI\nfliI,cheR,Lit Ecoli IntAct,PPI\nruvB,cheR,IntAct,PPI\nyjeK,cheR,Lit Ecoli IntAct,PPI\nrpe,cheR,IntAct,PPI'
+                        data: 'cheR,cheZ,IntAct,PPI,STM1918,STM1915,P07801,P07800,692,1114\ncheR,flgC,IntAct,PPI,STM1918,STM1175,P07801,P0A1I7,692,1694\ncheR,fliN,IntAct,PPI,STM1918,STM1977,P07801,P26419,692,1656\ncheR,nifJ,IntAct,PPI,STM1918,STM1651,P07801,Q8ZP89,692,3295\nrpoE,cheR,Lit Ecoli IntAct,PPI,STM2640,STM1918,P0A2F0,P07801,3460,692\nflhD,cheR,IntAct,PPI,STM1925,STM1918,P0A2R2,P07801,1977,692\nfliI,cheR,Lit Ecoli IntAct,PPI,STM1972,STM1918,P26465,P07801,703,692\nruvB,cheR,IntAct,PPI,STM1894,STM1918,P66755,P07801,3450,692\nyjeK,cheR,Lit Ecoli IntAct,PPI,STM4333,STM1918,Q8ZKB8,P07801,2668,692\nrpe,cheR,IntAct,PPI,STM3483,STM1918,Q8ZLK4,P07801,3757,692'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P07801",
                                         name: "cheR",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

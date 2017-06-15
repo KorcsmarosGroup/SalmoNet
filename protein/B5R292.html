@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'nusB,rpsJ,IntAct Interactome3d,PPI\nthiJ,rpsJ,IntAct Biogrid,PPI\nnusG,rpsJ,IntAct Interactome3d,PPI\nrpsI,rpsJ,Interactome3d,PPI\nrpsN,rpsJ,Interactome3d,PPI\nrpsC,rpsJ,Interactome3d,PPI'
+                        data: 'nusB,rpsJ,IntAct Interactome3d,PPI,SEN0400,SEN3269,B5QTG6,B5R292,895,1695\nthiJ,rpsJ,IntAct Biogrid,PPI,SEN0415,SEN3269,B5QTI1,B5R292,1011,1695\nnusG,rpsJ,IntAct Interactome3d,PPI,SEN3932,SEN3269,B5QYD3,B5R292,913,1695\nrpsI,rpsJ,Interactome3d,PPI,SEN3177,SEN3269,B5R0L7,B5R292,713,1695\nrpsN,rpsJ,Interactome3d,PPI,SEN3255,SEN3269,B5R278,B5R292,1046,1695\nrpsC,rpsJ,Interactome3d,PPI,SEN3262,SEN3269,B5R285,B5R292,3754,1695'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R292",
                                         name: "rpsJ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

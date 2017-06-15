@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ptsH,ulaC,STM,Metabolic\nptsI,ulaC,STM,Metabolic\nSeHA_C4800,ulaC,STM BioModels,Metabolic\nulaC,ulaA,STM,Metabolic\nulaC,ulaB,STM,Metabolic\nSeHA_C4799,ulaC,Ecoli,Transcriptional_regulatory\ncrp,ulaC,Ecoli,Transcriptional_regulatory'
+                        data: 'ptsH,ulaC,STM,Metabolic,SeHA_C2691,SeHA_C4803,B4TCG1,B4TFC9,561,2898\nptsI,ulaC,STM,Metabolic,SeHA_C2692,SeHA_C4803,B4TCG2,B4TFC9,1686,2898\nSeHA_C4800,ulaC,STM BioModels,Metabolic,SeHA_C4800,SeHA_C4803,B4TFC6,B4TFC9,2974,2898\nulaC,ulaA,STM,Metabolic,SeHA_C4803,SeHA_C4801,B4TFC9,B4TFC7,2898,255\nulaC,ulaB,STM,Metabolic,SeHA_C4803,SeHA_C4802,B4TFC9,B4TFC8,2898,1894\nSeHA_C4799,ulaC,Ecoli,Transcriptional_regulatory,SeHA_C4799,SeHA_C4803,B4TFC5,B4TFC9,1700,2898\ncrp,ulaC,Ecoli,Transcriptional_regulatory,SeHA_C3771,SeHA_C4803,B4TKP1,B4TFC9,2484,2898'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TFC9",
                                         name: "ulaC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

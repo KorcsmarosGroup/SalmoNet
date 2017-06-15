@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpsH,rpsS,Lit Ecoli IntAct,PPI\nrpsS,gyrA,IntAct,PPI\nrpsS,yfjA,Lit Ecoli IntAct,PPI\nrpsS,thiJ,IntAct Biogrid,PPI\nrpsS,fliG,IntAct,PPI\nrpsS,rpsN,Interactome3d,PPI\nrpsS,rpsM,Interactome3d,PPI\nrpsS,cheA,IntAct,PPI\ngph,rpsS,IntAct,PPI\nrpoE,rpsS,IntAct,PPI'
+                        data: 'rpsH,rpsS,Lit Ecoli IntAct,PPI,SPA3292,SPA3302,Q5PIU7,Q5PIV6,3598,3017\nrpsS,gyrA,IntAct,PPI,SPA3302,SPA0592,Q5PIV6,Q5PCN8,3017,3730\nrpsS,yfjA,Lit Ecoli IntAct,PPI,SPA3302,SPA2534,Q5PIV6,Q5PFF7,3017,2812\nrpsS,thiJ,IntAct Biogrid,PPI,SPA3302,SPA2290,Q5PIV6,Q5PFR2,3017,1011\nrpsS,fliG,IntAct,PPI,SPA3302,SPA0900,Q5PIV6,Q5PHZ5,3017,2795\nrpsS,rpsN,Interactome3d,PPI,SPA3302,SPA3293,Q5PIV6,Q5PIU6,3017,1046\nrpsS,rpsM,Interactome3d,PPI,SPA3302,SPA3284,Q5PIV6,Q5PK07,3017,613\nrpsS,cheA,IntAct,PPI,SPA3302,SPA0947,Q5PIV6,Q5PMY0,3017,1259\ngph,rpsS,IntAct,PPI,SPA3347,SPA3302,Q5PLX6,Q5PIV6,1323,3017\nrpoE,rpsS,IntAct,PPI,SPA0278,SPA3302,Q5PNB6,Q5PIV6,3460,3017'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PIV6",
                                         name: "rpsS",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

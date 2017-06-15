@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'groEL,groES,IntAct Interactome3d,PPI\ngroEL,malE,IntAct,PPI\ngroEL,mdh,IntAct,PPI\ngroEL,dinP,IntAct,PPI\ngroEL,uspG,IntAct,PPI\ngroEL,gatY,IntAct,PPI\ngroEL,grpE,Lit Ecoli IntAct,PPI\ngroEL,yhjB,Lit Ecoli IntAct,PPI\ngroEL,hycE,IntAct,PPI\ngroEL,aroH,Lit Ecoli IntAct,PPI\nfhlA,groEL,Lit Ecoli IntAct,PPI\nSTM0433,groEL,Biogrid,PPI\nglpE,groEL,IntAct,PPI\nmetK,groEL,IntAct,PPI\ntdh,groEL,Lit Ecoli IntAct,PPI\nthrS,groEL,IntAct,PPI\nphoP,groEL,Salm,Transcriptional_regulatory'
+                        data: 'groEL,groES,IntAct Interactome3d,PPI,STM4330,STM4329,P0A1D3,P0A1D5,1880,1967\ngroEL,malE,IntAct,PPI,STM4330,STM4229,P0A1D3,P19576,1880,189\ngroEL,mdh,IntAct,PPI,STM4330,STM3359,P0A1D3,P25077,1880,109\ngroEL,dinP,IntAct,PPI,STM4330,STM0313,P0A1D3,P63989,1880,1616\ngroEL,uspG,IntAct,PPI,STM4330,STM0614,P0A1D3,P67093,1880,466\ngroEL,gatY,IntAct,PPI,STM4330,STM3253,P0A1D3,Q7CPQ7,1880,1879\ngroEL,grpE,Lit Ecoli IntAct,PPI,STM4330,STM2681,P0A1D3,Q7CPZ4,1880,2344\ngroEL,yhjB,Lit Ecoli IntAct,PPI,STM4330,STM3606,P0A1D3,Q8ZLC5,1880,3599\ngroEL,hycE,IntAct,PPI,STM4330,STM2849,P0A1D3,Q8ZMJ0,1880,126\ngroEL,aroH,Lit Ecoli IntAct,PPI,STM4330,STM1347,P0A1D3,Q8ZPS4,1880,3673\nfhlA,groEL,Lit Ecoli IntAct,PPI,STM2859,STM4330,P0CL46,P0A1D3,791,1880\nSTM0433,groEL,Biogrid,PPI,STM0433,STM4330,P55880,P0A1D3,1011,1880\nglpE,groEL,IntAct,PPI,STM3525,STM4330,P64251,P0A1D3,2401,1880\nmetK,groEL,IntAct,PPI,STM3090,STM4330,P66764,P0A1D3,93,1880\ntdh,groEL,Lit Ecoli IntAct,PPI,STM3708,STM4330,Q8ZL52,P0A1D3,869,1880\nthrS,groEL,IntAct,PPI,STM1333,STM4330,Q8ZPS9,P0A1D3,2445,1880\nphoP,groEL,Salm,Transcriptional_regulatory,STM1231,STM4330,P0DM78,P0A1D3,1432,1880'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A1D3",
                                         name: "groEL",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

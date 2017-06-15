@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'aspC,pheP,STM,Metabolic\naspC,tyrB,STM,Metabolic\naspC,aroP,STM,Metabolic\ntyrA,aspC,BioModels,Metabolic\nilvE,aspC,STM,Metabolic\nssrB,aspC,Salm,Transcriptional_regulatory'
+                        data: 'aspC,pheP,STM,Metabolic,SG0940,SG0578,B5R8L5,B5R6Z7,2397,218\naspC,tyrB,STM,Metabolic,SG0940,SG4091,B5R8L5,B5R7U7,2397,1188\naspC,aroP,STM,Metabolic,SG0940,SG0152,B5R8L5,B5RH88,2397,3270\ntyrA,aspC,BioModels,Metabolic,SG2647,SG0940,B5RD78,B5R8L5,1553,2397\nilvE,aspC,STM,Metabolic,SG3539,SG0940,B5RFT4,B5R8L5,1118,2397\nssrB,aspC,Salm,Transcriptional_regulatory,SG1725,SG0940,B5RAR6,B5R8L5,549,2397'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R8L5",
                                         name: "aspC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

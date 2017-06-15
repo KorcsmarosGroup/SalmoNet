@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fabH,fabD,STM,Metabolic\nfabD,accA,STM,Metabolic\nfabD,accC,STM,Metabolic\nfabD,accB,STM,Metabolic\nfabD,accD,STM,Metabolic\nfabD,bioC,BioModels,Metabolic\nacpP,fabD,STM,Metabolic\nfabB,fabD,STM BioModels,Metabolic\nfabF,fabD,STM BioModels,Metabolic\nfabD,nudK,IntAct,PPI\nfadR,fabD,Ecoli,Transcriptional_regulatory'
+                        data: 'fabH,fabD,STM,Metabolic,STM1193,STM1194,O85139,O85140,38,2177\nfabD,accA,STM,Metabolic,STM1194,STM0232,O85140,P0A1C3,2177,501\nfabD,accC,STM,Metabolic,STM1194,STM3380,O85140,Q7CPM0,2177,1824\nfabD,accB,STM,Metabolic,STM1194,STM3379,O85140,Q7CPM1,2177,1341\nfabD,accD,STM,Metabolic,STM1194,STM2366,O85140,Q7CQ41,2177,2027\nfabD,bioC,BioModels,Metabolic,STM1194,STM0796,O85140,Q8ZQQ6,2177,3726\nacpP,fabD,STM,Metabolic,STM1196,STM1194,P0A6B1,O85140,883,2177\nfabB,fabD,STM BioModels,Metabolic,STM2378,STM1194,Q7CQ36,O85140,2227,2177\nfabF,fabD,STM BioModels,Metabolic,STM1197,STM1194,Q8ZQ14,O85140,1982,2177\nfabD,nudK,IntAct,PPI,STM1194,STM2477,O85140,Q7CQ25,2177,997\nfadR,fabD,Ecoli,Transcriptional_regulatory,STM1805,STM1194,Q8ZP15,O85140,397,2177'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_O85140",
                                         name: "fabD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

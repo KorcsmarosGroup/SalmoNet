@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'mazG,mutT,STM,Metabolic\nntpA,mutT,STM,Metabolic\nmutT,folE,STM,Metabolic\ngmk,mutT,STM,Metabolic\nmutT,frdB,Lit Ecoli IntAct,PPI\nmutT,stdA,Lit Ecoli IntAct,PPI\nfis,mutT,Exp(HT),Transcriptional_regulatory'
+                        data: 'mazG,mutT,STM,Metabolic,STM2954,STM0137,Q8ZME4,Q8ZRT6,3476,2688\nntpA,mutT,STM,Metabolic,STM1900,STM0137,Q8ZNV3,Q8ZRT6,1216,2688\nmutT,folE,STM,Metabolic,STM0137,STM2193,Q8ZRT6,P64209,2688,2853\ngmk,mutT,STM,Metabolic,STM3740,STM0137,Q9X6M5,Q8ZRT6,1733,2688\nmutT,frdB,Lit Ecoli IntAct,PPI,STM0137,STM4342,Q8ZRT6,Q8ZKB4,2688,2693\nmutT,stdA,Lit Ecoli IntAct,PPI,STM0137,STM3029,Q8ZRT6,Q8ZM89,2688,4451\nfis,mutT,Exp(HT),Transcriptional_regulatory,STM3385,STM0137,P0A6R6,Q8ZRT6,1300,2688'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZRT6",
                                         name: "mutT",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

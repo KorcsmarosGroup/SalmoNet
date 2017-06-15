@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fadI,fadB,STM BioModels,Metabolic\nfadI,fadA,STM,Metabolic\nfadI,fadJ,STM BioModels,Metabolic\nadhE,fadI,BioModels,Metabolic\nacdC,fadI,BioModels,Metabolic\ntesB,fadI,STM,Metabolic\nfadE,fadI,STM BioModels,Metabolic\nfadR,fadI,Ecoli,Transcriptional_regulatory\narcA,fadI,Ecoli,Transcriptional_regulatory'
+                        data: 'fadI,fadB,STM BioModels,Metabolic,SC2391,SC3880,Q57LW5,Q57HM6,2474,1160\nfadI,fadA,STM,Metabolic,SC2391,SC3879,Q57LW5,Q57HM7,2474,2432\nfadI,fadJ,STM BioModels,Metabolic,SC2391,SC2390,Q57LW5,Q57LW6,2474,499\nadhE,fadI,BioModels,Metabolic,SC1744,SC2391,Q57NR1,Q57LW5,205,2474\nacdC,fadI,BioModels,Metabolic,SC0851,SC2391,Q57RA4,Q57LW5,3331,2474\ntesB,fadI,STM,Metabolic,SC0507,SC2391,Q57S98,Q57LW5,1389,2474\nfadE,fadI,STM BioModels,Metabolic,SC0310,SC2391,Q57SU5,Q57LW5,1018,2474\nfadR,fadI,Ecoli,Transcriptional_regulatory,SC1798,SC2391,Q57NK7,Q57LW5,397,2474\narcA,fadI,Ecoli,Transcriptional_regulatory,SC4443,SC2391,Q57G13,Q57LW5,2438,2474'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57LW5",
                                         name: "fadI",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ahpC,trxA,STM,Metabolic\nahpC,t2461,STM,Metabolic\nahpC,yfiG,STM,Metabolic\nahpF,ahpC,STM,Metabolic\nahpC,pabC,Lit Ecoli IntAct,PPI\nahpC,thiJ,Biogrid,PPI\nfrr,ahpC,Lit Ecoli IntAct,PPI\nmetJ,ahpC,Ecoli,Transcriptional_regulatory\noxyR,ahpC,Ecoli,Transcriptional_regulatory'
+                        data: 'ahpC,trxA,STM,Metabolic,t2260,t3381,P0A252,P0AA29,1258,3171\nahpC,t2461,STM,Metabolic,t2260,t2461,P0A252,Q8XGE8,1258,90\nahpC,yfiG,STM,Metabolic,t2260,t0261,P0A252,Q8Z4J6,1258,2524\nahpF,ahpC,STM,Metabolic,t2259,t2260,Q8Z8K0,P0A252,4017,1258\nahpC,pabC,Lit Ecoli IntAct,PPI,t2260,t1722,P0A252,Q8XF93,1258,2825\nahpC,thiJ,Biogrid,PPI,t2260,t2429,P0A252,Q8Z8W4,1258,1011\nfrr,ahpC,Lit Ecoli IntAct,PPI,t0220,t2260,P66739,P0A252,424,1258\nmetJ,ahpC,Ecoli,Transcriptional_regulatory,t3519,t2260,Q8Z2Z4,P0A252,2092,1258\noxyR,ahpC,Ecoli,Transcriptional_regulatory,t3500,t2260,Q8XF66,P0A252,3398,1258'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A252",
                                         name: "ahpC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

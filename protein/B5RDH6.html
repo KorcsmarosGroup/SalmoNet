@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SG1328,hycC,STM,Metabolic\nSG1329,hycC,STM,Metabolic\nSG4130,hycC,STM,Metabolic\nhycG,hycC,STM,Metabolic\nhycF,hycC,STM,Metabolic\nhycE,hycC,STM,Metabolic\nhycD,hycC,STM,Metabolic\nhycC,SG1330,STM,Metabolic\nhycC,hyaA,STM,Metabolic\nhycC,hyaB,STM,Metabolic\nhycC,hycB,STM,Metabolic\nhybC,hycC,STM,Metabolic\nhypO,hycC,STM,Metabolic\nfhlA,hycC,Ecoli,Transcriptional_regulatory\nyjeB,hycC,Ecoli,Transcriptional_regulatory'
+                        data: 'SG1328,hycC,STM,Metabolic,SG1328,SG2754,B5R911,B5RDH6,904,2222\nSG1329,hycC,STM,Metabolic,SG1329,SG2754,B5R912,B5RDH6,1363,2222\nSG4130,hycC,STM,Metabolic,SG4130,SG2754,B5R950,B5RDH6,4388,2222\nhycG,hycC,STM,Metabolic,SG2750,SG2754,B5RDH2,B5RDH6,602,2222\nhycF,hycC,STM,Metabolic,SG2751,SG2754,B5RDH3,B5RDH6,1226,2222\nhycE,hycC,STM,Metabolic,SG2752,SG2754,B5RDH4,B5RDH6,126,2222\nhycD,hycC,STM,Metabolic,SG2753,SG2754,B5RDH5,B5RDH6,376,2222\nhycC,SG1330,STM,Metabolic,SG2754,SG1330,B5RDH6,B5R913,2222,3144\nhycC,hyaA,STM,Metabolic,SG2754,SG1581,B5RDH6,B5RAC8,2222,3144\nhycC,hyaB,STM,Metabolic,SG2754,SG1582,B5RDH6,B5RAC9,2222,1280\nhycC,hycB,STM,Metabolic,SG2754,SG2755,B5RDH6,B5RDH7,2222,4039\nhybC,hycC,STM,Metabolic,SG3043,SG2754,B5REA6,B5RDH6,631,2222\nhypO,hycC,STM,Metabolic,SG3046,SG2754,B5REA9,B5RDH6,2290,2222\nfhlA,hycC,Ecoli,Transcriptional_regulatory,SG2762,SG2754,B5RDI4,B5RDH6,791,2222\nyjeB,hycC,Ecoli,Transcriptional_regulatory,SG4207,SG2754,B5R9C4,B5RDH6,2218,2222'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RDH6",
                                         name: "hycC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

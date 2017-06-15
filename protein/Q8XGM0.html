@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'appB,cydB,STM,Metabolic\ncydA,cydB,STM,Metabolic\ncydB,t2134,IntAct,PPI\ncydA,cydB,IntAct,PPI\nfnr,cydB,Ecoli,Transcriptional_regulatory\nfruR,cydB,Ecoli,Transcriptional_regulatory\nfis,cydB,Salm,Transcriptional_regulatory\narcA,cydB,Ecoli,Transcriptional_regulatory'
+                        data: 'appB,cydB,STM,Metabolic,t1083,t2135,Q8Z692,Q8XGM0,908,1849\ncydA,cydB,STM,Metabolic,t2136,t2135,Q8Z8C4,Q8XGM0,288,1849\ncydB,t2134,IntAct,PPI,t2135,t2134,Q8XGM0,Q8XFV0,1849,3674\ncydA,cydB,IntAct,PPI,t2136,t2135,Q8Z8C4,Q8XGM0,288,1849\nfnr,cydB,Ecoli,Transcriptional_regulatory,t1564,t2135,Q8Z787,Q8XGM0,147,1849\nfruR,cydB,Ecoli,Transcriptional_regulatory,t0122,t2135,P0A2P9,Q8XGM0,191,1849\nfis,cydB,Salm,Transcriptional_regulatory,t3300,t2135,P0A6R7,Q8XGM0,1300,1849\narcA,cydB,Ecoli,Transcriptional_regulatory,t4637,t2135,Q8XFN2,Q8XGM0,2438,1849'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8XGM0",
                                         name: "cydB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

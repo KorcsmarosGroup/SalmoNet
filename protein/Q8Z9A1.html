@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'lpxB,lpxD,STM BioModels,Metabolic\nlpxB,ybbF,STM BioModels,Metabolic\ntalC,lpxB,Lit Ecoli IntAct,PPI\nSTY3335,lpxB,Lit Ecoli IntAct,PPI\nt1713,lpxB,Lit Ecoli IntAct,PPI\nlpxB,yiaF,Lit Ecoli IntAct,PPI'
+                        data: 'lpxB,lpxD,STM BioModels,Metabolic,t0230,t0227,Q8Z9A1,P0A1X5,2447,4103\nlpxB,ybbF,STM BioModels,Metabolic,t0230,t2326,Q8Z9A1,Q8Z8P7,2447,588\ntalC,lpxB,Lit Ecoli IntAct,PPI,t3508,t0230,Q8Z305,Q8Z9A1,2973,2447\nSTY3335,lpxB,Lit Ecoli IntAct,PPI,STY3335,t0230,Q8Z3Q3,Q8Z9A1,400,2447\nt1713,lpxB,Lit Ecoli IntAct,PPI,t1713,t0230,Q8Z7I8,Q8Z9A1,67,2447\nlpxB,yiaF,Lit Ecoli IntAct,PPI,t0230,t3872,Q8Z9A1,Q8XFE4,2447,155'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z9A1",
                                         name: "lpxB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

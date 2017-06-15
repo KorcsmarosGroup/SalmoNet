@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tolB,tolA,IntAct,PPI\ntolB,pal,IntAct Interactome3d,PPI\ntolB,SPA2879,Lit Ecoli IntAct,PPI\ntolB,acrR,Lit Ecoli IntAct,PPI\ntolB,ycfM,Lit Ecoli IntAct,PPI\ntolB,envR,Lit Ecoli IntAct,PPI\ntolB,rlpA,Lit Ecoli IntAct,PPI\ntolB,tolC,Lit Ecoli IntAct,PPI\napbA,tolB,Lit Ecoli IntAct,PPI\nSPA1790,tolB,Lit Ecoli IntAct,PPI'
+                        data: 'tolB,tolA,IntAct,PPI,SPA1995,SPA1996,Q5PCN2,Q5PCN1,2481,4385\ntolB,pal,IntAct Interactome3d,PPI,SPA1995,SPA1994,Q5PCN2,Q5PCN3,2481,3222\ntolB,SPA2879,Lit Ecoli IntAct,PPI,SPA1995,SPA2879,Q5PCN2,Q5PEP9,2481,2283\ntolB,acrR,Lit Ecoli IntAct,PPI,SPA1995,SPA2245,Q5PCN2,Q5PFL3,2481,64\ntolB,ycfM,Lit Ecoli IntAct,PPI,SPA1995,SPA1644,Q5PCN2,Q5PGS8,2481,67\ntolB,envR,Lit Ecoli IntAct,PPI,SPA1995,SPA3256,Q5PCN2,Q5PJW0,2481,64\ntolB,rlpA,Lit Ecoli IntAct,PPI,SPA1995,SPA2096,Q5PCN2,Q5PMA2,2481,1196\ntolB,tolC,Lit Ecoli IntAct,PPI,SPA1995,SPA3055,Q5PCN2,Q5PMT9,2481,559\napbA,tolB,Lit Ecoli IntAct,PPI,SPA2289,SPA1995,Q5PFQ1,Q5PCN2,2324,2481\nSPA1790,tolB,Lit Ecoli IntAct,PPI,SPA1790,SPA1995,Q5PGE2,Q5PCN2,1639,2481'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PCN2",
                                         name: "tolB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

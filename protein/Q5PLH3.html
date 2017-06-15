@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'frdC,frdA,STM,Metabolic\nfrdD,frdA,STM,Metabolic\nfrdA,gcd,BioModels,Metabolic\nfrdB,frdA,STM,Metabolic\nydgA,frdA,IntAct,PPI\nfrdC,frdA,IntAct Interactome3d,PPI\nfrdA,ybjP,IntAct,PPI\nfrdA,ompW,IntAct,PPI\nfrdA,frdD,IntAct,PPI\nfrdA,frdB,IntAct Interactome3d,PPI\nfnr,frdA,Ecoli,Transcriptional_regulatory\nnarL,frdA,Ecoli,Transcriptional_regulatory\ndcuR,frdA,Ecoli,Transcriptional_regulatory'
+                        data: 'frdC,frdA,STM,Metabolic,SPA4158,SPA4160,Q5PL70,Q5PLH3,2646,1770\nfrdD,frdA,STM,Metabolic,SPA4157,SPA4160,Q5PL71,Q5PLH3,291,1770\nfrdA,gcd,BioModels,Metabolic,SPA4160,SPA0172,Q5PLH3,Q5PDA4,1770,223\nfrdB,frdA,STM,Metabolic,SPA4159,SPA4160,Q5PLH4,Q5PLH3,2693,1770\nydgA,frdA,IntAct,PPI,SPA1389,SPA4160,Q5PIB4,Q5PLH3,175,1770\nfrdC,frdA,IntAct Interactome3d,PPI,SPA4158,SPA4160,Q5PL70,Q5PLH3,2646,1770\nfrdA,ybjP,IntAct,PPI,SPA4160,SPA1870,Q5PLH3,Q5PGL3,1770,1863\nfrdA,ompW,IntAct,PPI,SPA4160,SPA1145,Q5PLH3,Q5PI95,1770,2333\nfrdA,frdD,IntAct,PPI,SPA4160,SPA4157,Q5PLH3,Q5PL71,1770,291\nfrdA,frdB,IntAct Interactome3d,PPI,SPA4160,SPA4159,Q5PLH3,Q5PLH4,1770,2693\nfnr,frdA,Ecoli,Transcriptional_regulatory,SPA1224,SPA4160,Q5PHR1,Q5PLH3,147,1770\nnarL,frdA,Ecoli,Transcriptional_regulatory,SPA1106,SPA4160,Q5PCS3,Q5PLH3,265,1770\ndcuR,frdA,Ecoli,Transcriptional_regulatory,SPA4121,SPA4160,Q5PJ34,Q5PLH3,4086,1770'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PLH3",
                                         name: "frdA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

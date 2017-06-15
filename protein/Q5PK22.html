@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'deoB,deoA,STM BioModels,Metabolic\ndeoA,tdk,BioModels,Metabolic\ndeoA,cdd,BioModels,Metabolic\ndeoA,deoD,STM BioModels,Metabolic\nupp,deoA,BioModels,Metabolic\ndeoR,deoA,Ecoli,Transcriptional_regulatory\nfis,deoA,Ecoli,Transcriptional_regulatory'
+                        data: 'deoB,deoA,STM BioModels,Metabolic,SPA4383,SPA4382,Q5PK21,Q5PK22,1641,2201\ndeoA,tdk,BioModels,Metabolic,SPA4382,SPA1128,Q5PK22,Q5PCT4,2201,72\ndeoA,cdd,BioModels,Metabolic,SPA4382,SPA0668,Q5PK22,Q5PE68,2201,2753\ndeoA,deoD,STM BioModels,Metabolic,SPA4382,SPA4384,Q5PK22,Q5PK20,2201,234\nupp,deoA,BioModels,Metabolic,SPA0369,SPA4382,Q5PNJ7,Q5PK22,1352,2201\ndeoR,deoA,Ecoli,Transcriptional_regulatory,SPA1898,SPA4382,Q5PGQ2,Q5PK22,786,2201\nfis,deoA,Ecoli,Transcriptional_regulatory,SPA3252,SPA4382,Q5PJW3,Q5PK22,1300,2201'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PK22",
                                         name: "deoA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

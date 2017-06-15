@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hypF,lpfA,Lit Ecoli IntAct,PPI\nhypF,rplR,Lit Ecoli IntAct,PPI\nhypF,hypE,Lit Ecoli IntAct Interactome3d,PPI\nhypF,minC,Lit Ecoli IntAct,PPI\nhypF,fimA,Lit Ecoli IntAct,PPI\nyecG,hypF,Lit Ecoli IntAct,PPI\nycbW,hypF,Lit Ecoli IntAct,PPI\nybiH,hypF,Lit Ecoli IntAct,PPI'
+                        data: 'hypF,lpfA,Lit Ecoli IntAct,PPI,SC2775,SC3571,Q57KT1,Q57II5,814,2271\nhypF,rplR,Lit Ecoli IntAct,PPI,SC2775,SC3358,Q57KT1,Q57J48,814,179\nhypF,hypE,Lit Ecoli IntAct Interactome3d,PPI,SC2775,SC2791,Q57KT1,Q57KR5,814,71\nhypF,minC,Lit Ecoli IntAct,PPI,SC2775,SC1807,Q57KT1,Q57NJ8,814,970\nhypF,fimA,Lit Ecoli IntAct,PPI,SC2775,SC0582,Q57KT1,Q57S23,814,2271\nyecG,hypF,Lit Ecoli IntAct,PPI,SC1934,SC2775,Q57N71,Q57KT1,2493,814\nycbW,hypF,Lit Ecoli IntAct,PPI,SC1012,SC2775,Q57QU3,Q57KT1,804,814\nybiH,hypF,Lit Ecoli IntAct,PPI,SC0816,SC2775,Q57RD9,Q57KT1,3413,814'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57KT1",
                                         name: "hypF",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

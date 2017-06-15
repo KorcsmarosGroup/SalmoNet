@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hypA,hypB,IntAct,PPI\nhypB,slyD,IntAct,PPI\nhypB,hycE,IntAct,PPI\nfnr,hypB,Ecoli,Transcriptional_regulatory\nSeD_A3169,hypB,Ecoli,Transcriptional_regulatory\nnsrR,hypB,Ecoli,Transcriptional_regulatory'
+                        data: 'hypA,hypB,IntAct,PPI,SeD_A3164,SeD_A3165,B5FT06,B5FT07,2740,170\nhypB,slyD,IntAct,PPI,SeD_A3165,SeD_A3823,B5FT07,B5FJM9,170,3489\nhypB,hycE,IntAct,PPI,SeD_A3165,SeD_A3159,B5FT07,B5FT01,170,126\nfnr,hypB,Ecoli,Transcriptional_regulatory,SeD_A1673,SeD_A3165,B5FUN4,B5FT07,147,170\nSeD_A3169,hypB,Ecoli,Transcriptional_regulatory,SeD_A3169,SeD_A3165,B5FT11,B5FT07,791,170\nnsrR,hypB,Ecoli,Transcriptional_regulatory,SeD_A4764,SeD_A3165,B5FRN4,B5FT07,2218,170'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FT07",
                                         name: "hypB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

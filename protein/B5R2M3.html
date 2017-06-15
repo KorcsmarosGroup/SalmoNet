@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ftsB,ftsW,IntAct,PPI\nftsN,ftsW,IntAct,PPI\nmtgA,ftsW,IntAct,PPI\nmreB,ftsW,IntAct,PPI\nftsL,ftsW,IntAct,PPI\nftsW,ftsI,IntAct,PPI\nftsQ,ftsW,IntAct,PPI\nmrcB,ftsW,IntAct,PPI\npdhR,ftsW,Ecoli,Transcriptional_regulatory\nbasR,ftsW,Salm,Transcriptional_regulatory\nSEN4085,ftsW,Salm,Transcriptional_regulatory'
+                        data: 'ftsB,ftsW,IntAct,PPI,SEN2770,SEN0128,B5QW19,B5R2M3,981,3007\nftsN,ftsW,IntAct,PPI,SEN3883,SEN0128,B5QXM2,B5R2M3,2083,3007\nmtgA,ftsW,IntAct,PPI,SEN3159,SEN0128,B5R0J9,B5R2M3,3795,3007\nmreB,ftsW,IntAct,PPI,SEN3207,SEN0128,B5R1B7,B5R2M3,624,3007\nftsL,ftsW,IntAct,PPI,SEN0122,SEN0128,B5R2L7,B5R2M3,229,3007\nftsW,ftsI,IntAct,PPI,SEN0128,SEN0123,B5R2M3,B5R2L8,3007,3143\nftsQ,ftsW,IntAct,PPI,SEN0132,SEN0128,B5R2M7,B5R2M3,398,3007\nmrcB,ftsW,IntAct,PPI,SEN0195,SEN0128,B5R3F4,B5R2M3,2681,3007\npdhR,ftsW,Ecoli,Transcriptional_regulatory,SEN0155,SEN0128,B5R2P9,B5R2M3,848,3007\nbasR,ftsW,Salm,Transcriptional_regulatory,SEN4063,SEN0128,B5QZX1,B5R2M3,3574,3007\nSEN4085,ftsW,Salm,Transcriptional_regulatory,SEN4085,SEN0128,B5QZZ0,B5R2M3,3923,3007'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R2M3",
                                         name: "ftsW",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

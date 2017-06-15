@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pabC,pabA,STM,Metabolic\npabA,pabB,STM,Metabolic\npabA,aroC,STM,Metabolic\npabA,fliG,Lit Ecoli IntAct,PPI\npabB,pabA,Lit Ecoli IntAct Interactome3d,PPI\nphoP,pabA,Salm,Transcriptional_regulatory\nargR,pabA,Ecoli,Transcriptional_regulatory'
+                        data: 'pabC,pabA,STM,Metabolic,SEN1851,SEN3296,B5QXD8,B5R2B9,2825,568\npabA,pabB,STM,Metabolic,SEN3296,SEN1213,B5R2B9,B5R2U6,568,3652\npabA,aroC,STM,Metabolic,SEN3296,SEN2366,B5R2B9,B5R3R5,568,798\npabA,fliG,Lit Ecoli IntAct,PPI,SEN3296,SEN1039,B5R2B9,B5R0Y8,568,2795\npabB,pabA,Lit Ecoli IntAct Interactome3d,PPI,SEN1213,SEN3296,B5R2U6,B5R2B9,3652,568\nphoP,pabA,Salm,Transcriptional_regulatory,SEN1818,SEN3296,B5QXA5,B5R2B9,1432,568\nargR,pabA,Ecoli,Transcriptional_regulatory,SEN3193,SEN3296,B5R1A3,B5R2B9,2842,568'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R2B9",
                                         name: "pabA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

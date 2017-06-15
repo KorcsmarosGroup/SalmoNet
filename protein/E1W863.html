@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fhuA,tonB,STM,Metabolic\nfhuA,exbD,STM,Metabolic\nfhuA,exbB,STM,Metabolic\nfhuD,fhuA,STM,Metabolic\nfhuB,fhuA,STM,Metabolic\nfhuA,tonB,Interactome3d,PPI'
+                        data: 'fhuA,tonB,STM,Metabolic,SL1344_0192,SL1344_1668,E1W863,E1WC68,2724,1820\nfhuA,exbD,STM,Metabolic,SL1344_0192,SL1344_3132,E1W863,E1WHU6,2724,3311\nfhuA,exbB,STM,Metabolic,SL1344_0192,SL1344_3133,E1W863,E1WHU7,2724,1712\nfhuD,fhuA,STM,Metabolic,SL1344_0194,SL1344_0192,E1W865,E1W863,2141,2724\nfhuB,fhuA,STM,Metabolic,SL1344_0195,SL1344_0192,E1W866,E1W863,4058,2724\nfhuA,tonB,Interactome3d,PPI,SL1344_0192,SL1344_1668,E1W863,E1WC68,2724,1820'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1W863",
                                         name: "fhuA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

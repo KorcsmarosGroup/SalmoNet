@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pyrI,pyrB,STM,Metabolic\npyrB,pyrC,BioModels,Metabolic\npyrB,allB,BioModels,Metabolic\npyrB,SeD_A4825,BioModels,Metabolic\npyrB,pyrI,Lit Ecoli IntAct Interactome3d,PPI'
+                        data: 'pyrI,pyrB,STM,Metabolic,SeD_A4841,SeD_A4842,B5FSF2,B5FSF3,3339,1522\npyrB,pyrC,BioModels,Metabolic,SeD_A4842,SeD_A2209,B5FSF3,B5FL01,1522,2342\npyrB,allB,BioModels,Metabolic,SeD_A4842,SeD_A0571,B5FSF3,B5FLN3,1522,124\npyrB,SeD_A4825,BioModels,Metabolic,SeD_A4842,SeD_A4825,B5FSF3,B5FSD7,1522,124\npyrB,pyrI,Lit Ecoli IntAct Interactome3d,PPI,SeD_A4842,SeD_A4841,B5FSF3,B5FSF2,1522,3339'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FSF3",
                                         name: "pyrB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

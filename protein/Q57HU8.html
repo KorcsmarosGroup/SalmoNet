@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ilvE,tyrB,STM,Metabolic\nilvE,ilvD,BioModels,Metabolic\nilvE,aspC,STM,Metabolic\nilvE,pheP,STM,Metabolic\nilvE,aroP,STM,Metabolic\nilvE,leuB,STM BioModels,Metabolic\nilvE,ileS,BioModels,Metabolic\nleuS,ilvE,STM,Metabolic\npanB,ilvE,STM,Metabolic\nlpdA,ilvE,BioModels,Metabolic\nleuA,ilvE,STM,Metabolic\nssrB,ilvE,Salm,Transcriptional_regulatory\nhilC,ilvE,Salm,Transcriptional_regulatory\nlrp,ilvE,Ecoli,Transcriptional_regulatory'
+                        data: 'ilvE,tyrB,STM,Metabolic,SC3808,SC4127,Q57HU8,Q57GX9,1118,1188\nilvE,ilvD,BioModels,Metabolic,SC3808,SC3809,Q57HU8,Q57HU7,1118,735\nilvE,aspC,STM,Metabolic,SC3808,SC0955,Q57HU8,Q57R00,1118,2397\nilvE,pheP,STM,Metabolic,SC3808,SC0605,Q57HU8,Q57S00,1118,218\nilvE,aroP,STM,Metabolic,SC3808,SC0149,Q57HU8,Q57TA6,1118,3270\nilvE,leuB,STM BioModels,Metabolic,SC3808,SC0108,Q57HU8,Q57TE7,1118,3616\nilvE,ileS,BioModels,Metabolic,SC3808,SC0040,Q57HU8,Q57TL5,1118,3113\nleuS,ilvE,STM,Metabolic,SC0678,SC3808,Q57RS7,Q57HU8,1322,1118\npanB,ilvE,STM,Metabolic,SC0182,SC3808,Q57T73,Q57HU8,418,1118\nlpdA,ilvE,BioModels,Metabolic,SC0153,SC3808,Q57TA2,Q57HU8,3188,1118\nleuA,ilvE,STM,Metabolic,SC0109,SC3808,Q57TE6,Q57HU8,3577,1118\nssrB,ilvE,Salm,Transcriptional_regulatory,SC1412,SC3808,Q57PP3,Q57HU8,549,1118\nhilC,ilvE,Salm,Transcriptional_regulatory,SC2799,SC3808,Q57KQ7,Q57HU8,1614,1118\nlrp,ilvE,Ecoli,Transcriptional_regulatory,SC0913,SC3808,Q57R42,Q57HU8,3848,1118'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57HU8",
                                         name: "ilvE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

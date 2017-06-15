@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'atpF,atpE,STM,Metabolic\natpE,atpC,STM,Metabolic\natpE,atpD,STM,Metabolic\natpE,atpG,STM,Metabolic\natpE,atpA,STM,Metabolic\natpE,atpH,STM,Metabolic\natpE,atpB,STM,Metabolic\natpE,atpI,STM,Metabolic\natpE,atpA,IntAct,PPI\natpE,atpB,IntAct Interactome3d,PPI\ncueR,atpE,Salm,Transcriptional_regulatory'
+                        data: 'atpF,atpE,STM,Metabolic,SeD_A4259,SeD_A4260,B5FN37,B5FN38,2722,666\natpE,atpC,STM,Metabolic,SeD_A4260,SeD_A4254,B5FN38,B5FN32,666,3343\natpE,atpD,STM,Metabolic,SeD_A4260,SeD_A4255,B5FN38,B5FN33,666,2818\natpE,atpG,STM,Metabolic,SeD_A4260,SeD_A4256,B5FN38,B5FN34,666,3194\natpE,atpA,STM,Metabolic,SeD_A4260,SeD_A4257,B5FN38,B5FN35,666,2601\natpE,atpH,STM,Metabolic,SeD_A4260,SeD_A4258,B5FN38,B5FN36,666,3635\natpE,atpB,STM,Metabolic,SeD_A4260,SeD_A4261,B5FN38,B5FN39,666,877\natpE,atpI,STM,Metabolic,SeD_A4260,SeD_A4262,B5FN38,B5FN40,666,206\natpE,atpA,IntAct,PPI,SeD_A4260,SeD_A4257,B5FN38,B5FN35,666,2601\natpE,atpB,IntAct Interactome3d,PPI,SeD_A4260,SeD_A4261,B5FN38,B5FN39,666,877\ncueR,atpE,Salm,Transcriptional_regulatory,SeD_A0548,SeD_A4260,B5FLL0,B5FN38,687,666'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FN38",
                                         name: "atpE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

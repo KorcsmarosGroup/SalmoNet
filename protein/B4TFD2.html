@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'sgaE,sgbE,STM,Metabolic\nsgaE,ulaE,STM,Metabolic\nsgaE,araB,STM BioModels,Metabolic\naraD,sgaE,STM,Metabolic\nSeHA_C4799,sgaE,Ecoli,Transcriptional_regulatory\ncrp,sgaE,Ecoli,Transcriptional_regulatory'
+                        data: 'sgaE,sgbE,STM,Metabolic,SeHA_C4806,SeHA_C4000,B4TFD2,B4T968,3474,4275\nsgaE,ulaE,STM,Metabolic,SeHA_C4806,SeHA_C4805,B4TFD2,B4TFD1,3474,1663\nsgaE,araB,STM BioModels,Metabolic,SeHA_C4806,SeHA_C0109,B4TFD2,B4TJ60,3474,1029\naraD,sgaE,STM,Metabolic,SeHA_C0107,SeHA_C4806,B4TJ58,B4TFD2,709,3474\nSeHA_C4799,sgaE,Ecoli,Transcriptional_regulatory,SeHA_C4799,SeHA_C4806,B4TFC5,B4TFD2,1700,3474\ncrp,sgaE,Ecoli,Transcriptional_regulatory,SeHA_C3771,SeHA_C4806,B4TKP1,B4TFD2,2484,3474'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TFD2",
                                         name: "sgaE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

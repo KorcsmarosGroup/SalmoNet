@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ygeD,lpp,STM,Metabolic\nlpp,lspA,STM,Metabolic\nynhG,lpp,STM,Metabolic\nycfS,lpp,STM,Metabolic\nybiS,lpp,STM,Metabolic\nlnt,lpp,STM,Metabolic\ntonB,lpp,IntAct,PPI\nlpp,pal,IntAct,PPI'
+                        data: 'ygeD,lpp,STM,Metabolic,SC2948,SC1398,Q57KA8,Q57PQ7,3478,2977\nlpp,lspA,STM,Metabolic,SC1398,SC0041,Q57PQ7,Q57TL4,2977,1414\nynhG,lpp,STM,Metabolic,SC1395,SC1398,Q57PR0,Q57PQ7,1528,2977\nycfS,lpp,STM,Metabolic,SC1165,SC1398,Q57QE0,Q57PQ7,2278,2977\nybiS,lpp,STM,Metabolic,SC0834,SC1398,Q57RC1,Q57PQ7,3111,2977\nlnt,lpp,STM,Metabolic,SC0694,SC1398,Q57RR1,Q57PQ7,1177,2977\ntonB,lpp,IntAct,PPI,SC1733,SC1398,Q57NS2,Q57PQ7,1820,2977\nlpp,pal,IntAct,PPI,SC1398,SC0753,Q57PQ7,Q57RK2,2977,3222'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57PQ7",
                                         name: "lpp",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

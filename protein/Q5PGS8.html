@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tolB,ycfM,Lit Ecoli IntAct,PPI\nycfM,mrcB,IntAct,PPI\nycfM,lpxB,Lit Ecoli IntAct,PPI\nycfM,leuO,Lit Ecoli IntAct,PPI\nycfM,pbpG,Lit Ecoli IntAct,PPI\nycfM,ynaI,Lit Ecoli IntAct,PPI\nycfM,fliG,Lit Ecoli IntAct,PPI\nrplL,ycfM,Lit Ecoli IntAct,PPI\nfis,ycfM,Salm,Transcriptional_regulatory'
+                        data: 'tolB,ycfM,Lit Ecoli IntAct,PPI,SPA1995,SPA1644,Q5PCN2,Q5PGS8,2481,67\nycfM,mrcB,IntAct,PPI,SPA1644,SPA0196,Q5PGS8,Q5PD35,67,2681\nycfM,lpxB,Lit Ecoli IntAct,PPI,SPA1644,SPA0236,Q5PGS8,Q5PD72,67,2447\nycfM,leuO,Lit Ecoli IntAct,PPI,SPA1644,SPA0117,Q5PGS8,Q5PDG9,67,863\nycfM,pbpG,Lit Ecoli IntAct,PPI,SPA1644,SPA0683,Q5PGS8,Q5PE76,67,3345\nycfM,ynaI,Lit Ecoli IntAct,PPI,SPA1644,SPA1221,Q5PGS8,Q5PHR4,67,4078\nycfM,fliG,Lit Ecoli IntAct,PPI,SPA1644,SPA0900,Q5PGS8,Q5PHZ5,67,2795\nrplL,ycfM,Lit Ecoli IntAct,PPI,SPA3990,SPA1644,Q5PK94,Q5PGS8,4142,67\nfis,ycfM,Salm,Transcriptional_regulatory,SPA3252,SPA1644,Q5PJW3,Q5PGS8,1300,67'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PGS8",
                                         name: "ycfM",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

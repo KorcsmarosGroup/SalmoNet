@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'murA,murG,BioModels,Metabolic\nmrcA,murG,STM,Metabolic\npbpC,murG,STM,Metabolic\nmrcB,murG,STM,Metabolic\nmurG,glmU,STM BioModels,Metabolic\nmurG,mraY,STM BioModels,Metabolic\nwecB,murG,BioModels,Metabolic\npdhR,murG,Ecoli,Transcriptional_regulatory\nfis,murG,Exp(HT),Transcriptional_regulatory'
+                        data: 'murA,murG,BioModels,Metabolic,STM3307,STM0128,P65454,Q8ZRU3,3758,2882\nmrcA,murG,STM,Metabolic,STM3493,STM0128,Q8ZLJ7,Q8ZRU3,3788,2882\npbpC,murG,STM,Metabolic,STM2531,STM0128,Q8ZN47,Q8ZRU3,3411,2882\nmrcB,murG,STM,Metabolic,STM0190,STM0128,Q8ZRQ3,Q8ZRU3,2681,2882\nmurG,glmU,STM BioModels,Metabolic,STM0128,STM3862,Q8ZRU3,Q8ZKX0,2882,2983\nmurG,mraY,STM BioModels,Metabolic,STM0128,STM0125,Q8ZRU3,Q8ZRU5,2882,1562\nwecB,murG,BioModels,Metabolic,STM3920,STM0128,Q9L6R5,Q8ZRU3,3658,2882\npdhR,murG,Ecoli,Transcriptional_regulatory,STM0151,STM0128,P0CL10,Q8ZRU3,848,2882\nfis,murG,Exp(HT),Transcriptional_regulatory,STM3385,STM0128,P0A6R6,Q8ZRU3,1300,2882'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZRU3",
                                         name: "murG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

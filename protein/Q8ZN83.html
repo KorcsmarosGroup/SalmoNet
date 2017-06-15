@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gmhA,talA,BioModels,Metabolic\ntktA,talA,BioModels,Metabolic\ntktB,talA,BioModels,Metabolic\ntalA,talB,STM,Metabolic\nSTM2341,talA,BioModels,Metabolic\nSTM2340,talA,BioModels,Metabolic\ncreB,talA,Ecoli,Transcriptional_regulatory'
+                        data: 'gmhA,talA,BioModels,Metabolic,STM0310,STM2473,P63223,Q8ZN83,931,873\ntktA,talA,BioModels,Metabolic,STM3076,STM2473,Q8ZM63,Q8ZN83,2398,873\ntktB,talA,BioModels,Metabolic,STM2474,STM2473,Q8ZN82,Q8ZN83,3649,873\ntalA,talB,STM,Metabolic,STM2473,STM0007,Q8ZN83,P66955,873,3087\nSTM2341,talA,BioModels,Metabolic,STM2341,STM2473,Q8ZND4,Q8ZN83,434,873\nSTM2340,talA,BioModels,Metabolic,STM2340,STM2473,Q8ZND5,Q8ZN83,2994,873\ncreB,talA,Ecoli,Transcriptional_regulatory,STM4588,STM2473,Q8ZJU6,Q8ZN83,483,873'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZN83",
                                         name: "talA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

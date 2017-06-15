@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'clpB,dnaJ,IntAct,PPI\nclpB,STM0433,Biogrid,PPI\nclpB,dnaK,IntAct Biogrid,PPI\nclpB,grpE,IntAct Biogrid,PPI\nclpB,rpsA,IntAct,PPI\nclpB,zwf,IntAct,PPI\nclpB,ynfC,Lit Ecoli IntAct,PPI\nclpB,clpX,IntAct Interactome3d,PPI'
+                        data: 'clpB,dnaJ,IntAct,PPI,STM2660,STM0013,Q7CQ01,P0A1G7,2097,1436\nclpB,STM0433,Biogrid,PPI,STM2660,STM0433,Q7CQ01,P55880,2097,1011\nclpB,dnaK,IntAct Biogrid,PPI,STM2660,STM0012,Q7CQ01,Q56073,2097,2512\nclpB,grpE,IntAct Biogrid,PPI,STM2660,STM2681,Q7CQ01,Q7CPZ4,2097,2344\nclpB,rpsA,IntAct,PPI,STM2660,STM0981,Q7CQ01,Q7CQT9,2097,228\nclpB,zwf,IntAct,PPI,STM2660,STM1886,Q7CQ01,Q8ZNW2,2097,452\nclpB,ynfC,Lit Ecoli IntAct,PPI,STM2660,STM1501,Q7CQ01,Q8ZPJ4,2097,623\nclpB,clpX,IntAct Interactome3d,PPI,STM2660,STM0449,Q7CQ01,Q8ZRC0,2097,1462'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q7CQ01",
                                         name: "clpB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

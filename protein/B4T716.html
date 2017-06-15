@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rplP,rpmA,Interactome3d,PPI\nsgbE,rpmA,Lit Ecoli IntAct,PPI\nSNSL254_A0480,rpmA,IntAct Biogrid,PPI\ngyrA,rpmA,IntAct,PPI\nrpmA,rplR,Interactome3d,PPI\nrpmA,fldA,Lit Ecoli IntAct,PPI\nSNSL254_A2350,rpmA,Ecoli,Transcriptional_regulatory'
+                        data: 'rplP,rpmA,Interactome3d,PPI,SNSL254_A3702,SNSL254_A3564,B4SUT3,B4T716,2582,27\nsgbE,rpmA,Lit Ecoli IntAct,PPI,SNSL254_A3955,SNSL254_A3564,B4SWM5,B4T716,4275,27\nSNSL254_A0480,rpmA,IntAct Biogrid,PPI,SNSL254_A0480,SNSL254_A3564,B4SWS5,B4T716,1011,27\ngyrA,rpmA,IntAct,PPI,SNSL254_A2457,SNSL254_A3564,B4SYU4,B4T716,3730,27\nrpmA,rplR,Interactome3d,PPI,SNSL254_A3564,SNSL254_A3693,B4T716,B4SUS4,27,179\nrpmA,fldA,Lit Ecoli IntAct,PPI,SNSL254_A3564,SNSL254_A0753,B4T716,B4SYP7,27,564\nSNSL254_A2350,rpmA,Ecoli,Transcriptional_regulatory,SNSL254_A2350,SNSL254_A3564,B4SXZ3,B4T716,968,27'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4T716",
                                         name: "rpmA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

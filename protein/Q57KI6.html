@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ygjR,ygbT,Lit Ecoli IntAct,PPI\nygbT,yihP,Lit Ecoli IntAct,PPI\nygbT,glnA,Lit Ecoli IntAct,PPI\nygbT,ygbF,Interactome3d,PPI\nygbT,udk,Lit Ecoli IntAct,PPI\nygbT,yebT,Lit Ecoli IntAct,PPI\nygbT,sufS,Lit Ecoli IntAct,PPI\nygbT,copS,Lit Ecoli IntAct,PPI\nygbT,bioB,Lit Ecoli IntAct,PPI\nybcY,ygbT,IntAct,PPI\nastE,ygbT,Lit Ecoli IntAct,PPI\nfruR,ygbT,Salm,Transcriptional_regulatory\nhilA,ygbT,Salm,Transcriptional_regulatory\nhmrR,ygbT,Salm,Transcriptional_regulatory'
+                        data: 'ygjR,ygbT,Lit Ecoli IntAct,PPI,SC3170,SC2870,Q57JN6,Q57KI6,3259,3242\nygbT,yihP,Lit Ecoli IntAct,PPI,SC2870,SC3909,Q57KI6,Q57HJ7,3242,386\nygbT,glnA,Lit Ecoli IntAct,PPI,SC2870,SC3899,Q57KI6,Q57HK7,3242,1022\nygbT,ygbF,Interactome3d,PPI,SC2870,SC2869,Q57KI6,Q57KI7,3242,391\nygbT,udk,Lit Ecoli IntAct,PPI,SC2870,SC2124,Q57KI6,Q57MN1,3242,1109\nygbT,yebT,Lit Ecoli IntAct,PPI,SC2870,SC1845,Q57KI6,Q57NG0,3242,586\nygbT,sufS,Lit Ecoli IntAct,PPI,SC2870,SC1393,Q57KI6,Q57PR2,3242,1741\nygbT,copS,Lit Ecoli IntAct,PPI,SC2870,SC1045,Q57KI6,Q57QR0,3242,132\nygbT,bioB,Lit Ecoli IntAct,PPI,SC2870,SC0792,Q57KI6,Q57RG3,3242,1192\nybcY,ygbT,IntAct,PPI,SC1634,SC2870,Q57P21,Q57KI6,3248,3242\nastE,ygbT,Lit Ecoli IntAct,PPI,SC1328,SC2870,Q57PX7,Q57KI6,3506,3242\nfruR,ygbT,Salm,Transcriptional_regulatory,SC0115,SC2870,Q57TE0,Q57KI6,191,3242\nhilA,ygbT,Salm,Transcriptional_regulatory,SC2808,SC2870,Q57KP8,Q57KI6,1036,3242\nhmrR,ygbT,Salm,Transcriptional_regulatory,SC0395,SC2870,Q57SL0,Q57KI6,3600,3242'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57KI6",
                                         name: "ygbT",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

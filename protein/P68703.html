@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'atpE,atpC,STM,Metabolic\natpE,atpH,STM,Metabolic\natpE,atpA,STM,Metabolic\natpE,atpB,STM,Metabolic\natpE,atpD,STM,Metabolic\natpE,atpG,STM,Metabolic\natpE,atpI,STM,Metabolic\natpF,atpE,STM,Metabolic\natpE,atpA,IntAct,PPI\natpE,atpB,IntAct Interactome3d,PPI'
+                        data: 'atpE,atpC,STM,Metabolic,t3649,t3655,P68703,P0A1B8,666,3343\natpE,atpH,STM,Metabolic,t3649,t3651,P68703,Q8XFM9,666,3635\natpE,atpA,STM,Metabolic,t3649,t3652,P68703,Q8XG95,666,2601\natpE,atpB,STM,Metabolic,t3649,t3648,P68703,Q8XGC2,666,877\natpE,atpD,STM,Metabolic,t3649,t3654,P68703,Q8XGX4,666,2818\natpE,atpG,STM,Metabolic,t3649,t3653,P68703,Q8Z2Q5,666,3194\natpE,atpI,STM,Metabolic,t3649,t3647,P68703,Q8Z2Q6,666,206\natpF,atpE,STM,Metabolic,t3650,t3649,Q8XGD7,P68703,2722,666\natpE,atpA,IntAct,PPI,t3649,t3652,P68703,Q8XG95,666,2601\natpE,atpB,IntAct Interactome3d,PPI,t3649,t3648,P68703,Q8XGC2,666,877'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P68703",
                                         name: "atpE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

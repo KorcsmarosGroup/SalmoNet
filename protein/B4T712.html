@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dacA,dacB,STM,Metabolic\ndacB,dacD,STM,Metabolic\ndacB,pbpG,STM,Metabolic\ndacB,mepA,STM,Metabolic\ndacB,SNSL254_A0935,STM,Metabolic\nargG,dacB,Lit Ecoli IntAct,PPI'
+                        data: 'dacA,dacB,STM,Metabolic,SNSL254_A0693,SNSL254_A3560,B4SYJ5,B4T712,1746,853\ndacB,dacD,STM,Metabolic,SNSL254_A3560,SNSL254_A2239,B4T712,B4SX30,853,2210\ndacB,pbpG,STM,Metabolic,SNSL254_A3560,SNSL254_A2357,B4T712,B4SY00,853,3345\ndacB,mepA,STM,Metabolic,SNSL254_A3560,SNSL254_A2572,B4T712,B4SZQ6,853,752\ndacB,SNSL254_A0935,STM,Metabolic,SNSL254_A3560,SNSL254_A0935,B4T712,B4T0C4,853,1053\nargG,dacB,Lit Ecoli IntAct,PPI,SNSL254_A3549,SNSL254_A3560,B4T702,B4T712,3845,853'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4T712",
                                         name: "dacB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpoB,rpoD,IntAct Interactome3d,PPI\nrpoD,SeHA_C2505,Lit Ecoli IntAct,PPI\nrpoD,SeHA_C4377,Lit Ecoli IntAct,PPI\nrpoD,SeHA_C4378,Lit Ecoli IntAct,PPI\nrpoD,secE,Lit Ecoli IntAct,PPI\nrpoD,SeHA_C4496,Lit Ecoli IntAct Interactome3d,PPI\nrpoD,lexA,Lit Ecoli IntAct,PPI\nrpoD,SeHA_C4643,Lit Ecoli IntAct,PPI\nrpoD,idnK,Lit Ecoli IntAct,PPI\nrpoD,SeHA_C1444,Lit Ecoli IntAct,PPI\nrpoD,rapA,Lit Ecoli IntAct,PPI\nrpoD,rpoA,IntAct Interactome3d,PPI\nrpoD,crp,Lit Ecoli IntAct,PPI\nSeHA_C0110,rpoD,Lit Ecoli IntAct,PPI\nlexA,rpoD,Ecoli,Transcriptional_regulatory'
+                        data: 'rpoB,rpoD,IntAct Interactome3d,PPI,SeHA_C4483,SeHA_C3465,B4TCS4,B4TI62,2611,3123\nrpoD,SeHA_C2505,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C2505,B4TI62,B4TAT9,3123,2884\nrpoD,SeHA_C4377,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C4377,B4TI62,B4TBY3,3123,3396\nrpoD,SeHA_C4378,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C4378,B4TI62,B4TBY4,3123,1476\nrpoD,secE,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C4476,B4TI62,B4TCR8,3123,3041\nrpoD,SeHA_C4496,Lit Ecoli IntAct Interactome3d,PPI,SeHA_C3465,SeHA_C4496,B4TI62,B4TCT4,3123,75\nrpoD,lexA,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C4579,B4TI62,B4TDM0,3123,2732\nrpoD,SeHA_C4643,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C4643,B4TI62,B4TED6,3123,1492\nrpoD,idnK,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C4889,B4TI62,B4TG65,3123,33\nrpoD,SeHA_C1444,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C1444,B4TI62,B4TGF4,3123,3464\nrpoD,rapA,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C0103,B4TI62,B4TJ54,3123,345\nrpoD,rpoA,IntAct Interactome3d,PPI,SeHA_C3465,SeHA_C3718,B4TI62,B4TJY5,3123,1508\nrpoD,crp,Lit Ecoli IntAct,PPI,SeHA_C3465,SeHA_C3771,B4TI62,B4TKP1,3123,2484\nSeHA_C0110,rpoD,Lit Ecoli IntAct,PPI,SeHA_C0110,SeHA_C3465,B4TJ61,B4TI62,2319,3123\nlexA,rpoD,Ecoli,Transcriptional_regulatory,SeHA_C4579,SeHA_C3465,B4TDM0,B4TI62,2732,3123'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TI62",
                                         name: "rpoD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

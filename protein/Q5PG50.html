@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'bioC,fabB,BioModels,Metabolic\nbioC,fabF,BioModels,Metabolic\nfabH,bioC,BioModels,Metabolic\nfabD,bioC,BioModels,Metabolic\nynfC,bioC,Lit Ecoli IntAct,PPI\nbirA,bioC,Ecoli,Transcriptional_regulatory'
+                        data: 'bioC,fabB,BioModels,Metabolic,SPA1956,SPA0486,Q5PG50,Q5PCW6,3726,2227\nbioC,fabF,BioModels,Metabolic,SPA1956,SPA1654,Q5PG50,Q5PGT1,3726,1982\nfabH,bioC,BioModels,Metabolic,SPA1658,SPA1956,Q5PGU1,Q5PG50,38,3726\nfabD,bioC,BioModels,Metabolic,SPA1657,SPA1956,Q5PGU2,Q5PG50,2177,3726\nynfC,bioC,Lit Ecoli IntAct,PPI,SPA1354,SPA1956,Q5PHH5,Q5PG50,623,3726\nbirA,bioC,Ecoli,Transcriptional_regulatory,SPA3977,SPA1956,Q5PK77,Q5PG50,1145,3726'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PG50",
                                         name: "bioC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

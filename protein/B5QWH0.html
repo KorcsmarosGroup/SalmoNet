@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cydA,cydB,STM,Metabolic\nSEN1244,cydA,STM,Metabolic\nSEN1245,cydA,STM,Metabolic\ncydA,cydB,IntAct,PPI\ncydA,ybgT,IntAct,PPI\ncydA,yhcB,IntAct,PPI\nSEN1245,cydA,IntAct,PPI\nfnr,cydA,Ecoli,Transcriptional_regulatory\nfruR,cydA,Ecoli,Transcriptional_regulatory\nfis,cydA,Salm,Transcriptional_regulatory\narcA,cydA,Ecoli,Transcriptional_regulatory'
+                        data: 'cydA,cydB,STM,Metabolic,SEN0690,SEN0691,B5QWH0,B5QWH1,288,1849\nSEN1244,cydA,STM,Metabolic,SEN1244,SEN0690,B5R2X6,B5QWH0,908,288\nSEN1245,cydA,STM,Metabolic,SEN1245,SEN0690,B5R2X7,B5QWH0,950,288\ncydA,cydB,IntAct,PPI,SEN0690,SEN0691,B5QWH0,B5QWH1,288,1849\ncydA,ybgT,IntAct,PPI,SEN0690,SEN0692,B5QWH0,B5QX18,288,3674\ncydA,yhcB,IntAct,PPI,SEN0690,SEN3180,B5QWH0,B5R0M0,288,2099\nSEN1245,cydA,IntAct,PPI,SEN1245,SEN0690,B5R2X7,B5QWH0,950,288\nfnr,cydA,Ecoli,Transcriptional_regulatory,SEN1371,SEN0690,B5R4D2,B5QWH0,147,288\nfruR,cydA,Ecoli,Transcriptional_regulatory,SEN0119,SEN0690,B5R2L4,B5QWH0,191,288\nfis,cydA,Salm,Transcriptional_regulatory,SEN3219,SEN0690,B5R1C8,B5QWH0,1300,288\narcA,cydA,Ecoli,Transcriptional_regulatory,SEN4354,SEN0690,B5R3D0,B5QWH0,2438,288'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QWH0",
                                         name: "cydA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

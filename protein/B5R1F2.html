@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpoZ,rpoA,BioModels,Metabolic\nrpoB,rpoA,BioModels,Metabolic\npnp,rpoA,BioModels,Metabolic\nrpoZ,rpoA,IntAct Interactome3d,PPI\nyidC,rpoA,IntAct,PPI\nrpoB,rpoA,IntAct Interactome3d,PPI\nrpoD,rpoA,IntAct Interactome3d,PPI\nrpoA,thiJ,Biogrid,PPI\nrpoA,marA,Interactome3d,PPI\nrpoA,nusA,IntAct Interactome3d,PPI\nrpoA,crp,Interactome3d,PPI\nrplB,rpoA,IntAct,PPI'
+                        data: 'rpoZ,rpoA,BioModels,Metabolic,SEN3563,SEN3243,B5QTY1,B5R1F2,2062,1508\nrpoB,rpoA,BioModels,Metabolic,SEN3937,SEN3243,B5QYD8,B5R1F2,2611,1508\npnp,rpoA,BioModels,Metabolic,SEN3117,SEN3243,B5QZV4,B5R1F2,4477,1508\nrpoZ,rpoA,IntAct Interactome3d,PPI,SEN3563,SEN3243,B5QTY1,B5R1F2,2062,1508\nyidC,rpoA,IntAct,PPI,SEN3659,SEN3243,B5QUQ4,B5R1F2,3987,1508\nrpoB,rpoA,IntAct Interactome3d,PPI,SEN3937,SEN3243,B5QYD8,B5R1F2,2611,1508\nrpoD,rpoA,IntAct Interactome3d,PPI,SEN3054,SEN3243,B5QZ47,B5R1F2,3123,1508\nrpoA,thiJ,Biogrid,PPI,SEN3243,SEN0415,B5R1F2,B5QTI1,1508,1011\nrpoA,marA,Interactome3d,PPI,SEN3243,SEN1532,B5R1F2,B5QUA7,1508,2229\nrpoA,nusA,IntAct Interactome3d,PPI,SEN3243,SEN3122,B5R1F2,B5QZV9,1508,2754\nrpoA,crp,Interactome3d,PPI,SEN3243,SEN3293,B5R1F2,B5R2B6,1508,2484\nrplB,rpoA,IntAct,PPI,SEN3265,SEN3243,B5R288,B5R1F2,246,1508'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R1F2",
                                         name: "rpoA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

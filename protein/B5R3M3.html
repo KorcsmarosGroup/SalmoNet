@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'adhP,adhE,STM,Metabolic\nSEN1510,adhE,BioModels,Metabolic\nrspB,adhE,BioModels,Metabolic\nadhE,fadA,BioModels,Metabolic\nadhE,yqeF,BioModels,Metabolic\nadhE,SEN0803,BioModels,Metabolic\nadhE,fadI,BioModels,Metabolic\nadhE,fadE,BioModels,Metabolic\nadhE,eutG,STM,Metabolic\nadhE,eutE,STM,Metabolic\nSEN1425,adhE,STM,Metabolic\nadhE,thiJ,Biogrid,PPI\nadhE,dnaA,IntAct,PPI\nadhE,yidC,IntAct,PPI\nfnr,adhE,Ecoli,Transcriptional_regulatory\nfruR,adhE,Ecoli,Transcriptional_regulatory\nnarL,adhE,Ecoli,Transcriptional_regulatory\nfis,adhE,Ecoli,Transcriptional_regulatory\nlrp,adhE,Ecoli,Transcriptional_regulatory'
+                        data: 'adhP,adhE,STM,Metabolic,SEN1488,SEN1287,B5QTN5,B5R3M3,1102,205\nSEN1510,adhE,BioModels,Metabolic,SEN1510,SEN1287,B5QTQ5,B5R3M3,1953,205\nrspB,adhE,BioModels,Metabolic,SEN1544,SEN1287,B5QUC0,B5R3M3,1953,205\nadhE,fadA,BioModels,Metabolic,SEN1287,SEN3776,B5R3M3,B5QW84,205,2432\nadhE,yqeF,BioModels,Metabolic,SEN1287,SEN2862,B5R3M3,B5QWV1,205,2593\nadhE,SEN0803,BioModels,Metabolic,SEN1287,SEN0803,B5R3M3,B5QXW1,205,3331\nadhE,fadI,BioModels,Metabolic,SEN1287,SEN2371,B5R3M3,B5R3S0,205,2474\nadhE,fadE,BioModels,Metabolic,SEN1287,SEN0292,B5R3M3,B5R469,205,1018\nadhE,eutG,STM,Metabolic,SEN1287,SEN2441,B5R3M3,B5R4G9,205,348\nadhE,eutE,STM,Metabolic,SEN1287,SEN2443,B5R3M3,B5R4H1,205,3542\nSEN1425,adhE,STM,Metabolic,SEN1425,SEN1287,B5R530,B5R3M3,3871,205\nadhE,thiJ,Biogrid,PPI,SEN1287,SEN0415,B5R3M3,B5QTI1,205,1011\nadhE,dnaA,IntAct,PPI,SEN1287,SEN3655,B5R3M3,B5QUQ0,205,195\nadhE,yidC,IntAct,PPI,SEN1287,SEN3659,B5R3M3,B5QUQ4,205,3987\nfnr,adhE,Ecoli,Transcriptional_regulatory,SEN1371,SEN1287,B5R4D2,B5R3M3,147,205\nfruR,adhE,Ecoli,Transcriptional_regulatory,SEN0119,SEN1287,B5R2L4,B5R3M3,191,205\nnarL,adhE,Ecoli,Transcriptional_regulatory,SEN1272,SEN1287,B5R3K8,B5R3M3,265,205\nfis,adhE,Ecoli,Transcriptional_regulatory,SEN3219,SEN1287,B5R1C8,B5R3M3,1300,205\nlrp,adhE,Ecoli,Transcriptional_regulatory,SEN0863,SEN1287,B5QYP0,B5R3M3,3848,205'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R3M3",
                                         name: "adhE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

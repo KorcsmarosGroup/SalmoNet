@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gsk,SeHA_C0927,Lit Ecoli IntAct,PPI\nrbsB,SeHA_C0927,Lit Ecoli IntAct,PPI\nSeHA_C0927,leuS,Lit Ecoli IntAct,PPI\nSeHA_C0927,topA,Lit Ecoli IntAct,PPI\nligA,SeHA_C0927,Lit Ecoli IntAct,PPI\nileS,SeHA_C0927,Lit Ecoli IntAct,PPI\nhybD,SeHA_C0927,Lit Ecoli IntAct,PPI'
+                        data: 'gsk,SeHA_C0927,Lit Ecoli IntAct,PPI,SeHA_C0598,SeHA_C0927,B4T9I4,B4TC54,84,3202\nrbsB,SeHA_C0927,Lit Ecoli IntAct,PPI,SeHA_C4217,SeHA_C0927,B4TAZ3,B4TC54,1348,3202\nSeHA_C0927,leuS,Lit Ecoli IntAct,PPI,SeHA_C0927,SeHA_C0764,B4TC54,B4TB51,3202,1322\nSeHA_C0927,topA,Lit Ecoli IntAct,PPI,SeHA_C0927,SeHA_C1904,B4TC54,B4TJJ7,3202,420\nligA,SeHA_C0927,Lit Ecoli IntAct,PPI,SeHA_C2686,SeHA_C0927,B4TCF6,B4TC54,2114,3202\nileS,SeHA_C0927,Lit Ecoli IntAct,PPI,SeHA_C0049,SeHA_C0927,B4TIE5,B4TC54,3113,3202\nhybD,SeHA_C0927,Lit Ecoli IntAct,PPI,SeHA_C1987,SeHA_C0927,B4TKC0,B4TC54,543,3202'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TC54",
                                         name: "SeHA_C0927",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

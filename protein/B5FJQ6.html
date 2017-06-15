@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpe,SeD_A4479,STM,Metabolic\nrpe,SeD_A1725,STM,Metabolic\nrpe,proS,IntAct,PPI\nrpe,flgC,IntAct,PPI\nrpe,SeD_A3975,Lit Ecoli IntAct,PPI\nrpe,dnaN,Lit Ecoli IntAct,PPI\nrpe,fliR,IntAct,PPI\nrpe,fliN,IntAct,PPI\nrpe,SeD_A1281,IntAct,PPI\nrpe,fliS,IntAct,PPI\nrpe,cheR,IntAct,PPI\nrpoE,rpe,IntAct,PPI\nfliM,rpe,IntAct,PPI\nfliI,rpe,IntAct,PPI'
+                        data: 'rpe,SeD_A4479,STM,Metabolic,SeD_A3851,SeD_A4479,B5FJQ6,B5FPS8,3757,601\nrpe,SeD_A1725,STM,Metabolic,SeD_A3851,SeD_A1725,B5FJQ6,B5FUS9,3757,2939\nrpe,proS,IntAct,PPI,SeD_A3851,SeD_A0264,B5FJQ6,B5FJ42,3757,357\nrpe,flgC,IntAct,PPI,SeD_A3851,SeD_A2197,B5FJQ6,B5FKD1,3757,1694\nrpe,SeD_A3975,Lit Ecoli IntAct,PPI,SeD_A3851,SeD_A3975,B5FJQ6,B5FKM1,3757,1691\nrpe,dnaN,Lit Ecoli IntAct,PPI,SeD_A3851,SeD_A4229,B5FJQ6,B5FN09,3757,3473\nrpe,fliR,IntAct,PPI,SeD_A3851,SeD_A1261,B5FJQ6,B5FRV0,3757,2349\nrpe,fliN,IntAct,PPI,SeD_A3851,SeD_A1265,B5FJQ6,B5FRV4,3757,1656\nrpe,SeD_A1281,IntAct,PPI,SeD_A3851,SeD_A1281,B5FJQ6,B5FRX0,3757,3288\nrpe,fliS,IntAct,PPI,SeD_A3851,SeD_A1282,B5FJQ6,B5FRX1,3757,796\nrpe,cheR,IntAct,PPI,SeD_A3851,SeD_A1327,B5FJQ6,B5FSL1,3757,692\nrpoE,rpe,IntAct,PPI,SeD_A2966,SeD_A3851,B5FRD1,B5FJQ6,3460,3757\nfliM,rpe,IntAct,PPI,SeD_A1266,SeD_A3851,B5FRV5,B5FJQ6,1344,3757\nfliI,rpe,IntAct,PPI,SeD_A1270,SeD_A3851,B5FRV9,B5FJQ6,703,3757'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FJQ6",
                                         name: "rpe",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

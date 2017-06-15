@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gyrA,dnaK,IntAct,PPI\ngyrA,rpmJ,IntAct,PPI\ngyrA,rpmA,IntAct,PPI\ngyrA,parC,IntAct Interactome3d,PPI\ngyrA,cheY,IntAct,PPI\ngyrA,marR,IntAct,PPI\nsbmC,gyrA,IntAct,PPI\nflgM,gyrA,IntAct,PPI\nfliG,gyrA,IntAct,PPI\nfliS,gyrA,IntAct,PPI\nrpsS,gyrA,IntAct,PPI\ngidB,gyrA,IntAct,PPI\ngyrB,gyrA,IntAct Interactome3d,PPI\nfis,gyrA,Ecoli,Transcriptional_regulatory\ncspA,gyrA,Ecoli,Transcriptional_regulatory'
+                        data: 'gyrA,dnaK,IntAct,PPI,SPA0592,SPA0012,Q5PCN8,Q5PDJ5,3730,2512\ngyrA,rpmJ,IntAct,PPI,SPA0592,SPA3285,Q5PCN8,Q5PK05,3730,4358\ngyrA,rpmA,IntAct,PPI,SPA0592,SPA3170,Q5PCN8,Q5PLB5,3730,27\ngyrA,parC,IntAct Interactome3d,PPI,SPA0592,SPA3043,Q5PCN8,Q5PMS2,3730,3879\ngyrA,cheY,IntAct,PPI,SPA0592,SPA0952,Q5PCN8,Q5PMY2,3730,2383\ngyrA,marR,IntAct,PPI,SPA0592,SPA1335,Q5PCN8,Q5PN93,3730,764\nsbmC,gyrA,IntAct,PPI,SPA0810,SPA0592,Q5PDQ2,Q5PCN8,2262,3730\nflgM,gyrA,IntAct,PPI,SPA1679,SPA0592,Q5PGV6,Q5PCN8,3697,3730\nfliG,gyrA,IntAct,PPI,SPA0900,SPA0592,Q5PHZ5,Q5PCN8,2795,3730\nfliS,gyrA,IntAct,PPI,SPA0909,SPA0592,Q5PI04,Q5PCN8,796,3730\nrpsS,gyrA,IntAct,PPI,SPA3302,SPA0592,Q5PIV6,Q5PCN8,3017,3730\ngidB,gyrA,IntAct,PPI,SPA3712,SPA0592,Q5PJX2,Q5PCN8,1385,3730\ngyrB,gyrA,IntAct Interactome3d,PPI,SPA3679,SPA0592,Q5PKU9,Q5PCN8,962,3730\nfis,gyrA,Ecoli,Transcriptional_regulatory,SPA3252,SPA0592,Q5PJW3,Q5PCN8,1300,3730\ncspA,gyrA,Ecoli,Transcriptional_regulatory,SPA3501,SPA0592,Q5PLL7,Q5PCN8,2070,3730'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PCN8",
                                         name: "gyrA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

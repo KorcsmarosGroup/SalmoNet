@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tsr,cheZ,IntAct,PPI\natpH,cheZ,Lit Ecoli IntAct,PPI\nmutM,cheZ,Lit Ecoli IntAct,PPI\nfliE,cheZ,IntAct,PPI\ncheA,cheZ,IntAct,PPI\ncheM,cheZ,IntAct,PPI\ncheR,cheZ,IntAct,PPI\ncheY,cheZ,IntAct Interactome3d,PPI'
+                        data: 'tsr,cheZ,IntAct,PPI,SC4385,SC1922,Q57G71,Q57N83,1740,1114\natpH,cheZ,Lit Ecoli IntAct,PPI,SC3780,SC1922,Q57HX6,Q57N83,3635,1114\nmutM,cheZ,Lit Ecoli IntAct,PPI,SC3649,SC1922,Q57IA7,Q57N83,324,1114\nfliE,cheZ,IntAct,PPI,SC1972,SC1922,Q57N33,Q57N83,633,1114\ncheA,cheZ,IntAct,PPI,SC1928,SC1922,Q57N77,Q57N83,1259,1114\ncheM,cheZ,IntAct,PPI,SC1926,SC1922,Q57N79,Q57N83,1740,1114\ncheR,cheZ,IntAct,PPI,SC1925,SC1922,Q57N80,Q57N83,692,1114\ncheY,cheZ,IntAct Interactome3d,PPI,SC1923,SC1922,Q57N82,Q57N83,2383,1114'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57N83",
                                         name: "cheZ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

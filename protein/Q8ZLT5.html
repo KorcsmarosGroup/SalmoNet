@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'trpA,mtr,STM,Metabolic\ntrpB,mtr,STM,Metabolic\ntrpS,mtr,STM,Metabolic\naroP,mtr,STM,Metabolic\nmtr,ompF,STM,Metabolic\nmtr,acrF,STM,Metabolic\nmtr,acrE,STM,Metabolic\ntyrR,mtr,Ecoli,Transcriptional_regulatory\ntrpR,mtr,Ecoli,Transcriptional_regulatory'
+                        data: 'trpA,mtr,STM,Metabolic,STM1727,STM3279,P00929,Q8ZLT5,2089,1800\ntrpB,mtr,STM,Metabolic,STM1726,STM3279,P0A2K1,Q8ZLT5,955,1800\ntrpS,mtr,STM,Metabolic,STM3481,STM3279,P0A2P2,Q8ZLT5,2807,1800\naroP,mtr,STM,Metabolic,STM0150,STM3279,P0CK99,Q8ZLT5,3270,1800\nmtr,ompF,STM,Metabolic,STM3279,STM0999,Q8ZLT5,P37432,1800,2449\nmtr,acrF,STM,Metabolic,STM3279,STM3391,Q8ZLT5,Q8ZLN4,1800,1917\nmtr,acrE,STM,Metabolic,STM3279,STM3390,Q8ZLT5,Q8ZLN5,1800,2645\ntyrR,mtr,Ecoli,Transcriptional_regulatory,STM1683,STM3279,P0A2D7,Q8ZLT5,760,1800\ntrpR,mtr,Ecoli,Transcriptional_regulatory,STM4583,STM3279,P37444,Q8ZLT5,2479,1800'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZLT5",
                                         name: "mtr",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fldA,nifJ,STM,Metabolic\nnifJ,SeD_A3381,STM,Metabolic\nflgJ,nifJ,IntAct,PPI\nflgH,nifJ,IntAct,PPI\nSeD_A4730,nifJ,IntAct,PPI\nSeD_A1319,nifJ,IntAct,PPI\ncheR,nifJ,IntAct,PPI\nSeD_A1333,nifJ,IntAct,PPI\ntopA,nifJ,IntAct,PPI\nSeD_A4660,nifJ,Ecoli,Transcriptional_regulatory'
+                        data: 'fldA,nifJ,STM,Metabolic,SeD_A0801,SeD_A1688,B5FNC8,B5FUP6,564,3295\nnifJ,SeD_A3381,STM,Metabolic,SeD_A1688,SeD_A3381,B5FUP6,B5FUF7,3295,3198\nflgJ,nifJ,IntAct,PPI,SeD_A2190,SeD_A1688,B5FKC4,B5FUP6,2165,3295\nflgH,nifJ,IntAct,PPI,SeD_A2192,SeD_A1688,B5FKC6,B5FUP6,224,3295\nSeD_A4730,nifJ,IntAct,PPI,SeD_A4730,SeD_A1688,B5FRK5,B5FUP6,2668,3295\nSeD_A1319,nifJ,IntAct,PPI,SeD_A1319,SeD_A1688,B5FSK3,B5FUP6,1977,3295\ncheR,nifJ,IntAct,PPI,SeD_A1327,SeD_A1688,B5FSL1,B5FUP6,692,3295\nSeD_A1333,nifJ,IntAct,PPI,SeD_A1333,SeD_A1688,B5FSL7,B5FUP6,758,3295\ntopA,nifJ,IntAct,PPI,SeD_A1614,SeD_A1688,B5FU77,B5FUP6,420,3295\nSeD_A4660,nifJ,Ecoli,Transcriptional_regulatory,SeD_A4660,SeD_A1688,B5FQT8,B5FUP6,451,3295'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FUP6",
                                         name: "nifJ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'aceK,ada,Lit Ecoli IntAct,PPI\nada,pduN,Lit Ecoli IntAct,PPI\nada,eutN,Lit Ecoli IntAct,PPI\nada,yfgE,Lit Ecoli IntAct,PPI\nrpoD,ada,Lit Ecoli IntAct,PPI\nada,alkA,Ecoli,Transcriptional_regulatory\nada,yojI,Ecoli,Transcriptional_regulatory\nada,alkB,Ecoli,Transcriptional_regulatory\nada,ada,Ecoli,Transcriptional_regulatory\nada,ada,Ecoli,Transcriptional_regulatory\nlrp,ada,Ecoli,Transcriptional_regulatory'
+                        data: 'aceK,ada,Lit Ecoli IntAct,PPI,SG4045,SG2293,B5R7Q4,B5RC91,3882,2884\nada,pduN,Lit Ecoli IntAct,PPI,SG2293,SG2077,B5RC91,B5RBN9,2884,3646\nada,eutN,Lit Ecoli IntAct,PPI,SG2293,SG2495,B5RC91,B5RCT5,2884,3646\nada,yfgE,Lit Ecoli IntAct,PPI,SG2293,SG2528,B5RC91,B5RCW8,2884,1743\nrpoD,ada,Lit Ecoli IntAct,PPI,SG3108,SG2293,B5REG9,B5RC91,3123,2884\nada,alkA,Ecoli,Transcriptional_regulatory,SG2293,SG2156,B5RC91,B5RBW5,2884,1556\nada,yojI,Ecoli,Transcriptional_regulatory,SG2293,SG2291,B5RC91,B5RC89,2884,129\nada,alkB,Ecoli,Transcriptional_regulatory,SG2293,SG2292,B5RC91,B5RC90,2884,3290\nada,ada,Ecoli,Transcriptional_regulatory,SG2293,SG2293,B5RC91,B5RC91,2884,2884\nada,ada,Ecoli,Transcriptional_regulatory,SG2293,SG2293,B5RC91,B5RC91,2884,2884\nlrp,ada,Ecoli,Transcriptional_regulatory,SG0902,SG2293,B5R8H7,B5RC91,3848,2884'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RC91",
                                         name: "ada",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

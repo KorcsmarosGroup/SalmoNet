@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'aceE,lpdA,STM BioModels,Metabolic\naceF,lpdA,STM BioModels,Metabolic\nlpdA,ilvE,BioModels,Metabolic\nlpdA,sucA,STM BioModels,Metabolic\nlpdA,sucB,STM BioModels,Metabolic\nlpdA,SNSL254_A0928,BioModels,Metabolic\ngcvP,lpdA,STM BioModels,Metabolic\ngcvH,lpdA,STM,Metabolic\ngcvT,lpdA,STM,Metabolic\nlpdA,aceF,Lit Ecoli IntAct Interactome3d,PPI\nlpdA,sucB,Lit Ecoli IntAct Interactome3d,PPI'
+                        data: 'aceE,lpdA,STM BioModels,Metabolic,SNSL254_A0165,SNSL254_A0167,B4SU74,B4SU76,2895,3188\naceF,lpdA,STM BioModels,Metabolic,SNSL254_A0166,SNSL254_A0167,B4SU75,B4SU76,68,3188\nlpdA,ilvE,BioModels,Metabolic,SNSL254_A0167,SNSL254_A4185,B4SU76,B4SZ16,3188,1118\nlpdA,sucA,STM BioModels,Metabolic,SNSL254_A0167,SNSL254_A0795,B4SU76,B4SZE0,3188,1016\nlpdA,sucB,STM BioModels,Metabolic,SNSL254_A0167,SNSL254_A0796,B4SU76,B4SZE1,3188,2189\nlpdA,SNSL254_A0928,BioModels,Metabolic,SNSL254_A0167,SNSL254_A0928,B4SU76,B4T0B9,3188,3331\ngcvP,lpdA,STM BioModels,Metabolic,SNSL254_A3288,SNSL254_A0167,B4T548,B4SU76,836,3188\ngcvH,lpdA,STM,Metabolic,SNSL254_A3289,SNSL254_A0167,B4T549,B4SU76,704,3188\ngcvT,lpdA,STM,Metabolic,SNSL254_A3290,SNSL254_A0167,B4T550,B4SU76,1583,3188\nlpdA,aceF,Lit Ecoli IntAct Interactome3d,PPI,SNSL254_A0167,SNSL254_A0166,B4SU76,B4SU75,3188,68\nlpdA,sucB,Lit Ecoli IntAct Interactome3d,PPI,SNSL254_A0167,SNSL254_A0796,B4SU76,B4SZE1,3188,2189'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4SU76",
                                         name: "lpdA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

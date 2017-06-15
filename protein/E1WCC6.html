@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glpA,glpC,STM,Metabolic\nglpB,glpC,STM,Metabolic\nglpC,glpD,STM,Metabolic\nglpC,uvrB,Lit Ecoli IntAct,PPI\nglpC,kdgK,IntAct,PPI\nfnr,glpC,Ecoli,Transcriptional_regulatory\nfis,glpC,Ecoli,Transcriptional_regulatory\ncap,glpC,Ecoli,Transcriptional_regulatory'
+                        data: 'glpA,glpC,STM,Metabolic,SL1344_2253,SL1344_2255,E1WCC4,E1WCC6,954,2998\nglpB,glpC,STM,Metabolic,SL1344_2254,SL1344_2255,E1WCC5,E1WCC6,1890,2998\nglpC,glpD,STM,Metabolic,SL1344_2255,SL1344_3493,E1WCC6,E1WIV2,2998,3182\nglpC,uvrB,Lit Ecoli IntAct,PPI,SL1344_2255,SL1344_0775,E1WCC6,E1W9T6,2998,1831\nglpC,kdgK,IntAct,PPI,SL1344_2255,SL1344_3577,E1WCC6,E1WD42,2998,3312\nfnr,glpC,Ecoli,Transcriptional_regulatory,SL1344_1591,SL1344_2255,E1WBZ1,E1WCC6,147,2998\nfis,glpC,Ecoli,Transcriptional_regulatory,SL1344_3358,SL1344_2255,E1WIG8,E1WCC6,1300,2998\ncap,glpC,Ecoli,Transcriptional_regulatory,SL1344_3433,SL1344_2255,E1WIP3,E1WCC6,2484,2998'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WCC6",
                                         name: "glpC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

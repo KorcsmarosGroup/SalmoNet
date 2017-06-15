@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'leuB,leuD,BioModels,Metabolic\nleuC,leuB,BioModels,Metabolic\ntyrB,leuB,STM,Metabolic\nilvE,leuB,STM BioModels,Metabolic\nleuB,ilvI,Lit Ecoli IntAct,PPI\nyafJ,leuB,Lit Ecoli IntAct,PPI'
+                        data: 'leuB,leuD,BioModels,Metabolic,SPA0114,SPA0112,Q5PDG2,Q5PDG4,3616,3377\nleuC,leuB,BioModels,Metabolic,SPA0113,SPA0114,Q5PDG3,Q5PDG2,3973,3616\ntyrB,leuB,STM,Metabolic,SPA4065,SPA0114,Q5PIW9,Q5PDG2,1188,3616\nilvE,leuB,STM BioModels,Metabolic,SPA3742,SPA0114,Q5PJY3,Q5PDG2,1118,3616\nleuB,ilvI,Lit Ecoli IntAct,PPI,SPA0114,SPA0118,Q5PDG2,Q5PDG8,3616,3747\nyafJ,leuB,Lit Ecoli IntAct,PPI,SPA2444,SPA0114,Q5PF74,Q5PDG2,328,3616'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PDG2",
                                         name: "leuB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

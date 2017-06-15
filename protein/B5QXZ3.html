@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'flgE,flgM,IntAct,PPI\nflgM,trmB,IntAct,PPI\nflgM,fliA,Lit Ecoli IntAct Interactome3d,PPI\nflgM,cheA,IntAct,PPI\nflgM,gyrA,IntAct,PPI\nflgM,nrdB,IntAct,PPI\nyjeK,flgM,IntAct,PPI\nfliT,flgM,IntAct,PPI\nflgM,fliS,IntAct,PPI'
+                        data: 'flgE,flgM,IntAct,PPI,SEN1871,SEN1876,B5QXY8,B5QXZ3,1912,3697\nflgM,trmB,IntAct,PPI,SEN1876,SEN2952,B5QXZ3,B5QY85,3697,941\nflgM,fliA,Lit Ecoli IntAct Interactome3d,PPI,SEN1876,SEN1051,B5QXZ3,B5R101,3697,678\nflgM,cheA,IntAct,PPI,SEN1876,SEN1082,B5QXZ3,B5R130,3697,1259\nflgM,gyrA,IntAct,PPI,SEN1876,SEN2254,B5QXZ3,B5R245,3697,3730\nflgM,nrdB,IntAct,PPI,SEN1876,SEN2260,B5QXZ3,B5R251,3697,1760\nyjeK,flgM,IntAct,PPI,SEN4103,SEN1876,B5R008,B5QXZ3,2668,3697\nfliT,flgM,IntAct,PPI,SEN1046,SEN1876,B5R0Z6,B5QXZ3,3288,3697\nflgM,fliS,IntAct,PPI,SEN1876,SEN1047,B5QXZ3,B5R0Z7,3697,796'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QXZ3",
                                         name: "flgM",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

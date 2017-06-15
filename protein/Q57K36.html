@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'oat,speB,BioModels,Metabolic\nspeB,adi,STM BioModels,Metabolic\nspeB,speA,STM BioModels,Metabolic\nspeG,speB,BioModels,Metabolic\ndapD,speB,IntAct,PPI\naraC,speB,Salm,Transcriptional_regulatory'
+                        data: 'oat,speB,BioModels,Metabolic,SC3165,SC3020,Q57JP1,Q57K36,438,3183\nspeB,adi,STM BioModels,Metabolic,SC3020,SC4175,Q57K36,Q57GT1,3183,309\nspeB,speA,STM BioModels,Metabolic,SC3020,SC3026,Q57K36,Q57K30,3183,2037\nspeG,speB,BioModels,Metabolic,SC1519,SC3020,Q57PD6,Q57K36,3028,3183\ndapD,speB,IntAct,PPI,SC0213,SC3020,Q57T42,Q57K36,3089,3183\naraC,speB,Salm,Transcriptional_regulatory,SC0098,SC3020,Q57TF7,Q57K36,2319,3183'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57K36",
                                         name: "speB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tig,metK,IntAct,PPI\nfliI,metK,IntAct,PPI\nflgF,metK,IntAct,PPI\nmetK,fliR,IntAct,PPI\nmetK,fliT,IntAct,PPI\nmetK,cheA,IntAct,PPI\nmetK,groEL,IntAct,PPI\nmetJ,metK,Ecoli,Transcriptional_regulatory'
+                        data: 'tig,metK,IntAct,PPI,SG0458,SG2984,B5R6U8,B5RE50,3100,93\nfliI,metK,IntAct,PPI,SG1083,SG2984,B5R7G0,B5RE50,703,93\nflgF,metK,IntAct,PPI,SG1944,SG2984,B5RBC3,B5RE50,644,93\nmetK,fliR,IntAct,PPI,SG2984,SG1074,B5RE50,B5R7F1,93,2349\nmetK,fliT,IntAct,PPI,SG2984,SG1093,B5RE50,B5R7H0,93,3288\nmetK,cheA,IntAct,PPI,SG2984,SG1130,B5RE50,B5R8B6,93,1259\nmetK,groEL,IntAct,PPI,SG2984,SG4173,B5RE50,B5R991,93,1880\nmetJ,metK,Ecoli,Transcriptional_regulatory,SG3321,SG2984,B5RF72,B5RE50,2092,93'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RE50",
                                         name: "metK",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

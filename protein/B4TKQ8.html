@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SeHA_C1798,gph,STM,Metabolic\nugpQ,gph,Lit Ecoli IntAct,PPI\nglpQ,gph,IntAct,PPI\ngph,dnaN,IntAct,PPI\ngph,ubiE,Lit Ecoli IntAct,PPI\ngph,flgH,IntAct,PPI\ngph,trmB,IntAct,PPI\ngph,rpsS,IntAct,PPI'
+                        data: 'SeHA_C1798,gph,STM,Metabolic,SeHA_C1798,SeHA_C3788,B4TIP0,B4TKQ8,2644,1323\nugpQ,gph,Lit Ecoli IntAct,PPI,SeHA_C3865,SeHA_C3788,B4T886,B4TKQ8,216,1323\nglpQ,gph,IntAct,PPI,SeHA_C2522,SeHA_C3788,B4TBE9,B4TKQ8,473,1323\ngph,dnaN,IntAct,PPI,SeHA_C3788,SeHA_C4171,B4TKQ8,B4TAU8,1323,3473\ngph,ubiE,Lit Ecoli IntAct,PPI,SeHA_C3788,SeHA_C4297,B4TKQ8,B4TBR3,1323,1659\ngph,flgH,IntAct,PPI,SeHA_C3788,SeHA_C1292,B4TKQ8,B4TEV2,1323,224\ngph,trmB,IntAct,PPI,SeHA_C3788,SeHA_C3349,B4TKQ8,B4THJ5,1323,941\ngph,rpsS,IntAct,PPI,SeHA_C3788,SeHA_C3740,B4TKQ8,B4TKL1,1323,3017'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TKQ8",
                                         name: "gph",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

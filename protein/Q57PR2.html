@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'metB,sufS,BioModels,Metabolic\ntrxB,sufS,BioModels,Metabolic\nxseB,sufS,BioModels,Metabolic\ncrp,sufS,Lit Ecoli IntAct,PPI\nygbT,sufS,Lit Ecoli IntAct,PPI\nynhA,sufS,IntAct,PPI\nsufB,sufS,IntAct,PPI\nsufA,sufS,IntAct,PPI\nyfhP,sufS,Ecoli,Transcriptional_regulatory\nfur,sufS,Ecoli,Transcriptional_regulatory\nyjeB,sufS,Ecoli,Transcriptional_regulatory\noxyR,sufS,Ecoli,Transcriptional_regulatory'
+                        data: 'metB,sufS,BioModels,Metabolic,SC3991,SC1393,Q57HB5,Q57PR2,526,1741\ntrxB,sufS,BioModels,Metabolic,SC0912,SC1393,Q57R43,Q57PR2,3448,1741\nxseB,sufS,BioModels,Metabolic,SC0466,SC1393,Q57SD9,Q57PR2,2071,1741\ncrp,sufS,Lit Ecoli IntAct,PPI,SC3400,SC1393,Q57J06,Q57PR2,2484,1741\nygbT,sufS,Lit Ecoli IntAct,PPI,SC2870,SC1393,Q57KI6,Q57PR2,3242,1741\nynhA,sufS,IntAct,PPI,SC1394,SC1393,Q57PR1,Q57PR2,1450,1741\nsufB,sufS,IntAct,PPI,SC1390,SC1393,Q57PR5,Q57PR2,2832,1741\nsufA,sufS,IntAct,PPI,SC1389,SC1393,Q57PR6,Q57PR2,3904,1741\nyfhP,sufS,Ecoli,Transcriptional_regulatory,SC2538,SC1393,Q57LG8,Q57PR2,107,1741\nfur,sufS,Ecoli,Transcriptional_regulatory,SC0713,SC1393,Q57RP2,Q57PR2,552,1741\nyjeB,sufS,Ecoli,Transcriptional_regulatory,SC4243,SC1393,Q57GL3,Q57PR2,2218,1741\noxyR,sufS,Ecoli,Transcriptional_regulatory,SC4014,SC1393,Q57H92,Q57PR2,3398,1741'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57PR2",
                                         name: "sufS",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ubiG,gcd,BioModels,Metabolic\nubiG,ubiF,STM BioModels,Metabolic\nubiG,ubiB,STM BioModels,Metabolic\nubiH,ubiG,STM BioModels,Metabolic\nSeD_A2000,ubiG,Lit Ecoli IntAct,PPI\nSeD_A4146,ubiG,Lit Ecoli IntAct,PPI\nubiG,rplV,Lit Ecoli IntAct,PPI\nubiG,ubiH,Lit Ecoli IntAct,PPI\ntrxB,ubiG,Lit Ecoli IntAct,PPI\nputP,ubiG,Lit Ecoli IntAct,PPI\nSeD_A1603,ubiG,Lit Ecoli IntAct,PPI'
+                        data: 'ubiG,gcd,BioModels,Metabolic,SeD_A2620,SeD_A0184,B5FNR7,B5FIB7,1095,223\nubiG,ubiF,STM BioModels,Metabolic,SeD_A2620,SeD_A0777,B5FNR7,B5FNB3,1095,3010\nubiG,ubiB,STM BioModels,Metabolic,SeD_A2620,SeD_A4359,B5FNR7,B5FNW8,1095,2490\nubiH,ubiG,STM BioModels,Metabolic,SeD_A3395,SeD_A2620,B5FUH1,B5FNR7,2666,1095\nSeD_A2000,ubiG,Lit Ecoli IntAct,PPI,SeD_A2000,SeD_A2620,B5FJ96,B5FNR7,2926,1095\nSeD_A4146,ubiG,Lit Ecoli IntAct,PPI,SeD_A4146,SeD_A2620,B5FM84,B5FNR7,2310,1095\nubiG,rplV,Lit Ecoli IntAct,PPI,SeD_A2620,SeD_A3802,B5FNR7,B5FJK9,1095,3935\nubiG,ubiH,Lit Ecoli IntAct,PPI,SeD_A2620,SeD_A3395,B5FNR7,B5FUH1,1095,2666\ntrxB,ubiG,Lit Ecoli IntAct,PPI,SeD_A1023,SeD_A2620,B5FQ31,B5FNR7,3448,1095\nputP,ubiG,Lit Ecoli IntAct,PPI,SeD_A1200,SeD_A2620,B5FRQ0,B5FNR7,604,1095\nSeD_A1603,ubiG,Lit Ecoli IntAct,PPI,SeD_A1603,SeD_A2620,B5FU67,B5FNR7,1560,1095'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FNR7",
                                         name: "ubiG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

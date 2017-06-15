@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gpt,t3772,STM,Metabolic\ngpt,deoD,STM,Metabolic\ngpt,xapA,STM,Metabolic\ngpt,hpt,STM,Metabolic\ngpt,yaaF,STM,Metabolic\nguaA,gpt,STM,Metabolic\nphoP,gpt,Salm,Transcriptional_regulatory\nsprA,gpt,Salm,Transcriptional_regulatory'
+                        data: 'gpt,t3772,STM,Metabolic,t2533,t3772,P0A278,Q8XF42,762,3204\ngpt,deoD,STM,Metabolic,t2533,t4613,P0A278,Q8Z0U2,762,234\ngpt,xapA,STM,Metabolic,t2533,t0435,P0A278,Q8Z4W8,762,1707\ngpt,hpt,STM,Metabolic,t2533,t0175,P0A278,Q8Z9D9,762,4146\ngpt,yaaF,STM,Metabolic,t2533,t0053,P0A278,Q8Z9M9,762,643\nguaA,gpt,STM,Metabolic,t0347,t2533,Q8Z4Q3,P0A278,447,762\nphoP,gpt,Salm,Transcriptional_regulatory,t1689,t2533,Q8Z7H2,P0A278,1432,762\nsprA,gpt,Salm,Transcriptional_regulatory,t2769,t2533,Q8Z4A6,P0A278,1614,762'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A278",
                                         name: "gpt",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

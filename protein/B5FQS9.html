@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dnaG,ssb,IntAct,PPI\ndinG,ssb,IntAct,PPI\nssb,dnaE,IntAct,PPI\nssb,ung,IntAct Interactome3d,PPI\nssb,holC,IntAct,PPI\narcA,ssb,Ecoli,Transcriptional_regulatory\nlexA,ssb,Ecoli,Transcriptional_regulatory'
+                        data: 'dnaG,ssb,IntAct,PPI,SeD_A3566,SeD_A4650,B5FHU5,B5FQS9,2045,1835\ndinG,ssb,IntAct,PPI,SeD_A0916,SeD_A4650,B5FP86,B5FQS9,1948,1835\nssb,dnaE,IntAct,PPI,SeD_A4650,SeD_A0253,B5FQS9,B5FJ31,1835,587\nssb,ung,IntAct Interactome3d,PPI,SeD_A4650,SeD_A2975,B5FQS9,B5FRD9,1835,3638\nssb,holC,IntAct,PPI,SeD_A4650,SeD_A4862,B5FQS9,B5FSG9,1835,156\narcA,ssb,Ecoli,Transcriptional_regulatory,SeD_A5012,SeD_A4650,B5FU02,B5FQS9,2438,1835\nlexA,ssb,Ecoli,Transcriptional_regulatory,SeD_A4631,SeD_A4650,B5FQR1,B5FQS9,2732,1835'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FQS9",
                                         name: "ssb",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

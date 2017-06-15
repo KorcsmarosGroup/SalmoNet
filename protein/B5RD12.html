@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'nifS,thiI,STM BioModels,Metabolic\nnifS,thiF,STM,Metabolic\nnifS,SG3445,STM,Metabolic\nnifS,thiG,STM,Metabolic\nnifS,thiH,STM,Metabolic\nthiE,nifS,STM,Metabolic\nacpP,nifS,IntAct,PPI\nnifU,nifS,IntAct Interactome3d,PPI\nyhhP,nifS,Lit Ecoli IntAct Interactome3d,PPI'
+                        data: 'nifS,thiI,STM BioModels,Metabolic,SG2578,SG0436,B5RD12,B5R6S6,3518,2071\nnifS,thiF,STM,Metabolic,SG2578,SG3444,B5RD12,B5RFJ2,3518,1509\nnifS,SG3445,STM,Metabolic,SG2578,SG3445,B5RD12,B5RFJ3,3518,1494\nnifS,thiG,STM,Metabolic,SG2578,SG3446,B5RD12,B5RFJ4,3518,1749\nnifS,thiH,STM,Metabolic,SG2578,SG3447,B5RD12,B5RFJ5,3518,2016\nthiE,nifS,STM,Metabolic,SG3443,SG2578,B5RFJ1,B5RD12,307,3518\nacpP,nifS,IntAct,PPI,SG1926,SG2578,B5RBA6,B5RD12,883,3518\nnifU,nifS,IntAct Interactome3d,PPI,SG2577,SG2578,B5RD11,B5RD12,1181,3518\nyhhP,nifS,Lit Ecoli IntAct Interactome3d,PPI,SG3859,SG2578,B5RGU8,B5RD12,1725,3518'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RD12",
                                         name: "nifS",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'mpl,murB,STM,Metabolic\nmurF,mpl,STM,Metabolic\nldcA,mpl,STM,Metabolic\nmpl,SeHA_C3531,Lit Ecoli IntAct,PPI\nftsZ,mpl,Lit Ecoli IntAct,PPI\nfruR,mpl,Ecoli,Transcriptional_regulatory\ncrp,mpl,Ecoli,Transcriptional_regulatory'
+                        data: 'mpl,murB,STM,Metabolic,SeHA_C4836,SeHA_C4467,B4TFG1,B4TCR3,839,2595\nmurF,mpl,STM,Metabolic,SeHA_C0136,SeHA_C4836,B4TJ83,B4TFG1,2846,839\nldcA,mpl,STM,Metabolic,SeHA_C1998,SeHA_C4836,B4TKD0,B4TFG1,2164,839\nmpl,SeHA_C3531,Lit Ecoli IntAct,PPI,SeHA_C4836,SeHA_C3531,B4TFG1,B4TIW4,839,3148\nftsZ,mpl,Lit Ecoli IntAct,PPI,SeHA_C0145,SeHA_C4836,B4TJ92,B4TFG1,1789,839\nfruR,mpl,Ecoli,Transcriptional_regulatory,SeHA_C0130,SeHA_C4836,B4TJ77,B4TFG1,191,839\ncrp,mpl,Ecoli,Transcriptional_regulatory,SeHA_C3771,SeHA_C4836,B4TKP1,B4TFG1,2484,839'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4TFG1",
                                         name: "mpl",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

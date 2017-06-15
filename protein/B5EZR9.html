@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fadI,fadJ,STM BioModels,Metabolic\nfadA,fadJ,STM BioModels,Metabolic\nfadB,fadJ,STM,Metabolic\nmmsA,fadJ,BioModels,Metabolic\nfadR,fadJ,Ecoli,Transcriptional_regulatory\narcA,fadJ,Ecoli,Transcriptional_regulatory'
+                        data: 'fadI,fadJ,STM BioModels,Metabolic,SeAg_B2529,SeAg_B2528,B5EZS0,B5EZR9,2474,499\nfadA,fadJ,STM BioModels,Metabolic,SeAg_B4212,SeAg_B2528,B5EZV9,B5EZR9,2432,499\nfadB,fadJ,STM,Metabolic,SeAg_B4213,SeAg_B2528,B5EZW0,B5EZR9,1160,499\nmmsA,fadJ,BioModels,Metabolic,SeAg_B4703,SeAg_B2528,B5F3F0,B5EZR9,4605,499\nfadR,fadJ,Ecoli,Transcriptional_regulatory,SeAg_B1328,SeAg_B2528,B5F4E2,B5EZR9,397,499\narcA,fadJ,Ecoli,Transcriptional_regulatory,SeAg_B4922,SeAg_B2528,B5F555,B5EZR9,2438,499'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5EZR9",
                                         name: "fadJ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

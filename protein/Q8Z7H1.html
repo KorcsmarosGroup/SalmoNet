@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hisF,purB,BioModels,Metabolic\nhisH,purB,BioModels,Metabolic\npurH,purB,STM BioModels,Metabolic\npurN,purB,BioModels,Metabolic\npurT,purB,BioModels,Metabolic\npurB,purA,STM,Metabolic\npurB,purC,STM,Metabolic\nacpP,purB,IntAct,PPI'
+                        data: 'hisF,purB,BioModels,Metabolic,t0796,t1688,P0A1R3,Q8Z7H1,1098,486\nhisH,purB,BioModels,Metabolic,t0798,t1688,P0A1R5,Q8Z7H1,1699,486\npurH,purB,STM BioModels,Metabolic,t3455,t1688,Q8Z335,Q8Z7H1,603,486\npurN,purB,BioModels,Metabolic,t0357,t1688,Q8Z4R1,Q8Z7H1,3645,486\npurT,purB,BioModels,Metabolic,t0994,t1688,Q8Z5X3,Q8Z7H1,3737,486\npurB,purA,STM,Metabolic,t1688,t4417,Q8Z7H1,P65883,486,1431\npurB,purC,STM,Metabolic,t1688,t0372,Q8Z7H1,P65890,486,1843\nacpP,purB,IntAct,PPI,t1724,t1688,P0A6B2,Q8Z7H1,883,486'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z7H1",
                                         name: "purB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

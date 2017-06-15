@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'thyA,tmk,BioModels,Metabolic\nthyA,tdk,STM BioModels,Metabolic\nthyA,yggV,BioModels,Metabolic\nfolC,thyA,BioModels,Metabolic\nfolA,thyA,STM BioModels,Metabolic\ninvF,thyA,Salm,Transcriptional_regulatory'
+                        data: 'thyA,tmk,BioModels,Metabolic,STM3001,STM1200,Q8ZMA9,P65246,494,910\nthyA,tdk,STM BioModels,Metabolic,STM3001,STM1750,Q8ZMA9,Q7CQF3,494,72\nthyA,yggV,BioModels,Metabolic,STM3001,STM3103,Q8ZMA9,Q8ZM45,494,654\nfolC,thyA,BioModels,Metabolic,STM2365,STM3001,Q8ZNC0,Q8ZMA9,3264,494\nfolA,thyA,STM BioModels,Metabolic,STM0088,STM3001,Q8ZRW1,Q8ZMA9,1801,494\ninvF,thyA,Salm,Transcriptional_regulatory,STM2899,STM3001,P69343,Q8ZMA9,2003,494'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZMA9",
                                         name: "thyA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

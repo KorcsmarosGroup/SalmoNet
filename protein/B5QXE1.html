@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'acpP,fabG,STM,Metabolic\nfabG,fabF,STM BioModels,Metabolic\nfabG,fabH,STM BioModels,Metabolic\nfabG,fabB,STM BioModels,Metabolic\nfabA,fabG,STM,Metabolic\nlpxD,fabG,STM,Metabolic\nfabZ,fabG,STM,Metabolic\nlpxA,fabG,STM,Metabolic\ntrxA,fabG,IntAct,PPI\nfadR,fabG,Ecoli,Transcriptional_regulatory'
+                        data: 'acpP,fabG,STM,Metabolic,SEN1853,SEN1854,B5QXE0,B5QXE1,883,41\nfabG,fabF,STM BioModels,Metabolic,SEN1854,SEN1852,B5QXE1,B5QXD9,41,1982\nfabG,fabH,STM BioModels,Metabolic,SEN1854,SEN1856,B5QXE1,B5QXE3,41,38\nfabG,fabB,STM BioModels,Metabolic,SEN1854,SEN2360,B5QXE1,B5R3Q9,41,2227\nfabA,fabG,STM,Metabolic,SEN0932,SEN1854,B5QZF7,B5QXE1,1132,41\nlpxD,fabG,STM,Metabolic,SEN0233,SEN1854,B5R418,B5QXE1,4103,41\nfabZ,fabG,STM,Metabolic,SEN0234,SEN1854,B5R419,B5QXE1,3458,41\nlpxA,fabG,STM,Metabolic,SEN0235,SEN1854,B5R420,B5QXE1,2626,41\ntrxA,fabG,IntAct,PPI,SEN3721,SEN1854,B5QVH3,B5QXE1,3171,41\nfadR,fabG,Ecoli,Transcriptional_regulatory,SEN1232,SEN1854,B5R2W5,B5QXE1,397,41'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QXE1",
                                         name: "fabG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

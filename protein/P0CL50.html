@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'otsB,ptsI,STM,Metabolic\notsB,crr,STM,Metabolic\notsB,ptsH,STM,Metabolic\notsB,otsA,STM,Metabolic\ntreF,otsB,STM BioModels,Metabolic\nglgX,otsB,BioModels,Metabolic\ntreA,otsB,BioModels,Metabolic\nSTM1559,otsB,BioModels,Metabolic\nSTM1558,otsB,BioModels,Metabolic'
+                        data: 'otsB,ptsI,STM,Metabolic,STM1929,STM2432,P0CL50,P0A249,2624,1686\notsB,crr,STM,Metabolic,STM1929,STM2433,P0CL50,P0A283,2624,1728\notsB,ptsH,STM,Metabolic,STM1929,STM2431,P0CL50,P0AA07,2624,561\notsB,otsA,STM,Metabolic,STM1929,STM1928,P0CL50,P0CL06,2624,2772\ntreF,otsB,STM BioModels,Metabolic,STM3603,STM1929,Q8ZLC8,P0CL50,444,2624\nglgX,otsB,BioModels,Metabolic,STM3537,STM1929,Q8ZLG6,P0CL50,1239,2624\ntreA,otsB,BioModels,Metabolic,STM1796,STM1929,Q8ZP20,P0CL50,1468,2624\nSTM1559,otsB,BioModels,Metabolic,STM1559,STM1929,Q8ZPF1,P0CL50,2648,2624\nSTM1558,otsB,BioModels,Metabolic,STM1558,STM1929,Q8ZPF2,P0CL50,3850,2624'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0CL50",
                                         name: "otsB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

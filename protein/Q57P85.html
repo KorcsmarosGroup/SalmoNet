@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fdoH,fdnH,STM,Metabolic\nfdoI,fdnH,STM,Metabolic\nfdnH,fdnI,STM,Metabolic\nfdnH,fdnI,Interactome3d,PPI\nfnr,fdnH,Ecoli,Transcriptional_regulatory\nnarL,fdnH,Ecoli,Transcriptional_regulatory\nnarP,fdnH,Ecoli,Transcriptional_regulatory'
+                        data: 'fdoH,fdnH,STM,Metabolic,SC3926,SC1570,Q57HI0,Q57P85,3008,3962\nfdoI,fdnH,STM,Metabolic,SC3925,SC1570,Q57HI1,Q57P85,3772,3962\nfdnH,fdnI,STM,Metabolic,SC1570,SC1569,Q57P85,Q57P86,3962,1673\nfdnH,fdnI,Interactome3d,PPI,SC1570,SC1569,Q57P85,Q57P86,3962,1673\nfnr,fdnH,Ecoli,Transcriptional_regulatory,SC1656,SC1570,Q57NZ9,Q57P85,147,3962\nnarL,fdnH,Ecoli,Transcriptional_regulatory,SC1761,SC1570,Q57NP4,Q57P85,265,3962\nnarP,fdnH,Ecoli,Transcriptional_regulatory,SC2251,SC1570,Q57MA5,Q57P85,697,3962'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57P85",
                                         name: "fdnH",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

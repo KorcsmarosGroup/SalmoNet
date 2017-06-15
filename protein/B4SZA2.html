@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'amt,glnL,Lit Ecoli IntAct,PPI\nSNSL254_A0602,glnL,Lit Ecoli IntAct,PPI\nglnG,glnL,Lit Ecoli IntAct,PPI\nglnL,glnD,Lit Ecoli IntAct,PPI\nglnL,SNSL254_A0512,Lit Ecoli IntAct,PPI\nglnL,SNSL254_A4382,Lit Ecoli IntAct,PPI\nglnL,SNSL254_A2762,Lit Ecoli IntAct,PPI\nglnL,SNSL254_A2792,Lit Ecoli IntAct,PPI\nglnL,SNSL254_A1091,Lit Ecoli IntAct,PPI\nglnL,SNSL254_A1179,Lit Ecoli IntAct,PPI\nglnL,SNSL254_A2917,Lit Ecoli IntAct,PPI\nglnL,aspA,IntAct,PPI\nglnL,SNSL254_A4818,Lit Ecoli IntAct,PPI'
+                        data: 'amt,glnL,Lit Ecoli IntAct,PPI,SNSL254_A0513,SNSL254_A4288,B4SWV7,B4SZA2,2863,2959\nSNSL254_A0602,glnL,Lit Ecoli IntAct,PPI,SNSL254_A0602,SNSL254_A4288,B4SXQ4,B4SZA2,511,2959\nglnG,glnL,Lit Ecoli IntAct,PPI,SNSL254_A4287,SNSL254_A4288,B4SZA1,B4SZA2,474,2959\nglnL,glnD,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A0235,B4SZA2,B4SUZ6,2959,3020\nglnL,SNSL254_A0512,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A0512,B4SZA2,B4SWV6,2959,3436\nglnL,SNSL254_A4382,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A4382,B4SZA2,B4T042,2959,1273\nglnL,SNSL254_A2762,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A2762,B4SZA2,B4T1D8,2959,2233\nglnL,SNSL254_A2792,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A2792,B4SZA2,B4T1G4,2959,1273\nglnL,SNSL254_A1091,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A1091,B4SZA2,B4T1Y1,2959,1273\nglnL,SNSL254_A1179,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A1179,B4SZA2,B4T266,2959,1273\nglnL,SNSL254_A2917,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A2917,B4SZA2,B4T2D9,2959,1273\nglnL,aspA,IntAct,PPI,SNSL254_A4288,SNSL254_A4687,B4SZA2,B4T2N7,2959,1705\nglnL,SNSL254_A4818,Lit Ecoli IntAct,PPI,SNSL254_A4288,SNSL254_A4818,B4SZA2,B4T3L7,2959,2816'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4SZA2",
                                         name: "glnL",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

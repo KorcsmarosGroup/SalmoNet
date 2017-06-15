@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gcvH,gcvP,STM,Metabolic\ngcvP,lpdA,STM BioModels,Metabolic\ngcvP,glyA,BioModels,Metabolic\ngcvP,gcvT,STM BioModels,Metabolic\ngcvP,gcvH,Lit Ecoli IntAct,PPI\ngcvA,gcvP,Ecoli,Transcriptional_regulatory\npurR,gcvP,Ecoli,Transcriptional_regulatory'
+                        data: 'gcvH,gcvP,STM,Metabolic,SPA2922,SPA2921,Q5PJG5,Q5PJG6,704,836\ngcvP,lpdA,STM BioModels,Metabolic,SPA2921,SPA0158,Q5PJG6,Q5PD91,836,3188\ngcvP,glyA,BioModels,Metabolic,SPA2921,SPA0311,Q5PJG6,Q5PII3,836,2280\ngcvP,gcvT,STM BioModels,Metabolic,SPA2921,SPA2923,Q5PJG6,Q5PJG4,836,1583\ngcvP,gcvH,Lit Ecoli IntAct,PPI,SPA2921,SPA2922,Q5PJG6,Q5PJG5,836,704\ngcvA,gcvP,Ecoli,Transcriptional_regulatory,SPA2846,SPA2921,Q5PEM0,Q5PJG6,1529,836\npurR,gcvP,Ecoli,Transcriptional_regulatory,SPA1423,SPA2921,Q5PH15,Q5PJG6,2100,836'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PJG6",
                                         name: "gcvP",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'aceA,acnB,STM BioModels,Metabolic\nicdA,acnB,STM BioModels,Metabolic\nprpB,acnB,STM BioModels,Metabolic\nacnB,acnA,STM BioModels,Metabolic\nacnB,prpD,STM,Metabolic\nacnB,trxA,IntAct,PPI\nacnB,thiJ,Biogrid,PPI\nfis,acnB,Ecoli,Transcriptional_regulatory\narcA,acnB,Ecoli,Transcriptional_regulatory\ncrp,acnB,Ecoli,Transcriptional_regulatory'
+                        data: 'aceA,acnB,STM BioModels,Metabolic,SC4063,SC0157,Q57H43,Q57T98,1123,4241\nicdA,acnB,STM BioModels,Metabolic,SC1189,SC0157,Q57QB6,Q57T98,158,4241\nprpB,acnB,STM BioModels,Metabolic,SC0409,SC0157,Q57SJ6,Q57T98,919,4241\nacnB,acnA,STM BioModels,Metabolic,SC0157,SC1707,Q57T98,Q57NU8,4241,2511\nacnB,prpD,STM,Metabolic,SC0157,SC0411,Q57T98,Q57SJ4,4241,1198\nacnB,trxA,IntAct,PPI,SC0157,SC3821,Q57T98,Q57HT5,4241,3171\nacnB,thiJ,Biogrid,PPI,SC0157,SC0474,Q57T98,Q57SD1,4241,1011\nfis,acnB,Ecoli,Transcriptional_regulatory,SC3323,SC0157,Q57J83,Q57T98,1300,4241\narcA,acnB,Ecoli,Transcriptional_regulatory,SC4443,SC0157,Q57G13,Q57T98,2438,4241\ncrp,acnB,Ecoli,Transcriptional_regulatory,SC3400,SC0157,Q57J06,Q57T98,2484,4241'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57T98",
                                         name: "acnB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

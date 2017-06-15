@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'thiL,ymfB,STM,Metabolic\nthiL,thiK,STM BioModels,Metabolic\nthiL,thiE,STM BioModels,Metabolic\nmenD,thiL,STM,Metabolic\nthiL,stdA,Lit Ecoli IntAct,PPI\nthiL,yafJ,Lit Ecoli IntAct,PPI\nsbcD,thiL,Lit Ecoli IntAct,PPI'
+                        data: 'thiL,ymfB,STM,Metabolic,STM0419,STM1235,P55881,Q8ZPZ3,1729,477\nthiL,thiK,STM BioModels,Metabolic,STM0419,STM1208,P55881,Q8ZQ07,1729,3425\nthiL,thiE,STM BioModels,Metabolic,STM0419,STM4163,P55881,Q9L9I8,1729,307\nmenD,thiL,STM,Metabolic,STM2309,STM0419,Q8ZNE8,P55881,700,1729\nthiL,stdA,Lit Ecoli IntAct,PPI,STM0419,STM3029,P55881,Q8ZM89,1729,4451\nthiL,yafJ,Lit Ecoli IntAct,PPI,STM0419,STM0311,P55881,Q8ZRJ6,1729,328\nsbcD,thiL,Lit Ecoli IntAct,PPI,STM0396,STM0419,Q8ZRE2,P55881,2414,1729'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P55881",
                                         name: "thiL",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

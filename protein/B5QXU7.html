@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pflD,pflF,STM,Metabolic\npflC,pflF,STM,Metabolic\npflF,pflE,STM,Metabolic\npflA,pflF,STM,Metabolic\npflB,pflF,STM,Metabolic\ntdcE,pflF,STM,Metabolic\nSEN0551,pflF,Salm,Transcriptional_regulatory'
+                        data: 'pflD,pflF,STM,Metabolic,SEN3908,SEN0789,B5QXP6,B5QXU7,4150,2703\npflC,pflF,STM,Metabolic,SEN3909,SEN0789,B5QXP7,B5QXU7,3449,2703\npflF,pflE,STM,Metabolic,SEN0789,SEN0790,B5QXU7,B5QXU8,2703,3316\npflA,pflF,STM,Metabolic,SEN0874,SEN0789,B5QYQ0,B5QXU7,517,2703\npflB,pflF,STM,Metabolic,SEN0877,SEN0789,B5QYQ3,B5QXU7,2570,2703\ntdcE,pflF,STM,Metabolic,SEN3082,SEN0789,B5QZR9,B5QXU7,380,2703\nSEN0551,pflF,Salm,Transcriptional_regulatory,SEN0551,SEN0789,B5QUY3,B5QXU7,4119,2703'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QXU7",
                                         name: "pflF",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

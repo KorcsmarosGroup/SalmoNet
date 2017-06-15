@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hfq,pcnB,IntAct,PPI\nvacB,pcnB,IntAct,PPI\nrne,pcnB,IntAct,PPI\nsrmB,pcnB,IntAct,PPI\npnp,pcnB,IntAct,PPI\nrhlB,pcnB,IntAct,PPI\npcnB,hrpA,IntAct,PPI\npcnB,eno,IntAct,PPI\nfur,pcnB,Salm,Transcriptional_regulatory'
+                        data: 'hfq,pcnB,IntAct,PPI,SG4202,SG0188,B5R9B9,B5RHC3,1130,2476\nvacB,pcnB,IntAct,PPI,SG4208,SG0188,B5R9C5,B5RHC3,3992,2476\nrne,pcnB,IntAct,PPI,SG1937,SG0188,B5RBB6,B5RHC3,2307,2476\nsrmB,pcnB,IntAct,PPI,SG2627,SG0188,B5RD58,B5RHC3,1115,2476\npnp,pcnB,IntAct,PPI,SG3173,SG0188,B5REN2,B5RHC3,4477,2476\nrhlB,pcnB,IntAct,PPI,SG3528,SG0188,B5RFS3,B5RHC3,2546,2476\npcnB,hrpA,IntAct,PPI,SG0188,SG1478,B5RHC3,B5RA38,2476,401\npcnB,eno,IntAct,PPI,SG0188,SG2856,B5RHC3,B5RDS5,2476,1620\nfur,pcnB,Salm,Transcriptional_regulatory,SG0690,SG0188,B5R658,B5RHC3,552,2476'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RHC3",
                                         name: "pcnB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

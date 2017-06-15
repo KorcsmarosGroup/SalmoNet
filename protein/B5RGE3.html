@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SG0339,leuB,BioModels,Metabolic\nSG0340,leuB,BioModels,Metabolic\ntyrB,leuB,STM,Metabolic\nilvE,leuB,STM BioModels,Metabolic\nleuC,leuB,BioModels,Metabolic\nleuB,leuD,BioModels,Metabolic\nyafJ,leuB,Lit Ecoli IntAct,PPI\nleuB,ilvI,Lit Ecoli IntAct,PPI'
+                        data: 'SG0339,leuB,BioModels,Metabolic,SG0339,SG0114,B5R5S3,B5RGE3,2560,3616\nSG0340,leuB,BioModels,Metabolic,SG0340,SG0114,B5R5S4,B5RGE3,2764,3616\ntyrB,leuB,STM,Metabolic,SG4091,SG0114,B5R7U7,B5RGE3,1188,3616\nilvE,leuB,STM BioModels,Metabolic,SG3539,SG0114,B5RFT4,B5RGE3,1118,3616\nleuC,leuB,BioModels,Metabolic,SG0113,SG0114,B5RGE2,B5RGE3,3973,3616\nleuB,leuD,BioModels,Metabolic,SG0114,SG0112,B5RGE3,B5RGE1,3616,3377\nyafJ,leuB,Lit Ecoli IntAct,PPI,SG0322,SG0114,B5R5Q8,B5RGE3,328,3616\nleuB,ilvI,Lit Ecoli IntAct,PPI,SG0114,SG0117,B5RGE3,B5RH52,3616,3747'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RGE3",
                                         name: "leuB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ptsG,mlc,IntAct Interactome3d,PPI\nmtfA,mlc,IntAct,PPI\nmlc,ptsG,Ecoli,Transcriptional_regulatory\nmlc,mlc,Ecoli,Transcriptional_regulatory\nmlc,mlc,Ecoli,Transcriptional_regulatory\nmlc,manX,Ecoli,Transcriptional_regulatory\nmlc,manY,Ecoli,Transcriptional_regulatory\nmlc,manZ,Ecoli,Transcriptional_regulatory\nmlc,STM1833,Ecoli,Transcriptional_regulatory\nmlc,ptsH,Ecoli,Transcriptional_regulatory\nmlc,ptsI,Ecoli,Transcriptional_regulatory\nmlc,crr,Ecoli,Transcriptional_regulatory\nmlc,malT,Ecoli,Transcriptional_regulatory\ncrp,mlc,Ecoli,Transcriptional_regulatory'
+                        data: 'ptsG,mlc,IntAct Interactome3d,PPI,STM1203,STM1488,P37439,Q8ZPK7,3800,1347\nmtfA,mlc,IntAct,PPI,STM2001,STM1488,Q8ZNS5,Q8ZPK7,3391,1347\nmlc,ptsG,Ecoli,Transcriptional_regulatory,STM1488,STM1203,Q8ZPK7,P37439,1347,3800\nmlc,mlc,Ecoli,Transcriptional_regulatory,STM1488,STM1488,Q8ZPK7,Q8ZPK7,1347,1347\nmlc,mlc,Ecoli,Transcriptional_regulatory,STM1488,STM1488,Q8ZPK7,Q8ZPK7,1347,1347\nmlc,manX,Ecoli,Transcriptional_regulatory,STM1488,STM1830,Q8ZPK7,Q8ZP03,1347,111\nmlc,manY,Ecoli,Transcriptional_regulatory,STM1488,STM1831,Q8ZPK7,Q7CQD8,1347,2212\nmlc,manZ,Ecoli,Transcriptional_regulatory,STM1488,STM1832,Q8ZPK7,Q8ZP02,1347,3056\nmlc,STM1833,Ecoli,Transcriptional_regulatory,STM1488,STM1833,Q8ZPK7,Q8ZP01,1347,2778\nmlc,ptsH,Ecoli,Transcriptional_regulatory,STM1488,STM2431,Q8ZPK7,P0AA07,1347,561\nmlc,ptsI,Ecoli,Transcriptional_regulatory,STM1488,STM2432,Q8ZPK7,P0A249,1347,1686\nmlc,crr,Ecoli,Transcriptional_regulatory,STM1488,STM2433,Q8ZPK7,P0A283,1347,1728\nmlc,malT,Ecoli,Transcriptional_regulatory,STM1488,STM3515,Q8ZPK7,Q8ZLI3,1347,1035\ncrp,mlc,Ecoli,Transcriptional_regulatory,STM3466,STM1488,P0A2T6,Q8ZPK7,2484,1347'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8ZPK7",
                                         name: "mlc",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

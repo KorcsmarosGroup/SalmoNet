@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ddl,ddl,STM,Metabolic\nglyA,ddl,BioModels,Metabolic\nalr,ddl,BioModels,Metabolic\ndadX,ddl,BioModels,Metabolic\ngcvT,ddl,BioModels,Metabolic\nmurF,ddl,STM BioModels,Metabolic\nftsZ,ddl,Lit Ecoli IntAct,PPI'
+                        data: 'ddl,ddl,STM,Metabolic,SeAg_B0416,SeAg_B0147,B5EWR1,B5F7W6,1125,1913\nglyA,ddl,BioModels,Metabolic,SeAg_B2710,SeAg_B0416,B5F1D2,B5EWR1,2280,1125\nalr,ddl,BioModels,Metabolic,SeAg_B4504,SeAg_B0416,B5F1R5,B5EWR1,1202,1125\ndadX,ddl,BioModels,Metabolic,SeAg_B1331,SeAg_B0416,B5F4E5,B5EWR1,3068,1125\ngcvT,ddl,BioModels,Metabolic,SeAg_B3213,SeAg_B0416,B5F5I0,B5EWR1,1583,1125\nmurF,ddl,STM BioModels,Metabolic,SeAg_B0141,SeAg_B0416,B5F7W0,B5EWR1,2846,1125\nftsZ,ddl,Lit Ecoli IntAct,PPI,SeAg_B0150,SeAg_B0416,B5F7W9,B5EWR1,1789,1125'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5EWR1",
                                         name: "ddl",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

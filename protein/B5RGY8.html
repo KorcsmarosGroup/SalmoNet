@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'argC,argD,STM,Metabolic\nargE,argD,STM BioModels,Metabolic\nargD,astC,STM,Metabolic\nargD,dapD,BioModels,Metabolic\nargD,cbpA,IntAct,PPI\nargD,pepT,IntAct,PPI\nphoP,argD,Salm,Transcriptional_regulatory\nargR,argD,Ecoli,Transcriptional_regulatory'
+                        data: 'argC,argD,STM,Metabolic,SG3294,SG3971,B5RF47,B5RGY8,1251,1628\nargE,argD,STM BioModels,Metabolic,SG3295,SG3971,B5RF48,B5RGY8,1685,1628\nargD,astC,STM,Metabolic,SG3971,SG1813,B5RGY8,B5RB01,1628,1408\nargD,dapD,BioModels,Metabolic,SG3971,SG0217,B5RGY8,B5RHF1,1628,3089\nargD,cbpA,IntAct,PPI,SG3971,SG1001,B5RGY8,B5R6G3,1628,2080\nargD,pepT,IntAct,PPI,SG3971,SG1894,B5RGY8,B5RB75,1628,2172\nphoP,argD,Salm,Transcriptional_regulatory,SG1890,SG3971,B5RB71,B5RGY8,1432,1628\nargR,argD,Ecoli,Transcriptional_regulatory,SG3250,SG3971,B5REV8,B5RGY8,2842,1628'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RGY8",
                                         name: "argD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

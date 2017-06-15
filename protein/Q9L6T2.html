@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ilvC,ilvG,STM BioModels,Metabolic\nilvN,ilvG,STM,Metabolic\nilvB,ilvG,STM,Metabolic\nilvG,ilvM,STM,Metabolic\nyhgG,ilvG,IntAct,PPI\nlrp,ilvG,Ecoli,Transcriptional_regulatory'
+                        data: 'ilvC,ilvG,STM BioModels,Metabolic,STM3909,STM3901,P05989,Q9L6T2,1832,1884\nilvN,ilvG,STM,Metabolic,STM3795,STM3901,Q7CPF3,Q9L6T2,1245,1884\nilvB,ilvG,STM,Metabolic,STM3796,STM3901,Q8ZL15,Q9L6T2,2187,1884\nilvG,ilvM,STM,Metabolic,STM3901,STM3902,Q9L6T2,Q7CPD7,1884,1471\nyhgG,ilvG,IntAct,PPI,STM3507,STM3901,Q7CPK5,Q9L6T2,2437,1884\nlrp,ilvG,Ecoli,Transcriptional_regulatory,STM0959,STM3901,P0A2S0,Q9L6T2,3848,1884'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q9L6T2",
                                         name: "ilvG",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

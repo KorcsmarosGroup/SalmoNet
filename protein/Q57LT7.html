@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'deoD,xapB,STM,Metabolic\nxapA,xapB,STM,Metabolic\nxapB,aphA,STM,Metabolic\nxapB,nupC,STM,Metabolic\nxapB,ompF,STM,Metabolic\nxapB,tsx,STM,Metabolic\ncdd,xapB,STM,Metabolic\nadd,xapB,STM,Metabolic\ngsk,xapB,STM,Metabolic\nrihC,xapB,STM,Metabolic'
+                        data: 'deoD,xapB,STM,Metabolic,SC4418,SC2419,Q57G38,Q57LT7,234,884\nxapA,xapB,STM,Metabolic,SC2420,SC2419,Q57LT6,Q57LT7,1707,884\nxapB,aphA,STM,Metabolic,SC2419,SC4128,Q57LT7,Q57GX8,884,1278\nxapB,nupC,STM,Metabolic,SC2419,SC2412,Q57LT7,Q57LU4,884,1009\nxapB,ompF,STM,Metabolic,SC2419,SC0956,Q57LT7,Q57QZ9,884,2449\nxapB,tsx,STM,Metabolic,SC2419,SC0454,Q57LT7,Q57SF1,884,1837\ncdd,xapB,STM,Metabolic,SC2200,SC2419,Q57MF5,Q57LT7,2753,884\nadd,xapB,STM,Metabolic,SC1480,SC2419,Q57PH5,Q57LT7,2903,884\ngsk,xapB,STM,Metabolic,SC0533,SC2419,Q57S72,Q57LT7,84,884\nrihC,xapB,STM,Metabolic,SC0045,SC2419,Q57TL0,Q57LT7,643,884'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57LT7",
                                         name: "xapB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

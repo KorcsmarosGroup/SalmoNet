@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'thyA,yggV,BioModels,Metabolic\nyggV,dcd,BioModels,Metabolic\nyggV,udk,BioModels,Metabolic\nyggV,ndk,BioModels,Metabolic\ntdk,yggV,BioModels,Metabolic\nguaA,yggV,STM,Metabolic\nyggV,purA,Biogrid,PPI'
+                        data: 'thyA,yggV,BioModels,Metabolic,SEN2843,SEN2946,B5QWT3,B5QY79,494,654\nyggV,dcd,BioModels,Metabolic,SEN2946,SEN2117,B5QY79,B5R0B4,654,106\nyggV,udk,BioModels,Metabolic,SEN2946,SEN2118,B5QY79,B5R0B5,654,1109\nyggV,ndk,BioModels,Metabolic,SEN2946,SEN2506,B5QY79,B5R585,654,2887\ntdk,yggV,BioModels,Metabolic,SEN1286,SEN2946,B5R3M2,B5QY79,72,654\nguaA,yggV,STM,Metabolic,SEN2490,SEN2946,B5R569,B5QY79,447,654\nyggV,purA,Biogrid,PPI,SEN2946,SEN4132,B5QY79,B5R0P3,654,1431'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QY79",
                                         name: "yggV",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

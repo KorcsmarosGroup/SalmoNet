@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pyrC,pyrD,BioModels,Metabolic\npyrI,pyrC,BioModels,Metabolic\npyrB,pyrC,BioModels,Metabolic\nSeD_A2179,pyrC,Lit Ecoli IntAct,PPI\npyrC,malT,Lit Ecoli IntAct,PPI\npurR,pyrC,Ecoli,Transcriptional_regulatory\nSeD_A4709,pyrC,Salm,Transcriptional_regulatory'
+                        data: 'pyrC,pyrD,BioModels,Metabolic,SeD_A2209,SeD_A1133,B5FL01,B5FQY8,2342,900\npyrI,pyrC,BioModels,Metabolic,SeD_A4841,SeD_A2209,B5FSF2,B5FL01,3339,2342\npyrB,pyrC,BioModels,Metabolic,SeD_A4842,SeD_A2209,B5FSF3,B5FL01,1522,2342\nSeD_A2179,pyrC,Lit Ecoli IntAct,PPI,SeD_A2179,SeD_A2209,B5FKB7,B5FL01,1394,2342\npyrC,malT,Lit Ecoli IntAct,PPI,SeD_A2209,SeD_A3885,B5FL01,B5FKD6,2342,1035\npurR,pyrC,Ecoli,Transcriptional_regulatory,SeD_A1913,SeD_A2209,B5FIH3,B5FL01,2100,2342\nSeD_A4709,pyrC,Salm,Transcriptional_regulatory,SeD_A4709,SeD_A2209,B5FRI7,B5FL01,3923,2342'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FL01",
                                         name: "pyrC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpoZ,pnp,BioModels,Metabolic\nrpoZ,rpoB,BioModels,Metabolic\nrpoZ,rpoA,BioModels,Metabolic\nrpoB,rpoZ,IntAct Interactome3d,PPI\nrpoZ,trxA,IntAct,PPI\nrpoZ,rpoA,IntAct Interactome3d,PPI'
+                        data: 'rpoZ,pnp,BioModels,Metabolic,SG3690,SG3173,B5RG73,B5REN2,2062,4477\nrpoZ,rpoB,BioModels,Metabolic,SG3690,SG3454,B5RG73,B5RFK1,2062,2611\nrpoZ,rpoA,BioModels,Metabolic,SG3690,SG4023,B5RG73,B5RH40,2062,1508\nrpoB,rpoZ,IntAct Interactome3d,PPI,SG3454,SG3690,B5RFK1,B5RG73,2611,2062\nrpoZ,trxA,IntAct,PPI,SG3690,SG3527,B5RG73,B5RFS2,2062,3171\nrpoZ,rpoA,IntAct Interactome3d,PPI,SG3690,SG4023,B5RG73,B5RH40,2062,1508'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RG73",
                                         name: "rpoZ",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

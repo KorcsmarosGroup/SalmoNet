@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'grxC,SC2865,STM,Metabolic\ngrxC,ydhD,STM,Metabolic\ngrxC,grxB,STM,Metabolic\ngrxC,grxA,STM,Metabolic\ngor,grxC,STM,Metabolic\ncysH,grxC,STM,Metabolic\nnrdF,grxC,STM,Metabolic\nnrdE,grxC,STM,Metabolic\ngrxA,grxC,Lit Ecoli IntAct,PPI'
+                        data: 'grxC,SC2865,STM,Metabolic,SC3625,SC2865,Q57ID1,Q57KJ1,1788,2794\ngrxC,ydhD,STM,Metabolic,SC3625,SC1452,Q57ID1,Q57PK3,1788,1938\ngrxC,grxB,STM,Metabolic,SC3625,SC1113,Q57ID1,Q57QJ2,1788,1200\ngrxC,grxA,STM,Metabolic,SC3625,SC0866,Q57ID1,Q57R89,1788,3866\ngor,grxC,STM,Metabolic,SC3526,SC3625,Q57IN0,Q57ID1,2663,1788\ncysH,grxC,STM,Metabolic,SC2877,SC3625,Q57KH9,Q57ID1,240,1788\nnrdF,grxC,STM,Metabolic,SC2742,SC3625,Q57KW4,Q57ID1,4212,1788\nnrdE,grxC,STM,Metabolic,SC2741,SC3625,Q57KW5,Q57ID1,8,1788\ngrxA,grxC,Lit Ecoli IntAct,PPI,SC0866,SC3625,Q57R89,Q57ID1,3866,1788'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57ID1",
                                         name: "grxC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

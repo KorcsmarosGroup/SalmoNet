@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gor,grxC,STM,Metabolic\ngrxC,SeD_A1910,STM,Metabolic\ngrxC,grxB,STM,Metabolic\ngrxC,grxA,STM,Metabolic\ngrxC,cysC,STM,Metabolic\nSeD_A3113,grxC,STM,Metabolic\nnrdF,grxC,STM,Metabolic\ncysH,grxC,STM,Metabolic\ngrxA,grxC,Lit Ecoli IntAct,PPI'
+                        data: 'gor,grxC,STM,Metabolic,SeD_A3972,SeD_A4088,B5FKL8,B5FLI0,2663,1788\ngrxC,SeD_A1910,STM,Metabolic,SeD_A4088,SeD_A1910,B5FLI0,B5FIH0,1788,1938\ngrxC,grxB,STM,Metabolic,SeD_A4088,SeD_A2207,B5FLI0,B5FKZ9,1788,1200\ngrxC,grxA,STM,Metabolic,SeD_A4088,SeD_A0977,B5FLI0,B5FPD9,1788,3866\ngrxC,cysC,STM,Metabolic,SeD_A4088,SeD_A3243,B5FLI0,B5FTS8,1788,2794\nSeD_A3113,grxC,STM,Metabolic,SeD_A3113,SeD_A4088,B5FSW3,B5FLI0,8,1788\nnrdF,grxC,STM,Metabolic,SeD_A3114,SeD_A4088,B5FSW4,B5FLI0,4212,1788\ncysH,grxC,STM,Metabolic,SeD_A3258,SeD_A4088,B5FTU1,B5FLI0,240,1788\ngrxA,grxC,Lit Ecoli IntAct,PPI,SeD_A0977,SeD_A4088,B5FPD9,B5FLI0,3866,1788'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FLI0",
                                         name: "grxC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

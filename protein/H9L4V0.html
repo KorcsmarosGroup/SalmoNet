@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'flgM,fliS,IntAct,PPI\nflgM,trmB,IntAct,PPI\nflgM,nrdB,IntAct,PPI\nflgM,gyrA,IntAct,PPI\nflgM,fliA,Lit Ecoli IntAct Interactome3d,PPI\nflgM,cheA,IntAct,PPI\nyjeK,flgM,IntAct,PPI\nfliT,flgM,IntAct,PPI\nflgE,flgM,IntAct,PPI'
+                        data: 'flgM,fliS,IntAct,PPI,SC1119,SC1965,H9L4V0,Q57N40,3697,796\nflgM,trmB,IntAct,PPI,SC1119,SC3050,H9L4V0,Q57K06,3697,941\nflgM,nrdB,IntAct,PPI,SC1119,SC2281,H9L4V0,Q57M75,3697,1760\nflgM,gyrA,IntAct,PPI,SC1119,SC2275,H9L4V0,Q57M81,3697,3730\nflgM,fliA,Lit Ecoli IntAct Interactome3d,PPI,SC1119,SC1960,H9L4V0,Q57N45,3697,678\nflgM,cheA,IntAct,PPI,SC1119,SC1928,H9L4V0,Q57N77,3697,1259\nyjeK,flgM,IntAct,PPI,SC4212,SC1119,Q57GP4,H9L4V0,2668,3697\nfliT,flgM,IntAct,PPI,SC1966,SC1119,Q57N39,H9L4V0,3288,3697\nflgE,flgM,IntAct,PPI,SC1124,SC1119,Q57QI1,H9L4V0,1912,3697'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_H9L4V0",
                                         name: "flgM",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tdk,tmk,BioModels,Metabolic\ntdk,yggV,BioModels,Metabolic\npyrH,tdk,STM,Metabolic\nthyA,tdk,STM BioModels,Metabolic\nyjjG,tdk,STM,Metabolic\ndeoD,tdk,BioModels,Metabolic\ndeoA,tdk,BioModels,Metabolic\ntdk,trxA,IntAct,PPI'
+                        data: 'tdk,tmk,BioModels,Metabolic,SPA1128,SPA1651,Q5PCT4,Q5PGT4,72,910\ntdk,yggV,BioModels,Metabolic,SPA1128,SPA2966,Q5PCT4,Q5PMK9,72,654\npyrH,tdk,STM,Metabolic,SPA0225,SPA1128,Q5PD61,Q5PCT4,1349,72\nthyA,tdk,STM BioModels,Metabolic,SPA2866,SPA1128,Q5PEN6,Q5PCT4,494,72\nyjjG,tdk,STM,Metabolic,SPA4373,SPA1128,Q5PK13,Q5PCT4,215,72\ndeoD,tdk,BioModels,Metabolic,SPA4384,SPA1128,Q5PK20,Q5PCT4,234,72\ndeoA,tdk,BioModels,Metabolic,SPA4382,SPA1128,Q5PK22,Q5PCT4,2201,72\ntdk,trxA,IntAct,PPI,SPA1128,SPA3756,Q5PCT4,Q5PKK3,72,3171'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PCT4",
                                         name: "tdk",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

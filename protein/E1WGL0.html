@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'flgD,fliK,IntAct,PPI\nflgE,fliK,IntAct,PPI\nfliK,adhC,Lit Ecoli IntAct,PPI\nfliK,cutA,Lit Ecoli IntAct,PPI\nfliK,feoA,Lit Ecoli IntAct,PPI\ncsgD,fliK,Ecoli,Transcriptional_regulatory'
+                        data: 'flgD,fliK,IntAct,PPI,SL1344_1113,SL1344_1903,E1W7K5,E1WGL0,2525,1271\nflgE,fliK,IntAct,PPI,SL1344_1114,SL1344_1903,E1W7K6,E1WGL0,1912,1271\nfliK,adhC,Lit Ecoli IntAct,PPI,SL1344_1903,SL1344_1557,E1WGL0,E1WBV8,1271,3871\nfliK,cutA,Lit Ecoli IntAct,PPI,SL1344_1903,SL1344_4261,E1WGL0,E1WF14,1271,3606\nfliK,feoA,Lit Ecoli IntAct,PPI,SL1344_1903,SL1344_3472,E1WGL0,E1WIT2,1271,2918\ncsgD,fliK,Ecoli,Transcriptional_regulatory,SL1344_1079,SL1344_1903,E1W7H1,E1WGL0,2182,1271'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WGL0",
                                         name: "fliK",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

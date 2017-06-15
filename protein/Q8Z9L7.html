@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'carB,yadF,STM,Metabolic\ncarA,carB,STM,Metabolic\ncarB,carA,Lit Ecoli IntAct Interactome3d,PPI\nfur,carB,Salm,Transcriptional_regulatory\nihfB,carB,Salm,Transcriptional_regulatory\nfis,carB,Ecoli,Transcriptional_regulatory\npurR,carB,Ecoli,Transcriptional_regulatory\naraC,carB,Salm,Transcriptional_regulatory\nt4512,carB,Ecoli,Transcriptional_regulatory\nargR,carB,Ecoli,Transcriptional_regulatory\nihfA,carB,Salm,Transcriptional_regulatory\nt1799,carB,Ecoli,Transcriptional_regulatory'
+                        data: 'carB,yadF,STM,Metabolic,t0068,t0176,Q8Z9L7,Q8Z9D8,1521,3047\ncarA,carB,STM,Metabolic,t0067,t0068,Q8Z9L8,Q8Z9L7,1858,1521\ncarB,carA,Lit Ecoli IntAct Interactome3d,PPI,t0068,t0067,Q8Z9L7,Q8Z9L8,1521,1858\nfur,carB,Salm,Transcriptional_regulatory,STY0731;t2182,t0068,Q8XFG1,Q8Z9L7,552,1521\nihfB,carB,Salm,Transcriptional_regulatory,t1952,t0068,P64395,Q8Z9L7,894,1521\nfis,carB,Ecoli,Transcriptional_regulatory,t3300,t0068,P0A6R7,Q8Z9L7,1300,1521\npurR,carB,Ecoli,Transcriptional_regulatory,t1298,t0068,Q8Z6P1,Q8Z9L7,2100,1521\naraC,carB,Salm,Transcriptional_regulatory,t0108,t0068,Q8Z9I8,Q8Z9L7,2319,1521\nt4512,carB,Ecoli,Transcriptional_regulatory,t4512,t0068,Q8Z116,Q8Z9L7,2835,1521\nargR,carB,Ecoli,Transcriptional_regulatory,t3275,t0068,P0A1B4,Q8Z9L7,2842,1521\nihfA,carB,Salm,Transcriptional_regulatory,t1220,t0068,P0A1S1,Q8Z9L7,2956,1521\nt1799,carB,Ecoli,Transcriptional_regulatory,t1799,t0068,Q8Z7N7,Q8Z9L7,3498,1521'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z9L7",
                                         name: "carB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

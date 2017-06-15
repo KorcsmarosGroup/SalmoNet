@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ompC,htrA,IntAct Interactome3d,PPI\nhtrA,ompA,IntAct,PPI\nhtrA,malE,IntAct,PPI\nhtrA,ompX,IntAct,PPI\nhtrA,fkpA,IntAct,PPI\nhtrA,ompW,IntAct,PPI\nompF,htrA,IntAct,PPI\nompD,htrA,IntAct,PPI\ncpxR,htrA,Ecoli,Transcriptional_regulatory'
+                        data: 'ompC,htrA,IntAct Interactome3d,PPI,STM2267,STM0209,P0A263,P26982,881,1158\nhtrA,ompA,IntAct,PPI,STM0209,STM1070,P26982,P02936,1158,859\nhtrA,malE,IntAct,PPI,STM0209,STM4229,P26982,P19576,1158,189\nhtrA,ompX,IntAct,PPI,STM0209,STM0833,P26982,Q7CQV8,1158,2051\nhtrA,fkpA,IntAct,PPI,STM0209,STM3453,P26982,Q8ZLL6,1158,639\nhtrA,ompW,IntAct,PPI,STM0209,STM1732,P26982,Q8ZP50,1158,2333\nompF,htrA,IntAct,PPI,STM0999,STM0209,P37432,P26982,2449,1158\nompD,htrA,IntAct,PPI,STM1572,STM0209,P37592,P26982,4094,1158\ncpxR,htrA,Ecoli,Transcriptional_regulatory,STM4059,STM0209,Q8ZKR6,P26982,290,1158'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P26982",
                                         name: "htrA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

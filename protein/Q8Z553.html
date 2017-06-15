@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'glpB,glpD,STM,Metabolic\nglpB,glpC,STM,Metabolic\nglpA,glpB,STM,Metabolic\nt2265,glpB,Lit Ecoli IntAct,PPI\nfnr,glpB,Ecoli,Transcriptional_regulatory\nfis,glpB,Ecoli,Transcriptional_regulatory\nglpR,glpB,Ecoli,Transcriptional_regulatory\ncrp,glpB,Ecoli,Transcriptional_regulatory'
+                        data: 'glpB,glpD,STM,Metabolic,t0579,t3987,Q8Z553,Q8Z230,1890,3182\nglpB,glpC,STM,Metabolic,t0579,t0578,Q8Z553,Q8Z552,1890,2998\nglpA,glpB,STM,Metabolic,t0580,t0579,Q8Z554,Q8Z553,954,1890\nt2265,glpB,Lit Ecoli IntAct,PPI,t2265,t0579,Q8Z8K5,Q8Z553,1498,1890\nfnr,glpB,Ecoli,Transcriptional_regulatory,t1564,t0579,Q8Z787,Q8Z553,147,1890\nfis,glpB,Ecoli,Transcriptional_regulatory,t3300,t0579,P0A6R7,Q8Z553,1300,1890\nglpR,glpB,Ecoli,Transcriptional_regulatory,t3990,t0579,Q8Z228,Q8Z553,2287,1890\ncrp,glpB,Ecoli,Transcriptional_regulatory,t4039,t0579,Q8Z1Z2,Q8Z553,2484,1890'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q8Z553",
                                         name: "glpB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

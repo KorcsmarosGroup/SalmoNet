@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pmrF,mraY,BioModels,Metabolic\nmraY,bacA,BioModels,Metabolic\nmraY,murF,STM BioModels,Metabolic\nmurG,mraY,STM BioModels,Metabolic\npdhR,mraY,Ecoli,Transcriptional_regulatory\nbasR,mraY,Salm,Transcriptional_regulatory\nSEN4085,mraY,Salm,Transcriptional_regulatory'
+                        data: 'pmrF,mraY,BioModels,Metabolic,SEN2280,SEN0126,B5R271,B5R2M1,780,1562\nmraY,bacA,BioModels,Metabolic,SEN0126,SEN3047,B5R2M1,B5QZ41,1562,1306\nmraY,murF,STM BioModels,Metabolic,SEN0126,SEN0125,B5R2M1,B5R2M0,1562,2846\nmurG,mraY,STM BioModels,Metabolic,SEN0129,SEN0126,B5R2M4,B5R2M1,2882,1562\npdhR,mraY,Ecoli,Transcriptional_regulatory,SEN0155,SEN0126,B5R2P9,B5R2M1,848,1562\nbasR,mraY,Salm,Transcriptional_regulatory,SEN4063,SEN0126,B5QZX1,B5R2M1,3574,1562\nSEN4085,mraY,Salm,Transcriptional_regulatory,SEN4085,SEN0126,B5QZZ0,B5R2M1,3923,1562'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R2M1",
                                         name: "mraY",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

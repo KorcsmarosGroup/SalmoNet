@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pgpB,plsC,STM,Metabolic\nplsX,plsC,BioModels,Metabolic\nplsC,plsB,STM BioModels,Metabolic\nplsC,dgkA,BioModels,Metabolic\nplsC,fabI,STM,Metabolic\nplsC,acpP,STM,Metabolic\nplsC,aas,STM,Metabolic\nplsC,ushB,BioModels,Metabolic\nygiH,plsC,BioModels,Metabolic\npldA,plsC,BioModels,Metabolic\ncdsA,plsC,STM BioModels,Metabolic'
+                        data: 'pgpB,plsC,STM,Metabolic,SG1404,SG3070,B5R6P0,B5RED2,138,1617\nplsX,plsC,BioModels,Metabolic,SG1930,SG3070,B5RBB0,B5RED2,2365,1617\nplsC,plsB,STM BioModels,Metabolic,SG3070,SG4078,B5RED2,B5R7T4,1617,1267\nplsC,dgkA,BioModels,Metabolic,SG3070,SG4079,B5RED2,B5R7T5,1617,2393\nplsC,fabI,STM,Metabolic,SG3070,SG1414,B5RED2,B5R9Y2,1617,3239\nplsC,acpP,STM,Metabolic,SG3070,SG1926,B5RED2,B5RBA6,1617,883\nplsC,aas,STM,Metabolic,SG3070,SG2919,B5RED2,B5RDY6,1617,3199\nplsC,ushB,BioModels,Metabolic,SG3070,SG3357,B5RED2,B5RFA7,1617,192\nygiH,plsC,BioModels,Metabolic,SG3103,SG3070,B5REG5,B5RED2,1795,1617\npldA,plsC,BioModels,Metabolic,SG3494,SG3070,B5RFP1,B5RED2,1320,1617\ncdsA,plsC,STM BioModels,Metabolic,SG0226,SG3070,B5RHG0,B5RED2,3647,1617'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5RED2",
                                         name: "plsC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

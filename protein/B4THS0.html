@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'SeHA_C2219,mic,IntAct,PPI\nptsG,mic,IntAct Interactome3d,PPI\nmic,ptsG,Ecoli,Transcriptional_regulatory\nmic,mic,Ecoli,Transcriptional_regulatory\nmic,mic,Ecoli,Transcriptional_regulatory\nmic,manX,Ecoli,Transcriptional_regulatory\nmic,manY,Ecoli,Transcriptional_regulatory\nmic,manZ,Ecoli,Transcriptional_regulatory\nmic,SeHA_C2033,Ecoli,Transcriptional_regulatory\nmic,ptsH,Ecoli,Transcriptional_regulatory\nmic,ptsI,Ecoli,Transcriptional_regulatory\nmic,crr,Ecoli,Transcriptional_regulatory\nmic,malT,Ecoli,Transcriptional_regulatory\ncrp,mic,Ecoli,Transcriptional_regulatory'
+                        data: 'SeHA_C2219,mic,IntAct,PPI,SeHA_C2219,SeHA_C1658,B4T8V5,B4THS0,3391,1347\nptsG,mic,IntAct Interactome3d,PPI,SeHA_C1317,SeHA_C1658,B4TFH8,B4THS0,3800,1347\nmic,ptsG,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C1317,B4THS0,B4TFH8,1347,3800\nmic,mic,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C1658,B4THS0,B4THS0,1347,1347\nmic,mic,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C1658,B4THS0,B4THS0,1347,1347\nmic,manX,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C2030,B4THS0,B4TKG1,1347,111\nmic,manY,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C2031,B4THS0,B4TKG2,1347,2212\nmic,manZ,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C2032,B4THS0,B4TKG3,1347,3056\nmic,SeHA_C2033,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C2033,B4THS0,B4TKG4,1347,2778\nmic,ptsH,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C2691,B4THS0,B4TCG1,1347,561\nmic,ptsI,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C2692,B4THS0,B4TCG2,1347,1686\nmic,crr,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C2693,B4THS0,B4TCG3,1347,1728\nmic,malT,Ecoli,Transcriptional_regulatory,SeHA_C1658,SeHA_C3823,B4THS0,B4TKU2,1347,1035\ncrp,mic,Ecoli,Transcriptional_regulatory,SeHA_C3771,SeHA_C1658,B4TKP1,B4THS0,2484,1347'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4THS0",
                                         name: "mic",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

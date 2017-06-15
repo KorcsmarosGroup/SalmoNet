@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'dho,pyrD,BioModels,Metabolic\npyrC,pyrD,BioModels,Metabolic\nallB,pyrD,BioModels,Metabolic\npyrD,atpA,IntAct,PPI\nfis,pyrD,Ecoli,Transcriptional_regulatory\npurR,pyrD,Ecoli,Transcriptional_regulatory'
+                        data: 'dho,pyrD,BioModels,Metabolic,SC4300,SC1011,Q57GF6,Q57QU4,124,900\npyrC,pyrD,BioModels,Metabolic,SC1111,SC1011,Q57QJ4,Q57QU4,2342,900\nallB,pyrD,BioModels,Metabolic,SC0562,SC1011,Q57S43,Q57QU4,124,900\npyrD,atpA,IntAct,PPI,SC1011,SC3779,Q57QU4,Q57HX7,900,2601\nfis,pyrD,Ecoli,Transcriptional_regulatory,SC3323,SC1011,Q57J83,Q57QU4,1300,900\npurR,pyrD,Ecoli,Transcriptional_regulatory,SC1449,SC1011,Q57PK6,Q57QU4,2100,900'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57QU4",
                                         name: "pyrD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'acs,tdcD,STM,Metabolic\ntdcD,pta,STM BioModels,Metabolic\ntdcD,ackA,STM,Metabolic\ntdcD,pduW,STM,Metabolic\ntdcD,pduL,STM BioModels,Metabolic\ntdcD,purT,STM,Metabolic\nprpE,tdcD,STM,Metabolic\nfnr,tdcD,Ecoli,Transcriptional_regulatory'
+                        data: 'acs,tdcD,STM,Metabolic,SC4154,SC3188,Q57GV2,Q57JL8,3305,419\ntdcD,pta,STM BioModels,Metabolic,SC3188,SC2339,Q57JL8,Q57M17,419,2528\ntdcD,ackA,STM,Metabolic,SC3188,SC2338,Q57JL8,Q57M18,419,417\ntdcD,pduW,STM,Metabolic,SC3188,SC2066,Q57JL8,Q57MT9,419,3142\ntdcD,pduL,STM BioModels,Metabolic,SC3188,SC2055,Q57JL8,Q57MV0,419,4368\ntdcD,purT,STM,Metabolic,SC3188,SC1888,Q57JL8,Q57NB7,419,3737\nprpE,tdcD,STM,Metabolic,SC0412,SC3188,Q57SJ3,Q57JL8,2751,419\nfnr,tdcD,Ecoli,Transcriptional_regulatory,SC1656,SC3188,Q57NZ9,Q57JL8,147,419'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57JL8",
                                         name: "tdcD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

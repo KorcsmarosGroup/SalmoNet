@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpe,SPA1252,STM,Metabolic\nrpe,SPA3923,STM,Metabolic\nfliI,rpe,IntAct,PPI\nfliM,rpe,IntAct,PPI\nrpe,fliR,IntAct,PPI\nrpe,proS,IntAct,PPI\nrpe,flgC,IntAct,PPI\nrpe,fliS,IntAct,PPI\nrpe,fliT,IntAct,PPI\nrpe,dnaN,Lit Ecoli IntAct,PPI\nrpe,fliN,IntAct,PPI\nrpe,cheR,IntAct,PPI\nrpoE,rpe,IntAct,PPI'
+                        data: 'rpe,SPA1252,STM,Metabolic,SPA3348,SPA1252,Q5PLX5,Q5PHT7,3757,2939\nrpe,SPA3923,STM,Metabolic,SPA3348,SPA3923,Q5PLX5,Q5PJE1,3757,601\nfliI,rpe,IntAct,PPI,SPA0898,SPA3348,Q5PHZ1,Q5PLX5,703,3757\nfliM,rpe,IntAct,PPI,SPA0894,SPA3348,Q5PLJ2,Q5PLX5,1344,3757\nrpe,fliR,IntAct,PPI,SPA3348,SPA0889,Q5PLX5,Q3V7K7,3757,2349\nrpe,proS,IntAct,PPI,SPA3348,SPA0249,Q5PLX5,Q5PD80,3757,357\nrpe,flgC,IntAct,PPI,SPA3348,SPA1676,Q5PLX5,Q5PGV9,3757,1694\nrpe,fliS,IntAct,PPI,SPA3348,SPA0909,Q5PLX5,Q5PI04,3757,796\nrpe,fliT,IntAct,PPI,SPA3348,SPA0908,Q5PLX5,Q5PI05,3757,3288\nrpe,dnaN,Lit Ecoli IntAct,PPI,SPA3348,SPA3681,Q5PLX5,Q5PKU7,3757,3473\nrpe,fliN,IntAct,PPI,SPA3348,SPA0893,Q5PLX5,Q5PLI8,3757,1656\nrpe,cheR,IntAct,PPI,SPA3348,SPA0950,Q5PLX5,Q5PMX8,3757,692\nrpoE,rpe,IntAct,PPI,SPA0278,SPA3348,Q5PNB6,Q5PLX5,3460,3757'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PLX5",
                                         name: "rpe",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

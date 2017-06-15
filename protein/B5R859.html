@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'grxA,ydhD,STM,Metabolic\ngrxA,grxB,STM,Metabolic\ngrxA,cysC,STM,Metabolic\nnrdE,grxA,STM,Metabolic\nnrdF,grxA,STM,Metabolic\ncysH,grxA,STM,Metabolic\ngrxC,grxA,STM,Metabolic\ngor,grxA,STM,Metabolic\ngrxA,ybdM,Lit Ecoli IntAct,PPI\ngrxA,SG1232,Lit Ecoli IntAct,PPI\ngrxA,grxC,Lit Ecoli IntAct,PPI\ngrxA,nikR,Lit Ecoli IntAct,PPI\noxyR,grxA,Ecoli,Transcriptional_regulatory'
+                        data: 'grxA,ydhD,STM,Metabolic,SG0853,SG1685,B5R859,B5RAM6,3866,1938\ngrxA,grxB,STM,Metabolic,SG0853,SG1957,B5R859,B5RBD5,3866,1200\ngrxA,cysC,STM,Metabolic,SG0853,SG2836,B5R859,B5RDQ6,3866,2794\nnrdE,grxA,STM,Metabolic,SG2714,SG0853,B5RDD7,B5R859,8,3866\nnrdF,grxA,STM,Metabolic,SG2715,SG0853,B5RDD8,B5R859,4212,3866\ncysH,grxA,STM,Metabolic,SG2849,SG0853,B5RDR9,B5R859,240,3866\ngrxC,grxA,STM,Metabolic,SG3729,SG0853,B5RGH6,B5R859,1788,3866\ngor,grxA,STM,Metabolic,SG3840,SG0853,B5RGS9,B5R859,2663,3866\ngrxA,ybdM,Lit Ecoli IntAct,PPI,SG0853,SG0608,B5R859,B5R726,3866,3654\ngrxA,SG1232,Lit Ecoli IntAct,PPI,SG0853,SG1232,B5R859,B5R8S5,3866,1273\ngrxA,grxC,Lit Ecoli IntAct,PPI,SG0853,SG3729,B5R859,B5RGH6,3866,1788\ngrxA,nikR,Lit Ecoli IntAct,PPI,SG0853,SG3853,B5R859,B5RGU2,3866,2652\noxyR,grxA,Ecoli,Transcriptional_regulatory,SG3291,SG0853,B5RF44,B5R859,3398,3866'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R859",
                                         name: "grxA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cysM,fimA,Lit Ecoli IntAct,PPI\nfimA,galE,Lit Ecoli IntAct,PPI\nfimA,yccX,Lit Ecoli IntAct,PPI\nfimA,ddlB,Lit Ecoli IntAct,PPI\nmurA,fimA,Lit Ecoli IntAct,PPI\nglgX,fimA,Lit Ecoli IntAct,PPI\nhypF,fimA,Lit Ecoli IntAct,PPI\nynaI,fimA,Lit Ecoli IntAct,PPI\nfimZ,fimA,Salm Exp(LT),Transcriptional_regulatory'
+                        data: 'cysM,fimA,Lit Ecoli IntAct,PPI,STM2440,STM0543,P29848,P37921,3693,2271\nfimA,galE,Lit Ecoli IntAct,PPI,STM0543,STM0776,P37921,P22715,2271,3536\nfimA,yccX,Lit Ecoli IntAct,PPI,STM0543,STM1083,P37921,Q7CQS9,2271,1255\nfimA,ddlB,Lit Ecoli IntAct,PPI,STM0543,STM0130,P37921,Q8ZRU1,2271,1913\nmurA,fimA,Lit Ecoli IntAct,PPI,STM3307,STM0543,P65454,P37921,3758,2271\nglgX,fimA,Lit Ecoli IntAct,PPI,STM3537,STM0543,Q8ZLG6,P37921,1239,2271\nhypF,fimA,Lit Ecoli IntAct,PPI,STM2842,STM0543,Q8ZMJ5,P37921,814,2271\nynaI,fimA,Lit Ecoli IntAct,PPI,STM1663,STM0543,Q8ZP83,P37921,4078,2271\nfimZ,fimA,Salm Exp(LT),Transcriptional_regulatory,STM0549,STM0543,P26319,P37921,511,2271'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P37921",
                                         name: "fimA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

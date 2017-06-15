@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'pabC,pabA,STM,Metabolic\npabA,aroC,STM,Metabolic\npabA,pabB,STM,Metabolic\npabB,pabA,Lit Ecoli IntAct Interactome3d,PPI\npabA,fliG,Lit Ecoli IntAct,PPI\nphoP,pabA,Salm,Transcriptional_regulatory\nargR,pabA,Ecoli,Transcriptional_regulatory'
+                        data: 'pabC,pabA,STM,Metabolic,SL1344_1135,SL1344_3436,E1WF67,E1WIP6,2825,568\npabA,aroC,STM,Metabolic,SL1344_3436,SL1344_2353,E1WIP6,E1WCM4,568,798\npabA,pabB,STM,Metabolic,SL1344_3436,SL1344_1753,E1WIP6,E1WG62,568,3652\npabB,pabA,Lit Ecoli IntAct Interactome3d,PPI,SL1344_1753,SL1344_3436,E1WG62,E1WIP6,3652,568\npabA,fliG,Lit Ecoli IntAct,PPI,SL1344_3436,SL1344_1899,E1WIP6,E1WGK6,568,2795\nphoP,pabA,Salm,Transcriptional_regulatory,SL1344_1169,SL1344_3436,E1WFA1,E1WIP6,1432,568\nargR,pabA,Ecoli,Transcriptional_regulatory,SL1344_3332,SL1344_3436,E1WIE3,E1WIP6,2842,568'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WIP6",
                                         name: "pabA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

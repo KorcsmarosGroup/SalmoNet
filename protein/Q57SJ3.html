@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'prpE,acs,STM,Metabolic\nprpE,aldB,STM,Metabolic\nprpE,tdcD,STM,Metabolic\nprpE,ackA,STM,Metabolic\nprpE,pduW,STM,Metabolic\nprpE,putP,STM,Metabolic\nhmrR,prpE,Salm,Transcriptional_regulatory'
+                        data: 'prpE,acs,STM,Metabolic,SC0412,SC4154,Q57SJ3,Q57GV2,2751,3305\nprpE,aldB,STM,Metabolic,SC0412,SC3604,Q57SJ3,Q57IF2,2751,3777\nprpE,tdcD,STM,Metabolic,SC0412,SC3188,Q57SJ3,Q57JL8,2751,419\nprpE,ackA,STM,Metabolic,SC0412,SC2338,Q57SJ3,Q57M18,2751,417\nprpE,pduW,STM,Metabolic,SC0412,SC2066,Q57SJ3,Q57MT9,2751,3142\nprpE,putP,STM,Metabolic,SC0412,SC1076,Q57SJ3,Q57QM9,2751,604\nhmrR,prpE,Salm,Transcriptional_regulatory,SC0395,SC0412,Q57SL0,Q57SJ3,3600,2751'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57SJ3",
                                         name: "prpE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

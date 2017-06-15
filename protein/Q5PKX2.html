@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'atpB,atpD,STM,Metabolic\natpE,atpD,STM,Metabolic\natpF,atpD,STM,Metabolic\natpD,atpI,STM,Metabolic\natpD,atpH,STM,Metabolic\natpD,atpA,STM,Metabolic\natpD,atpG,STM,Metabolic\natpC,atpD,STM,Metabolic\nycbC,atpD,Lit Ecoli IntAct,PPI\nyidC,atpD,IntAct,PPI\natpA,atpD,Lit Ecoli IntAct Interactome3d,PPI\natpG,atpD,IntAct Interactome3d,PPI\natpD,trxA,IntAct,PPI\natpD,atpC,Lit Ecoli IntAct Interactome3d,PPI'
+                        data: 'atpB,atpD,STM,Metabolic,SPA3710,SPA3704,Q5PKW6,Q5PKX2,877,2818\natpE,atpD,STM,Metabolic,SPA3709,SPA3704,Q5PKW7,Q5PKX2,666,2818\natpF,atpD,STM,Metabolic,SPA3708,SPA3704,Q5PKW8,Q5PKX2,2722,2818\natpD,atpI,STM,Metabolic,SPA3704,SPA3711,Q5PKX2,Q5PKW5,2818,206\natpD,atpH,STM,Metabolic,SPA3704,SPA3707,Q5PKX2,Q5PKW9,2818,3635\natpD,atpA,STM,Metabolic,SPA3704,SPA3706,Q5PKX2,Q5PKX0,2818,2601\natpD,atpG,STM,Metabolic,SPA3704,SPA3705,Q5PKX2,Q5PKX1,2818,3194\natpC,atpD,STM,Metabolic,SPA3703,SPA3704,Q5PKX3,Q5PKX2,3343,2818\nycbC,atpD,Lit Ecoli IntAct,PPI,SPA1808,SPA3704,Q5PGF7,Q5PKX2,536,2818\nyidC,atpD,IntAct,PPI,SPA3686,SPA3704,Q5PKU2,Q5PKX2,3987,2818\natpA,atpD,Lit Ecoli IntAct Interactome3d,PPI,SPA3706,SPA3704,Q5PKX0,Q5PKX2,2601,2818\natpG,atpD,IntAct Interactome3d,PPI,SPA3705,SPA3704,Q5PKX1,Q5PKX2,3194,2818\natpD,trxA,IntAct,PPI,SPA3704,SPA3756,Q5PKX2,Q5PKK3,2818,3171\natpD,atpC,Lit Ecoli IntAct Interactome3d,PPI,SPA3704,SPA3703,Q5PKX2,Q5PKX3,2818,3343'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PKX2",
                                         name: "atpD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

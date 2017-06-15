@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hypA,slyD,IntAct,PPI\nhypA,SNSL254_A0636,Lit Ecoli IntAct,PPI\nhypA,hycE,IntAct,PPI\nhypA,hypB,IntAct,PPI\nfnr,hypA,Ecoli,Transcriptional_regulatory\nnsrR,hypA,Ecoli,Transcriptional_regulatory'
+                        data: 'hypA,slyD,IntAct,PPI,SNSL254_A3059,SNSL254_A3725,B4T3C8,B4SUV5,2740,3489\nhypA,SNSL254_A0636,Lit Ecoli IntAct,PPI,SNSL254_A3059,SNSL254_A0636,B4T3C8,B4SXT5,2740,1768\nhypA,hycE,IntAct,PPI,SNSL254_A3059,SNSL254_A3052,B4T3C8,B4T3C1,2740,126\nhypA,hypB,IntAct,PPI,SNSL254_A3059,SNSL254_A3060,B4T3C8,B4T3C9,2740,170\nfnr,hypA,Ecoli,Transcriptional_regulatory,SNSL254_A1783,SNSL254_A3059,B4T6Q3,B4T3C8,147,2740\nnsrR,hypA,Ecoli,Transcriptional_regulatory,SNSL254_A4728,SNSL254_A3059,B4T2S3,B4T3C8,2218,2740'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4T3C8",
                                         name: "hypA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

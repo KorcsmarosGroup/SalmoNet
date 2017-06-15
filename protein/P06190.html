@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'araD,araB,STM BioModels,Metabolic\naraD,sgaE,STM,Metabolic\naraD,sgaU,STM,Metabolic\naraD,sgbE,STM,Metabolic\nfis,araD,Exp(HT),Transcriptional_regulatory\naraC,araD,Ecoli,Transcriptional_regulatory\ncrp,araD,Ecoli,Transcriptional_regulatory'
+                        data: 'araD,araB,STM BioModels,Metabolic,STM0101,STM0103,P06190,P06188,709,1029\naraD,sgaE,STM,Metabolic,STM0101,STM4388,P06190,Q8ZK85,709,3474\naraD,sgaU,STM,Metabolic,STM0101,STM4387,P06190,Q8ZK86,709,1663\naraD,sgbE,STM,Metabolic,STM0101,STM3677,P06190,Q8ZL75,709,4275\nfis,araD,Exp(HT),Transcriptional_regulatory,STM3385,STM0101,P0A6R6,P06190,1300,709\naraC,araD,Ecoli,Transcriptional_regulatory,STM0104,STM0101,P03022,P06190,2319,709\ncrp,araD,Ecoli,Transcriptional_regulatory,STM3466,STM0101,P0A2T6,P06190,2484,709'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P06190",
                                         name: "araD",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

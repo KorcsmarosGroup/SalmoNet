@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ftsI,mrcA,STM,Metabolic\nmrcB,mrcA,STM,Metabolic\nmrcA,murG,STM,Metabolic\nmrdA,mrcA,STM,Metabolic\npbpC,mrcA,STM,Metabolic\nmrcA,SNSL254_A3522,IntAct,PPI'
+                        data: 'ftsI,mrcA,STM,Metabolic,SNSL254_A0134,SNSL254_A3765,B4SU44,B4SVJ5,3143,3788\nmrcB,mrcA,STM,Metabolic,SNSL254_A0207,SNSL254_A3765,B4SUB6,B4SVJ5,2681,3788\nmrcA,murG,STM,Metabolic,SNSL254_A3765,SNSL254_A0140,B4SVJ5,B4SU50,3788,2882\nmrdA,mrcA,STM,Metabolic,SNSL254_A0696,SNSL254_A3765,B4SYJ8,B4SVJ5,2244,3788\npbpC,mrcA,STM,Metabolic,SNSL254_A2726,SNSL254_A3765,B4T0Q7,B4SVJ5,3411,3788\nmrcA,SNSL254_A3522,IntAct,PPI,SNSL254_A3765,SNSL254_A3522,B4SVJ5,B4T6X9,3788,718'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B4SVJ5",
                                         name: "mrcA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

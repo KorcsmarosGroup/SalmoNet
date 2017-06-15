@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'gsk,ybhK,Lit Ecoli IntAct,PPI\nybhK,topA,Lit Ecoli IntAct,PPI\nybhK,leuS,Lit Ecoli IntAct,PPI\nhyaD,ybhK,Lit Ecoli IntAct,PPI\nligA,ybhK,Lit Ecoli IntAct,PPI\nileS,ybhK,Lit Ecoli IntAct,PPI\nrbsB,ybhK,Lit Ecoli IntAct,PPI'
+                        data: 'gsk,ybhK,Lit Ecoli IntAct,PPI,SG0502,SG0780,B5R615,B5R768,84,3202\nybhK,topA,Lit Ecoli IntAct,PPI,SG0780,SG1400,B5R768,B5R6N6,3202,420\nybhK,leuS,Lit Ecoli IntAct,PPI,SG0780,SG0652,B5R768,B5R7Z6,3202,1322\nhyaD,ybhK,Lit Ecoli IntAct,PPI,SG1327,SG0780,B5R910,B5R768,543,3202\nligA,ybhK,Lit Ecoli IntAct,PPI,SG2459,SG0780,B5RCP9,B5R768,2114,3202\nileS,ybhK,Lit Ecoli IntAct,PPI,SG0049,SG0780,B5RF43,B5R768,3113,3202\nrbsB,ybhK,Lit Ecoli IntAct,PPI,SG3549,SG0780,B5RFU4,B5R768,1348,3202'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R768",
                                         name: "ybhK",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'nrdE,grxB,STM,Metabolic\nnrdF,grxB,STM,Metabolic\nydhD,grxB,STM,Metabolic\ncysH,grxB,STM,Metabolic\ngrxA,grxB,STM,Metabolic\ngrxB,cysC,STM,Metabolic\ngor,grxB,STM,Metabolic\ngrxC,grxB,STM,Metabolic\ncueR,grxB,Salm,Transcriptional_regulatory\nfis,grxB,Salm,Transcriptional_regulatory\ninvF,grxB,Salm,Transcriptional_regulatory'
+                        data: 'nrdE,grxB,STM,Metabolic,SEN2652,SEN1883,B5QUL7,B5QY00,8,1200\nnrdF,grxB,STM,Metabolic,SEN2653,SEN1883,B5QUL8,B5QY00,4212,1200\nydhD,grxB,STM,Metabolic,SEN1614,SEN1883,B5QV26,B5QY00,1938,1200\ncysH,grxB,STM,Metabolic,SEN2785,SEN1883,B5QW34,B5QY00,240,1200\ngrxA,grxB,STM,Metabolic,SEN0818,SEN1883,B5QXX6,B5QY00,3866,1200\ngrxB,cysC,STM,Metabolic,SEN1883,SEN2772,B5QY00,B5QW21,1200,2794\ngor,grxB,STM,Metabolic,SEN3420,SEN1883,B5R3Z8,B5QY00,2663,1200\ngrxC,grxB,STM,Metabolic,SEN3524,SEN1883,B5R5D5,B5QY00,1788,1200\ncueR,grxB,Salm,Transcriptional_regulatory,SEN0480,SEN1883,B5QU88,B5QY00,687,1200\nfis,grxB,Salm,Transcriptional_regulatory,SEN3219,SEN1883,B5R1C8,B5QY00,1300,1200\ninvF,grxB,Salm,Transcriptional_regulatory,SEN2740,SEN1883,B5QVY9,B5QY00,2003,1200'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QY00",
                                         name: "grxB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

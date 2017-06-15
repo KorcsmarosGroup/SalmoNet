@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cfa,aas,STM,Metabolic\npldA,aas,BioModels,Metabolic\npldB,aas,STM,Metabolic\nlgt,aas,STM,Metabolic\naas,yajB,STM,Metabolic\naas,tesB,STM BioModels,Metabolic\naas,tesA,BioModels,Metabolic\naas,ygeD,STM,Metabolic\naas,acpP,STM,Metabolic\naas,fadL,STM,Metabolic\naas,vacJ,STM,Metabolic\naas,yfdC,STM,Metabolic\nfabF,aas,STM,Metabolic\nplsC,aas,STM,Metabolic\nplsB,aas,STM,Metabolic\nglpQ,aas,BioModels,Metabolic\nugpQ,aas,BioModels,Metabolic\nfabB,aas,STM,Metabolic'
+                        data: 'cfa,aas,STM,Metabolic,SEN1620,SEN2853,B5QV32,B5QWU2,747,3199\npldA,aas,BioModels,Metabolic,SEN3752,SEN2853,B5QW60,B5QWU2,1320,3199\npldB,aas,STM,Metabolic,SEN3756,SEN2853,B5QW64,B5QWU2,3534,3199\nlgt,aas,STM,Metabolic,SEN2844,SEN2853,B5QWT4,B5QWU2,284,3199\naas,yajB,STM,Metabolic,SEN2853,SEN0386,B5QWU2,B5QTF2,3199,3118\naas,tesB,STM BioModels,Metabolic,SEN2853,SEN0446,B5QWU2,B5QU54,3199,1389\naas,tesA,BioModels,Metabolic,SEN2853,SEN0487,B5QWU2,B5QU95,3199,2502\naas,ygeD,STM,Metabolic,SEN2853,SEN2852,B5QWU2,B5QWU1,3199,3478\naas,acpP,STM,Metabolic,SEN2853,SEN1853,B5QWU2,B5QXE0,3199,883\naas,fadL,STM,Metabolic,SEN2853,SEN2373,B5QWU2,B5R3S2,3199,1790\naas,vacJ,STM,Metabolic,SEN2853,SEN2374,B5QWU2,B5R3S3,3199,433\naas,yfdC,STM,Metabolic,SEN2853,SEN2375,B5QWU2,B5R3S4,3199,3707\nfabF,aas,STM,Metabolic,SEN1852,SEN2853,B5QXD9,B5QWU2,1982,3199\nplsC,aas,STM,Metabolic,SEN3016,SEN2853,B5QZ10,B5QWU2,1617,3199\nplsB,aas,STM,Metabolic,SEN4004,SEN2853,B5QZ60,B5QWU2,1267,3199\nglpQ,aas,BioModels,Metabolic,SEN2264,SEN2853,B5R255,B5QWU2,473,3199\nugpQ,aas,BioModels,Metabolic,SEN3376,SEN2853,B5R3B1,B5QWU2,216,3199\nfabB,aas,STM,Metabolic,SEN2360,SEN2853,B5R3Q9,B5QWU2,2227,3199'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5QWU2",
                                         name: "aas",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

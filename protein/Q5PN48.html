@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'tdcD,pta,STM BioModels,Metabolic\npduW,pta,STM BioModels,Metabolic\nackA,pta,STM BioModels,Metabolic\npta,eutD,STM,Metabolic\npta,pduL,STM,Metabolic\npta,glmU,IntAct,PPI\npta,yfbT,Lit Ecoli IntAct,PPI'
+                        data: 'tdcD,pta,STM BioModels,Metabolic,SPA3111,SPA0526,Q5PCA9,Q5PN48,419,2528\npduW,pta,STM BioModels,Metabolic,SPA0814,SPA0526,Q5PDQ7,Q5PN48,3142,2528\nackA,pta,STM BioModels,Metabolic,SPA0527,SPA0526,Q5PN47,Q5PN48,417,2528\npta,eutD,STM,Metabolic,SPA0526,SPA0402,Q5PN48,Q5PCP4,2528,16\npta,pduL,STM,Metabolic,SPA0526,SPA0824,Q5PN48,Q5PDS1,2528,4368\npta,glmU,IntAct,PPI,SPA0526,SPA3701,Q5PN48,Q5PKV8,2528,2983\npta,yfbT,Lit Ecoli IntAct,PPI,SPA0526,SPA0530,Q5PN48,Q5PN52,2528,281'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PN48",
                                         name: "pta",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rhaA,rhaT,STM,Metabolic\nrhaT,ompF,STM,Metabolic\nphoP,rhaT,Salm,Transcriptional_regulatory\narcA,rhaT,Ecoli,Transcriptional_regulatory\ncrp,rhaT,Ecoli,Transcriptional_regulatory\nrhaS,rhaT,Ecoli,Transcriptional_regulatory'
+                        data: 'rhaA,rhaT,STM,Metabolic,STM4046,STM4050,P27031,P27135,1164,279\nrhaT,ompF,STM,Metabolic,STM4050,STM0999,P27135,P37432,279,2449\nphoP,rhaT,Salm,Transcriptional_regulatory,STM1231,STM4050,P0DM78,P27135,1432,279\narcA,rhaT,Ecoli,Transcriptional_regulatory,STM4598,STM4050,Q7CP63,P27135,2438,279\ncrp,rhaT,Ecoli,Transcriptional_regulatory,STM3466,STM4050,P0A2T6,P27135,2484,279\nrhaS,rhaT,Ecoli,Transcriptional_regulatory,STM4048,STM4050,P0A2S9,P27135,3396,279'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P27135",
                                         name: "rhaT",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

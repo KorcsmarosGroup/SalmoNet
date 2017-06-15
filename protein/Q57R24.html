@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'serB,serC,STM,Metabolic\nserC,serA,STM BioModels,Metabolic\nserC,pdxB,STM BioModels,Metabolic\npdxA,serC,STM BioModels,Metabolic\npdxA,serC,STM BioModels,Metabolic\ncrp,serC,Ecoli,Transcriptional_regulatory\nlrp,serC,Ecoli,Transcriptional_regulatory'
+                        data: 'serB,serC,STM,Metabolic,SC4423,SC0931,Q57G33,Q57R24,1850,427\nserC,serA,STM BioModels,Metabolic,SC0931,SC3003,Q57R24,Q57K53,427,3261\nserC,pdxB,STM BioModels,Metabolic,SC0931,SC2372,Q57R24,Q57LY4,427,3062\npdxA,serC,STM BioModels,Metabolic,SC0163,SC0931,Q57T92,Q57R24,1919,427\npdxA,serC,STM BioModels,Metabolic,SC0086,SC0931,Q57TG9,Q57R24,310,427\ncrp,serC,Ecoli,Transcriptional_regulatory,SC3400,SC0931,Q57J06,Q57R24,2484,427\nlrp,serC,Ecoli,Transcriptional_regulatory,SC0913,SC0931,Q57R42,Q57R24,3848,427'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57R24",
                                         name: "serC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

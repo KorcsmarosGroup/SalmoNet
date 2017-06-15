@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'rpoE,cheR,Lit Ecoli IntAct,PPI\nrpoE,topA,IntAct,PPI\nrpoE,flhD,IntAct,PPI\nrpoE,flgJ,IntAct,PPI\nrpoE,fliN,IntAct,PPI\nrpoE,fliI,Lit Ecoli IntAct,PPI\nrpoE,rpsS,IntAct,PPI\nrpoE,yhdJ,Lit Ecoli IntAct,PPI\nrpoE,yjeK,IntAct,PPI\nrpoE,rpe,IntAct,PPI\nrpoE,rseA,Lit Ecoli IntAct Interactome3d,PPI\nrpoE,ycbG,Lit Ecoli IntAct,PPI\nrpoE,STM0556,Lit Ecoli IntAct,PPI\ncpxR,rpoE,Ecoli,Transcriptional_regulatory'
+                        data: 'rpoE,cheR,Lit Ecoli IntAct,PPI,STM2640,STM1918,P0A2F0,P07801,3460,692\nrpoE,topA,IntAct,PPI,STM2640,STM1714,P0A2F0,P0A2I1,3460,420\nrpoE,flhD,IntAct,PPI,STM2640,STM1925,P0A2F0,P0A2R2,3460,1977\nrpoE,flgJ,IntAct,PPI,STM2640,STM1182,P0A2F0,P15931,3460,2165\nrpoE,fliN,IntAct,PPI,STM2640,STM1977,P0A2F0,P26419,3460,1656\nrpoE,fliI,Lit Ecoli IntAct,PPI,STM2640,STM1972,P0A2F0,P26465,3460,703\nrpoE,rpsS,IntAct,PPI,STM2640,STM3436,P0A2F0,P66491,3460,3017\nrpoE,yhdJ,Lit Ecoli IntAct,PPI,STM2640,STM3386,P0A2F0,Q7CPL9,3460,2370\nrpoE,yjeK,IntAct,PPI,STM2640,STM4333,P0A2F0,Q8ZKB8,3460,2668\nrpoE,rpe,IntAct,PPI,STM2640,STM3483,P0A2F0,Q8ZLK4,3460,3757\nrpoE,rseA,Lit Ecoli IntAct Interactome3d,PPI,STM2640,STM2639,P0A2F0,Q8ZMY0,3460,2443\nrpoE,ycbG,Lit Ecoli IntAct,PPI,STM2640,STM1069,P0A2F0,Q8ZQ68,3460,2375\nrpoE,STM0556,Lit Ecoli IntAct,PPI,STM2640,STM0556,P0A2F0,Q8ZR62,3460,2310\ncpxR,rpoE,Ecoli,Transcriptional_regulatory,STM4059,STM2640,Q8ZKR6,P0A2F0,290,3460'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P0A2F0",
                                         name: "rpoE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

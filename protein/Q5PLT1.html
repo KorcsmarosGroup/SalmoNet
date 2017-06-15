@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ubiG,yleB,STM BioModels,Metabolic\nyleB,ubiE,STM BioModels,Metabolic\nyqjG,yleB,Lit Ecoli IntAct,PPI\nSPA2170,yleB,Lit Ecoli IntAct,PPI\nmetR,yleB,IntAct,PPI\nyleB,yfcM,Lit Ecoli IntAct,PPI\nyleB,hisF,Lit Ecoli IntAct,PPI\nyleB,fms,Lit Ecoli IntAct,PPI'
+                        data: 'ubiG,yleB,STM BioModels,Metabolic,SPA0588,SPA2069,Q5PCY1,Q5PLT1,1095,3010\nyleB,ubiE,STM BioModels,Metabolic,SPA2069,SPA3811,Q5PLT1,Q5PKP4,3010,1659\nyqjG,yleB,Lit Ecoli IntAct,PPI,SPA3102,SPA2069,Q5PCB6,Q5PLT1,964,3010\nSPA2170,yleB,Lit Ecoli IntAct,PPI,SPA2170,SPA2069,Q5PCC3,Q5PLT1,2310,3010\nmetR,yleB,IntAct,PPI,SPA3805,SPA2069,Q5PKQ0,Q5PLT1,3412,3010\nyleB,yfcM,Lit Ecoli IntAct,PPI,SPA2069,SPA0483,Q5PLT1,Q5PCW9,3010,657\nyleB,hisF,Lit Ecoli IntAct,PPI,SPA2069,SPA0794,Q5PLT1,Q5PDN6,3010,1098\nyleB,fms,Lit Ecoli IntAct,PPI,SPA2069,SPA3273,Q5PLT1,Q5PIT8,3010,1601'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PLT1",
                                         name: "yleB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

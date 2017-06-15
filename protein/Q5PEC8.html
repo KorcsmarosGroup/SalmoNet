@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'fliI,invA,IntAct,PPI\ninvA,flhB,IntAct,PPI\ninvA,ssaU,IntAct,PPI\nfliH,invA,IntAct,PPI\ninvA,fliJ,IntAct,PPI\niagA,invA,Salm,Transcriptional_regulatory\naraC,invA,Salm,Transcriptional_regulatory'
+                        data: 'fliI,invA,IntAct,PPI,SPA0898,SPA2754,Q5PHZ1,Q5PEC8,703,2018\ninvA,flhB,IntAct,PPI,SPA2754,SPA0954,Q5PEC8,Q3V7K8,2018,1220\ninvA,ssaU,IntAct,PPI,SPA2754,SPA1431,Q5PEC8,Q5PH23,2018,1220\nfliH,invA,IntAct,PPI,SPA0899,SPA2754,Q5PHZ0,Q5PEC8,3533,2018\ninvA,fliJ,IntAct,PPI,SPA2754,SPA0897,Q5PEC8,Q5PHZ2,2018,3031\niagA,invA,Salm,Transcriptional_regulatory,SPA2734,SPA2754,Q5PEB1,Q5PEC8,1036,2018\naraC,invA,Salm,Transcriptional_regulatory,SPA0106,SPA2754,Q5PDG0,Q5PEC8,2319,2018'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q5PEC8",
                                         name: "invA",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

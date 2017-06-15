@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'galK,mglB,STM,Metabolic\nwcaK,mglB,STM,Metabolic\nmglB,mglC,STM,Metabolic\ngalR,mglB,Ecoli,Transcriptional_regulatory\ncap,mglB,Ecoli,Transcriptional_regulatory\ngalS,mglB,Ecoli,Transcriptional_regulatory'
+                        data: 'galK,mglB,STM,Metabolic,SL1344_0751,SL1344_2167,E1W9R2,E1WHC3,3217,2314\nwcaK,mglB,STM,Metabolic,SL1344_2078,SL1344_2167,E1WH34,E1WHC3,3210,2314\nmglB,mglC,STM,Metabolic,SL1344_2167,SL1344_2165,E1WHC3,E1WHC1,2314,2698\ngalR,mglB,Ecoli,Transcriptional_regulatory,SL1344_2989,SL1344_2167,E1WAQ4,E1WHC3,771,2314\ncap,mglB,Ecoli,Transcriptional_regulatory,SL1344_3433,SL1344_2167,E1WIP3,E1WHC3,2484,2314\ngalS,mglB,Ecoli,Transcriptional_regulatory,SL1344_2168,SL1344_2167,E1WHC4,E1WHC3,4170,2314'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_E1WHC3",
                                         name: "mglB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

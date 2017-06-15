@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'nrdE,grxC,STM,Metabolic\nnrdF,grxC,STM,Metabolic\ncysH,grxC,STM,Metabolic\ngor,grxC,STM,Metabolic\ngrxC,ydhD,STM,Metabolic\ngrxC,cysC,STM,Metabolic\ngrxC,grxA,STM,Metabolic\ngrxC,grxB,STM,Metabolic\ngrxA,grxC,Lit Ecoli IntAct,PPI'
+                        data: 'nrdE,grxC,STM,Metabolic,SEN2652,SEN3524,B5QUL7,B5R5D5,8,1788\nnrdF,grxC,STM,Metabolic,SEN2653,SEN3524,B5QUL8,B5R5D5,4212,1788\ncysH,grxC,STM,Metabolic,SEN2785,SEN3524,B5QW34,B5R5D5,240,1788\ngor,grxC,STM,Metabolic,SEN3420,SEN3524,B5R3Z8,B5R5D5,2663,1788\ngrxC,ydhD,STM,Metabolic,SEN3524,SEN1614,B5R5D5,B5QV26,1788,1938\ngrxC,cysC,STM,Metabolic,SEN3524,SEN2772,B5R5D5,B5QW21,1788,2794\ngrxC,grxA,STM,Metabolic,SEN3524,SEN0818,B5R5D5,B5QXX6,1788,3866\ngrxC,grxB,STM,Metabolic,SEN3524,SEN1883,B5R5D5,B5QY00,1788,1200\ngrxA,grxC,Lit Ecoli IntAct,PPI,SEN0818,SEN3524,B5QXX6,B5R5D5,3866,1788'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5R5D5",
                                         name: "grxC",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

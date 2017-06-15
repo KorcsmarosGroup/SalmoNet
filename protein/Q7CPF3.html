@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'ilvC,ilvN,STM BioModels,Metabolic\nilvN,ilvM,STM,Metabolic\nilvN,ilvB,STM,Metabolic\nilvN,ilvG,STM,Metabolic\nilvN,ilvB,Lit Ecoli IntAct,PPI\nilvN,yfcM,Lit Ecoli IntAct,PPI\nyjjW,ilvN,Lit Ecoli IntAct,PPI'
+                        data: 'ilvC,ilvN,STM BioModels,Metabolic,STM3909,STM3795,P05989,Q7CPF3,1832,1245\nilvN,ilvM,STM,Metabolic,STM3795,STM3902,Q7CPF3,Q7CPD7,1245,1471\nilvN,ilvB,STM,Metabolic,STM3795,STM3796,Q7CPF3,Q8ZL15,1245,2187\nilvN,ilvG,STM,Metabolic,STM3795,STM3901,Q7CPF3,Q9L6T2,1245,1884\nilvN,ilvB,Lit Ecoli IntAct,PPI,STM3795,STM3796,Q7CPF3,Q8ZL15,1245,2187\nilvN,yfcM,Lit Ecoli IntAct,PPI,STM3795,STM2381,Q7CPF3,Q8ZNB1,1245,657\nyjjW,ilvN,Lit Ecoli IntAct,PPI,STM4565,STM3795,Q8ZJW0,Q7CPF3,358,1245'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q7CPF3",
                                         name: "ilvN",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

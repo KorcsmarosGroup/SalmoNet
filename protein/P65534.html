@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'adk,ndk,STM,Metabolic\nrfbA,ndk,STM,Metabolic\nndk,rfbN,STM,Metabolic\nndk,tmk,STM,Metabolic\nndk,STM3927,STM,Metabolic\nyggV,ndk,BioModels,Metabolic\nmazG,ndk,STM,Metabolic\nnudI,ndk,STM,Metabolic\nSTM4452.1N,ndk,BioModels,Metabolic\nndk,trxA,IntAct,PPI\nndk,ung,IntAct,PPI\nfrr,ndk,Lit Ecoli IntAct,PPI'
+                        data: 'adk,ndk,STM,Metabolic,STM0488,STM2526,P0A1V4,P65534,3593,2887\nrfbA,ndk,STM,Metabolic,STM2095,STM2526,P26393,P65534,2426,2887\nndk,rfbN,STM,Metabolic,STM2526,STM2085,P65534,P26403,2887,2654\nndk,tmk,STM,Metabolic,STM2526,STM1200,P65534,P65246,2887,910\nndk,STM3927,STM,Metabolic,STM2526,STM3927,P65534,Q9L6Q8,2887,453\nyggV,ndk,BioModels,Metabolic,STM3103,STM2526,Q8ZM45,P65534,654,2887\nmazG,ndk,STM,Metabolic,STM2954,STM2526,Q8ZME4,P65534,3476,2887\nnudI,ndk,STM,Metabolic,STM2295,STM2526,Q8ZNF5,P65534,1942,2887\nSTM4452.1N,ndk,BioModels,Metabolic,STM4452.1N,STM2526,Q9L646,P65534,3575,2887\nndk,trxA,IntAct,PPI,STM2526,STM3915,P65534,P0AA28,2887,3171\nndk,ung,IntAct,PPI,STM2526,STM2647,P65534,P67073,2887,3638\nfrr,ndk,Lit Ecoli IntAct,PPI,STM0219,STM2526,P66738,P65534,424,2887'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_P65534",
                                         name: "ndk",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

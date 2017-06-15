@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'frr,tpx,Lit Ecoli IntAct,PPI\nSeD_A2159,tpx,Lit Ecoli IntAct,PPI\nSeD_A0474,tpx,Biogrid,PPI\ntrxA,tpx,IntAct,PPI\nfnr,tpx,Ecoli,Transcriptional_regulatory\narcA,tpx,Ecoli,Transcriptional_regulatory'
+                        data: 'frr,tpx,Lit Ecoli IntAct,PPI,SeD_A0241,SeD_A1650,B5FJ19,B5FUL1,424,1283\nSeD_A2159,tpx,Lit Ecoli IntAct,PPI,SeD_A2159,SeD_A1650,B5FK97,B5FUL1,2480,1283\nSeD_A0474,tpx,Biogrid,PPI,SeD_A0474,SeD_A1650,B5FKT8,B5FUL1,1011,1283\ntrxA,tpx,IntAct,PPI,SeD_A4304,SeD_A1650,B5FN75,B5FUL1,3171,1283\nfnr,tpx,Ecoli,Transcriptional_regulatory,SeD_A1673,SeD_A1650,B5FUN4,B5FUL1,147,1283\narcA,tpx,Ecoli,Transcriptional_regulatory,SeD_A5012,SeD_A1650,B5FU02,B5FUL1,2438,1283'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5FUL1",
                                         name: "tpx",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

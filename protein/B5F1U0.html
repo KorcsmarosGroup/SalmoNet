@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'cobT,pncB,STM,Metabolic\nnadD,pncB,STM,Metabolic\npncB,SeAg_B1882,STM BioModels,Metabolic\nnpdA,pncB,STM,Metabolic\nglgC,pncB,Lit Ecoli IntAct,PPI\ncrp,pncB,Ecoli,Transcriptional_regulatory'
+                        data: 'cobT,pncB,STM,Metabolic,SeAg_B2138,SeAg_B1014,B5EWY2,B5F1U0,1463,3279\nnadD,pncB,STM,Metabolic,SeAg_B0688,SeAg_B1014,B5EZ86,B5F1U0,263,3279\npncB,SeAg_B1882,STM BioModels,Metabolic,SeAg_B1014,SeAg_B1882,B5F1U0,B5F858,3279,219\nnpdA,pncB,STM,Metabolic,SeAg_B1963,SeAg_B1014,B5F8D2,B5F1U0,2636,3279\nglgC,pncB,Lit Ecoli IntAct,PPI,SeAg_B3737,SeAg_B1014,B5F8Q2,B5F1U0,1990,3279\ncrp,pncB,Ecoli,Transcriptional_regulatory,SeAg_B3663,SeAg_B1014,B5F8H8,B5F1U0,2484,3279'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_B5F1U0",
                                         name: "pncB",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>

@@ -89,13 +89,21 @@
                             {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 120},
                             {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 120},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", width: 200},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200}
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data4", hidden:true},
+                            {id: "data5", hidden:true},
+                            {id: "data6", hidden:true},
+                            {id: "data7", hidden:true},
+                            {id: "data8", hidden:true},
+                            {id: "data9", hidden:true},
+                            {id: "data10", hidden:true},
+                            {id: "data11", hidden:true}
                         ],
                         height: 500,
                         autowidth: true,
 
                         datatype: "csv",
-                        data: 'hypO,hycE,STM,Metabolic\nhybC,hycE,STM,Metabolic\nhycE,hycB,STM,Metabolic\nhycE,hycC,STM,Metabolic\nhycE,hycD,STM,Metabolic\nhycE,mbhS,STM,Metabolic\nhycF,hycE,STM,Metabolic\nhycG,hycE,STM,Metabolic\ncybH,hycE,STM,Metabolic\ngroEL,hycE,IntAct,PPI\nslyD,hycE,IntAct,PPI\nhybG,hycE,Lit Ecoli IntAct,PPI\nhypE,hycE,Lit Ecoli IntAct,PPI\nhypB,hycE,IntAct,PPI\nhypA,hycE,IntAct,PPI\ndnaK,hycE,IntAct,PPI\nfhlA,hycE,Ecoli,Transcriptional_regulatory\nyjeB,hycE,Ecoli,Transcriptional_regulatory'
+                        data: 'hypO,hycE,STM,Metabolic,SC3091,SC2782,Q57JW5,Q57KS4,2290,126\nhybC,hycE,STM,Metabolic,SC3088,SC2782,Q57JW8,Q57KS4,631,126\nhycE,hycB,STM,Metabolic,SC2782,SC2785,Q57KS4,Q57KS1,126,4039\nhycE,hycC,STM,Metabolic,SC2782,SC2784,Q57KS4,Q57KS2,126,2222\nhycE,hycD,STM,Metabolic,SC2782,SC2783,Q57KS4,Q57KS3,126,376\nhycE,mbhS,STM,Metabolic,SC2782,SC1782,Q57KS4,Q57NM3,126,3144\nhycF,hycE,STM,Metabolic,SC2781,SC2782,Q57KS5,Q57KS4,1226,126\nhycG,hycE,STM,Metabolic,SC2780,SC2782,Q57KS6,Q57KS4,602,126\ncybH,hycE,STM,Metabolic,SC1783,SC2782,Q57NM2,Q57KS4,904,126\ngroEL,hycE,IntAct,PPI,SC4209,SC2782,Q57GP7,Q57KS4,1880,126\nslyD,hycE,IntAct,PPI,SC3389,SC2782,Q57J17,Q57KS4,3489,126\nhybG,hycE,Lit Ecoli IntAct,PPI,SC3084,SC2782,Q57JX2,Q57KS4,3620,126\nhypE,hycE,Lit Ecoli IntAct,PPI,SC2791,SC2782,Q57KR5,Q57KS4,71,126\nhypB,hycE,IntAct,PPI,SC2788,SC2782,Q57KR8,Q57KS4,170,126\nhypA,hycE,IntAct,PPI,SC2787,SC2782,Q57KR9,Q57KS4,2740,126\ndnaK,hycE,IntAct,PPI,SC0012,SC2782,Q57TP3,Q57KS4,2512,126\nfhlA,hycE,Ecoli,Transcriptional_regulatory,SC2792,SC2782,Q57KR4,Q57KS4,791,126\nyjeB,hycE,Ecoli,Transcriptional_regulatory,SC4243,SC2782,Q57GL3,Q57KS4,2218,126'
                     },
                     {
     					view: "form",
@@ -109,10 +117,18 @@
                                         filename: "SalmoNet_Q57KS4",
                                         name: "hycE",
                                         columns:{
-                                            "data0":true,
-                                            "data1":true,
-                                            "data2":true,
-                                            "data3":true,
+                                            "data0":{header: "node_a_name"},
+                                            "data1":{header: "node_b_name"},
+                                            "data2":{header: "source"},
+                                            "data3":{header: "layer"},
+                                            "data4":{header: "node_a_locus"},
+                                            "data5":{header: "node_b_locus"},
+                                            "data6":{header: "node_a_uniprot"},
+                                            "data7":{header: "node_b_uniprot"},
+                                            "data8":{header: "node_a_ortholog_group"},
+                                            "data9":{header: "node_b_ortholog_group"},
+                                            "data10":{header: "node_a_strain"},
+                                            "data11":{header: "node_b_strain"}
                                         }
                                     });
     							}
@@ -139,12 +155,6 @@
                     interactiontable.setColumnWidth("data0", 80);
                     interactiontable.setColumnWidth("data1", 80);
                 };
-                if ($("#interactiontablediv").height() < 500){
-                    $$("interactiontable").config.autoheight = true;
-                    
-                    $$("interactiontable").refresh();
-                    interactiontable.resize();
-                }
             </script>
         </div>
     </div>
