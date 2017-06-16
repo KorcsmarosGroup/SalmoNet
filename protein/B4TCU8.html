@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "SeHA_C0979_gsiC", "source": "SeHA_C0979", "target": "gsiC"}}, {"data": {"id": "gsiC_SeHA_C0981", "source": "gsiC", "target": "SeHA_C0981"}}, {"data": {"id": "SeHA_C0979"}}, {"data": {"id": "gsiC"}}, {"data": {"id": "SeHA_C0981"}}],
+                    elements: [{"data": {"id": "SeHA_C0979_gsiC", "source": "SeHA_C0979", "target": "gsiC"}}, {"data": {"id": "gsiC_SeHA_C0981", "source": "gsiC", "target": "SeHA_C0981"}}, {"data": {"id": "SeHA_C0979", "main": false}}, {"data": {"id": "gsiC", "main": true}}, {"data": {"id": "SeHA_C0981", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>

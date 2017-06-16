@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "bglX_STM3617", "source": "bglX", "target": "STM3617"}}, {"data": {"id": "bglX_glk", "source": "bglX", "target": "glk"}}, {"data": {"id": "bglX_bcsA", "source": "bglX", "target": "bcsA"}}, {"data": {"id": "galM_bglX", "source": "galM", "target": "bglX"}}, {"data": {"id": "bglX"}}, {"data": {"id": "STM3617"}}, {"data": {"id": "glk"}}, {"data": {"id": "bcsA"}}, {"data": {"id": "galM"}}],
+                    elements: [{"data": {"id": "bglX_STM3617", "source": "bglX", "target": "STM3617"}}, {"data": {"id": "bglX_glk", "source": "bglX", "target": "glk"}}, {"data": {"id": "bglX_bcsA", "source": "bglX", "target": "bcsA"}}, {"data": {"id": "galM_bglX", "source": "galM", "target": "bglX"}}, {"data": {"id": "bglX", "main": true}}, {"data": {"id": "STM3617", "main": false}}, {"data": {"id": "glk", "main": false}}, {"data": {"id": "bcsA", "main": false}}, {"data": {"id": "galM", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>

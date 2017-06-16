@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "tpiA_pepT", "source": "tpiA", "target": "pepT"}}, {"data": {"id": "tpiA_trxA", "source": "tpiA", "target": "trxA"}}, {"data": {"id": "tpiA_pflB2", "source": "tpiA", "target": "pflB2"}}, {"data": {"id": "tpiA"}}, {"data": {"id": "pepT"}}, {"data": {"id": "trxA"}}, {"data": {"id": "pflB2"}}],
+                    elements: [{"data": {"id": "tpiA_pepT", "source": "tpiA", "target": "pepT"}}, {"data": {"id": "tpiA_trxA", "source": "tpiA", "target": "trxA"}}, {"data": {"id": "tpiA_pflB2", "source": "tpiA", "target": "pflB2"}}, {"data": {"id": "tpiA", "main": true}}, {"data": {"id": "pepT", "main": false}}, {"data": {"id": "trxA", "main": false}}, {"data": {"id": "pflB2", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>

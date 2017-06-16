@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "SeHA_C2529_hpaH", "source": "SeHA_C2529", "target": "hpaH"}}, {"data": {"id": "hpaH_SeHA_C1211", "source": "hpaH", "target": "SeHA_C1211"}}, {"data": {"id": "hpaI_hpaH", "source": "hpaI", "target": "hpaH"}}, {"data": {"id": "SeHA_C2529"}}, {"data": {"id": "hpaH"}}, {"data": {"id": "SeHA_C1211"}}, {"data": {"id": "hpaI"}}],
+                    elements: [{"data": {"id": "SeHA_C2529_hpaH", "source": "SeHA_C2529", "target": "hpaH"}}, {"data": {"id": "hpaH_SeHA_C1211", "source": "hpaH", "target": "SeHA_C1211"}}, {"data": {"id": "hpaI_hpaH", "source": "hpaI", "target": "hpaH"}}, {"data": {"id": "SeHA_C2529", "main": false}}, {"data": {"id": "hpaH", "main": true}}, {"data": {"id": "SeHA_C1211", "main": false}}, {"data": {"id": "hpaI", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>

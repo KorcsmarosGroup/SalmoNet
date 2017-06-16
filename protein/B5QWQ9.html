@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "SEN3609_SEN2819A", "source": "SEN3609", "target": "SEN2819A"}}, {"data": {"id": "SEN2819A_ompF", "source": "SEN2819A", "target": "ompF"}}, {"data": {"id": "SEN3609"}}, {"data": {"id": "SEN2819A"}}, {"data": {"id": "ompF"}}],
+                    elements: [{"data": {"id": "SEN3609_SEN2819A", "source": "SEN3609", "target": "SEN2819A"}}, {"data": {"id": "SEN2819A_ompF", "source": "SEN2819A", "target": "ompF"}}, {"data": {"id": "SEN3609", "main": false}}, {"data": {"id": "SEN2819A", "main": true}}, {"data": {"id": "ompF", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>

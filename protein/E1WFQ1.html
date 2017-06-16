@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "ttrA_ttrB", "source": "ttrA", "target": "ttrB"}}, {"data": {"id": "ttrB_ttrC", "source": "ttrB", "target": "ttrC"}}, {"data": {"id": "ttrA"}}, {"data": {"id": "ttrB"}}, {"data": {"id": "ttrC"}}],
+                    elements: [{"data": {"id": "ttrA_ttrB", "source": "ttrA", "target": "ttrB"}}, {"data": {"id": "ttrB_ttrC", "source": "ttrB", "target": "ttrC"}}, {"data": {"id": "ttrA", "main": false}}, {"data": {"id": "ttrB", "main": true}}, {"data": {"id": "ttrC", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>

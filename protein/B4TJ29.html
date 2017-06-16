@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "SeHA_C1477_SeHA_C3606", "source": "SeHA_C1477", "target": "SeHA_C3606"}}, {"data": {"id": "SeHA_C3606_acrA", "source": "SeHA_C3606", "target": "acrA"}}, {"data": {"id": "SeHA_C1477"}}, {"data": {"id": "SeHA_C3606"}}, {"data": {"id": "acrA"}}],
+                    elements: [{"data": {"id": "SeHA_C1477_SeHA_C3606", "source": "SeHA_C1477", "target": "SeHA_C3606"}}, {"data": {"id": "SeHA_C3606_acrA", "source": "SeHA_C3606", "target": "acrA"}}, {"data": {"id": "SeHA_C1477", "main": false}}, {"data": {"id": "SeHA_C3606", "main": true}}, {"data": {"id": "acrA", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>

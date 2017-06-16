@@ -163,34 +163,32 @@
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "ompA_pal", "source": "ompA", "target": "pal"}}, {"data": {"id": "trxA_ompA", "source": "trxA", "target": "ompA"}}, {"data": {"id": "yidC_ompA", "source": "yidC", "target": "ompA"}}, {"data": {"id": "htrA_ompA", "source": "htrA", "target": "ompA"}}, {"data": {"id": "crp_ompA", "source": "crp", "target": "ompA"}}, {"data": {"id": "ompA"}}, {"data": {"id": "pal"}}, {"data": {"id": "trxA"}}, {"data": {"id": "yidC"}}, {"data": {"id": "htrA"}}, {"data": {"id": "crp"}}],
+                    elements: [{"data": {"id": "ompA_pal", "source": "ompA", "target": "pal"}}, {"data": {"id": "trxA_ompA", "source": "trxA", "target": "ompA"}}, {"data": {"id": "yidC_ompA", "source": "yidC", "target": "ompA"}}, {"data": {"id": "htrA_ompA", "source": "htrA", "target": "ompA"}}, {"data": {"id": "crp_ompA", "source": "crp", "target": "ompA"}}, {"data": {"id": "ompA", "main": true}}, {"data": {"id": "pal", "main": false}}, {"data": {"id": "trxA", "main": false}}, {"data": {"id": "yidC", "main": false}}, {"data": {"id": "htrA", "main": false}}, {"data": {"id": "crp", "main": false}}],
+                    userZoomingEnabled: false,
+                    layout: {
+                        name: 'cose-bilkent'
+                    },
+                    style: [
+                      {
+                        selector: 'node',
+                        style: {
+                          'background-color': '#666',
+                          'label': 'data(id)'
+                        }
+                      },
 
-style: [ 
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#666',
-      'label': 'data(id)'
-    }
-  },
-
-  {
-    selector: 'edge',
-    style: {
-      'width': 3,
-      'line-color': '#ccc',
-      'target-arrow-color': '#ccc',
-      'target-arrow-shape': 'triangle'
-    }
-  }
-],
-
-layout: {
-    name: 'grid',
-    fit: true,
-    padding: 30
-}
+                      {
+                        selector: 'edge',
+                        style: {
+                          'width': 3,
+                          'line-color': '#ccc',
+                          'target-arrow-color': '#ccc',
+                          'target-arrow-shape': 'triangle'
+                        }
+                      }
+                    ]
                 });
+                cy.fit();
             </script>
         </div>
     </div>
