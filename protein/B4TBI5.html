@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'nuoN,nuoK,STM,Metabolic,SeHA_C2555,SeHA_C2558,B4TBI2,B4TBI5,251,572,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoM,nuoK,STM,Metabolic,SeHA_C2556,SeHA_C2558,B4TBI3,B4TBI5,295,572,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoL,nuoK,STM,Metabolic,SeHA_C2557,SeHA_C2558,B4TBI4,B4TBI5,2469,572,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoJ,STM,Metabolic,SeHA_C2558,SeHA_C2559,B4TBI5,B4TBI6,572,439,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoI,STM,Metabolic,SeHA_C2558,SeHA_C2560,B4TBI5,B4TBI7,572,731,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoH,STM,Metabolic,SeHA_C2558,SeHA_C2561,B4TBI5,B4TBI8,572,1041,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoG,STM,Metabolic,SeHA_C2558,SeHA_C2562,B4TBI5,B4TBI9,572,3846,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoF,STM,Metabolic,SeHA_C2558,SeHA_C2563,B4TBI5,B4TBJ0,572,3490,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoE,STM,Metabolic,SeHA_C2558,SeHA_C2564,B4TBI5,B4TBJ1,572,2034,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoC,STM,Metabolic,SeHA_C2558,SeHA_C2565,B4TBI5,B4TBJ2,572,2936,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoB,STM,Metabolic,SeHA_C2558,SeHA_C2566,B4TBI5,B4TBJ3,572,1329,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnuoK,nuoA,STM,Metabolic,SeHA_C2558,SeHA_C2567,B4TBI5,B4TBJ4,572,120,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nfnr,nuoK,Ecoli,Transcriptional_regulatory,SeHA_C1845,SeHA_C2558,B4TIT4,B4TBI5,147,572,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnarL,nuoK,Ecoli,Transcriptional_regulatory,SeHA_C1962,SeHA_C2558,B4TJP6,B4TBI5,265,572,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nfis,nuoK,Ecoli,Transcriptional_regulatory,SeHA_C3683,SeHA_C2558,B4TJV9,B4TBI5,1300,572,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\narcA,nuoK,Ecoli,Transcriptional_regulatory,SeHA_C5008,SeHA_C2558,B4TH30,B4TBI5,2438,572,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

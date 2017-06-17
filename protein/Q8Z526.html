@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'nuoG,nuoF,STM,Metabolic,t0541,t0540,P0A1Y5,Q8Z526,3846,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoK,nuoF,STM,Metabolic,t0545,t0540,Q8XFA3,Q8Z526,572,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoI,nuoF,STM,Metabolic,t0543,t0540,Q8XFD5,Q8Z526,731,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoJ,nuoF,STM,Metabolic,t0544,t0540,Q8XG37,Q8Z526,439,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoF,nuoC,STM,Metabolic,t0540,t0538,Q8Z526,P0A1Y7,3490,2936,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoF,nuoE,STM,Metabolic,t0540,t0539,Q8Z526,P0A1Y9,3490,2034,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoF,nuoA,STM,Metabolic,t0540,t0536,Q8Z526,Q8XFY2,3490,120,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoF,nuoB,STM,Metabolic,t0540,t0537,Q8Z526,Q8XGN7,3490,1329,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoH,nuoF,STM,Metabolic,t0542,t0540,Q8Z527,Q8Z526,1041,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoL,nuoF,STM,Metabolic,t0546,t0540,Q8Z528,Q8Z526,2469,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoM,nuoF,STM,Metabolic,t0547,t0540,Q8Z529,Q8Z526,295,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoN,nuoF,STM,Metabolic,t0548,t0540,Q8Z530,Q8Z526,251,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnuoF,nuoG,IntAct Interactome3d,PPI,t0540,t0541,Q8Z526,P0A1Y5,3490,3846,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nfnr,nuoF,Ecoli,Transcriptional_regulatory,t1564,t0540,Q8Z787,Q8Z526,147,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnarL,nuoF,Ecoli,Transcriptional_regulatory,t1675,t0540,Q8Z7G2,Q8Z526,265,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nfis,nuoF,Ecoli,Transcriptional_regulatory,t3300,t0540,P0A6R7,Q8Z526,1300,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\narcA,nuoF,Ecoli,Transcriptional_regulatory,t4637,t0540,Q8XFN2,Q8Z526,2438,3490,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

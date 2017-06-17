@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'SeHA_C3840,SeHA_C4240,BioModels,Metabolic,SeHA_C3840,SeHA_C4240,B4T863,B4TB09,3667,1832,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nilvD,SeHA_C4240,STM BioModels,Metabolic,SeHA_C4235,SeHA_C4240,B4TB04,B4TB09,735,1832,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,panE,STM,Metabolic,SeHA_C4240,SeHA_C0536,B4TB09,B4T9C9,1832,2324,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,ilvN,STM BioModels,Metabolic,SeHA_C4240,SeHA_C4126,B4TB09,B4TA47,1832,1245,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,ilvB,STM BioModels,Metabolic,SeHA_C4240,SeHA_C4127,B4TB09,B4TA48,1832,2187,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,ilvG,STM BioModels,Metabolic,SeHA_C4240,SeHA_C4232,B4TB09,B4TB01,1832,1884,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,ilvM,STM BioModels,Metabolic,SeHA_C4240,SeHA_C4233,B4TB09,B4TB02,1832,1471,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,panE,STM,Metabolic,SeHA_C4240,SeHA_C2839,B4TB09,B4TDE7,1832,1442,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,ilvB,BioModels,Metabolic,SeHA_C4240,SeHA_C0127,B4TB09,B4TJ74,1832,3747,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,ilvH,BioModels,Metabolic,SeHA_C4240,SeHA_C0128,B4TB09,B4TJ75,1832,1111,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4240,panB,STM,Metabolic,SeHA_C4240,SeHA_C0214,B4TB09,B4TK05,1832,418,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\npanC,SeHA_C4240,STM,Metabolic,SeHA_C0213,SeHA_C4240,B4TK04,B4TB09,1611,1832,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C4239,SeHA_C4240,Ecoli,Transcriptional_regulatory,SeHA_C4239,SeHA_C4240,B4TB08,B4TB09,820,1832,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

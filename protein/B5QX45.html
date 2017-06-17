@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'galK,galP,STM,Metabolic,SEN0719,SEN2934,B5QX45,B5QY67,3217,4110,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalK,wcaK,STM,Metabolic,SEN0719,SEN2097,B5QX45,B5QZP2,3217,3210,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalK,melA,STM BioModels,Metabolic,SEN0719,SEN4069,B5QX45,B5QZX7,3217,101,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalK,mglC,STM,Metabolic,SEN0719,SEN2181,B5QX45,B5R158,3217,2698,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalK,mglB,STM,Metabolic,SEN0719,SEN2183,B5QX45,B5R160,3217,2314,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalT,galK,STM BioModels,Metabolic,SEN0720,SEN0719,B5QX46,B5QX45,2019,3217,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalK,SEN1921,Lit Ecoli IntAct,PPI,SEN0719,SEN1921,B5QX45,B5QY39,3217,1273,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalK,SEN0913,Lit Ecoli IntAct,PPI,SEN0719,SEN0913,B5QX45,B5QZE1,3217,1273,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalK,fixX,Lit Ecoli IntAct,PPI,SEN0719,SEN0079,B5QX45,B5R1R7,3217,2000,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nfrr,galK,Lit Ecoli IntAct,PPI,SEN0226,SEN0719,B5R3I5,B5QX45,424,3217,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalR,galK,Ecoli,Transcriptional_regulatory,SEN2854,SEN0719,B5QWU3,B5QX45,771,3217,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\naraC,galK,Salm,Transcriptional_regulatory,SEN0105,SEN0719,B5R1U1,B5QX45,2319,3217,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ncrp,galK,Ecoli,Transcriptional_regulatory,SEN3293,SEN0719,B5R2B6,B5QX45,2484,3217,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ngalS,galK,Ecoli,Transcriptional_regulatory,SEN2184,SEN0719,B5R161,B5QX45,4170,3217,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

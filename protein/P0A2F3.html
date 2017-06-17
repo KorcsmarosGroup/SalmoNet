@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'cobB,glmM,BioModels,Metabolic,t1699,t3211,P0A2F3,Q8XF81,2636,3243,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncobB,pncB,STM,Metabolic,t1699,t1930,P0A2F3,Q8Z7Y9,2636,3279,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncobB,nagB,BioModels,Metabolic,t1699,t2191,P0A2F3,Q8Z8G0,2636,231,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncobB,nagA,BioModels,Metabolic,t1699,t2192,P0A2F3,Q8Z8G1,2636,313,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncobB,nadC,STM,Metabolic,t1699,t0151,P0A2F3,Q8Z9F6,2636,861,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nglmS,cobB,BioModels,Metabolic,t3658,t1699,Q8Z2Q2,P0A2F3,2457,2636,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncobS,cobB,STM,Metabolic,t0857,t1699,Q8Z5N8,P0A2F3,3459,2636,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncobT,cobB,STM,Metabolic,t0858,t1699,Q8Z5N9,P0A2F3,1463,2636,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1848,cobB,Lit Ecoli IntAct,PPI,t1848,t1699,Q8Z7R9,P0A2F3,852,2636,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

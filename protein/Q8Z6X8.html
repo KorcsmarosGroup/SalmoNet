@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 't0877,t1409,IntAct,PPI,t0877,t1409,Q8Z5Q0,Q8Z6X8,3391,1347,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nptsG,t1409,IntAct Interactome3d,PPI,t1717,t1409,Q8Z7J0,Q8Z6X8,3800,1347,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,crr,Ecoli,Transcriptional_regulatory,t1409,t0424,Q8Z6X8,P0A284,1347,1728,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,t0425,Ecoli,Transcriptional_regulatory,t1409,t0425,Q8Z6X8,P0A250,1347,1686,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,ptsH,Ecoli,Transcriptional_regulatory,t1409,t0426,Q8Z6X8,P0AA08,1347,561,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,t1045,Ecoli,Transcriptional_regulatory,t1409,t1045,Q8Z6X8,Q8Z671,1347,2778,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,manZ,Ecoli,Transcriptional_regulatory,t1409,t1046,Q8Z6X8,Q8Z672,1347,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,manY,Ecoli,Transcriptional_regulatory,t1409,t1047,Q8Z6X8,Q8XG39,1347,2212,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,manX,Ecoli,Transcriptional_regulatory,t1409,t1048,Q8Z6X8,Q8Z673,1347,111,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,ptsG,Ecoli,Transcriptional_regulatory,t1409,t1717,Q8Z6X8,Q8Z7J0,1347,3800,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,malT,Ecoli,Transcriptional_regulatory,t1409,t3991,Q8Z6X8,Q8Z227,1347,1035,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

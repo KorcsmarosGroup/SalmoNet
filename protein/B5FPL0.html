@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'accA,accD,STM BioModels,Metabolic,SeD_A0254,SeD_A2717,B5FJ32,B5FPL0,501,2027,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nacpP,accD,STM,Metabolic,SeD_A2173,SeD_A2717,B5FKB1,B5FPL0,883,2027,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nfabD,accD,STM,Metabolic,SeD_A2175,SeD_A2717,B5FKB3,B5FPL0,2177,2027,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,SeD_A0186,STM,Metabolic,SeD_A2717,SeD_A0186,B5FPL0,B5FIB9,2027,3047,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,accB,STM BioModels,Metabolic,SeD_A2717,SeD_A3739,B5FPL0,B5FIV7,2027,1341,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,accC,STM BioModels,Metabolic,SeD_A2717,SeD_A3740,B5FPL0,B5FIV8,2027,1824,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A4546,accD,BioModels,Metabolic,SeD_A4546,SeD_A2717,B5FPY4,B5FPL0,1145,2027,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,accC,Lit Ecoli IntAct,PPI,SeD_A2717,SeD_A3740,B5FPL0,B5FIV8,2027,1824,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,SeD_A3747,Lit Ecoli IntAct,PPI,SeD_A2717,SeD_A3747,B5FPL0,B5FIW5,2027,2370,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,accA,Lit Ecoli IntAct Interactome3d,PPI,SeD_A2717,SeD_A0254,B5FPL0,B5FJ32,2027,501,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,SeD_A1144,Lit Ecoli IntAct,PPI,SeD_A2717,SeD_A1144,B5FPL0,B5FQZ9,2027,2375,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,SeD_A2992,Lit Ecoli IntAct,PPI,SeD_A2717,SeD_A2992,B5FPL0,B5FRZ7,2027,2793,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,SeD_A1317,Lit Ecoli IntAct,PPI,SeD_A2717,SeD_A1317,B5FPL0,B5FSK1,2027,2493,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,SeD_A4964,Lit Ecoli IntAct,PPI,SeD_A2717,SeD_A4964,B5FPL0,B5FTB0,2027,1758,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\naccD,minC,Lit Ecoli IntAct,PPI,SeD_A2717,SeD_A1503,B5FPL0,B5FTL9,2027,970,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

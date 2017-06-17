@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'rpoE,SeD_A3747,Lit Ecoli IntAct,PPI,SeD_A2966,SeD_A3747,B5FRD1,B5FIW5,3460,2370,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,rpsS,IntAct,PPI,SeD_A2966,SeD_A3803,B5FRD1,B5FJL0,3460,3017,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,rpe,IntAct,PPI,SeD_A2966,SeD_A3851,B5FRD1,B5FJQ6,3460,3757,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,flgJ,IntAct,PPI,SeD_A2966,SeD_A2190,B5FRD1,B5FKC4,3460,2165,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,SeD_A4146,Lit Ecoli IntAct,PPI,SeD_A2966,SeD_A4146,B5FRD1,B5FM84,3460,2310,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,SeD_A1144,Lit Ecoli IntAct,PPI,SeD_A2966,SeD_A1144,B5FRD1,B5FQZ9,3460,2375,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,rseA,Lit Ecoli IntAct Interactome3d,PPI,SeD_A2966,SeD_A2965,B5FRD1,B5FRD0,3460,2443,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,SeD_A4730,IntAct,PPI,SeD_A2966,SeD_A4730,B5FRD1,B5FRK5,3460,2668,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,fliN,IntAct,PPI,SeD_A2966,SeD_A1265,B5FRD1,B5FRV4,3460,1656,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,fliI,Lit Ecoli IntAct,PPI,SeD_A2966,SeD_A1270,B5FRD1,B5FRV9,3460,703,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,SeD_A1319,IntAct,PPI,SeD_A2966,SeD_A1319,B5FRD1,B5FSK3,3460,1977,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,cheR,Lit Ecoli IntAct,PPI,SeD_A2966,SeD_A1327,B5FRD1,B5FSL1,3460,692,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpoE,topA,IntAct,PPI,SeD_A2966,SeD_A1614,B5FRD1,B5FU77,3460,420,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ncpxR,rpoE,Ecoli,Transcriptional_regulatory,SeD_A4457,SeD_A2966,B5FPQ9,B5FRD1,290,3460,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();

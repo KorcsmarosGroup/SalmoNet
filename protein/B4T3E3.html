@@ -76,9 +76,9 @@
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
-            <div id="interactiontablediv" style="width:100%;"></div>
+            <div id="interactiontablediv" ></div>
             <script>
-                interactiontable = webix.ui({
+                interactiontablediv = webix.ui({
                     container:"interactiontablediv",
         			rows: [
                     {
@@ -86,10 +86,10 @@
                         view: "datatable",
                         css: "salmonet_table",
                         columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", width: 100},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], width: 100},
+                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
+                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
                             {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], width: 200},
+                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
                             {id: "data4", hidden:true},
                             {id: "data5", hidden:true},
                             {id: "data6", hidden:true},
@@ -99,9 +99,8 @@
                             {id: "data10", hidden:true},
                             {id: "data11", hidden:true}
                         ],
-                        height: 500,
-                        autowidth: true,
-
+                        height: 450,
+                        autowidth:true,
                         datatype: "csv",
                         data: 'SNSL254_A3952,SNSL254_A4743,BioModels,Metabolic,SNSL254_A3952,SNSL254_A4743,B4SWM2,B4T3E3,3725,2974,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nsgbH,SNSL254_A4743,STM BioModels,Metabolic,SNSL254_A3953,SNSL254_A4743,B4SWM3,B4T3E3,2723,2974,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,SNSL254_A0195,BioModels,Metabolic,SNSL254_A4743,SNSL254_A0195,B4T3E3,B4SUA4,2974,325,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,ulaA,BioModels,Metabolic,SNSL254_A4743,SNSL254_A2528,B4T3E3,B4SZL2,2974,3877,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,SNSL254_A2529,BioModels,Metabolic,SNSL254_A4743,SNSL254_A2529,B4T3E3,B4SZL3,2974,2965,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,SNSL254_A2531,BioModels,Metabolic,SNSL254_A4743,SNSL254_A2531,B4T3E3,B4SZL4,2974,490,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,ptsH,STM,Metabolic,SNSL254_A4743,SNSL254_A2625,B4T3E3,B4SZV0,2974,561,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,ptsI,STM,Metabolic,SNSL254_A4743,SNSL254_A2626,B4T3E3,B4SZV1,2974,1686,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,SNSL254_A0956,BioModels,Metabolic,SNSL254_A4743,SNSL254_A0956,B4T3E3,B4T0E4,2974,1303,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,ulaA,STM BioModels,Metabolic,SNSL254_A4743,SNSL254_A4744,B4T3E3,B4T3E4,2974,255,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,ulaB,STM Biomodels,Metabolic,SNSL254_A4743,SNSL254_A4745,B4T3E3,B4T3E5,2974,1894,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4743,ulaC,STM BioModels,Metabolic,SNSL254_A4743,SNSL254_A4746,B4T3E3,B4T3E6,2974,2898,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nulaD,SNSL254_A4743,STM BioModels,Metabolic,SNSL254_A4747,SNSL254_A4743,B4T3E7,B4T3E3,2584,2974,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A4742,SNSL254_A4743,Ecoli,Transcriptional_regulatory,SNSL254_A4742,SNSL254_A4743,B4T3E2,B4T3E3,1700,2974,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22'
                     },
@@ -110,6 +109,7 @@
     					css: "toolbar",
     					paddingY: 5,
     					paddingX: 10,
+                        autowidth:true,
     					cols:[
     						{
     							view: "button", label: "Download table", width: 200, click:function(){
@@ -136,6 +136,7 @@
     					]
                     }]
                 });
+                interactiontablediv
                 $(window).resize(function() {
                     if ($(window).width() < 850){
                         $$('interactiontable').hideColumn("data2");
@@ -159,7 +160,7 @@
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
-            <div id="interactionnetworkdiv" style="height: 550px;"></div>
+            <div id="interactionnetworkdiv" style="height: 500px;"></div>
             <script>
                 var cy = cytoscape({
                     container: $('#interactionnetworkdiv'),
@@ -169,23 +170,39 @@
                         name: 'cose-bilkent'
                     },
                     style: [
-                      {
-                        selector: 'node',
-                        style: {
-                          'background-color': '#666',
-                          'label': 'data(id)'
+                        {
+                            selector: 'node[main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#39B4B5',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'node[!main]',
+                            style: {
+                                'height': 30,
+                                'width': function( ele ){ return ele.data('id').length*15 },
+                                'shape': 'roundrectangle',
+                                'background-color': '#216869',
+                                'label': 'data(id)',
+                                'text-halign': 'center',
+                                'text-valign': 'center'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                              'width': 3,
+                              'line-color': '#000',
+                              'target-arrow-color': '#000',
+                              'target-arrow-shape': 'triangle'
+                            }
                         }
-                      },
-
-                      {
-                        selector: 'edge',
-                        style: {
-                          'width': 3,
-                          'line-color': '#ccc',
-                          'target-arrow-color': '#ccc',
-                          'target-arrow-shape': 'triangle'
-                        }
-                      }
                     ]
                 });
                 cy.fit();
