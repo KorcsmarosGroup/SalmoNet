@@ -77,169 +77,29 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'thiJ,groEL,Biogrid,PPI,SG0444,SG4173,B5R6T4,B5R991,1011,1880,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nglpE,groEL,IntAct,PPI,SG3914,SG4173,B5R7J0,B5R991,2401,1880,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,dinP,IntAct,PPI,SG4173,SG0324,B5R991,B5R5R0,1880,1616,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,malE,IntAct,PPI,SG4173,SG4072,B5R991,B5R7S8,1880,189,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,ybdQ,IntAct,PPI,SG4173,SG0618,B5R991,B5R7W2,1880,466,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,groES,IntAct Interactome3d,PPI,SG4173,SG4172,B5R991,B5R990,1880,1967,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,aroH,Lit Ecoli IntAct,PPI,SG4173,SG1769,B5R991,B5RAV9,1880,3673,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,grpE,Lit Ecoli IntAct,PPI,SG4173,SG2659,B5R991,B5RD90,1880,2344,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,hycE,IntAct,PPI,SG4173,SG2752,B5R991,B5RDH4,1880,126,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,gatY,IntAct,PPI,SG4173,SG3147,B5R991,B5REK6,1880,1879,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngroEL,mdh,IntAct,PPI,SG4173,SG3249,B5R991,B5REV7,1880,109,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nthrS,groEL,IntAct,PPI,SG1784,SG4173,B5RAX3,B5R991,2445,1880,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nfhlA,groEL,Lit Ecoli IntAct,PPI,SG2762,SG4173,B5RDI4,B5R991,791,1880,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmetK,groEL,IntAct,PPI,SG2984,SG4173,B5RE50,B5R991,93,1880,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ntdh,groEL,Lit Ecoli IntAct,PPI,SG3723,SG4173,B5RGH0,B5R991,869,1880,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nphoP,groEL,Salm,Transcriptional_regulatory,SG1890,SG4173,B5RB71,B5R991,1432,1880,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5R991",
-                                        name: "groEL",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="thiJ,groEL,Biogrid,PPI,SG0444,SG4173,B5R6T4,B5R991,1011,1880,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+glpE,groEL,IntAct,PPI,SG3914,SG4173,B5R7J0,B5R991,2401,1880,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,dinP,IntAct,PPI,SG4173,SG0324,B5R991,B5R5R0,1880,1616,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,malE,IntAct,PPI,SG4173,SG4072,B5R991,B5R7S8,1880,189,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,ybdQ,IntAct,PPI,SG4173,SG0618,B5R991,B5R7W2,1880,466,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,groES,IntAct Interactome3d,PPI,SG4173,SG4172,B5R991,B5R990,1880,1967,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,aroH,Lit Ecoli IntAct,PPI,SG4173,SG1769,B5R991,B5RAV9,1880,3673,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,grpE,Lit Ecoli IntAct,PPI,SG4173,SG2659,B5R991,B5RD90,1880,2344,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,hycE,IntAct,PPI,SG4173,SG2752,B5R991,B5RDH4,1880,126,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,gatY,IntAct,PPI,SG4173,SG3147,B5R991,B5REK6,1880,1879,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+groEL,mdh,IntAct,PPI,SG4173,SG3249,B5R991,B5REV7,1880,109,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+thrS,groEL,IntAct,PPI,SG1784,SG4173,B5RAX3,B5R991,2445,1880,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+fhlA,groEL,Lit Ecoli IntAct,PPI,SG2762,SG4173,B5RDI4,B5R991,791,1880,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+metK,groEL,IntAct,PPI,SG2984,SG4173,B5RE50,B5R991,93,1880,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+tdh,groEL,Lit Ecoli IntAct,PPI,SG3723,SG4173,B5RGH0,B5R991,869,1880,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+phoP,groEL,Salm,Transcriptional_regulatory,SG1890,SG4173,B5RB71,B5R991,1432,1880,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "thiJ_groEL", "source": "thiJ", "target": "groEL"}}, {"data": {"id": "glpE_groEL", "source": "glpE", "target": "groEL"}}, {"data": {"id": "groEL_dinP", "source": "groEL", "target": "dinP"}}, {"data": {"id": "groEL_malE", "source": "groEL", "target": "malE"}}, {"data": {"id": "groEL_ybdQ", "source": "groEL", "target": "ybdQ"}}, {"data": {"id": "groEL_groES", "source": "groEL", "target": "groES"}}, {"data": {"id": "groEL_aroH", "source": "groEL", "target": "aroH"}}, {"data": {"id": "groEL_grpE", "source": "groEL", "target": "grpE"}}, {"data": {"id": "groEL_hycE", "source": "groEL", "target": "hycE"}}, {"data": {"id": "groEL_gatY", "source": "groEL", "target": "gatY"}}, {"data": {"id": "groEL_mdh", "source": "groEL", "target": "mdh"}}, {"data": {"id": "thrS_groEL", "source": "thrS", "target": "groEL"}}, {"data": {"id": "fhlA_groEL", "source": "fhlA", "target": "groEL"}}, {"data": {"id": "metK_groEL", "source": "metK", "target": "groEL"}}, {"data": {"id": "tdh_groEL", "source": "tdh", "target": "groEL"}}, {"data": {"id": "phoP_groEL", "source": "phoP", "target": "groEL"}}, {"data": {"id": "thiJ", "main": false}}, {"data": {"id": "groEL", "main": true}}, {"data": {"id": "glpE", "main": false}}, {"data": {"id": "dinP", "main": false}}, {"data": {"id": "malE", "main": false}}, {"data": {"id": "ybdQ", "main": false}}, {"data": {"id": "groES", "main": false}}, {"data": {"id": "aroH", "main": false}}, {"data": {"id": "grpE", "main": false}}, {"data": {"id": "hycE", "main": false}}, {"data": {"id": "gatY", "main": false}}, {"data": {"id": "mdh", "main": false}}, {"data": {"id": "thrS", "main": false}}, {"data": {"id": "fhlA", "main": false}}, {"data": {"id": "metK", "main": false}}, {"data": {"id": "tdh", "main": false}}, {"data": {"id": "phoP", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5R991.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;thiJ_groEL&#34;, &#34;source&#34;: &#34;thiJ&#34;, &#34;target&#34;: &#34;groEL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;glpE_groEL&#34;, &#34;source&#34;: &#34;glpE&#34;, &#34;target&#34;: &#34;groEL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_dinP&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;dinP&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_malE&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_ybdQ&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;ybdQ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_groES&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;groES&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_aroH&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;aroH&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_grpE&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;grpE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_hycE&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_gatY&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;gatY&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_mdh&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;mdh&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thrS_groEL&#34;, &#34;source&#34;: &#34;thrS&#34;, &#34;target&#34;: &#34;groEL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fhlA_groEL&#34;, &#34;source&#34;: &#34;fhlA&#34;, &#34;target&#34;: &#34;groEL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;metK_groEL&#34;, &#34;source&#34;: &#34;metK&#34;, &#34;target&#34;: &#34;groEL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tdh_groEL&#34;, &#34;source&#34;: &#34;tdh&#34;, &#34;target&#34;: &#34;groEL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoP_groEL&#34;, &#34;source&#34;: &#34;phoP&#34;, &#34;target&#34;: &#34;groEL&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiJ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;glpE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dinP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ybdQ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groES&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;aroH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;grpE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gatY&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mdh&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thrS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fhlA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;metK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tdh&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoP&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

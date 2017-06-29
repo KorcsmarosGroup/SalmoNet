@@ -77,169 +77,28 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'crr,manZ,STM,Metabolic,t0424,t1046,P0A284,Q8Z672,1728,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1791,manZ,STM,Metabolic,t1791,t1046,P60668,Q8Z672,2322,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nmanY,manZ,STM,Metabolic,t1047,t1046,Q8XG39,Q8Z672,2212,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nmanZ,t0425,STM,Metabolic,t1046,t0425,Q8Z672,P0A250,3056,1686,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nmanZ,ptsH,STM,Metabolic,t1046,t0426,Q8Z672,P0AA08,3056,561,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nmanX,manZ,STM,Metabolic,t1048,t1046,Q8Z673,Q8Z672,111,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nptsG,manZ,STM,Metabolic,t1717,t1046,Q8Z7J0,Q8Z672,3800,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnagB,manZ,STM,Metabolic,t2191,t1046,Q8Z8G0,Q8Z672,231,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nmanZ,manX,IntAct,PPI,t1046,t1048,Q8Z672,Q8Z673,3056,111,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nfruR,manZ,Ecoli,Transcriptional_regulatory,t0122,t1046,P0A2P9,Q8Z672,191,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nnagC,manZ,Ecoli,Transcriptional_regulatory,t2193,t1046,Q8Z8G2,Q8Z672,773,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt1409,manZ,Ecoli,Transcriptional_regulatory,t1409,t1046,Q8Z6X8,Q8Z672,1347,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nphoP,manZ,Salm,Transcriptional_regulatory,t1689,t1046,Q8Z7H2,Q8Z672,1432,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncrp,manZ,Ecoli,Transcriptional_regulatory,t4039,t1046,Q8Z1Z2,Q8Z672,2484,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nramA,manZ,Salm,Transcriptional_regulatory,t2287,t1046,Q8Z8M2,Q8Z672,4119,3056,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q8Z672",
-                                        name: "manZ",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="crr,manZ,STM,Metabolic,t0424,t1046,P0A284,Q8Z672,1728,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t1791,manZ,STM,Metabolic,t1791,t1046,P60668,Q8Z672,2322,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+manY,manZ,STM,Metabolic,t1047,t1046,Q8XG39,Q8Z672,2212,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+manZ,t0425,STM,Metabolic,t1046,t0425,Q8Z672,P0A250,3056,1686,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+manZ,ptsH,STM,Metabolic,t1046,t0426,Q8Z672,P0AA08,3056,561,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+manX,manZ,STM,Metabolic,t1048,t1046,Q8Z673,Q8Z672,111,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+ptsG,manZ,STM,Metabolic,t1717,t1046,Q8Z7J0,Q8Z672,3800,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+nagB,manZ,STM,Metabolic,t2191,t1046,Q8Z8G0,Q8Z672,231,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+manZ,manX,IntAct,PPI,t1046,t1048,Q8Z672,Q8Z673,3056,111,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+fruR,manZ,Ecoli,Transcriptional_regulatory,t0122,t1046,P0A2P9,Q8Z672,191,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+nagC,manZ,Ecoli,Transcriptional_regulatory,t2193,t1046,Q8Z8G2,Q8Z672,773,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t1409,manZ,Ecoli,Transcriptional_regulatory,t1409,t1046,Q8Z6X8,Q8Z672,1347,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+phoP,manZ,Salm,Transcriptional_regulatory,t1689,t1046,Q8Z7H2,Q8Z672,1432,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+crp,manZ,Ecoli,Transcriptional_regulatory,t4039,t1046,Q8Z1Z2,Q8Z672,2484,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+ramA,manZ,Salm,Transcriptional_regulatory,t2287,t1046,Q8Z8M2,Q8Z672,4119,3056,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "crr_manZ", "source": "crr", "target": "manZ"}}, {"data": {"id": "t1791_manZ", "source": "t1791", "target": "manZ"}}, {"data": {"id": "manY_manZ", "source": "manY", "target": "manZ"}}, {"data": {"id": "manZ_t0425", "source": "manZ", "target": "t0425"}}, {"data": {"id": "manZ_ptsH", "source": "manZ", "target": "ptsH"}}, {"data": {"id": "manX_manZ", "source": "manX", "target": "manZ"}}, {"data": {"id": "ptsG_manZ", "source": "ptsG", "target": "manZ"}}, {"data": {"id": "nagB_manZ", "source": "nagB", "target": "manZ"}}, {"data": {"id": "manZ_manX", "source": "manZ", "target": "manX"}}, {"data": {"id": "fruR_manZ", "source": "fruR", "target": "manZ"}}, {"data": {"id": "nagC_manZ", "source": "nagC", "target": "manZ"}}, {"data": {"id": "t1409_manZ", "source": "t1409", "target": "manZ"}}, {"data": {"id": "phoP_manZ", "source": "phoP", "target": "manZ"}}, {"data": {"id": "crp_manZ", "source": "crp", "target": "manZ"}}, {"data": {"id": "ramA_manZ", "source": "ramA", "target": "manZ"}}, {"data": {"id": "crr", "main": false}}, {"data": {"id": "manZ", "main": true}}, {"data": {"id": "t1791", "main": false}}, {"data": {"id": "manY", "main": false}}, {"data": {"id": "t0425", "main": false}}, {"data": {"id": "ptsH", "main": false}}, {"data": {"id": "manX", "main": false}}, {"data": {"id": "ptsG", "main": false}}, {"data": {"id": "nagB", "main": false}}, {"data": {"id": "fruR", "main": false}}, {"data": {"id": "nagC", "main": false}}, {"data": {"id": "t1409", "main": false}}, {"data": {"id": "phoP", "main": false}}, {"data": {"id": "crp", "main": false}}, {"data": {"id": "ramA", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q8Z672.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;crr_manZ&#34;, &#34;source&#34;: &#34;crr&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t1791_manZ&#34;, &#34;source&#34;: &#34;t1791&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manY_manZ&#34;, &#34;source&#34;: &#34;manY&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manZ_t0425&#34;, &#34;source&#34;: &#34;manZ&#34;, &#34;target&#34;: &#34;t0425&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manZ_ptsH&#34;, &#34;source&#34;: &#34;manZ&#34;, &#34;target&#34;: &#34;ptsH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manX_manZ&#34;, &#34;source&#34;: &#34;manX&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ptsG_manZ&#34;, &#34;source&#34;: &#34;ptsG&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nagB_manZ&#34;, &#34;source&#34;: &#34;nagB&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manZ_manX&#34;, &#34;source&#34;: &#34;manZ&#34;, &#34;target&#34;: &#34;manX&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fruR_manZ&#34;, &#34;source&#34;: &#34;fruR&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nagC_manZ&#34;, &#34;source&#34;: &#34;nagC&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t1409_manZ&#34;, &#34;source&#34;: &#34;t1409&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoP_manZ&#34;, &#34;source&#34;: &#34;phoP&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_manZ&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ramA_manZ&#34;, &#34;source&#34;: &#34;ramA&#34;, &#34;target&#34;: &#34;manZ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manZ&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t1791&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manY&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t0425&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ptsH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;manX&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ptsG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nagB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fruR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nagC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t1409&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ramA&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

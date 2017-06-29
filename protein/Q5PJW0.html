@@ -77,169 +77,25 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'tolB,envR,Lit Ecoli IntAct,PPI,SPA1995,SPA3256,Q5PCN2,Q5PJW0,2481,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nymbA,envR,Lit Ecoli IntAct,PPI,SPA1785,SPA3256,Q5PGD0,Q5PJW0,241,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nycbW,envR,Lit Ecoli IntAct,PPI,SPA1791,SPA3256,Q5PGE1,Q5PJW0,804,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nastE,envR,Lit Ecoli IntAct,PPI,SPA1537,SPA3256,Q5PHC2,Q5PJW0,3506,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nSPA3458,envR,Lit Ecoli IntAct,PPI,SPA3458,SPA3256,Q5PJQ2,Q5PJW0,1949,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nenvR,yeaZ,Lit Ecoli IntAct,PPI,SPA3256,SPA1053,Q5PJW0,Q5PD30,64,3487,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nenvR,ydfZ,Lit Ecoli IntAct,PPI,SPA3256,SPA1346,Q5PJW0,Q5PHG7,64,1669,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nenvR,SPA3540,Lit Ecoli IntAct,PPI,SPA3256,SPA3540,Q5PJW0,Q5PLR2,64,3724,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nprmA,envR,Lit Ecoli IntAct,PPI,SPA3250,SPA3256,Q5PJW5,Q5PJW0,1473,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nyifE,envR,Lit Ecoli IntAct,PPI,SPA3736,SPA3256,Q5PJY9,Q5PJW0,186,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nyifA,envR,Lit Ecoli IntAct,PPI,SPA3735,SPA3256,Q5PJZ0,Q5PJW0,3093,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nybdM,envR,Lit Ecoli IntAct,PPI,SPA2130,SPA3256,Q5PMD2,Q5PJW0,3654,64,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q5PJW0",
-                                        name: "envR",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="tolB,envR,Lit Ecoli IntAct,PPI,SPA1995,SPA3256,Q5PCN2,Q5PJW0,2481,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+ymbA,envR,Lit Ecoli IntAct,PPI,SPA1785,SPA3256,Q5PGD0,Q5PJW0,241,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+ycbW,envR,Lit Ecoli IntAct,PPI,SPA1791,SPA3256,Q5PGE1,Q5PJW0,804,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+astE,envR,Lit Ecoli IntAct,PPI,SPA1537,SPA3256,Q5PHC2,Q5PJW0,3506,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+SPA3458,envR,Lit Ecoli IntAct,PPI,SPA3458,SPA3256,Q5PJQ2,Q5PJW0,1949,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+envR,yeaZ,Lit Ecoli IntAct,PPI,SPA3256,SPA1053,Q5PJW0,Q5PD30,64,3487,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+envR,ydfZ,Lit Ecoli IntAct,PPI,SPA3256,SPA1346,Q5PJW0,Q5PHG7,64,1669,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+envR,SPA3540,Lit Ecoli IntAct,PPI,SPA3256,SPA3540,Q5PJW0,Q5PLR2,64,3724,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+prmA,envR,Lit Ecoli IntAct,PPI,SPA3250,SPA3256,Q5PJW5,Q5PJW0,1473,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+yifE,envR,Lit Ecoli IntAct,PPI,SPA3736,SPA3256,Q5PJY9,Q5PJW0,186,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+yifA,envR,Lit Ecoli IntAct,PPI,SPA3735,SPA3256,Q5PJZ0,Q5PJW0,3093,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+ybdM,envR,Lit Ecoli IntAct,PPI,SPA2130,SPA3256,Q5PMD2,Q5PJW0,3654,64,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "tolB_envR", "source": "tolB", "target": "envR"}}, {"data": {"id": "ymbA_envR", "source": "ymbA", "target": "envR"}}, {"data": {"id": "ycbW_envR", "source": "ycbW", "target": "envR"}}, {"data": {"id": "astE_envR", "source": "astE", "target": "envR"}}, {"data": {"id": "SPA3458_envR", "source": "SPA3458", "target": "envR"}}, {"data": {"id": "envR_yeaZ", "source": "envR", "target": "yeaZ"}}, {"data": {"id": "envR_ydfZ", "source": "envR", "target": "ydfZ"}}, {"data": {"id": "envR_SPA3540", "source": "envR", "target": "SPA3540"}}, {"data": {"id": "prmA_envR", "source": "prmA", "target": "envR"}}, {"data": {"id": "yifE_envR", "source": "yifE", "target": "envR"}}, {"data": {"id": "yifA_envR", "source": "yifA", "target": "envR"}}, {"data": {"id": "ybdM_envR", "source": "ybdM", "target": "envR"}}, {"data": {"id": "tolB", "main": false}}, {"data": {"id": "envR", "main": true}}, {"data": {"id": "ymbA", "main": false}}, {"data": {"id": "ycbW", "main": false}}, {"data": {"id": "astE", "main": false}}, {"data": {"id": "SPA3458", "main": false}}, {"data": {"id": "yeaZ", "main": false}}, {"data": {"id": "ydfZ", "main": false}}, {"data": {"id": "SPA3540", "main": false}}, {"data": {"id": "prmA", "main": false}}, {"data": {"id": "yifE", "main": false}}, {"data": {"id": "yifA", "main": false}}, {"data": {"id": "ybdM", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q5PJW0.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;tolB_envR&#34;, &#34;source&#34;: &#34;tolB&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ymbA_envR&#34;, &#34;source&#34;: &#34;ymbA&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ycbW_envR&#34;, &#34;source&#34;: &#34;ycbW&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;astE_envR&#34;, &#34;source&#34;: &#34;astE&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SPA3458_envR&#34;, &#34;source&#34;: &#34;SPA3458&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;envR_yeaZ&#34;, &#34;source&#34;: &#34;envR&#34;, &#34;target&#34;: &#34;yeaZ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;envR_ydfZ&#34;, &#34;source&#34;: &#34;envR&#34;, &#34;target&#34;: &#34;ydfZ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;envR_SPA3540&#34;, &#34;source&#34;: &#34;envR&#34;, &#34;target&#34;: &#34;SPA3540&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;prmA_envR&#34;, &#34;source&#34;: &#34;prmA&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yifE_envR&#34;, &#34;source&#34;: &#34;yifE&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yifA_envR&#34;, &#34;source&#34;: &#34;yifA&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ybdM_envR&#34;, &#34;source&#34;: &#34;ybdM&#34;, &#34;target&#34;: &#34;envR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tolB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;envR&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ymbA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ycbW&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;astE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SPA3458&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yeaZ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ydfZ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SPA3540&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;prmA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yifE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yifA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ybdM&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

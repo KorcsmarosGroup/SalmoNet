@@ -77,169 +77,28 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'tolB,SG2921,Lit Ecoli IntAct,PPI,SG0731,SG2921,B5R699,B5RDY8,2481,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nycbG,SG2921,Lit Ecoli IntAct,PPI,SG0959,SG2921,B5R6C2,B5RDY8,2375,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nybdM,SG2921,Lit Ecoli IntAct,PPI,SG0608,SG2921,B5R726,B5RDY8,3654,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nfliG,SG2921,Lit Ecoli IntAct,PPI,SG1085,SG2921,B5R7G2,B5RDY8,2795,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nycbW,SG2921,Lit Ecoli IntAct,PPI,SG0949,SG2921,B5R8M4,B5RDY8,804,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nidnK,SG2921,Lit Ecoli IntAct,PPI,SG4309,SG2921,B5R9M2,B5RDY8,33,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\npdxK,SG2921,Lit Ecoli IntAct,PPI,SG2467,SG2921,B5RCQ7,B5RDY8,435,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nera,SG2921,Lit Ecoli IntAct,PPI,SG2617,SG2921,B5RD48,B5RDY8,227,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nSG2921,SG1507,Lit Ecoli IntAct,PPI,SG2921,SG1507,B5RDY8,B5RA67,2283,1079,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmutM,SG2921,Lit Ecoli IntAct,PPI,SG3705,SG2921,B5RGF2,B5RDY8,324,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nSG3835,SG2921,Lit Ecoli IntAct,PPI,SG3835,SG2921,B5RGS4,B5RDY8,1949,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngalR,SG2921,Ecoli,Transcriptional_regulatory,SG2920,SG2921,B5RDY7,B5RDY8,771,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nSG2921,prpR,Ecoli,Transcriptional_regulatory,SG2921,SG0379,B5RDY8,B5R5V8,2283,505,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nSG2921,ybiT,Ecoli,Transcriptional_regulatory,SG2921,SG0817,B5RDY8,B5R827,2283,2126,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ngalS,SG2921,Ecoli,Transcriptional_regulatory,SG2228,SG2921,B5RC30,B5RDY8,4170,2283,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5RDY8",
-                                        name: "SG2921",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="tolB,SG2921,Lit Ecoli IntAct,PPI,SG0731,SG2921,B5R699,B5RDY8,2481,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ycbG,SG2921,Lit Ecoli IntAct,PPI,SG0959,SG2921,B5R6C2,B5RDY8,2375,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ybdM,SG2921,Lit Ecoli IntAct,PPI,SG0608,SG2921,B5R726,B5RDY8,3654,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+fliG,SG2921,Lit Ecoli IntAct,PPI,SG1085,SG2921,B5R7G2,B5RDY8,2795,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ycbW,SG2921,Lit Ecoli IntAct,PPI,SG0949,SG2921,B5R8M4,B5RDY8,804,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+idnK,SG2921,Lit Ecoli IntAct,PPI,SG4309,SG2921,B5R9M2,B5RDY8,33,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+pdxK,SG2921,Lit Ecoli IntAct,PPI,SG2467,SG2921,B5RCQ7,B5RDY8,435,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+era,SG2921,Lit Ecoli IntAct,PPI,SG2617,SG2921,B5RD48,B5RDY8,227,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+SG2921,SG1507,Lit Ecoli IntAct,PPI,SG2921,SG1507,B5RDY8,B5RA67,2283,1079,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+mutM,SG2921,Lit Ecoli IntAct,PPI,SG3705,SG2921,B5RGF2,B5RDY8,324,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+SG3835,SG2921,Lit Ecoli IntAct,PPI,SG3835,SG2921,B5RGS4,B5RDY8,1949,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+galR,SG2921,Ecoli,Transcriptional_regulatory,SG2920,SG2921,B5RDY7,B5RDY8,771,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+SG2921,prpR,Ecoli,Transcriptional_regulatory,SG2921,SG0379,B5RDY8,B5R5V8,2283,505,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+SG2921,ybiT,Ecoli,Transcriptional_regulatory,SG2921,SG0817,B5RDY8,B5R827,2283,2126,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+galS,SG2921,Ecoli,Transcriptional_regulatory,SG2228,SG2921,B5RC30,B5RDY8,4170,2283,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "tolB_SG2921", "source": "tolB", "target": "SG2921"}}, {"data": {"id": "ycbG_SG2921", "source": "ycbG", "target": "SG2921"}}, {"data": {"id": "ybdM_SG2921", "source": "ybdM", "target": "SG2921"}}, {"data": {"id": "fliG_SG2921", "source": "fliG", "target": "SG2921"}}, {"data": {"id": "ycbW_SG2921", "source": "ycbW", "target": "SG2921"}}, {"data": {"id": "idnK_SG2921", "source": "idnK", "target": "SG2921"}}, {"data": {"id": "pdxK_SG2921", "source": "pdxK", "target": "SG2921"}}, {"data": {"id": "era_SG2921", "source": "era", "target": "SG2921"}}, {"data": {"id": "SG2921_SG1507", "source": "SG2921", "target": "SG1507"}}, {"data": {"id": "mutM_SG2921", "source": "mutM", "target": "SG2921"}}, {"data": {"id": "SG3835_SG2921", "source": "SG3835", "target": "SG2921"}}, {"data": {"id": "galR_SG2921", "source": "galR", "target": "SG2921"}}, {"data": {"id": "SG2921_prpR", "source": "SG2921", "target": "prpR"}}, {"data": {"id": "SG2921_ybiT", "source": "SG2921", "target": "ybiT"}}, {"data": {"id": "galS_SG2921", "source": "galS", "target": "SG2921"}}, {"data": {"id": "tolB", "main": false}}, {"data": {"id": "SG2921", "main": true}}, {"data": {"id": "ycbG", "main": false}}, {"data": {"id": "ybdM", "main": false}}, {"data": {"id": "fliG", "main": false}}, {"data": {"id": "ycbW", "main": false}}, {"data": {"id": "idnK", "main": false}}, {"data": {"id": "pdxK", "main": false}}, {"data": {"id": "era", "main": false}}, {"data": {"id": "SG1507", "main": false}}, {"data": {"id": "mutM", "main": false}}, {"data": {"id": "SG3835", "main": false}}, {"data": {"id": "galR", "main": false}}, {"data": {"id": "prpR", "main": false}}, {"data": {"id": "ybiT", "main": false}}, {"data": {"id": "galS", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5RDY8.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;tolB_SG2921&#34;, &#34;source&#34;: &#34;tolB&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ycbG_SG2921&#34;, &#34;source&#34;: &#34;ycbG&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ybdM_SG2921&#34;, &#34;source&#34;: &#34;ybdM&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliG_SG2921&#34;, &#34;source&#34;: &#34;fliG&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ycbW_SG2921&#34;, &#34;source&#34;: &#34;ycbW&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;idnK_SG2921&#34;, &#34;source&#34;: &#34;idnK&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdxK_SG2921&#34;, &#34;source&#34;: &#34;pdxK&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;era_SG2921&#34;, &#34;source&#34;: &#34;era&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG2921_SG1507&#34;, &#34;source&#34;: &#34;SG2921&#34;, &#34;target&#34;: &#34;SG1507&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mutM_SG2921&#34;, &#34;source&#34;: &#34;mutM&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG3835_SG2921&#34;, &#34;source&#34;: &#34;SG3835&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_SG2921&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG2921_prpR&#34;, &#34;source&#34;: &#34;SG2921&#34;, &#34;target&#34;: &#34;prpR&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG2921_ybiT&#34;, &#34;source&#34;: &#34;SG2921&#34;, &#34;target&#34;: &#34;ybiT&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galS_SG2921&#34;, &#34;source&#34;: &#34;galS&#34;, &#34;target&#34;: &#34;SG2921&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tolB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG2921&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ycbG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ybdM&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ycbW&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;idnK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdxK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;era&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG1507&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mutM&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG3835&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;prpR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ybiT&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galS&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

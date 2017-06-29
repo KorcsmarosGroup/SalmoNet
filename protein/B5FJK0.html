@@ -77,169 +77,28 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'rpsE,rpsH,IntAct Interactome3d,PPI,SeD_A3790,SeD_A3793,B5FJJ7,B5FJK0,842,3598,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rpsU,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3565,B5FJK0,B5FHU4,3598,2521,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,pntA,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A1862,B5FJK0,B5FIC9,3598,1187,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,SeD_A3736,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3736,B5FJK0,B5FIV4,3598,1023,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rpsB,Interactome3d,PPI,SeD_A3793,SeD_A0238,B5FJK0,B5FJ16,3598,2913,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rpsD,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3782,B5FJK0,B5FJJ1,3598,832,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rplO,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3788,B5FJK0,B5FJJ5,3598,2074,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rpsQ,Interactome3d,PPI,SeD_A3793,SeD_A3798,B5FJK0,B5FJK5,3598,1961,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rpsS,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3803,B5FJK0,B5FJL0,3598,3017,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rplB,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3804,B5FJK0,B5FJL1,3598,246,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rpsL,Interactome3d,PPI,SeD_A3793,SeD_A3816,B5FJK0,B5FJM2,3598,2035,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,SeD_A0474,Biogrid,PPI,SeD_A3793,SeD_A0474,B5FJK0,B5FKT8,3598,1011,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,SeD_A2637,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A2637,B5FJK0,B5FNT3,3598,736,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,fliI,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A1270,B5FJK0,B5FRV9,3598,703,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nrpsH,rpsR,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A4789,B5FJK0,B5FSA3,3598,2540,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5FJK0",
-                                        name: "rpsH",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="rpsE,rpsH,IntAct Interactome3d,PPI,SeD_A3790,SeD_A3793,B5FJJ7,B5FJK0,842,3598,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rpsU,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3565,B5FJK0,B5FHU4,3598,2521,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,pntA,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A1862,B5FJK0,B5FIC9,3598,1187,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,SeD_A3736,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3736,B5FJK0,B5FIV4,3598,1023,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rpsB,Interactome3d,PPI,SeD_A3793,SeD_A0238,B5FJK0,B5FJ16,3598,2913,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rpsD,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3782,B5FJK0,B5FJJ1,3598,832,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rplO,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3788,B5FJK0,B5FJJ5,3598,2074,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rpsQ,Interactome3d,PPI,SeD_A3793,SeD_A3798,B5FJK0,B5FJK5,3598,1961,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rpsS,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3803,B5FJK0,B5FJL0,3598,3017,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rplB,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A3804,B5FJK0,B5FJL1,3598,246,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rpsL,Interactome3d,PPI,SeD_A3793,SeD_A3816,B5FJK0,B5FJM2,3598,2035,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,SeD_A0474,Biogrid,PPI,SeD_A3793,SeD_A0474,B5FJK0,B5FKT8,3598,1011,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,SeD_A2637,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A2637,B5FJK0,B5FNT3,3598,736,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,fliI,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A1270,B5FJK0,B5FRV9,3598,703,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+rpsH,rpsR,Lit Ecoli IntAct,PPI,SeD_A3793,SeD_A4789,B5FJK0,B5FSA3,3598,2540,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "rpsE_rpsH", "source": "rpsE", "target": "rpsH"}}, {"data": {"id": "rpsH_rpsU", "source": "rpsH", "target": "rpsU"}}, {"data": {"id": "rpsH_pntA", "source": "rpsH", "target": "pntA"}}, {"data": {"id": "rpsH_SeD_A3736", "source": "rpsH", "target": "SeD_A3736"}}, {"data": {"id": "rpsH_rpsB", "source": "rpsH", "target": "rpsB"}}, {"data": {"id": "rpsH_rpsD", "source": "rpsH", "target": "rpsD"}}, {"data": {"id": "rpsH_rplO", "source": "rpsH", "target": "rplO"}}, {"data": {"id": "rpsH_rpsQ", "source": "rpsH", "target": "rpsQ"}}, {"data": {"id": "rpsH_rpsS", "source": "rpsH", "target": "rpsS"}}, {"data": {"id": "rpsH_rplB", "source": "rpsH", "target": "rplB"}}, {"data": {"id": "rpsH_rpsL", "source": "rpsH", "target": "rpsL"}}, {"data": {"id": "rpsH_SeD_A0474", "source": "rpsH", "target": "SeD_A0474"}}, {"data": {"id": "rpsH_SeD_A2637", "source": "rpsH", "target": "SeD_A2637"}}, {"data": {"id": "rpsH_fliI", "source": "rpsH", "target": "fliI"}}, {"data": {"id": "rpsH_rpsR", "source": "rpsH", "target": "rpsR"}}, {"data": {"id": "rpsE", "main": false}}, {"data": {"id": "rpsH", "main": true}}, {"data": {"id": "rpsU", "main": false}}, {"data": {"id": "pntA", "main": false}}, {"data": {"id": "SeD_A3736", "main": false}}, {"data": {"id": "rpsB", "main": false}}, {"data": {"id": "rpsD", "main": false}}, {"data": {"id": "rplO", "main": false}}, {"data": {"id": "rpsQ", "main": false}}, {"data": {"id": "rpsS", "main": false}}, {"data": {"id": "rplB", "main": false}}, {"data": {"id": "rpsL", "main": false}}, {"data": {"id": "SeD_A0474", "main": false}}, {"data": {"id": "SeD_A2637", "main": false}}, {"data": {"id": "fliI", "main": false}}, {"data": {"id": "rpsR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5FJK0.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;rpsE_rpsH&#34;, &#34;source&#34;: &#34;rpsE&#34;, &#34;target&#34;: &#34;rpsH&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rpsU&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rpsU&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_pntA&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;pntA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_SeD_A3736&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;SeD_A3736&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rpsB&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rpsB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rpsD&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rpsD&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rplO&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rplO&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rpsQ&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rpsQ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rpsS&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rpsS&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rplB&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rplB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rpsL&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rpsL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_SeD_A0474&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;SeD_A0474&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_SeD_A2637&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;SeD_A2637&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_fliI&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;fliI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH_rpsR&#34;, &#34;source&#34;: &#34;rpsH&#34;, &#34;target&#34;: &#34;rpsR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsH&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsU&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pntA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A3736&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rplO&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsQ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rplB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A0474&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A2637&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliI&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

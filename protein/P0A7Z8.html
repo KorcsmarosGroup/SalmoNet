@@ -77,169 +77,25 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'rpoZ,rpoA,BioModels,Metabolic,t3777,t4090,P0A804,P0A7Z8,2062,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoB,rpoA,BioModels,Metabolic,t3474,t4090,Q8Z320,P0A7Z8,2611,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\npnp,rpoA,BioModels,Metabolic,t3200,t4090,Q8Z3I0,P0A7Z8,4477,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoD,rpoA,IntAct Interactome3d,PPI,t3131,t4090,P0A2E4,P0A7Z8,3123,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoA,marA,Interactome3d,PPI,t4090,t1440,P0A7Z8,P0A2S5,1508,2229,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoA,crp,Interactome3d,PPI,t4090,t4039,P0A7Z8,Q8Z1Z2,1508,2484,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoA,nusA,IntAct Interactome3d,PPI,t4090,t3205,P0A7Z8,Q8Z3H6,1508,2754,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoA,thiJ,Biogrid,PPI,t4090,t2429,P0A7Z8,Q8Z8W4,1508,1011,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoZ,rpoA,IntAct Interactome3d,PPI,t3777,t4090,P0A804,P0A7Z8,2062,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrplB,rpoA,IntAct,PPI,t4068,t4090,P60427,P0A7Z8,246,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nyidC,rpoA,IntAct,PPI,t3678,t4090,Q8Z2N7,P0A7Z8,3987,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nrpoB,rpoA,IntAct Interactome3d,PPI,t3474,t4090,Q8Z320,P0A7Z8,2611,1508,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_P0A7Z8",
-                                        name: "rpoA",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="rpoZ,rpoA,BioModels,Metabolic,t3777,t4090,P0A804,P0A7Z8,2062,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoB,rpoA,BioModels,Metabolic,t3474,t4090,Q8Z320,P0A7Z8,2611,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+pnp,rpoA,BioModels,Metabolic,t3200,t4090,Q8Z3I0,P0A7Z8,4477,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoD,rpoA,IntAct Interactome3d,PPI,t3131,t4090,P0A2E4,P0A7Z8,3123,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoA,marA,Interactome3d,PPI,t4090,t1440,P0A7Z8,P0A2S5,1508,2229,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoA,crp,Interactome3d,PPI,t4090,t4039,P0A7Z8,Q8Z1Z2,1508,2484,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoA,nusA,IntAct Interactome3d,PPI,t4090,t3205,P0A7Z8,Q8Z3H6,1508,2754,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoA,thiJ,Biogrid,PPI,t4090,t2429,P0A7Z8,Q8Z8W4,1508,1011,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoZ,rpoA,IntAct Interactome3d,PPI,t3777,t4090,P0A804,P0A7Z8,2062,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rplB,rpoA,IntAct,PPI,t4068,t4090,P60427,P0A7Z8,246,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+yidC,rpoA,IntAct,PPI,t3678,t4090,Q8Z2N7,P0A7Z8,3987,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+rpoB,rpoA,IntAct Interactome3d,PPI,t3474,t4090,Q8Z320,P0A7Z8,2611,1508,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "rpoZ_rpoA", "source": "rpoZ", "target": "rpoA"}}, {"data": {"id": "rpoB_rpoA", "source": "rpoB", "target": "rpoA"}}, {"data": {"id": "pnp_rpoA", "source": "pnp", "target": "rpoA"}}, {"data": {"id": "rpoD_rpoA", "source": "rpoD", "target": "rpoA"}}, {"data": {"id": "rpoA_marA", "source": "rpoA", "target": "marA"}}, {"data": {"id": "rpoA_crp", "source": "rpoA", "target": "crp"}}, {"data": {"id": "rpoA_nusA", "source": "rpoA", "target": "nusA"}}, {"data": {"id": "rpoA_thiJ", "source": "rpoA", "target": "thiJ"}}, {"data": {"id": "rpoZ_rpoA", "source": "rpoZ", "target": "rpoA"}}, {"data": {"id": "rplB_rpoA", "source": "rplB", "target": "rpoA"}}, {"data": {"id": "yidC_rpoA", "source": "yidC", "target": "rpoA"}}, {"data": {"id": "rpoB_rpoA", "source": "rpoB", "target": "rpoA"}}, {"data": {"id": "rpoZ", "main": false}}, {"data": {"id": "rpoA", "main": true}}, {"data": {"id": "rpoB", "main": false}}, {"data": {"id": "pnp", "main": false}}, {"data": {"id": "rpoD", "main": false}}, {"data": {"id": "marA", "main": false}}, {"data": {"id": "crp", "main": false}}, {"data": {"id": "nusA", "main": false}}, {"data": {"id": "thiJ", "main": false}}, {"data": {"id": "rplB", "main": false}}, {"data": {"id": "yidC", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_P0A7Z8.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;rpoZ_rpoA&#34;, &#34;source&#34;: &#34;rpoZ&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoB_rpoA&#34;, &#34;source&#34;: &#34;rpoB&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pnp_rpoA&#34;, &#34;source&#34;: &#34;pnp&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoD_rpoA&#34;, &#34;source&#34;: &#34;rpoD&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoA_marA&#34;, &#34;source&#34;: &#34;rpoA&#34;, &#34;target&#34;: &#34;marA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoA_crp&#34;, &#34;source&#34;: &#34;rpoA&#34;, &#34;target&#34;: &#34;crp&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoA_nusA&#34;, &#34;source&#34;: &#34;rpoA&#34;, &#34;target&#34;: &#34;nusA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoA_thiJ&#34;, &#34;source&#34;: &#34;rpoA&#34;, &#34;target&#34;: &#34;thiJ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoZ_rpoA&#34;, &#34;source&#34;: &#34;rpoZ&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rplB_rpoA&#34;, &#34;source&#34;: &#34;rplB&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yidC_rpoA&#34;, &#34;source&#34;: &#34;yidC&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoB_rpoA&#34;, &#34;source&#34;: &#34;rpoB&#34;, &#34;target&#34;: &#34;rpoA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoZ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoA&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pnp&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;marA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nusA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiJ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rplB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yidC&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

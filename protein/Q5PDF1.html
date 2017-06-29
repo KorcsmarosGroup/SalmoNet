@@ -77,169 +77,29 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'araB,araA,STM,Metabolic,SPA0105,SPA0104,Q5PDF1,Q5PDF2,1029,180,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,rhaA,STM,Metabolic,SPA0105,SPA3889,Q5PDF1,Q5PKG4,1029,1164,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,SPA3897,STM,Metabolic,SPA0105,SPA3897,Q5PDF1,Q5PKH6,1029,181,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,SPA3896,STM,Metabolic,SPA0105,SPA3896,Q5PDF1,Q5PKH7,1029,2155,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,SPA3895,STM,Metabolic,SPA0105,SPA3895,Q5PDF1,Q5PKH8,1029,1599,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,yiaM,STM,Metabolic,SPA0105,SPA3522,Q5PDF1,Q5PLN4,1029,2155,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,yiaN,STM,Metabolic,SPA0105,SPA3523,Q5PDF1,Q5PLP3,1029,1599,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,yiaR,BioModels,Metabolic,SPA0105,SPA3527,Q5PDF1,Q5PLP6,1029,1056,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraB,yiaO,STM,Metabolic,SPA0105,SPA3524,Q5PDF1,Q5PLP9,1029,181,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraD,araB,STM BioModels,Metabolic,SPA0103,SPA0105,Q5PDF3,Q5PDF1,709,1029,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nsgaE,araB,STM BioModels,Metabolic,SPA4205,SPA0105,Q5PJ61,Q5PDF1,3474,1029,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nsgaU,araB,STM BioModels,Metabolic,SPA4204,SPA0105,Q5PJ62,Q5PDF1,1663,1029,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nxylB,araB,STM,Metabolic,SPA3511,SPA0105,Q5PLM7,Q5PDF1,3384,1029,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nyiaS,araB,STM BioModels,Metabolic,SPA3528,SPA0105,Q5PLP5,Q5PDF1,4275,1029,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\naraC,araB,Salm Ecoli,Transcriptional_regulatory,SPA0106,SPA0105,Q5PDG0,Q5PDF1,2319,1029,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ncrp,araB,Ecoli,Transcriptional_regulatory,SPA3332,SPA0105,Q5PLV0,Q5PDF1,2484,1029,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q5PDF1",
-                                        name: "araB",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="araB,araA,STM,Metabolic,SPA0105,SPA0104,Q5PDF1,Q5PDF2,1029,180,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,rhaA,STM,Metabolic,SPA0105,SPA3889,Q5PDF1,Q5PKG4,1029,1164,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,SPA3897,STM,Metabolic,SPA0105,SPA3897,Q5PDF1,Q5PKH6,1029,181,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,SPA3896,STM,Metabolic,SPA0105,SPA3896,Q5PDF1,Q5PKH7,1029,2155,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,SPA3895,STM,Metabolic,SPA0105,SPA3895,Q5PDF1,Q5PKH8,1029,1599,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,yiaM,STM,Metabolic,SPA0105,SPA3522,Q5PDF1,Q5PLN4,1029,2155,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,yiaN,STM,Metabolic,SPA0105,SPA3523,Q5PDF1,Q5PLP3,1029,1599,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,yiaR,BioModels,Metabolic,SPA0105,SPA3527,Q5PDF1,Q5PLP6,1029,1056,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araB,yiaO,STM,Metabolic,SPA0105,SPA3524,Q5PDF1,Q5PLP9,1029,181,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araD,araB,STM BioModels,Metabolic,SPA0103,SPA0105,Q5PDF3,Q5PDF1,709,1029,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+sgaE,araB,STM BioModels,Metabolic,SPA4205,SPA0105,Q5PJ61,Q5PDF1,3474,1029,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+sgaU,araB,STM BioModels,Metabolic,SPA4204,SPA0105,Q5PJ62,Q5PDF1,1663,1029,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+xylB,araB,STM,Metabolic,SPA3511,SPA0105,Q5PLM7,Q5PDF1,3384,1029,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+yiaS,araB,STM BioModels,Metabolic,SPA3528,SPA0105,Q5PLP5,Q5PDF1,4275,1029,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+araC,araB,Salm Ecoli,Transcriptional_regulatory,SPA0106,SPA0105,Q5PDG0,Q5PDF1,2319,1029,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+crp,araB,Ecoli,Transcriptional_regulatory,SPA3332,SPA0105,Q5PLV0,Q5PDF1,2484,1029,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "araB_araA", "source": "araB", "target": "araA"}}, {"data": {"id": "araB_rhaA", "source": "araB", "target": "rhaA"}}, {"data": {"id": "araB_SPA3897", "source": "araB", "target": "SPA3897"}}, {"data": {"id": "araB_SPA3896", "source": "araB", "target": "SPA3896"}}, {"data": {"id": "araB_SPA3895", "source": "araB", "target": "SPA3895"}}, {"data": {"id": "araB_yiaM", "source": "araB", "target": "yiaM"}}, {"data": {"id": "araB_yiaN", "source": "araB", "target": "yiaN"}}, {"data": {"id": "araB_yiaR", "source": "araB", "target": "yiaR"}}, {"data": {"id": "araB_yiaO", "source": "araB", "target": "yiaO"}}, {"data": {"id": "araD_araB", "source": "araD", "target": "araB"}}, {"data": {"id": "sgaE_araB", "source": "sgaE", "target": "araB"}}, {"data": {"id": "sgaU_araB", "source": "sgaU", "target": "araB"}}, {"data": {"id": "xylB_araB", "source": "xylB", "target": "araB"}}, {"data": {"id": "yiaS_araB", "source": "yiaS", "target": "araB"}}, {"data": {"id": "araC_araB", "source": "araC", "target": "araB"}}, {"data": {"id": "crp_araB", "source": "crp", "target": "araB"}}, {"data": {"id": "araB", "main": true}}, {"data": {"id": "araA", "main": false}}, {"data": {"id": "rhaA", "main": false}}, {"data": {"id": "SPA3897", "main": false}}, {"data": {"id": "SPA3896", "main": false}}, {"data": {"id": "SPA3895", "main": false}}, {"data": {"id": "yiaM", "main": false}}, {"data": {"id": "yiaN", "main": false}}, {"data": {"id": "yiaR", "main": false}}, {"data": {"id": "yiaO", "main": false}}, {"data": {"id": "araD", "main": false}}, {"data": {"id": "sgaE", "main": false}}, {"data": {"id": "sgaU", "main": false}}, {"data": {"id": "xylB", "main": false}}, {"data": {"id": "yiaS", "main": false}}, {"data": {"id": "araC", "main": false}}, {"data": {"id": "crp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q5PDF1.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;araB_araA&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;araA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_rhaA&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;rhaA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_SPA3897&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;SPA3897&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_SPA3896&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;SPA3896&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_SPA3895&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;SPA3895&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_yiaM&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;yiaM&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_yiaN&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;yiaN&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_yiaR&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;yiaR&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB_yiaO&#34;, &#34;source&#34;: &#34;araB&#34;, &#34;target&#34;: &#34;yiaO&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araD_araB&#34;, &#34;source&#34;: &#34;araD&#34;, &#34;target&#34;: &#34;araB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sgaE_araB&#34;, &#34;source&#34;: &#34;sgaE&#34;, &#34;target&#34;: &#34;araB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sgaU_araB&#34;, &#34;source&#34;: &#34;sgaU&#34;, &#34;target&#34;: &#34;araB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;xylB_araB&#34;, &#34;source&#34;: &#34;xylB&#34;, &#34;target&#34;: &#34;araB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yiaS_araB&#34;, &#34;source&#34;: &#34;yiaS&#34;, &#34;target&#34;: &#34;araB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araC_araB&#34;, &#34;source&#34;: &#34;araC&#34;, &#34;target&#34;: &#34;araB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_araB&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;araB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araB&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rhaA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SPA3897&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SPA3896&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SPA3895&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yiaM&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yiaN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yiaR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yiaO&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sgaE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sgaU&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;xylB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yiaS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;araC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

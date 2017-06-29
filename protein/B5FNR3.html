@@ -77,169 +77,27 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'rpsS,gyrA,IntAct,PPI,SeD_A3803,SeD_A2616,B5FJL0,B5FNR3,3017,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A2200,gyrA,IntAct,PPI,SeD_A2200,SeD_A2616,B5FKZ2,B5FNR3,3697,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A2397,gyrA,IntAct,PPI,SeD_A2397,SeD_A2616,B5FM29,B5FNR3,2262,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ngyrB,gyrA,IntAct Interactome3d,PPI,SeD_A4227,SeD_A2616,B5FN07,B5FNR3,962,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ngidB,gyrA,IntAct,PPI,SeD_A4265,SeD_A2616,B5FN43,B5FNR3,1385,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ngyrA,dnaK,IntAct,PPI,SeD_A2616,SeD_A0012,B5FNR3,B5FHA6,3730,2512,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ngyrA,marR,IntAct,PPI,SeD_A2616,SeD_A1815,B5FNR3,B5FHN3,3730,764,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ngyrA,rpmA,IntAct,PPI,SeD_A2616,SeD_A3662,B5FNR3,B5FIN4,3730,27,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ngyrA,cheY,IntAct,PPI,SeD_A2616,SeD_A1329,B5FNR3,B5FSL3,3730,2383,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ngyrA,parC,IntAct Interactome3d,PPI,SeD_A2616,SeD_A3525,B5FNR3,B5FV40,3730,3879,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nfliG,gyrA,IntAct,PPI,SeD_A1272,SeD_A2616,B5FRW1,B5FNR3,2795,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nfliS,gyrA,IntAct,PPI,SeD_A1282,SeD_A2616,B5FRX1,B5FNR3,796,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nfis,gyrA,Ecoli,Transcriptional_regulatory,SeD_A3746,SeD_A2616,B5FIW4,B5FNR3,1300,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A4033,gyrA,Ecoli,Transcriptional_regulatory,SeD_A4033,SeD_A2616,B5FLC6,B5FNR3,2070,3730,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5FNR3",
-                                        name: "gyrA",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="rpsS,gyrA,IntAct,PPI,SeD_A3803,SeD_A2616,B5FJL0,B5FNR3,3017,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A2200,gyrA,IntAct,PPI,SeD_A2200,SeD_A2616,B5FKZ2,B5FNR3,3697,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A2397,gyrA,IntAct,PPI,SeD_A2397,SeD_A2616,B5FM29,B5FNR3,2262,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+gyrB,gyrA,IntAct Interactome3d,PPI,SeD_A4227,SeD_A2616,B5FN07,B5FNR3,962,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+gidB,gyrA,IntAct,PPI,SeD_A4265,SeD_A2616,B5FN43,B5FNR3,1385,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+gyrA,dnaK,IntAct,PPI,SeD_A2616,SeD_A0012,B5FNR3,B5FHA6,3730,2512,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+gyrA,marR,IntAct,PPI,SeD_A2616,SeD_A1815,B5FNR3,B5FHN3,3730,764,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+gyrA,rpmA,IntAct,PPI,SeD_A2616,SeD_A3662,B5FNR3,B5FIN4,3730,27,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+gyrA,cheY,IntAct,PPI,SeD_A2616,SeD_A1329,B5FNR3,B5FSL3,3730,2383,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+gyrA,parC,IntAct Interactome3d,PPI,SeD_A2616,SeD_A3525,B5FNR3,B5FV40,3730,3879,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+fliG,gyrA,IntAct,PPI,SeD_A1272,SeD_A2616,B5FRW1,B5FNR3,2795,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+fliS,gyrA,IntAct,PPI,SeD_A1282,SeD_A2616,B5FRX1,B5FNR3,796,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+fis,gyrA,Ecoli,Transcriptional_regulatory,SeD_A3746,SeD_A2616,B5FIW4,B5FNR3,1300,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A4033,gyrA,Ecoli,Transcriptional_regulatory,SeD_A4033,SeD_A2616,B5FLC6,B5FNR3,2070,3730,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "rpsS_gyrA", "source": "rpsS", "target": "gyrA"}}, {"data": {"id": "SeD_A2200_gyrA", "source": "SeD_A2200", "target": "gyrA"}}, {"data": {"id": "SeD_A2397_gyrA", "source": "SeD_A2397", "target": "gyrA"}}, {"data": {"id": "gyrB_gyrA", "source": "gyrB", "target": "gyrA"}}, {"data": {"id": "gidB_gyrA", "source": "gidB", "target": "gyrA"}}, {"data": {"id": "gyrA_dnaK", "source": "gyrA", "target": "dnaK"}}, {"data": {"id": "gyrA_marR", "source": "gyrA", "target": "marR"}}, {"data": {"id": "gyrA_rpmA", "source": "gyrA", "target": "rpmA"}}, {"data": {"id": "gyrA_cheY", "source": "gyrA", "target": "cheY"}}, {"data": {"id": "gyrA_parC", "source": "gyrA", "target": "parC"}}, {"data": {"id": "fliG_gyrA", "source": "fliG", "target": "gyrA"}}, {"data": {"id": "fliS_gyrA", "source": "fliS", "target": "gyrA"}}, {"data": {"id": "fis_gyrA", "source": "fis", "target": "gyrA"}}, {"data": {"id": "SeD_A4033_gyrA", "source": "SeD_A4033", "target": "gyrA"}}, {"data": {"id": "rpsS", "main": false}}, {"data": {"id": "gyrA", "main": true}}, {"data": {"id": "SeD_A2200", "main": false}}, {"data": {"id": "SeD_A2397", "main": false}}, {"data": {"id": "gyrB", "main": false}}, {"data": {"id": "gidB", "main": false}}, {"data": {"id": "dnaK", "main": false}}, {"data": {"id": "marR", "main": false}}, {"data": {"id": "rpmA", "main": false}}, {"data": {"id": "cheY", "main": false}}, {"data": {"id": "parC", "main": false}}, {"data": {"id": "fliG", "main": false}}, {"data": {"id": "fliS", "main": false}}, {"data": {"id": "fis", "main": false}}, {"data": {"id": "SeD_A4033", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5FNR3.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;rpsS_gyrA&#34;, &#34;source&#34;: &#34;rpsS&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A2200_gyrA&#34;, &#34;source&#34;: &#34;SeD_A2200&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A2397_gyrA&#34;, &#34;source&#34;: &#34;SeD_A2397&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrB_gyrA&#34;, &#34;source&#34;: &#34;gyrB&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gidB_gyrA&#34;, &#34;source&#34;: &#34;gidB&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrA_dnaK&#34;, &#34;source&#34;: &#34;gyrA&#34;, &#34;target&#34;: &#34;dnaK&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrA_marR&#34;, &#34;source&#34;: &#34;gyrA&#34;, &#34;target&#34;: &#34;marR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrA_rpmA&#34;, &#34;source&#34;: &#34;gyrA&#34;, &#34;target&#34;: &#34;rpmA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrA_cheY&#34;, &#34;source&#34;: &#34;gyrA&#34;, &#34;target&#34;: &#34;cheY&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrA_parC&#34;, &#34;source&#34;: &#34;gyrA&#34;, &#34;target&#34;: &#34;parC&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliG_gyrA&#34;, &#34;source&#34;: &#34;fliG&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliS_gyrA&#34;, &#34;source&#34;: &#34;fliS&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_gyrA&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A4033_gyrA&#34;, &#34;source&#34;: &#34;SeD_A4033&#34;, &#34;target&#34;: &#34;gyrA&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpsS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrA&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A2200&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A2397&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gyrB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gidB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;marR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpmA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cheY&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;parC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A4033&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

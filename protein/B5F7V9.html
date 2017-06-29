@@ -77,169 +77,23 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'SeAg_B2502,murE,BioModels,Metabolic,SeAg_B2502,SeAg_B0140,B5EZP4,B5F7V9,383,479,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nlysA,murE,BioModels,Metabolic,SeAg_B3163,SeAg_B0140,B5F4V8,B5F7V9,2791,479,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nmurE,dapF,STM,Metabolic,SeAg_B0140,SeAg_B4175,B5F7V9,B5EZS3,479,3993,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nmurE,fliY,STM,Metabolic,SeAg_B0140,SeAg_B1166,B5F7V9,B5F2T3,479,891,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nmurE,SeAg_B1470,STM,Metabolic,SeAg_B0140,SeAg_B1470,B5F7V9,B5F592,479,1677,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nmurE,murD,STM BioModels,Metabolic,SeAg_B0140,SeAg_B0143,B5F7V9,B5F7W2,479,914,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nmurF,murE,STM BioModels,Metabolic,SeAg_B0141,SeAg_B0140,B5F7W0,B5F7V9,2846,479,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nSeAg_B0399,murE,Lit Ecoli IntAct,PPI,SeAg_B0399,SeAg_B0140,B5EWP5,B5F7V9,2423,479,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\npdhR,murE,Ecoli,Transcriptional_regulatory,SeAg_B0173,SeAg_B0140,B5F7Z0,B5F7V9,848,479,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nSeAg_B4575,murE,Salm,Transcriptional_regulatory,SeAg_B4575,SeAg_B0140,B5F2I7,B5F7V9,3923,479,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5F7V9",
-                                        name: "murE",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="SeAg_B2502,murE,BioModels,Metabolic,SeAg_B2502,SeAg_B0140,B5EZP4,B5F7V9,383,479,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+lysA,murE,BioModels,Metabolic,SeAg_B3163,SeAg_B0140,B5F4V8,B5F7V9,2791,479,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+murE,dapF,STM,Metabolic,SeAg_B0140,SeAg_B4175,B5F7V9,B5EZS3,479,3993,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+murE,fliY,STM,Metabolic,SeAg_B0140,SeAg_B1166,B5F7V9,B5F2T3,479,891,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+murE,SeAg_B1470,STM,Metabolic,SeAg_B0140,SeAg_B1470,B5F7V9,B5F592,479,1677,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+murE,murD,STM BioModels,Metabolic,SeAg_B0140,SeAg_B0143,B5F7V9,B5F7W2,479,914,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+murF,murE,STM BioModels,Metabolic,SeAg_B0141,SeAg_B0140,B5F7W0,B5F7V9,2846,479,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+SeAg_B0399,murE,Lit Ecoli IntAct,PPI,SeAg_B0399,SeAg_B0140,B5EWP5,B5F7V9,2423,479,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+pdhR,murE,Ecoli,Transcriptional_regulatory,SeAg_B0173,SeAg_B0140,B5F7Z0,B5F7V9,848,479,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+SeAg_B4575,murE,Salm,Transcriptional_regulatory,SeAg_B4575,SeAg_B0140,B5F2I7,B5F7V9,3923,479,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "SeAg_B2502_murE", "source": "SeAg_B2502", "target": "murE"}}, {"data": {"id": "lysA_murE", "source": "lysA", "target": "murE"}}, {"data": {"id": "murE_dapF", "source": "murE", "target": "dapF"}}, {"data": {"id": "murE_fliY", "source": "murE", "target": "fliY"}}, {"data": {"id": "murE_SeAg_B1470", "source": "murE", "target": "SeAg_B1470"}}, {"data": {"id": "murE_murD", "source": "murE", "target": "murD"}}, {"data": {"id": "murF_murE", "source": "murF", "target": "murE"}}, {"data": {"id": "SeAg_B0399_murE", "source": "SeAg_B0399", "target": "murE"}}, {"data": {"id": "pdhR_murE", "source": "pdhR", "target": "murE"}}, {"data": {"id": "SeAg_B4575_murE", "source": "SeAg_B4575", "target": "murE"}}, {"data": {"id": "SeAg_B2502", "main": false}}, {"data": {"id": "murE", "main": true}}, {"data": {"id": "lysA", "main": false}}, {"data": {"id": "dapF", "main": false}}, {"data": {"id": "fliY", "main": false}}, {"data": {"id": "SeAg_B1470", "main": false}}, {"data": {"id": "murD", "main": false}}, {"data": {"id": "murF", "main": false}}, {"data": {"id": "SeAg_B0399", "main": false}}, {"data": {"id": "pdhR", "main": false}}, {"data": {"id": "SeAg_B4575", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5F7V9.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B2502_murE&#34;, &#34;source&#34;: &#34;SeAg_B2502&#34;, &#34;target&#34;: &#34;murE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lysA_murE&#34;, &#34;source&#34;: &#34;lysA&#34;, &#34;target&#34;: &#34;murE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murE_dapF&#34;, &#34;source&#34;: &#34;murE&#34;, &#34;target&#34;: &#34;dapF&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murE_fliY&#34;, &#34;source&#34;: &#34;murE&#34;, &#34;target&#34;: &#34;fliY&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murE_SeAg_B1470&#34;, &#34;source&#34;: &#34;murE&#34;, &#34;target&#34;: &#34;SeAg_B1470&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murE_murD&#34;, &#34;source&#34;: &#34;murE&#34;, &#34;target&#34;: &#34;murD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murF_murE&#34;, &#34;source&#34;: &#34;murF&#34;, &#34;target&#34;: &#34;murE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B0399_murE&#34;, &#34;source&#34;: &#34;SeAg_B0399&#34;, &#34;target&#34;: &#34;murE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdhR_murE&#34;, &#34;source&#34;: &#34;pdhR&#34;, &#34;target&#34;: &#34;murE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B4575_murE&#34;, &#34;source&#34;: &#34;SeAg_B4575&#34;, &#34;target&#34;: &#34;murE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B2502&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murE&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lysA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dapF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliY&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B1470&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B0399&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdhR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B4575&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

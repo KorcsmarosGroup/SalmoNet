@@ -77,169 +77,31 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'adhE,fadA,BioModels,Metabolic,SNSL254_A1876,SNSL254_A4261,B4SUD7,B4SZ84,205,2432,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,fadI,BioModels,Metabolic,SNSL254_A1876,SNSL254_A2578,B4SUD7,B4SZR1,205,2474,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,SNSL254_A0928,BioModels,Metabolic,SNSL254_A1876,SNSL254_A0928,B4SUD7,B4T0B9,205,3331,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,SNSL254_A2654,STM,Metabolic,SNSL254_A1876,SNSL254_A2654,B4SUD7,B4T0I9,205,348,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,eutE,STM,Metabolic,SNSL254_A1876,SNSL254_A2656,B4SUD7,B4T0J1,205,3542,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,SNSL254_A3251,BioModels,Metabolic,SNSL254_A1876,SNSL254_A3251,B4SUD7,B4T514,205,2593,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1617,adhE,BioModels,Metabolic,SNSL254_A1617,SNSL254_A1876,B4T5E3,B4SUD7,1953,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1654,adhE,BioModels,Metabolic,SNSL254_A1654,SNSL254_A1876,B4T5T3,B4SUD7,1953,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1681,adhE,STM,Metabolic,SNSL254_A1681,SNSL254_A1876,B4T5V7,B4SUD7,1102,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1741,adhE,STM,Metabolic,SNSL254_A1741,SNSL254_A1876,B4T615,B4SUD7,3871,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,SNSL254_A0480,Biogrid,PPI,SNSL254_A1876,SNSL254_A0480,B4SUD7,B4SWS5,205,1011,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,dnaA,IntAct,PPI,SNSL254_A1876,SNSL254_A4123,B4SUD7,B4SYA8,205,195,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nadhE,SNSL254_A4126,IntAct,PPI,SNSL254_A1876,SNSL254_A4126,B4SUD7,B4SYB1,205,3987,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nfnr,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A1783,SNSL254_A1876,B4T6Q3,B4SUD7,147,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nfruR,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A0130,SNSL254_A1876,B4SU40,B4SUD7,191,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1898,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A1898,SNSL254_A1876,B4SUF3,B4SUD7,265,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nfis,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A3649,SNSL254_A1876,B4SUP1,B4SUD7,1300,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nlrp,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A0993,SNSL254_A1876,B4T124,B4SUD7,3848,205,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B4SUD7",
-                                        name: "adhE",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="adhE,fadA,BioModels,Metabolic,SNSL254_A1876,SNSL254_A4261,B4SUD7,B4SZ84,205,2432,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,fadI,BioModels,Metabolic,SNSL254_A1876,SNSL254_A2578,B4SUD7,B4SZR1,205,2474,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,SNSL254_A0928,BioModels,Metabolic,SNSL254_A1876,SNSL254_A0928,B4SUD7,B4T0B9,205,3331,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,SNSL254_A2654,STM,Metabolic,SNSL254_A1876,SNSL254_A2654,B4SUD7,B4T0I9,205,348,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,eutE,STM,Metabolic,SNSL254_A1876,SNSL254_A2656,B4SUD7,B4T0J1,205,3542,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,SNSL254_A3251,BioModels,Metabolic,SNSL254_A1876,SNSL254_A3251,B4SUD7,B4T514,205,2593,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1617,adhE,BioModels,Metabolic,SNSL254_A1617,SNSL254_A1876,B4T5E3,B4SUD7,1953,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1654,adhE,BioModels,Metabolic,SNSL254_A1654,SNSL254_A1876,B4T5T3,B4SUD7,1953,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1681,adhE,STM,Metabolic,SNSL254_A1681,SNSL254_A1876,B4T5V7,B4SUD7,1102,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1741,adhE,STM,Metabolic,SNSL254_A1741,SNSL254_A1876,B4T615,B4SUD7,3871,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,SNSL254_A0480,Biogrid,PPI,SNSL254_A1876,SNSL254_A0480,B4SUD7,B4SWS5,205,1011,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,dnaA,IntAct,PPI,SNSL254_A1876,SNSL254_A4123,B4SUD7,B4SYA8,205,195,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+adhE,SNSL254_A4126,IntAct,PPI,SNSL254_A1876,SNSL254_A4126,B4SUD7,B4SYB1,205,3987,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+fnr,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A1783,SNSL254_A1876,B4T6Q3,B4SUD7,147,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+fruR,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A0130,SNSL254_A1876,B4SU40,B4SUD7,191,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1898,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A1898,SNSL254_A1876,B4SUF3,B4SUD7,265,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+fis,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A3649,SNSL254_A1876,B4SUP1,B4SUD7,1300,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+lrp,adhE,Ecoli,Transcriptional_regulatory,SNSL254_A0993,SNSL254_A1876,B4T124,B4SUD7,3848,205,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "adhE_fadA", "source": "adhE", "target": "fadA"}}, {"data": {"id": "adhE_fadI", "source": "adhE", "target": "fadI"}}, {"data": {"id": "adhE_SNSL254_A0928", "source": "adhE", "target": "SNSL254_A0928"}}, {"data": {"id": "adhE_SNSL254_A2654", "source": "adhE", "target": "SNSL254_A2654"}}, {"data": {"id": "adhE_eutE", "source": "adhE", "target": "eutE"}}, {"data": {"id": "adhE_SNSL254_A3251", "source": "adhE", "target": "SNSL254_A3251"}}, {"data": {"id": "SNSL254_A1617_adhE", "source": "SNSL254_A1617", "target": "adhE"}}, {"data": {"id": "SNSL254_A1654_adhE", "source": "SNSL254_A1654", "target": "adhE"}}, {"data": {"id": "SNSL254_A1681_adhE", "source": "SNSL254_A1681", "target": "adhE"}}, {"data": {"id": "SNSL254_A1741_adhE", "source": "SNSL254_A1741", "target": "adhE"}}, {"data": {"id": "adhE_SNSL254_A0480", "source": "adhE", "target": "SNSL254_A0480"}}, {"data": {"id": "adhE_dnaA", "source": "adhE", "target": "dnaA"}}, {"data": {"id": "adhE_SNSL254_A4126", "source": "adhE", "target": "SNSL254_A4126"}}, {"data": {"id": "fnr_adhE", "source": "fnr", "target": "adhE"}}, {"data": {"id": "fruR_adhE", "source": "fruR", "target": "adhE"}}, {"data": {"id": "SNSL254_A1898_adhE", "source": "SNSL254_A1898", "target": "adhE"}}, {"data": {"id": "fis_adhE", "source": "fis", "target": "adhE"}}, {"data": {"id": "lrp_adhE", "source": "lrp", "target": "adhE"}}, {"data": {"id": "adhE", "main": true}}, {"data": {"id": "fadA", "main": false}}, {"data": {"id": "fadI", "main": false}}, {"data": {"id": "SNSL254_A0928", "main": false}}, {"data": {"id": "SNSL254_A2654", "main": false}}, {"data": {"id": "eutE", "main": false}}, {"data": {"id": "SNSL254_A3251", "main": false}}, {"data": {"id": "SNSL254_A1617", "main": false}}, {"data": {"id": "SNSL254_A1654", "main": false}}, {"data": {"id": "SNSL254_A1681", "main": false}}, {"data": {"id": "SNSL254_A1741", "main": false}}, {"data": {"id": "SNSL254_A0480", "main": false}}, {"data": {"id": "dnaA", "main": false}}, {"data": {"id": "SNSL254_A4126", "main": false}}, {"data": {"id": "fnr", "main": false}}, {"data": {"id": "fruR", "main": false}}, {"data": {"id": "SNSL254_A1898", "main": false}}, {"data": {"id": "fis", "main": false}}, {"data": {"id": "lrp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B4SUD7.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;adhE_fadA&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;fadA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_fadI&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;fadI&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_SNSL254_A0928&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;SNSL254_A0928&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_SNSL254_A2654&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;SNSL254_A2654&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_eutE&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;eutE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_SNSL254_A3251&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;SNSL254_A3251&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1617_adhE&#34;, &#34;source&#34;: &#34;SNSL254_A1617&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1654_adhE&#34;, &#34;source&#34;: &#34;SNSL254_A1654&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1681_adhE&#34;, &#34;source&#34;: &#34;SNSL254_A1681&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1741_adhE&#34;, &#34;source&#34;: &#34;SNSL254_A1741&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_SNSL254_A0480&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;SNSL254_A0480&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_dnaA&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;dnaA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE_SNSL254_A4126&#34;, &#34;source&#34;: &#34;adhE&#34;, &#34;target&#34;: &#34;SNSL254_A4126&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr_adhE&#34;, &#34;source&#34;: &#34;fnr&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fruR_adhE&#34;, &#34;source&#34;: &#34;fruR&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1898_adhE&#34;, &#34;source&#34;: &#34;SNSL254_A1898&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_adhE&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lrp_adhE&#34;, &#34;source&#34;: &#34;lrp&#34;, &#34;target&#34;: &#34;adhE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;adhE&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fadA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fadI&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A0928&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A2654&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;eutE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A3251&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1617&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1654&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1681&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1741&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A0480&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A4126&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fruR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1898&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lrp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

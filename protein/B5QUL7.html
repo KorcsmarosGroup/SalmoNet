@@ -77,169 +77,21 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'nrdE,nrdF,STM,Metabolic,SEN2652,SEN2653,B5QUL7,B5QUL8,8,4212,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nnrdE,grxA,STM,Metabolic,SEN2652,SEN0818,B5QUL7,B5QXX6,8,3866,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nnrdE,grxB,STM,Metabolic,SEN2652,SEN1883,B5QUL7,B5QY00,8,1200,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nnrdE,grxC,STM,Metabolic,SEN2652,SEN3524,B5QUL7,B5R5D5,8,1788,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nydhD,nrdE,STM,Metabolic,SEN1614,SEN2652,B5QV26,B5QUL7,1938,8,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nnrdA,nrdE,STM,Metabolic,SEN2259,SEN2652,B5R250,B5QUL7,22,8,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nnrdB,nrdE,STM,Metabolic,SEN2260,SEN2652,B5R251,B5QUL7,1760,8,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nnrdR,nrdE,Ecoli,Transcriptional_regulatory,SEN0397,SEN2652,B5QTG3,B5QUL7,813,8,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5QUL7",
-                                        name: "nrdE",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="nrdE,nrdF,STM,Metabolic,SEN2652,SEN2653,B5QUL7,B5QUL8,8,4212,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+nrdE,grxA,STM,Metabolic,SEN2652,SEN0818,B5QUL7,B5QXX6,8,3866,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+nrdE,grxB,STM,Metabolic,SEN2652,SEN1883,B5QUL7,B5QY00,8,1200,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+nrdE,grxC,STM,Metabolic,SEN2652,SEN3524,B5QUL7,B5R5D5,8,1788,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+ydhD,nrdE,STM,Metabolic,SEN1614,SEN2652,B5QV26,B5QUL7,1938,8,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+nrdA,nrdE,STM,Metabolic,SEN2259,SEN2652,B5R250,B5QUL7,22,8,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+nrdB,nrdE,STM,Metabolic,SEN2260,SEN2652,B5R251,B5QUL7,1760,8,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+nrdR,nrdE,Ecoli,Transcriptional_regulatory,SEN0397,SEN2652,B5QTG3,B5QUL7,813,8,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "nrdE_nrdF", "source": "nrdE", "target": "nrdF"}}, {"data": {"id": "nrdE_grxA", "source": "nrdE", "target": "grxA"}}, {"data": {"id": "nrdE_grxB", "source": "nrdE", "target": "grxB"}}, {"data": {"id": "nrdE_grxC", "source": "nrdE", "target": "grxC"}}, {"data": {"id": "ydhD_nrdE", "source": "ydhD", "target": "nrdE"}}, {"data": {"id": "nrdA_nrdE", "source": "nrdA", "target": "nrdE"}}, {"data": {"id": "nrdB_nrdE", "source": "nrdB", "target": "nrdE"}}, {"data": {"id": "nrdR_nrdE", "source": "nrdR", "target": "nrdE"}}, {"data": {"id": "nrdE", "main": true}}, {"data": {"id": "nrdF", "main": false}}, {"data": {"id": "grxA", "main": false}}, {"data": {"id": "grxB", "main": false}}, {"data": {"id": "grxC", "main": false}}, {"data": {"id": "ydhD", "main": false}}, {"data": {"id": "nrdA", "main": false}}, {"data": {"id": "nrdB", "main": false}}, {"data": {"id": "nrdR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5QUL7.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;nrdE_nrdF&#34;, &#34;source&#34;: &#34;nrdE&#34;, &#34;target&#34;: &#34;nrdF&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdE_grxA&#34;, &#34;source&#34;: &#34;nrdE&#34;, &#34;target&#34;: &#34;grxA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdE_grxB&#34;, &#34;source&#34;: &#34;nrdE&#34;, &#34;target&#34;: &#34;grxB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdE_grxC&#34;, &#34;source&#34;: &#34;nrdE&#34;, &#34;target&#34;: &#34;grxC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ydhD_nrdE&#34;, &#34;source&#34;: &#34;ydhD&#34;, &#34;target&#34;: &#34;nrdE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdA_nrdE&#34;, &#34;source&#34;: &#34;nrdA&#34;, &#34;target&#34;: &#34;nrdE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdB_nrdE&#34;, &#34;source&#34;: &#34;nrdB&#34;, &#34;target&#34;: &#34;nrdE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdR_nrdE&#34;, &#34;source&#34;: &#34;nrdR&#34;, &#34;target&#34;: &#34;nrdE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdE&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;grxA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;grxB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;grxC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ydhD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrdR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

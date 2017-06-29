@@ -77,169 +77,31 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'malE,lamB,STM,Metabolic,STM4229,STM4231,P19576,P26466,189,3308,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalE,malF,STM,Metabolic,STM4229,STM4228,P19576,P26467,189,389,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalE,malG,STM,Metabolic,STM4229,STM4227,P19576,P26468,189,876,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\namyA,malE,STM,Metabolic,STM1963,STM4229,P26613,P19576,2881,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalS,malE,STM,Metabolic,STM3664,STM4229,Q8ZL87,P19576,1825,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalQ,malE,STM,Metabolic,STM3513,STM4229,Q8ZLI5,P19576,4035,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmaa,malE,STM,Metabolic,STM0472,STM4229,Q8ZRA8,P19576,2504,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalZ,malE,STM,Metabolic,STM0401,STM4229,Q8ZRE0,P19576,1825,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ngroEL,malE,IntAct,PPI,STM4330,STM4229,P0A1D3,P19576,1880,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ngroES,malE,IntAct,PPI,STM4329,STM4229,P0A1D5,P19576,1967,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ntrxA,malE,IntAct,PPI,STM3915,STM4229,P0AA28,P19576,3171,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalE,dnaJ,IntAct,PPI,STM4229,STM0013,P19576,P0A1G7,189,1436,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalF,malE,IntAct Interactome3d,PPI,STM4228,STM4229,P26467,P19576,389,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalG,malE,IntAct Interactome3d,PPI,STM4227,STM4229,P26468,P19576,876,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nhtrA,malE,IntAct,PPI,STM0209,STM4229,P26982,P19576,1158,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nmalT,malE,Ecoli,Transcriptional_regulatory,STM3515,STM4229,Q8ZLI3,P19576,1035,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfis,malE,Ecoli,Transcriptional_regulatory,STM3385,STM4229,P0A6R6,P19576,1300,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ncrp,malE,Ecoli,Transcriptional_regulatory,STM3466,STM4229,P0A2T6,P19576,2484,189,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_P19576",
-                                        name: "malE",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="malE,lamB,STM,Metabolic,STM4229,STM4231,P19576,P26466,189,3308,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malE,malF,STM,Metabolic,STM4229,STM4228,P19576,P26467,189,389,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malE,malG,STM,Metabolic,STM4229,STM4227,P19576,P26468,189,876,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+amyA,malE,STM,Metabolic,STM1963,STM4229,P26613,P19576,2881,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malS,malE,STM,Metabolic,STM3664,STM4229,Q8ZL87,P19576,1825,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malQ,malE,STM,Metabolic,STM3513,STM4229,Q8ZLI5,P19576,4035,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+maa,malE,STM,Metabolic,STM0472,STM4229,Q8ZRA8,P19576,2504,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malZ,malE,STM,Metabolic,STM0401,STM4229,Q8ZRE0,P19576,1825,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+groEL,malE,IntAct,PPI,STM4330,STM4229,P0A1D3,P19576,1880,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+groES,malE,IntAct,PPI,STM4329,STM4229,P0A1D5,P19576,1967,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+trxA,malE,IntAct,PPI,STM3915,STM4229,P0AA28,P19576,3171,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malE,dnaJ,IntAct,PPI,STM4229,STM0013,P19576,P0A1G7,189,1436,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malF,malE,IntAct Interactome3d,PPI,STM4228,STM4229,P26467,P19576,389,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malG,malE,IntAct Interactome3d,PPI,STM4227,STM4229,P26468,P19576,876,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+htrA,malE,IntAct,PPI,STM0209,STM4229,P26982,P19576,1158,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+malT,malE,Ecoli,Transcriptional_regulatory,STM3515,STM4229,Q8ZLI3,P19576,1035,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+fis,malE,Ecoli,Transcriptional_regulatory,STM3385,STM4229,P0A6R6,P19576,1300,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+crp,malE,Ecoli,Transcriptional_regulatory,STM3466,STM4229,P0A2T6,P19576,2484,189,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "malE_lamB", "source": "malE", "target": "lamB"}}, {"data": {"id": "malE_malF", "source": "malE", "target": "malF"}}, {"data": {"id": "malE_malG", "source": "malE", "target": "malG"}}, {"data": {"id": "amyA_malE", "source": "amyA", "target": "malE"}}, {"data": {"id": "malS_malE", "source": "malS", "target": "malE"}}, {"data": {"id": "malQ_malE", "source": "malQ", "target": "malE"}}, {"data": {"id": "maa_malE", "source": "maa", "target": "malE"}}, {"data": {"id": "malZ_malE", "source": "malZ", "target": "malE"}}, {"data": {"id": "groEL_malE", "source": "groEL", "target": "malE"}}, {"data": {"id": "groES_malE", "source": "groES", "target": "malE"}}, {"data": {"id": "trxA_malE", "source": "trxA", "target": "malE"}}, {"data": {"id": "malE_dnaJ", "source": "malE", "target": "dnaJ"}}, {"data": {"id": "malF_malE", "source": "malF", "target": "malE"}}, {"data": {"id": "malG_malE", "source": "malG", "target": "malE"}}, {"data": {"id": "htrA_malE", "source": "htrA", "target": "malE"}}, {"data": {"id": "malT_malE", "source": "malT", "target": "malE"}}, {"data": {"id": "fis_malE", "source": "fis", "target": "malE"}}, {"data": {"id": "crp_malE", "source": "crp", "target": "malE"}}, {"data": {"id": "malE", "main": true}}, {"data": {"id": "lamB", "main": false}}, {"data": {"id": "malF", "main": false}}, {"data": {"id": "malG", "main": false}}, {"data": {"id": "amyA", "main": false}}, {"data": {"id": "malS", "main": false}}, {"data": {"id": "malQ", "main": false}}, {"data": {"id": "maa", "main": false}}, {"data": {"id": "malZ", "main": false}}, {"data": {"id": "groEL", "main": false}}, {"data": {"id": "groES", "main": false}}, {"data": {"id": "trxA", "main": false}}, {"data": {"id": "dnaJ", "main": false}}, {"data": {"id": "htrA", "main": false}}, {"data": {"id": "malT", "main": false}}, {"data": {"id": "fis", "main": false}}, {"data": {"id": "crp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_P19576.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;malE_lamB&#34;, &#34;source&#34;: &#34;malE&#34;, &#34;target&#34;: &#34;lamB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malE_malF&#34;, &#34;source&#34;: &#34;malE&#34;, &#34;target&#34;: &#34;malF&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malE_malG&#34;, &#34;source&#34;: &#34;malE&#34;, &#34;target&#34;: &#34;malG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amyA_malE&#34;, &#34;source&#34;: &#34;amyA&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malS_malE&#34;, &#34;source&#34;: &#34;malS&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malQ_malE&#34;, &#34;source&#34;: &#34;malQ&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;maa_malE&#34;, &#34;source&#34;: &#34;maa&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malZ_malE&#34;, &#34;source&#34;: &#34;malZ&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_malE&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groES_malE&#34;, &#34;source&#34;: &#34;groES&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxA_malE&#34;, &#34;source&#34;: &#34;trxA&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malE_dnaJ&#34;, &#34;source&#34;: &#34;malE&#34;, &#34;target&#34;: &#34;dnaJ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malF_malE&#34;, &#34;source&#34;: &#34;malF&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malG_malE&#34;, &#34;source&#34;: &#34;malG&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;htrA_malE&#34;, &#34;source&#34;: &#34;htrA&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malT_malE&#34;, &#34;source&#34;: &#34;malT&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_malE&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_malE&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;malE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malE&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lamB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amyA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malQ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;maa&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malZ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groES&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaJ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;htrA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;malT&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

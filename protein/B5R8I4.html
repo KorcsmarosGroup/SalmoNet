@@ -77,169 +77,28 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'dmsA,dmsC,STM,Metabolic,SG0907,SG0909,B5R8I2,B5R8I4,3216,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsB,dmsC,STM,Metabolic,SG0908,SG0909,B5R8I3,B5R8I4,3610,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsC,dmsB2,STM,Metabolic,SG0909,SG4151,B5R8I4,B5R971,1060,1025,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsC,dmsC2,STM,Metabolic,SG0909,SG4152,B5R8I4,B5R972,1060,2246,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsC,SG2563,STM,Metabolic,SG0909,SG2563,B5R8I4,B5RCZ7,1060,3624,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsC,SG2564,STM,Metabolic,SG0909,SG2564,B5R8I4,B5RCZ8,1060,523,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsC,SG2565,STM,Metabolic,SG0909,SG2565,B5R8I4,B5RCZ9,1060,3597,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsA3,dmsC,STM,Metabolic,SG1622,SG0909,B5RAG7,B5R8I4,3321,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsB1,dmsC,STM,Metabolic,SG1623,SG0909,B5RAG8,B5R8I4,3610,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndmsC1,dmsC,STM,Metabolic,SG1624,SG0909,B5RAG9,B5R8I4,1906,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nfnr,dmsC,Ecoli,Transcriptional_regulatory,SG1457,SG0909,B5RA19,B5R8I4,147,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nnarL,dmsC,Ecoli,Transcriptional_regulatory,SG1350,SG0909,B5R6I9,B5R8I4,265,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nssrB,dmsC,Salm,Transcriptional_regulatory,SG1725,SG0909,B5RAR6,B5R8I4,549,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmodE,dmsC,Ecoli,Transcriptional_regulatory,SG0757,SG0909,B5R746,B5R8I4,710,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nfis,dmsC,Ecoli,Transcriptional_regulatory,SG3276,SG0909,B5REY3,B5R8I4,1300,1060,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5R8I4",
-                                        name: "dmsC",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="dmsA,dmsC,STM,Metabolic,SG0907,SG0909,B5R8I2,B5R8I4,3216,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsB,dmsC,STM,Metabolic,SG0908,SG0909,B5R8I3,B5R8I4,3610,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsC,dmsB2,STM,Metabolic,SG0909,SG4151,B5R8I4,B5R971,1060,1025,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsC,dmsC2,STM,Metabolic,SG0909,SG4152,B5R8I4,B5R972,1060,2246,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsC,SG2563,STM,Metabolic,SG0909,SG2563,B5R8I4,B5RCZ7,1060,3624,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsC,SG2564,STM,Metabolic,SG0909,SG2564,B5R8I4,B5RCZ8,1060,523,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsC,SG2565,STM,Metabolic,SG0909,SG2565,B5R8I4,B5RCZ9,1060,3597,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsA3,dmsC,STM,Metabolic,SG1622,SG0909,B5RAG7,B5R8I4,3321,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsB1,dmsC,STM,Metabolic,SG1623,SG0909,B5RAG8,B5R8I4,3610,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+dmsC1,dmsC,STM,Metabolic,SG1624,SG0909,B5RAG9,B5R8I4,1906,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+fnr,dmsC,Ecoli,Transcriptional_regulatory,SG1457,SG0909,B5RA19,B5R8I4,147,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+narL,dmsC,Ecoli,Transcriptional_regulatory,SG1350,SG0909,B5R6I9,B5R8I4,265,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ssrB,dmsC,Salm,Transcriptional_regulatory,SG1725,SG0909,B5RAR6,B5R8I4,549,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+modE,dmsC,Ecoli,Transcriptional_regulatory,SG0757,SG0909,B5R746,B5R8I4,710,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+fis,dmsC,Ecoli,Transcriptional_regulatory,SG3276,SG0909,B5REY3,B5R8I4,1300,1060,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "dmsA_dmsC", "source": "dmsA", "target": "dmsC"}}, {"data": {"id": "dmsB_dmsC", "source": "dmsB", "target": "dmsC"}}, {"data": {"id": "dmsC_dmsB2", "source": "dmsC", "target": "dmsB2"}}, {"data": {"id": "dmsC_dmsC2", "source": "dmsC", "target": "dmsC2"}}, {"data": {"id": "dmsC_SG2563", "source": "dmsC", "target": "SG2563"}}, {"data": {"id": "dmsC_SG2564", "source": "dmsC", "target": "SG2564"}}, {"data": {"id": "dmsC_SG2565", "source": "dmsC", "target": "SG2565"}}, {"data": {"id": "dmsA3_dmsC", "source": "dmsA3", "target": "dmsC"}}, {"data": {"id": "dmsB1_dmsC", "source": "dmsB1", "target": "dmsC"}}, {"data": {"id": "dmsC1_dmsC", "source": "dmsC1", "target": "dmsC"}}, {"data": {"id": "fnr_dmsC", "source": "fnr", "target": "dmsC"}}, {"data": {"id": "narL_dmsC", "source": "narL", "target": "dmsC"}}, {"data": {"id": "ssrB_dmsC", "source": "ssrB", "target": "dmsC"}}, {"data": {"id": "modE_dmsC", "source": "modE", "target": "dmsC"}}, {"data": {"id": "fis_dmsC", "source": "fis", "target": "dmsC"}}, {"data": {"id": "dmsA", "main": false}}, {"data": {"id": "dmsC", "main": true}}, {"data": {"id": "dmsB", "main": false}}, {"data": {"id": "dmsB2", "main": false}}, {"data": {"id": "dmsC2", "main": false}}, {"data": {"id": "SG2563", "main": false}}, {"data": {"id": "SG2564", "main": false}}, {"data": {"id": "SG2565", "main": false}}, {"data": {"id": "dmsA3", "main": false}}, {"data": {"id": "dmsB1", "main": false}}, {"data": {"id": "dmsC1", "main": false}}, {"data": {"id": "fnr", "main": false}}, {"data": {"id": "narL", "main": false}}, {"data": {"id": "ssrB", "main": false}}, {"data": {"id": "modE", "main": false}}, {"data": {"id": "fis", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5R8I4.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;dmsA_dmsC&#34;, &#34;source&#34;: &#34;dmsA&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsB_dmsC&#34;, &#34;source&#34;: &#34;dmsB&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC_dmsB2&#34;, &#34;source&#34;: &#34;dmsC&#34;, &#34;target&#34;: &#34;dmsB2&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC_dmsC2&#34;, &#34;source&#34;: &#34;dmsC&#34;, &#34;target&#34;: &#34;dmsC2&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC_SG2563&#34;, &#34;source&#34;: &#34;dmsC&#34;, &#34;target&#34;: &#34;SG2563&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC_SG2564&#34;, &#34;source&#34;: &#34;dmsC&#34;, &#34;target&#34;: &#34;SG2564&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC_SG2565&#34;, &#34;source&#34;: &#34;dmsC&#34;, &#34;target&#34;: &#34;SG2565&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsA3_dmsC&#34;, &#34;source&#34;: &#34;dmsA3&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsB1_dmsC&#34;, &#34;source&#34;: &#34;dmsB1&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC1_dmsC&#34;, &#34;source&#34;: &#34;dmsC1&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr_dmsC&#34;, &#34;source&#34;: &#34;fnr&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narL_dmsC&#34;, &#34;source&#34;: &#34;narL&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ssrB_dmsC&#34;, &#34;source&#34;: &#34;ssrB&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;modE_dmsC&#34;, &#34;source&#34;: &#34;modE&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_dmsC&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;dmsC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsB2&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC2&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG2563&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG2564&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG2565&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsA3&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsB1&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dmsC1&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ssrB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;modE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

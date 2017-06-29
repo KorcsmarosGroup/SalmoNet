@@ -77,169 +77,22 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'amtB,ompF,STM,Metabolic,SPA2259,SPA1799,Q5PFN0,Q5PGE9,2863,2449,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,nrfD,STM,Metabolic,SPA2259,SPA4097,Q5PFN0,Q5PIZ9,2863,3778,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,nrfC,STM,Metabolic,SPA2259,SPA4096,Q5PFN0,Q5PJ00,2863,3282,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,nrfB,STM,Metabolic,SPA2259,SPA4095,Q5PFN0,Q5PJ01,2863,338,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,nrfA,STM,Metabolic,SPA2259,SPA4094,Q5PFN0,Q5PJ02,2863,3235,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,ansB,STM,Metabolic,SPA2259,SPA2969,Q5PFN0,Q5PMK6,2863,30,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,glnK,Lit Ecoli IntAct Interactome3d,PPI,SPA2259,SPA2260,Q5PFN0,Q5PFM9,2863,3436,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,glnB,Lit Ecoli IntAct Interactome3d,PPI,SPA2259,SPA0305,Q5PFN0,Q5PIH3,2863,2233,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\namtB,glnL,Lit Ecoli IntAct,PPI,SPA2259,SPA3847,Q5PFN0,Q5PKC1,2863,2959,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q5PFN0",
-                                        name: "amtB",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="amtB,ompF,STM,Metabolic,SPA2259,SPA1799,Q5PFN0,Q5PGE9,2863,2449,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,nrfD,STM,Metabolic,SPA2259,SPA4097,Q5PFN0,Q5PIZ9,2863,3778,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,nrfC,STM,Metabolic,SPA2259,SPA4096,Q5PFN0,Q5PJ00,2863,3282,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,nrfB,STM,Metabolic,SPA2259,SPA4095,Q5PFN0,Q5PJ01,2863,338,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,nrfA,STM,Metabolic,SPA2259,SPA4094,Q5PFN0,Q5PJ02,2863,3235,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,ansB,STM,Metabolic,SPA2259,SPA2969,Q5PFN0,Q5PMK6,2863,30,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,glnK,Lit Ecoli IntAct Interactome3d,PPI,SPA2259,SPA2260,Q5PFN0,Q5PFM9,2863,3436,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,glnB,Lit Ecoli IntAct Interactome3d,PPI,SPA2259,SPA0305,Q5PFN0,Q5PIH3,2863,2233,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+amtB,glnL,Lit Ecoli IntAct,PPI,SPA2259,SPA3847,Q5PFN0,Q5PKC1,2863,2959,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "amtB_ompF", "source": "amtB", "target": "ompF"}}, {"data": {"id": "amtB_nrfD", "source": "amtB", "target": "nrfD"}}, {"data": {"id": "amtB_nrfC", "source": "amtB", "target": "nrfC"}}, {"data": {"id": "amtB_nrfB", "source": "amtB", "target": "nrfB"}}, {"data": {"id": "amtB_nrfA", "source": "amtB", "target": "nrfA"}}, {"data": {"id": "amtB_ansB", "source": "amtB", "target": "ansB"}}, {"data": {"id": "amtB_glnK", "source": "amtB", "target": "glnK"}}, {"data": {"id": "amtB_glnB", "source": "amtB", "target": "glnB"}}, {"data": {"id": "amtB_glnL", "source": "amtB", "target": "glnL"}}, {"data": {"id": "amtB", "main": true}}, {"data": {"id": "ompF", "main": false}}, {"data": {"id": "nrfD", "main": false}}, {"data": {"id": "nrfC", "main": false}}, {"data": {"id": "nrfB", "main": false}}, {"data": {"id": "nrfA", "main": false}}, {"data": {"id": "ansB", "main": false}}, {"data": {"id": "glnK", "main": false}}, {"data": {"id": "glnB", "main": false}}, {"data": {"id": "glnL", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q5PFN0.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;amtB_ompF&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;ompF&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_nrfD&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;nrfD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_nrfC&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;nrfC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_nrfB&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;nrfB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_nrfA&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;nrfA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_ansB&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;ansB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_glnK&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;glnK&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_glnB&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;glnB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB_glnL&#34;, &#34;source&#34;: &#34;amtB&#34;, &#34;target&#34;: &#34;glnL&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;amtB&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ompF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrfD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrfC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrfB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nrfA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ansB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;glnK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;glnB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;glnL&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

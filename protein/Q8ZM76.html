@@ -77,169 +77,20 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'gcvH,gcvP,STM,Metabolic,STM3054,STM3053,Q8ZM75,Q8ZM76,704,836,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ngcvP,glyA,BioModels,Metabolic,STM3053,STM2555,Q8ZM76,P0A2E1,836,2280,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ngcvP,gcvT,STM BioModels,Metabolic,STM3053,STM3055,Q8ZM76,P64222,836,1583,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ngcvP,lpdA,STM BioModels,Metabolic,STM3053,STM0154,Q8ZM76,Q8ZRT0,836,3188,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ngcvP,gcvH,Lit Ecoli IntAct,PPI,STM3053,STM3054,Q8ZM76,Q8ZM75,836,704,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ngcvA,gcvP,Ecoli,Transcriptional_regulatory,STM2982,STM3053,Q7CPV9,Q8ZM76,1529,836,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\npurR,gcvP,Ecoli,Transcriptional_regulatory,STM1430,STM3053,O68446,Q8ZM76,2100,836,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q8ZM76",
-                                        name: "gcvP",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="gcvH,gcvP,STM,Metabolic,STM3054,STM3053,Q8ZM75,Q8ZM76,704,836,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+gcvP,glyA,BioModels,Metabolic,STM3053,STM2555,Q8ZM76,P0A2E1,836,2280,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+gcvP,gcvT,STM BioModels,Metabolic,STM3053,STM3055,Q8ZM76,P64222,836,1583,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+gcvP,lpdA,STM BioModels,Metabolic,STM3053,STM0154,Q8ZM76,Q8ZRT0,836,3188,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+gcvP,gcvH,Lit Ecoli IntAct,PPI,STM3053,STM3054,Q8ZM76,Q8ZM75,836,704,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+gcvA,gcvP,Ecoli,Transcriptional_regulatory,STM2982,STM3053,Q7CPV9,Q8ZM76,1529,836,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+purR,gcvP,Ecoli,Transcriptional_regulatory,STM1430,STM3053,O68446,Q8ZM76,2100,836,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "gcvH_gcvP", "source": "gcvH", "target": "gcvP"}}, {"data": {"id": "gcvP_glyA", "source": "gcvP", "target": "glyA"}}, {"data": {"id": "gcvP_gcvT", "source": "gcvP", "target": "gcvT"}}, {"data": {"id": "gcvP_lpdA", "source": "gcvP", "target": "lpdA"}}, {"data": {"id": "gcvP_gcvH", "source": "gcvP", "target": "gcvH"}}, {"data": {"id": "gcvA_gcvP", "source": "gcvA", "target": "gcvP"}}, {"data": {"id": "purR_gcvP", "source": "purR", "target": "gcvP"}}, {"data": {"id": "gcvH", "main": false}}, {"data": {"id": "gcvP", "main": true}}, {"data": {"id": "glyA", "main": false}}, {"data": {"id": "gcvT", "main": false}}, {"data": {"id": "lpdA", "main": false}}, {"data": {"id": "gcvA", "main": false}}, {"data": {"id": "purR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q8ZM76.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;gcvH_gcvP&#34;, &#34;source&#34;: &#34;gcvH&#34;, &#34;target&#34;: &#34;gcvP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvP_glyA&#34;, &#34;source&#34;: &#34;gcvP&#34;, &#34;target&#34;: &#34;glyA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvP_gcvT&#34;, &#34;source&#34;: &#34;gcvP&#34;, &#34;target&#34;: &#34;gcvT&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvP_lpdA&#34;, &#34;source&#34;: &#34;gcvP&#34;, &#34;target&#34;: &#34;lpdA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvP_gcvH&#34;, &#34;source&#34;: &#34;gcvP&#34;, &#34;target&#34;: &#34;gcvH&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvA_gcvP&#34;, &#34;source&#34;: &#34;gcvA&#34;, &#34;target&#34;: &#34;gcvP&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;purR_gcvP&#34;, &#34;source&#34;: &#34;purR&#34;, &#34;target&#34;: &#34;gcvP&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvP&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;glyA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvT&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lpdA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcvA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;purR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

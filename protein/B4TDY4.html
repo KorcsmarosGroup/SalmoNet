@@ -77,169 +77,24 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'pepN,pepD,STM,Metabolic,SeHA_C1166,SeHA_C0357,B4TDY4,B4T7P9,3822,4070,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\npepN,ggt,BioModels,Metabolic,SeHA_C1166,SeHA_C3863,B4TDY4,B4T884,3822,2060,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\npepN,SeHA_C2798,STM,Metabolic,SeHA_C1166,SeHA_C2798,B4TDY4,B4TDA9,3822,2788,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\npepN,pepA,STM,Metabolic,SeHA_C1166,SeHA_C4882,B4TDY4,B4TG58,3822,2835,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C0535,pepN,Biogrid,PPI,SeHA_C0535,SeHA_C1166,B4T9C8,B4TDY4,1011,3822,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C1755,pepN,Lit Ecoli IntAct,PPI,SeHA_C1755,SeHA_C1166,B4TIJ8,B4TDY4,3828,3822,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnarY,pepN,Lit Ecoli IntAct,PPI,SeHA_C1756,SeHA_C1166,B4TIJ9,B4TDY4,885,3822,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnarW,pepN,Lit Ecoli IntAct,PPI,SeHA_C1757,SeHA_C1166,B4TIK0,B4TDY4,3079,3822,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C3514,pepN,Lit Ecoli IntAct,PPI,SeHA_C3514,SeHA_C1166,B4TIU7,B4TDY4,2940,3822,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnarH,pepN,Lit Ecoli IntAct,PPI,SeHA_C1958,SeHA_C1166,B4TJP2,B4TDY4,3872,3822,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nnarG,pepN,Lit Ecoli IntAct,PPI,SeHA_C1959,SeHA_C1166,B4TJP3,B4TDY4,65,3822,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B4TDY4",
-                                        name: "pepN",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="pepN,pepD,STM,Metabolic,SeHA_C1166,SeHA_C0357,B4TDY4,B4T7P9,3822,4070,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+pepN,ggt,BioModels,Metabolic,SeHA_C1166,SeHA_C3863,B4TDY4,B4T884,3822,2060,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+pepN,SeHA_C2798,STM,Metabolic,SeHA_C1166,SeHA_C2798,B4TDY4,B4TDA9,3822,2788,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+pepN,pepA,STM,Metabolic,SeHA_C1166,SeHA_C4882,B4TDY4,B4TG58,3822,2835,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C0535,pepN,Biogrid,PPI,SeHA_C0535,SeHA_C1166,B4T9C8,B4TDY4,1011,3822,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C1755,pepN,Lit Ecoli IntAct,PPI,SeHA_C1755,SeHA_C1166,B4TIJ8,B4TDY4,3828,3822,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+narY,pepN,Lit Ecoli IntAct,PPI,SeHA_C1756,SeHA_C1166,B4TIJ9,B4TDY4,885,3822,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+narW,pepN,Lit Ecoli IntAct,PPI,SeHA_C1757,SeHA_C1166,B4TIK0,B4TDY4,3079,3822,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C3514,pepN,Lit Ecoli IntAct,PPI,SeHA_C3514,SeHA_C1166,B4TIU7,B4TDY4,2940,3822,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+narH,pepN,Lit Ecoli IntAct,PPI,SeHA_C1958,SeHA_C1166,B4TJP2,B4TDY4,3872,3822,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+narG,pepN,Lit Ecoli IntAct,PPI,SeHA_C1959,SeHA_C1166,B4TJP3,B4TDY4,65,3822,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "pepN_pepD", "source": "pepN", "target": "pepD"}}, {"data": {"id": "pepN_ggt", "source": "pepN", "target": "ggt"}}, {"data": {"id": "pepN_SeHA_C2798", "source": "pepN", "target": "SeHA_C2798"}}, {"data": {"id": "pepN_pepA", "source": "pepN", "target": "pepA"}}, {"data": {"id": "SeHA_C0535_pepN", "source": "SeHA_C0535", "target": "pepN"}}, {"data": {"id": "SeHA_C1755_pepN", "source": "SeHA_C1755", "target": "pepN"}}, {"data": {"id": "narY_pepN", "source": "narY", "target": "pepN"}}, {"data": {"id": "narW_pepN", "source": "narW", "target": "pepN"}}, {"data": {"id": "SeHA_C3514_pepN", "source": "SeHA_C3514", "target": "pepN"}}, {"data": {"id": "narH_pepN", "source": "narH", "target": "pepN"}}, {"data": {"id": "narG_pepN", "source": "narG", "target": "pepN"}}, {"data": {"id": "pepN", "main": true}}, {"data": {"id": "pepD", "main": false}}, {"data": {"id": "ggt", "main": false}}, {"data": {"id": "SeHA_C2798", "main": false}}, {"data": {"id": "pepA", "main": false}}, {"data": {"id": "SeHA_C0535", "main": false}}, {"data": {"id": "SeHA_C1755", "main": false}}, {"data": {"id": "narY", "main": false}}, {"data": {"id": "narW", "main": false}}, {"data": {"id": "SeHA_C3514", "main": false}}, {"data": {"id": "narH", "main": false}}, {"data": {"id": "narG", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B4TDY4.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;pepN_pepD&#34;, &#34;source&#34;: &#34;pepN&#34;, &#34;target&#34;: &#34;pepD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pepN_ggt&#34;, &#34;source&#34;: &#34;pepN&#34;, &#34;target&#34;: &#34;ggt&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pepN_SeHA_C2798&#34;, &#34;source&#34;: &#34;pepN&#34;, &#34;target&#34;: &#34;SeHA_C2798&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pepN_pepA&#34;, &#34;source&#34;: &#34;pepN&#34;, &#34;target&#34;: &#34;pepA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C0535_pepN&#34;, &#34;source&#34;: &#34;SeHA_C0535&#34;, &#34;target&#34;: &#34;pepN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C1755_pepN&#34;, &#34;source&#34;: &#34;SeHA_C1755&#34;, &#34;target&#34;: &#34;pepN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narY_pepN&#34;, &#34;source&#34;: &#34;narY&#34;, &#34;target&#34;: &#34;pepN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narW_pepN&#34;, &#34;source&#34;: &#34;narW&#34;, &#34;target&#34;: &#34;pepN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C3514_pepN&#34;, &#34;source&#34;: &#34;SeHA_C3514&#34;, &#34;target&#34;: &#34;pepN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narH_pepN&#34;, &#34;source&#34;: &#34;narH&#34;, &#34;target&#34;: &#34;pepN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narG_pepN&#34;, &#34;source&#34;: &#34;narG&#34;, &#34;target&#34;: &#34;pepN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pepN&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pepD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ggt&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C2798&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pepA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C0535&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C1755&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narY&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narW&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C3514&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narG&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

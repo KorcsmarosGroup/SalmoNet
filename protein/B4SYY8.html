@@ -77,169 +77,29 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'nuoN,nuoM,STM,Metabolic,SNSL254_A2500,SNSL254_A2501,B4SYY7,B4SYY8,251,295,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoL,STM,Metabolic,SNSL254_A2501,SNSL254_A2502,B4SYY8,B4SYY9,295,2469,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoK,STM,Metabolic,SNSL254_A2501,SNSL254_A2503,B4SYY8,B4SYZ0,295,572,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoJ,STM,Metabolic,SNSL254_A2501,SNSL254_A2504,B4SYY8,B4SYZ1,295,439,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoI,STM,Metabolic,SNSL254_A2501,SNSL254_A2505,B4SYY8,B4SYZ2,295,731,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoH,STM,Metabolic,SNSL254_A2501,SNSL254_A2506,B4SYY8,B4SYZ3,295,1041,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoG,STM,Metabolic,SNSL254_A2501,SNSL254_A2507,B4SYY8,B4SYZ4,295,3846,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoF,STM,Metabolic,SNSL254_A2501,SNSL254_A2508,B4SYY8,B4SYZ5,295,3490,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoE,STM,Metabolic,SNSL254_A2501,SNSL254_A2509,B4SYY8,B4SYZ6,295,2034,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoC,STM,Metabolic,SNSL254_A2501,SNSL254_A2510,B4SYY8,B4SYZ7,295,2936,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoB,STM,Metabolic,SNSL254_A2501,SNSL254_A2511,B4SYY8,B4SYZ8,295,1329,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nnuoM,nuoA,STM,Metabolic,SNSL254_A2501,SNSL254_A2512,B4SYY8,B4SYZ9,295,120,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nfnr,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A1783,SNSL254_A2501,B4T6Q3,B4SYY8,147,295,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1898,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A1898,SNSL254_A2501,B4SUF3,B4SYY8,265,295,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nfis,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A3649,SNSL254_A2501,B4SUP1,B4SYY8,1300,295,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\narcA,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A4956,SNSL254_A2501,B4T4K1,B4SYY8,2438,295,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B4SYY8",
-                                        name: "nuoM",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="nuoN,nuoM,STM,Metabolic,SNSL254_A2500,SNSL254_A2501,B4SYY7,B4SYY8,251,295,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoL,STM,Metabolic,SNSL254_A2501,SNSL254_A2502,B4SYY8,B4SYY9,295,2469,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoK,STM,Metabolic,SNSL254_A2501,SNSL254_A2503,B4SYY8,B4SYZ0,295,572,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoJ,STM,Metabolic,SNSL254_A2501,SNSL254_A2504,B4SYY8,B4SYZ1,295,439,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoI,STM,Metabolic,SNSL254_A2501,SNSL254_A2505,B4SYY8,B4SYZ2,295,731,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoH,STM,Metabolic,SNSL254_A2501,SNSL254_A2506,B4SYY8,B4SYZ3,295,1041,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoG,STM,Metabolic,SNSL254_A2501,SNSL254_A2507,B4SYY8,B4SYZ4,295,3846,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoF,STM,Metabolic,SNSL254_A2501,SNSL254_A2508,B4SYY8,B4SYZ5,295,3490,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoE,STM,Metabolic,SNSL254_A2501,SNSL254_A2509,B4SYY8,B4SYZ6,295,2034,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoC,STM,Metabolic,SNSL254_A2501,SNSL254_A2510,B4SYY8,B4SYZ7,295,2936,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoB,STM,Metabolic,SNSL254_A2501,SNSL254_A2511,B4SYY8,B4SYZ8,295,1329,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+nuoM,nuoA,STM,Metabolic,SNSL254_A2501,SNSL254_A2512,B4SYY8,B4SYZ9,295,120,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+fnr,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A1783,SNSL254_A2501,B4T6Q3,B4SYY8,147,295,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1898,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A1898,SNSL254_A2501,B4SUF3,B4SYY8,265,295,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+fis,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A3649,SNSL254_A2501,B4SUP1,B4SYY8,1300,295,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+arcA,nuoM,Ecoli,Transcriptional_regulatory,SNSL254_A4956,SNSL254_A2501,B4T4K1,B4SYY8,2438,295,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "nuoN_nuoM", "source": "nuoN", "target": "nuoM"}}, {"data": {"id": "nuoM_nuoL", "source": "nuoM", "target": "nuoL"}}, {"data": {"id": "nuoM_nuoK", "source": "nuoM", "target": "nuoK"}}, {"data": {"id": "nuoM_nuoJ", "source": "nuoM", "target": "nuoJ"}}, {"data": {"id": "nuoM_nuoI", "source": "nuoM", "target": "nuoI"}}, {"data": {"id": "nuoM_nuoH", "source": "nuoM", "target": "nuoH"}}, {"data": {"id": "nuoM_nuoG", "source": "nuoM", "target": "nuoG"}}, {"data": {"id": "nuoM_nuoF", "source": "nuoM", "target": "nuoF"}}, {"data": {"id": "nuoM_nuoE", "source": "nuoM", "target": "nuoE"}}, {"data": {"id": "nuoM_nuoC", "source": "nuoM", "target": "nuoC"}}, {"data": {"id": "nuoM_nuoB", "source": "nuoM", "target": "nuoB"}}, {"data": {"id": "nuoM_nuoA", "source": "nuoM", "target": "nuoA"}}, {"data": {"id": "fnr_nuoM", "source": "fnr", "target": "nuoM"}}, {"data": {"id": "SNSL254_A1898_nuoM", "source": "SNSL254_A1898", "target": "nuoM"}}, {"data": {"id": "fis_nuoM", "source": "fis", "target": "nuoM"}}, {"data": {"id": "arcA_nuoM", "source": "arcA", "target": "nuoM"}}, {"data": {"id": "nuoN", "main": false}}, {"data": {"id": "nuoM", "main": true}}, {"data": {"id": "nuoL", "main": false}}, {"data": {"id": "nuoK", "main": false}}, {"data": {"id": "nuoJ", "main": false}}, {"data": {"id": "nuoI", "main": false}}, {"data": {"id": "nuoH", "main": false}}, {"data": {"id": "nuoG", "main": false}}, {"data": {"id": "nuoF", "main": false}}, {"data": {"id": "nuoE", "main": false}}, {"data": {"id": "nuoC", "main": false}}, {"data": {"id": "nuoB", "main": false}}, {"data": {"id": "nuoA", "main": false}}, {"data": {"id": "fnr", "main": false}}, {"data": {"id": "SNSL254_A1898", "main": false}}, {"data": {"id": "fis", "main": false}}, {"data": {"id": "arcA", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B4SYY8.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;nuoN_nuoM&#34;, &#34;source&#34;: &#34;nuoN&#34;, &#34;target&#34;: &#34;nuoM&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoL&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoL&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoK&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoK&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoJ&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoJ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoI&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoI&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoH&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoG&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoF&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoF&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoE&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoC&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoB&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM_nuoA&#34;, &#34;source&#34;: &#34;nuoM&#34;, &#34;target&#34;: &#34;nuoA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr_nuoM&#34;, &#34;source&#34;: &#34;fnr&#34;, &#34;target&#34;: &#34;nuoM&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1898_nuoM&#34;, &#34;source&#34;: &#34;SNSL254_A1898&#34;, &#34;target&#34;: &#34;nuoM&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_nuoM&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;nuoM&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;arcA_nuoM&#34;, &#34;source&#34;: &#34;arcA&#34;, &#34;target&#34;: &#34;nuoM&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoM&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoJ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoI&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nuoA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1898&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;arcA&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

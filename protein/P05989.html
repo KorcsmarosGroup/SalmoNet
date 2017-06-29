@@ -77,169 +77,26 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'ilvC,ilvH,BioModels,Metabolic,STM3909,STM0117,P05989,P21622,1832,1111,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,apbA,STM,Metabolic,STM3909,STM0434,P05989,P37402,1832,2324,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,ilvI,BioModels,Metabolic,STM3909,STM0116,P05989,P40811,1832,3747,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,ilvM,STM BioModels,Metabolic,STM3909,STM3902,P05989,Q7CPD7,1832,1471,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,ilvN,STM BioModels,Metabolic,STM3909,STM3795,P05989,Q7CPF3,1832,1245,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,ilvB,STM BioModels,Metabolic,STM3909,STM3796,P05989,Q8ZL15,1832,2187,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,STM2573,STM,Metabolic,STM3909,STM2573,P05989,Q8ZN23,1832,1442,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,panB,STM,Metabolic,STM3909,STM0182,P05989,Q8ZRR0,1832,418,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvC,ilvG,STM BioModels,Metabolic,STM3909,STM3901,P05989,Q9L6T2,1832,1884,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvD,ilvC,STM BioModels,Metabolic,STM3904,STM3909,P40810,P05989,735,1832,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nSTM3531,ilvC,BioModels,Metabolic,STM3531,STM3909,Q8ZLH0,P05989,3667,1832,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\npanC,ilvC,STM,Metabolic,STM0181,STM3909,Q8ZRR1,P05989,1611,1832,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nilvY,ilvC,Ecoli,Transcriptional_regulatory,STM3908,STM3909,P0A2Q2,P05989,820,1832,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_P05989",
-                                        name: "ilvC",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="ilvC,ilvH,BioModels,Metabolic,STM3909,STM0117,P05989,P21622,1832,1111,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,apbA,STM,Metabolic,STM3909,STM0434,P05989,P37402,1832,2324,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,ilvI,BioModels,Metabolic,STM3909,STM0116,P05989,P40811,1832,3747,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,ilvM,STM BioModels,Metabolic,STM3909,STM3902,P05989,Q7CPD7,1832,1471,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,ilvN,STM BioModels,Metabolic,STM3909,STM3795,P05989,Q7CPF3,1832,1245,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,ilvB,STM BioModels,Metabolic,STM3909,STM3796,P05989,Q8ZL15,1832,2187,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,STM2573,STM,Metabolic,STM3909,STM2573,P05989,Q8ZN23,1832,1442,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,panB,STM,Metabolic,STM3909,STM0182,P05989,Q8ZRR0,1832,418,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvC,ilvG,STM BioModels,Metabolic,STM3909,STM3901,P05989,Q9L6T2,1832,1884,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvD,ilvC,STM BioModels,Metabolic,STM3904,STM3909,P40810,P05989,735,1832,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+STM3531,ilvC,BioModels,Metabolic,STM3531,STM3909,Q8ZLH0,P05989,3667,1832,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+panC,ilvC,STM,Metabolic,STM0181,STM3909,Q8ZRR1,P05989,1611,1832,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+ilvY,ilvC,Ecoli,Transcriptional_regulatory,STM3908,STM3909,P0A2Q2,P05989,820,1832,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "ilvC_ilvH", "source": "ilvC", "target": "ilvH"}}, {"data": {"id": "ilvC_apbA", "source": "ilvC", "target": "apbA"}}, {"data": {"id": "ilvC_ilvI", "source": "ilvC", "target": "ilvI"}}, {"data": {"id": "ilvC_ilvM", "source": "ilvC", "target": "ilvM"}}, {"data": {"id": "ilvC_ilvN", "source": "ilvC", "target": "ilvN"}}, {"data": {"id": "ilvC_ilvB", "source": "ilvC", "target": "ilvB"}}, {"data": {"id": "ilvC_STM2573", "source": "ilvC", "target": "STM2573"}}, {"data": {"id": "ilvC_panB", "source": "ilvC", "target": "panB"}}, {"data": {"id": "ilvC_ilvG", "source": "ilvC", "target": "ilvG"}}, {"data": {"id": "ilvD_ilvC", "source": "ilvD", "target": "ilvC"}}, {"data": {"id": "STM3531_ilvC", "source": "STM3531", "target": "ilvC"}}, {"data": {"id": "panC_ilvC", "source": "panC", "target": "ilvC"}}, {"data": {"id": "ilvY_ilvC", "source": "ilvY", "target": "ilvC"}}, {"data": {"id": "ilvC", "main": true}}, {"data": {"id": "ilvH", "main": false}}, {"data": {"id": "apbA", "main": false}}, {"data": {"id": "ilvI", "main": false}}, {"data": {"id": "ilvM", "main": false}}, {"data": {"id": "ilvN", "main": false}}, {"data": {"id": "ilvB", "main": false}}, {"data": {"id": "STM2573", "main": false}}, {"data": {"id": "panB", "main": false}}, {"data": {"id": "ilvG", "main": false}}, {"data": {"id": "ilvD", "main": false}}, {"data": {"id": "STM3531", "main": false}}, {"data": {"id": "panC", "main": false}}, {"data": {"id": "ilvY", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_P05989.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_ilvH&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;ilvH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_apbA&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;apbA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_ilvI&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;ilvI&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_ilvM&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;ilvM&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_ilvN&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;ilvN&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_ilvB&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;ilvB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_STM2573&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;STM2573&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_panB&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;panB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC_ilvG&#34;, &#34;source&#34;: &#34;ilvC&#34;, &#34;target&#34;: &#34;ilvG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvD_ilvC&#34;, &#34;source&#34;: &#34;ilvD&#34;, &#34;target&#34;: &#34;ilvC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM3531_ilvC&#34;, &#34;source&#34;: &#34;STM3531&#34;, &#34;target&#34;: &#34;ilvC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;panC_ilvC&#34;, &#34;source&#34;: &#34;panC&#34;, &#34;target&#34;: &#34;ilvC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvY_ilvC&#34;, &#34;source&#34;: &#34;ilvY&#34;, &#34;target&#34;: &#34;ilvC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvC&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;apbA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvI&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvM&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM2573&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;panB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM3531&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;panC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvY&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

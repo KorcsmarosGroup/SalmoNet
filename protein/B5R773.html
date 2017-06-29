@@ -77,169 +77,25 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'moaE,moaA,BioModels,Metabolic,SG0785,SG0781,B5R773,B5R769,1750,3898,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmoaE,moaC,BioModels,Metabolic,SG0785,SG0783,B5R773,B5R771,1750,2563,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmoaE,lipA,BioModels,Metabolic,SG0785,SG0637,B5R773,B5R7Y1,1750,2033,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nSG0566,moaE,Lit Ecoli IntAct,PPI,SG0566,SG0785,B5R6Y6,B5R773,2310,1750,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmoaE,moaD,Lit Ecoli IntAct Interactome3d,PPI,SG0785,SG0784,B5R773,B5R772,1750,3466,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmoaE,hcr,Lit Ecoli IntAct,PPI,SG0785,SG0879,B5R773,B5R884,1750,2403,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmoaE,yecG,Lit Ecoli IntAct,PPI,SG0785,SG1125,B5R773,B5R8B1,1750,2493,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmoaE,eutC,Lit Ecoli IntAct,PPI,SG0785,SG2488,B5R773,B5RCS8,1750,2957,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmoaE,nikR,Lit Ecoli IntAct,PPI,SG0785,SG3853,B5R773,B5RGU2,1750,2652,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nfnr,moaE,Ecoli,Transcriptional_regulatory,SG1457,SG0785,B5RA19,B5R773,147,1750,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ncueR,moaE,Ecoli,Transcriptional_regulatory,SG0510,SG0785,B5R623,B5R773,687,1750,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmodE,moaE,Ecoli,Transcriptional_regulatory,SG0757,SG0785,B5R746,B5R773,710,1750,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5R773",
-                                        name: "moaE",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="moaE,moaA,BioModels,Metabolic,SG0785,SG0781,B5R773,B5R769,1750,3898,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+moaE,moaC,BioModels,Metabolic,SG0785,SG0783,B5R773,B5R771,1750,2563,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+moaE,lipA,BioModels,Metabolic,SG0785,SG0637,B5R773,B5R7Y1,1750,2033,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+SG0566,moaE,Lit Ecoli IntAct,PPI,SG0566,SG0785,B5R6Y6,B5R773,2310,1750,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+moaE,moaD,Lit Ecoli IntAct Interactome3d,PPI,SG0785,SG0784,B5R773,B5R772,1750,3466,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+moaE,hcr,Lit Ecoli IntAct,PPI,SG0785,SG0879,B5R773,B5R884,1750,2403,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+moaE,yecG,Lit Ecoli IntAct,PPI,SG0785,SG1125,B5R773,B5R8B1,1750,2493,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+moaE,eutC,Lit Ecoli IntAct,PPI,SG0785,SG2488,B5R773,B5RCS8,1750,2957,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+moaE,nikR,Lit Ecoli IntAct,PPI,SG0785,SG3853,B5R773,B5RGU2,1750,2652,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+fnr,moaE,Ecoli,Transcriptional_regulatory,SG1457,SG0785,B5RA19,B5R773,147,1750,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+cueR,moaE,Ecoli,Transcriptional_regulatory,SG0510,SG0785,B5R623,B5R773,687,1750,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+modE,moaE,Ecoli,Transcriptional_regulatory,SG0757,SG0785,B5R746,B5R773,710,1750,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "moaE_moaA", "source": "moaE", "target": "moaA"}}, {"data": {"id": "moaE_moaC", "source": "moaE", "target": "moaC"}}, {"data": {"id": "moaE_lipA", "source": "moaE", "target": "lipA"}}, {"data": {"id": "SG0566_moaE", "source": "SG0566", "target": "moaE"}}, {"data": {"id": "moaE_moaD", "source": "moaE", "target": "moaD"}}, {"data": {"id": "moaE_hcr", "source": "moaE", "target": "hcr"}}, {"data": {"id": "moaE_yecG", "source": "moaE", "target": "yecG"}}, {"data": {"id": "moaE_eutC", "source": "moaE", "target": "eutC"}}, {"data": {"id": "moaE_nikR", "source": "moaE", "target": "nikR"}}, {"data": {"id": "fnr_moaE", "source": "fnr", "target": "moaE"}}, {"data": {"id": "cueR_moaE", "source": "cueR", "target": "moaE"}}, {"data": {"id": "modE_moaE", "source": "modE", "target": "moaE"}}, {"data": {"id": "moaE", "main": true}}, {"data": {"id": "moaA", "main": false}}, {"data": {"id": "moaC", "main": false}}, {"data": {"id": "lipA", "main": false}}, {"data": {"id": "SG0566", "main": false}}, {"data": {"id": "moaD", "main": false}}, {"data": {"id": "hcr", "main": false}}, {"data": {"id": "yecG", "main": false}}, {"data": {"id": "eutC", "main": false}}, {"data": {"id": "nikR", "main": false}}, {"data": {"id": "fnr", "main": false}}, {"data": {"id": "cueR", "main": false}}, {"data": {"id": "modE", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5R773.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;moaE_moaA&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;moaA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE_moaC&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;moaC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE_lipA&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;lipA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG0566_moaE&#34;, &#34;source&#34;: &#34;SG0566&#34;, &#34;target&#34;: &#34;moaE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE_moaD&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;moaD&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE_hcr&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;hcr&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE_yecG&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;yecG&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE_eutC&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;eutC&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE_nikR&#34;, &#34;source&#34;: &#34;moaE&#34;, &#34;target&#34;: &#34;nikR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr_moaE&#34;, &#34;source&#34;: &#34;fnr&#34;, &#34;target&#34;: &#34;moaE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cueR_moaE&#34;, &#34;source&#34;: &#34;cueR&#34;, &#34;target&#34;: &#34;moaE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;modE_moaE&#34;, &#34;source&#34;: &#34;modE&#34;, &#34;target&#34;: &#34;moaE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaE&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lipA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG0566&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;moaD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hcr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yecG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;eutC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nikR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cueR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;modE&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

@@ -77,169 +77,21 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'ilvN,ilvB,STM,Metabolic,SeD_A4184,SeD_A4185,B5FMB5,B5FMB6,1245,2187,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nilvN,ilvG,STM,Metabolic,SeD_A4184,SeD_A4291,B5FMB5,B5FN62,1245,1884,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nilvN,ilvM,STM,Metabolic,SeD_A4184,SeD_A4292,B5FMB5,B5FN63,1245,1471,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A4299,ilvN,STM BioModels,Metabolic,SeD_A4299,SeD_A4184,B5FN70,B5FMB5,1832,1245,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nilvN,ilvB,Lit Ecoli IntAct,PPI,SeD_A4184,SeD_A4185,B5FMB5,B5FMB6,1245,2187,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nilvN,SeD_A2734,Lit Ecoli IntAct,PPI,SeD_A4184,SeD_A2734,B5FMB5,B5FPM4,1245,657,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A4980,ilvN,Lit Ecoli IntAct,PPI,SeD_A4980,SeD_A4184,B5FTC3,B5FMB5,358,1245,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ncrp,ilvN,Ecoli,Transcriptional_regulatory,SeD_A3834,SeD_A4184,B5FJN9,B5FMB5,2484,1245,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5FMB5",
-                                        name: "ilvN",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="ilvN,ilvB,STM,Metabolic,SeD_A4184,SeD_A4185,B5FMB5,B5FMB6,1245,2187,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+ilvN,ilvG,STM,Metabolic,SeD_A4184,SeD_A4291,B5FMB5,B5FN62,1245,1884,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+ilvN,ilvM,STM,Metabolic,SeD_A4184,SeD_A4292,B5FMB5,B5FN63,1245,1471,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A4299,ilvN,STM BioModels,Metabolic,SeD_A4299,SeD_A4184,B5FN70,B5FMB5,1832,1245,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+ilvN,ilvB,Lit Ecoli IntAct,PPI,SeD_A4184,SeD_A4185,B5FMB5,B5FMB6,1245,2187,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+ilvN,SeD_A2734,Lit Ecoli IntAct,PPI,SeD_A4184,SeD_A2734,B5FMB5,B5FPM4,1245,657,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A4980,ilvN,Lit Ecoli IntAct,PPI,SeD_A4980,SeD_A4184,B5FTC3,B5FMB5,358,1245,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+crp,ilvN,Ecoli,Transcriptional_regulatory,SeD_A3834,SeD_A4184,B5FJN9,B5FMB5,2484,1245,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "ilvN_ilvB", "source": "ilvN", "target": "ilvB"}}, {"data": {"id": "ilvN_ilvG", "source": "ilvN", "target": "ilvG"}}, {"data": {"id": "ilvN_ilvM", "source": "ilvN", "target": "ilvM"}}, {"data": {"id": "SeD_A4299_ilvN", "source": "SeD_A4299", "target": "ilvN"}}, {"data": {"id": "ilvN_ilvB", "source": "ilvN", "target": "ilvB"}}, {"data": {"id": "ilvN_SeD_A2734", "source": "ilvN", "target": "SeD_A2734"}}, {"data": {"id": "SeD_A4980_ilvN", "source": "SeD_A4980", "target": "ilvN"}}, {"data": {"id": "crp_ilvN", "source": "crp", "target": "ilvN"}}, {"data": {"id": "ilvN", "main": true}}, {"data": {"id": "ilvB", "main": false}}, {"data": {"id": "ilvG", "main": false}}, {"data": {"id": "ilvM", "main": false}}, {"data": {"id": "SeD_A4299", "main": false}}, {"data": {"id": "SeD_A2734", "main": false}}, {"data": {"id": "SeD_A4980", "main": false}}, {"data": {"id": "crp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5FMB5.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;ilvN_ilvB&#34;, &#34;source&#34;: &#34;ilvN&#34;, &#34;target&#34;: &#34;ilvB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvN_ilvG&#34;, &#34;source&#34;: &#34;ilvN&#34;, &#34;target&#34;: &#34;ilvG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvN_ilvM&#34;, &#34;source&#34;: &#34;ilvN&#34;, &#34;target&#34;: &#34;ilvM&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A4299_ilvN&#34;, &#34;source&#34;: &#34;SeD_A4299&#34;, &#34;target&#34;: &#34;ilvN&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvN_ilvB&#34;, &#34;source&#34;: &#34;ilvN&#34;, &#34;target&#34;: &#34;ilvB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvN_SeD_A2734&#34;, &#34;source&#34;: &#34;ilvN&#34;, &#34;target&#34;: &#34;SeD_A2734&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A4980_ilvN&#34;, &#34;source&#34;: &#34;SeD_A4980&#34;, &#34;target&#34;: &#34;ilvN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_ilvN&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;ilvN&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvN&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvM&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A4299&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A2734&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A4980&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

@@ -77,169 +77,22 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'dcuR,lysA,Lit Ecoli IntAct,PPI,SEN4075,SEN2856,B5QZY2,B5QWU5,4086,2791,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ndcuS,dcuR,IntAct Interactome3d,PPI,SEN4076,SEN4075,B5QZY3,B5QZY2,4162,4086,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\nnarL,dcuR,Ecoli,Transcriptional_regulatory,SEN1272,SEN4075,B5R3K8,B5QZY2,265,4086,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ninvF,dcuR,Salm,Transcriptional_regulatory,SEN2740,SEN4075,B5QVY9,B5QZY2,2003,4086,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ndcuR,dctA,Ecoli,Transcriptional_regulatory,SEN4075,SEN3437,B5QZY2,B5R415,4086,2239,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ndcuR,frdD,Ecoli,Transcriptional_regulatory,SEN4075,SEN4110,B5QZY2,B5R015,4086,291,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ndcuR,frdC,Ecoli,Transcriptional_regulatory,SEN4075,SEN4111,B5QZY2,B5R016,4086,2646,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ndcuR,frdB,Ecoli,Transcriptional_regulatory,SEN4075,SEN4112,B5QZY2,B5R017,4086,2693,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22\ndcuR,frdA,Ecoli,Transcriptional_regulatory,SEN4075,SEN4113,B5QZY2,B5R018,4086,1770,\x22serovar Enteritidis P125109\x22,\x22serovar Enteritidis P125109\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5QZY2",
-                                        name: "dcuR",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="dcuR,lysA,Lit Ecoli IntAct,PPI,SEN4075,SEN2856,B5QZY2,B5QWU5,4086,2791,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+dcuS,dcuR,IntAct Interactome3d,PPI,SEN4076,SEN4075,B5QZY3,B5QZY2,4162,4086,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+narL,dcuR,Ecoli,Transcriptional_regulatory,SEN1272,SEN4075,B5R3K8,B5QZY2,265,4086,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+invF,dcuR,Salm,Transcriptional_regulatory,SEN2740,SEN4075,B5QVY9,B5QZY2,2003,4086,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+dcuR,dctA,Ecoli,Transcriptional_regulatory,SEN4075,SEN3437,B5QZY2,B5R415,4086,2239,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+dcuR,frdD,Ecoli,Transcriptional_regulatory,SEN4075,SEN4110,B5QZY2,B5R015,4086,291,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+dcuR,frdC,Ecoli,Transcriptional_regulatory,SEN4075,SEN4111,B5QZY2,B5R016,4086,2646,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+dcuR,frdB,Ecoli,Transcriptional_regulatory,SEN4075,SEN4112,B5QZY2,B5R017,4086,2693,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;
+dcuR,frdA,Ecoli,Transcriptional_regulatory,SEN4075,SEN4113,B5QZY2,B5R018,4086,1770,&#34;serovar Enteritidis P125109&#34;,&#34;serovar Enteritidis P125109&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "dcuR_lysA", "source": "dcuR", "target": "lysA"}}, {"data": {"id": "dcuS_dcuR", "source": "dcuS", "target": "dcuR"}}, {"data": {"id": "narL_dcuR", "source": "narL", "target": "dcuR"}}, {"data": {"id": "invF_dcuR", "source": "invF", "target": "dcuR"}}, {"data": {"id": "dcuR_dctA", "source": "dcuR", "target": "dctA"}}, {"data": {"id": "dcuR_frdD", "source": "dcuR", "target": "frdD"}}, {"data": {"id": "dcuR_frdC", "source": "dcuR", "target": "frdC"}}, {"data": {"id": "dcuR_frdB", "source": "dcuR", "target": "frdB"}}, {"data": {"id": "dcuR_frdA", "source": "dcuR", "target": "frdA"}}, {"data": {"id": "dcuR", "main": true}}, {"data": {"id": "lysA", "main": false}}, {"data": {"id": "dcuS", "main": false}}, {"data": {"id": "narL", "main": false}}, {"data": {"id": "invF", "main": false}}, {"data": {"id": "dctA", "main": false}}, {"data": {"id": "frdD", "main": false}}, {"data": {"id": "frdC", "main": false}}, {"data": {"id": "frdB", "main": false}}, {"data": {"id": "frdA", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5QZY2.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;dcuR_lysA&#34;, &#34;source&#34;: &#34;dcuR&#34;, &#34;target&#34;: &#34;lysA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuS_dcuR&#34;, &#34;source&#34;: &#34;dcuS&#34;, &#34;target&#34;: &#34;dcuR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narL_dcuR&#34;, &#34;source&#34;: &#34;narL&#34;, &#34;target&#34;: &#34;dcuR&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;invF_dcuR&#34;, &#34;source&#34;: &#34;invF&#34;, &#34;target&#34;: &#34;dcuR&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR_dctA&#34;, &#34;source&#34;: &#34;dcuR&#34;, &#34;target&#34;: &#34;dctA&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR_frdD&#34;, &#34;source&#34;: &#34;dcuR&#34;, &#34;target&#34;: &#34;frdD&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR_frdC&#34;, &#34;source&#34;: &#34;dcuR&#34;, &#34;target&#34;: &#34;frdC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR_frdB&#34;, &#34;source&#34;: &#34;dcuR&#34;, &#34;target&#34;: &#34;frdB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR_frdA&#34;, &#34;source&#34;: &#34;dcuR&#34;, &#34;target&#34;: &#34;frdA&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lysA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;invF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dctA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdA&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

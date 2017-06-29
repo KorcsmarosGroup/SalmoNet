@@ -77,169 +77,26 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'galS,galR,Lit Ecoli IntAct Interactome3d,PPI,SPA0660,SPA2878,Q5PE58,Q5PEQ0,4170,771,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galS,Ecoli,Transcriptional_regulatory,SPA2878,SPA0660,Q5PEQ0,Q5PE58,771,4170,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,mglB,Ecoli,Transcriptional_regulatory,SPA2878,SPA0661,Q5PEQ0,Q5PE57,771,2314,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,mglC,Ecoli,Transcriptional_regulatory,SPA2878,SPA0663,Q5PEQ0,Q5PE56,771,2698,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galE,Ecoli,Transcriptional_regulatory,SPA2878,SPA1976,Q5PEQ0,Q5PG63,771,3536,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galT,Ecoli,Transcriptional_regulatory,SPA2878,SPA1977,Q5PEQ0,Q5PG62,771,2019,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galK,Ecoli,Transcriptional_regulatory,SPA2878,SPA1978,Q5PEQ0,Q5PG77,771,3217,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galM,Ecoli,Transcriptional_regulatory,SPA2878,SPA1979,Q5PEQ0,Q5PG76,771,2629,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galR,Ecoli,Transcriptional_regulatory,SPA2878,SPA2878,Q5PEQ0,Q5PEQ0,771,771,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galR,Ecoli,Transcriptional_regulatory,SPA2878,SPA2878,Q5PEQ0,Q5PEQ0,771,771,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,SPA2879,Ecoli,Transcriptional_regulatory,SPA2878,SPA2879,Q5PEQ0,Q5PEP9,771,2283,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalR,galP,Ecoli,Transcriptional_regulatory,SPA2878,SPA2954,Q5PEQ0,Q5PJJ1,771,4110,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngalS,galR,Ecoli,Transcriptional_regulatory,SPA0660,SPA2878,Q5PE58,Q5PEQ0,4170,771,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q5PEQ0",
-                                        name: "galR",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="galS,galR,Lit Ecoli IntAct Interactome3d,PPI,SPA0660,SPA2878,Q5PE58,Q5PEQ0,4170,771,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galS,Ecoli,Transcriptional_regulatory,SPA2878,SPA0660,Q5PEQ0,Q5PE58,771,4170,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,mglB,Ecoli,Transcriptional_regulatory,SPA2878,SPA0661,Q5PEQ0,Q5PE57,771,2314,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,mglC,Ecoli,Transcriptional_regulatory,SPA2878,SPA0663,Q5PEQ0,Q5PE56,771,2698,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galE,Ecoli,Transcriptional_regulatory,SPA2878,SPA1976,Q5PEQ0,Q5PG63,771,3536,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galT,Ecoli,Transcriptional_regulatory,SPA2878,SPA1977,Q5PEQ0,Q5PG62,771,2019,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galK,Ecoli,Transcriptional_regulatory,SPA2878,SPA1978,Q5PEQ0,Q5PG77,771,3217,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galM,Ecoli,Transcriptional_regulatory,SPA2878,SPA1979,Q5PEQ0,Q5PG76,771,2629,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galR,Ecoli,Transcriptional_regulatory,SPA2878,SPA2878,Q5PEQ0,Q5PEQ0,771,771,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galR,Ecoli,Transcriptional_regulatory,SPA2878,SPA2878,Q5PEQ0,Q5PEQ0,771,771,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,SPA2879,Ecoli,Transcriptional_regulatory,SPA2878,SPA2879,Q5PEQ0,Q5PEP9,771,2283,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galR,galP,Ecoli,Transcriptional_regulatory,SPA2878,SPA2954,Q5PEQ0,Q5PJJ1,771,4110,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+galS,galR,Ecoli,Transcriptional_regulatory,SPA0660,SPA2878,Q5PE58,Q5PEQ0,4170,771,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "galS_galR", "source": "galS", "target": "galR"}}, {"data": {"id": "galR_galS", "source": "galR", "target": "galS"}}, {"data": {"id": "galR_mglB", "source": "galR", "target": "mglB"}}, {"data": {"id": "galR_mglC", "source": "galR", "target": "mglC"}}, {"data": {"id": "galR_galE", "source": "galR", "target": "galE"}}, {"data": {"id": "galR_galT", "source": "galR", "target": "galT"}}, {"data": {"id": "galR_galK", "source": "galR", "target": "galK"}}, {"data": {"id": "galR_galM", "source": "galR", "target": "galM"}}, {"data": {"id": "galR_galR", "source": "galR", "target": "galR"}}, {"data": {"id": "galR_galR", "source": "galR", "target": "galR"}}, {"data": {"id": "galR_SPA2879", "source": "galR", "target": "SPA2879"}}, {"data": {"id": "galR_galP", "source": "galR", "target": "galP"}}, {"data": {"id": "galS_galR", "source": "galS", "target": "galR"}}, {"data": {"id": "galS", "main": false}}, {"data": {"id": "galR", "main": true}}, {"data": {"id": "mglB", "main": false}}, {"data": {"id": "mglC", "main": false}}, {"data": {"id": "galE", "main": false}}, {"data": {"id": "galT", "main": false}}, {"data": {"id": "galK", "main": false}}, {"data": {"id": "galM", "main": false}}, {"data": {"id": "SPA2879", "main": false}}, {"data": {"id": "galP", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q5PEQ0.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;galS_galR&#34;, &#34;source&#34;: &#34;galS&#34;, &#34;target&#34;: &#34;galR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galS&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galS&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_mglB&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;mglB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_mglC&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;mglC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galE&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galT&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galT&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galK&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galK&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galM&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galM&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galR&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galR&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galR&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galR&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_SPA2879&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;SPA2879&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR_galP&#34;, &#34;source&#34;: &#34;galR&#34;, &#34;target&#34;: &#34;galP&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galS_galR&#34;, &#34;source&#34;: &#34;galS&#34;, &#34;target&#34;: &#34;galR&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galR&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mglB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mglC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galT&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galM&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SPA2879&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;galP&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

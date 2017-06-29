@@ -77,169 +77,25 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'ubiG,gcd,BioModels,Metabolic,STM2276,STM0169,P37431,Q8ZRS1,1095,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nsdhC,gcd,BioModels,Metabolic,STM0732,STM0169,P63725,Q8ZRS1,800,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfrdC,gcd,BioModels,Metabolic,STM4341,STM0169,P67638,Q8ZRS1,2646,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfrdD,gcd,BioModels,Metabolic,STM4340,STM0169,P67645,Q8ZRS1,291,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfrdA,gcd,BioModels,Metabolic,STM4343,STM0169,Q7CP97,Q8ZRS1,1770,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nsdhD,gcd,BioModels,Metabolic,STM0733,STM0169,Q7CQX5,Q8ZRS1,784,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfrdB,gcd,BioModels,Metabolic,STM4342,STM0169,Q8ZKB4,Q8ZRS1,2693,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\npoxB,gcd,BioModels,Metabolic,STM0935,STM0169,Q8ZQF0,Q8ZRS1,2147,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nsdhB,gcd,BioModels,Metabolic,STM0735,STM0169,Q8ZQU2,Q8ZRS1,1219,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nsdhA,gcd,BioModels,Metabolic,STM0734,STM0169,Q8ZQU3,Q8ZRS1,3736,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfis,gcd,Exp(HT),Transcriptional_regulatory,STM3385,STM0169,P0A6R6,Q8ZRS1,1300,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ncrp,gcd,Ecoli,Transcriptional_regulatory,STM3466,STM0169,P0A2T6,Q8ZRS1,2484,223,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q8ZRS1",
-                                        name: "gcd",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="ubiG,gcd,BioModels,Metabolic,STM2276,STM0169,P37431,Q8ZRS1,1095,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+sdhC,gcd,BioModels,Metabolic,STM0732,STM0169,P63725,Q8ZRS1,800,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+frdC,gcd,BioModels,Metabolic,STM4341,STM0169,P67638,Q8ZRS1,2646,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+frdD,gcd,BioModels,Metabolic,STM4340,STM0169,P67645,Q8ZRS1,291,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+frdA,gcd,BioModels,Metabolic,STM4343,STM0169,Q7CP97,Q8ZRS1,1770,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+sdhD,gcd,BioModels,Metabolic,STM0733,STM0169,Q7CQX5,Q8ZRS1,784,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+frdB,gcd,BioModels,Metabolic,STM4342,STM0169,Q8ZKB4,Q8ZRS1,2693,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+poxB,gcd,BioModels,Metabolic,STM0935,STM0169,Q8ZQF0,Q8ZRS1,2147,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+sdhB,gcd,BioModels,Metabolic,STM0735,STM0169,Q8ZQU2,Q8ZRS1,1219,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+sdhA,gcd,BioModels,Metabolic,STM0734,STM0169,Q8ZQU3,Q8ZRS1,3736,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+fis,gcd,Exp(HT),Transcriptional_regulatory,STM3385,STM0169,P0A6R6,Q8ZRS1,1300,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+crp,gcd,Ecoli,Transcriptional_regulatory,STM3466,STM0169,P0A2T6,Q8ZRS1,2484,223,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "ubiG_gcd", "source": "ubiG", "target": "gcd"}}, {"data": {"id": "sdhC_gcd", "source": "sdhC", "target": "gcd"}}, {"data": {"id": "frdC_gcd", "source": "frdC", "target": "gcd"}}, {"data": {"id": "frdD_gcd", "source": "frdD", "target": "gcd"}}, {"data": {"id": "frdA_gcd", "source": "frdA", "target": "gcd"}}, {"data": {"id": "sdhD_gcd", "source": "sdhD", "target": "gcd"}}, {"data": {"id": "frdB_gcd", "source": "frdB", "target": "gcd"}}, {"data": {"id": "poxB_gcd", "source": "poxB", "target": "gcd"}}, {"data": {"id": "sdhB_gcd", "source": "sdhB", "target": "gcd"}}, {"data": {"id": "sdhA_gcd", "source": "sdhA", "target": "gcd"}}, {"data": {"id": "fis_gcd", "source": "fis", "target": "gcd"}}, {"data": {"id": "crp_gcd", "source": "crp", "target": "gcd"}}, {"data": {"id": "ubiG", "main": false}}, {"data": {"id": "gcd", "main": true}}, {"data": {"id": "sdhC", "main": false}}, {"data": {"id": "frdC", "main": false}}, {"data": {"id": "frdD", "main": false}}, {"data": {"id": "frdA", "main": false}}, {"data": {"id": "sdhD", "main": false}}, {"data": {"id": "frdB", "main": false}}, {"data": {"id": "poxB", "main": false}}, {"data": {"id": "sdhB", "main": false}}, {"data": {"id": "sdhA", "main": false}}, {"data": {"id": "fis", "main": false}}, {"data": {"id": "crp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q8ZRS1.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;ubiG_gcd&#34;, &#34;source&#34;: &#34;ubiG&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhC_gcd&#34;, &#34;source&#34;: &#34;sdhC&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdC_gcd&#34;, &#34;source&#34;: &#34;frdC&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdD_gcd&#34;, &#34;source&#34;: &#34;frdD&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdA_gcd&#34;, &#34;source&#34;: &#34;frdA&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhD_gcd&#34;, &#34;source&#34;: &#34;sdhD&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdB_gcd&#34;, &#34;source&#34;: &#34;frdB&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;poxB_gcd&#34;, &#34;source&#34;: &#34;poxB&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhB_gcd&#34;, &#34;source&#34;: &#34;sdhB&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhA_gcd&#34;, &#34;source&#34;: &#34;sdhA&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_gcd&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_gcd&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;gcd&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ubiG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gcd&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frdB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;poxB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;sdhA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

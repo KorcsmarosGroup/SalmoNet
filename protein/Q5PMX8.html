@@ -77,169 +77,24 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'fliI,cheR,Lit Ecoli IntAct,PPI,SPA0898,SPA0950,Q5PHZ1,Q5PMX8,703,692,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nruvB,cheR,IntAct,PPI,SPA0975,SPA0950,Q5PIA7,Q5PMX8,3450,692,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nyjeK,cheR,Lit Ecoli IntAct,PPI,SPA4150,SPA0950,Q5PL59,Q5PMX8,2668,692,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nrpe,cheR,IntAct,PPI,SPA3348,SPA0950,Q5PLX5,Q5PMX8,3757,692,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nflhD,cheR,IntAct,PPI,SPA0943,SPA0950,Q5PMX6,Q5PMX8,1977,692,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ncheR,flgC,IntAct,PPI,SPA0950,SPA1676,Q5PMX8,Q5PGV9,692,1694,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ncheR,nifJ,IntAct,PPI,SPA0950,SPA1236,Q5PMX8,Q5PHS6,692,3295,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ncheR,fliN,IntAct,PPI,SPA0950,SPA0893,Q5PMX8,Q5PLI8,692,1656,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ncheR,cheZ,IntAct,PPI,SPA0950,SPA0953,Q5PMX8,Q5PMY1,692,1114,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nrpoE,cheR,Lit Ecoli IntAct,PPI,SPA0278,SPA0950,Q5PNB6,Q5PMX8,3460,692,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nssrB,cheR,Salm,Transcriptional_regulatory,SPA1462,SPA0950,Q5PH47,Q5PMX8,549,692,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q5PMX8",
-                                        name: "cheR",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="fliI,cheR,Lit Ecoli IntAct,PPI,SPA0898,SPA0950,Q5PHZ1,Q5PMX8,703,692,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+ruvB,cheR,IntAct,PPI,SPA0975,SPA0950,Q5PIA7,Q5PMX8,3450,692,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+yjeK,cheR,Lit Ecoli IntAct,PPI,SPA4150,SPA0950,Q5PL59,Q5PMX8,2668,692,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+rpe,cheR,IntAct,PPI,SPA3348,SPA0950,Q5PLX5,Q5PMX8,3757,692,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+flhD,cheR,IntAct,PPI,SPA0943,SPA0950,Q5PMX6,Q5PMX8,1977,692,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+cheR,flgC,IntAct,PPI,SPA0950,SPA1676,Q5PMX8,Q5PGV9,692,1694,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+cheR,nifJ,IntAct,PPI,SPA0950,SPA1236,Q5PMX8,Q5PHS6,692,3295,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+cheR,fliN,IntAct,PPI,SPA0950,SPA0893,Q5PMX8,Q5PLI8,692,1656,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+cheR,cheZ,IntAct,PPI,SPA0950,SPA0953,Q5PMX8,Q5PMY1,692,1114,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+rpoE,cheR,Lit Ecoli IntAct,PPI,SPA0278,SPA0950,Q5PNB6,Q5PMX8,3460,692,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+ssrB,cheR,Salm,Transcriptional_regulatory,SPA1462,SPA0950,Q5PH47,Q5PMX8,549,692,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "fliI_cheR", "source": "fliI", "target": "cheR"}}, {"data": {"id": "ruvB_cheR", "source": "ruvB", "target": "cheR"}}, {"data": {"id": "yjeK_cheR", "source": "yjeK", "target": "cheR"}}, {"data": {"id": "rpe_cheR", "source": "rpe", "target": "cheR"}}, {"data": {"id": "flhD_cheR", "source": "flhD", "target": "cheR"}}, {"data": {"id": "cheR_flgC", "source": "cheR", "target": "flgC"}}, {"data": {"id": "cheR_nifJ", "source": "cheR", "target": "nifJ"}}, {"data": {"id": "cheR_fliN", "source": "cheR", "target": "fliN"}}, {"data": {"id": "cheR_cheZ", "source": "cheR", "target": "cheZ"}}, {"data": {"id": "rpoE_cheR", "source": "rpoE", "target": "cheR"}}, {"data": {"id": "ssrB_cheR", "source": "ssrB", "target": "cheR"}}, {"data": {"id": "fliI", "main": false}}, {"data": {"id": "cheR", "main": true}}, {"data": {"id": "ruvB", "main": false}}, {"data": {"id": "yjeK", "main": false}}, {"data": {"id": "rpe", "main": false}}, {"data": {"id": "flhD", "main": false}}, {"data": {"id": "flgC", "main": false}}, {"data": {"id": "nifJ", "main": false}}, {"data": {"id": "fliN", "main": false}}, {"data": {"id": "cheZ", "main": false}}, {"data": {"id": "rpoE", "main": false}}, {"data": {"id": "ssrB", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q5PMX8.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;fliI_cheR&#34;, &#34;source&#34;: &#34;fliI&#34;, &#34;target&#34;: &#34;cheR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ruvB_cheR&#34;, &#34;source&#34;: &#34;ruvB&#34;, &#34;target&#34;: &#34;cheR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yjeK_cheR&#34;, &#34;source&#34;: &#34;yjeK&#34;, &#34;target&#34;: &#34;cheR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpe_cheR&#34;, &#34;source&#34;: &#34;rpe&#34;, &#34;target&#34;: &#34;cheR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;flhD_cheR&#34;, &#34;source&#34;: &#34;flhD&#34;, &#34;target&#34;: &#34;cheR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cheR_flgC&#34;, &#34;source&#34;: &#34;cheR&#34;, &#34;target&#34;: &#34;flgC&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cheR_nifJ&#34;, &#34;source&#34;: &#34;cheR&#34;, &#34;target&#34;: &#34;nifJ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cheR_fliN&#34;, &#34;source&#34;: &#34;cheR&#34;, &#34;target&#34;: &#34;fliN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cheR_cheZ&#34;, &#34;source&#34;: &#34;cheR&#34;, &#34;target&#34;: &#34;cheZ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoE_cheR&#34;, &#34;source&#34;: &#34;rpoE&#34;, &#34;target&#34;: &#34;cheR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ssrB_cheR&#34;, &#34;source&#34;: &#34;ssrB&#34;, &#34;target&#34;: &#34;cheR&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliI&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cheR&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ruvB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yjeK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpe&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;flhD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;flgC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nifJ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fliN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cheZ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpoE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ssrB&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

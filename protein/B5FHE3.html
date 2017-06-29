@@ -77,169 +77,20 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'ispH,ispG,STM,Metabolic,SeD_A0053,SeD_A2892,B5FHE3,B5FR63,3060,2055,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nispB,ispH,STM,Metabolic,SeD_A3664,SeD_A0053,B5FIN5,B5FHE3,2699,3060,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nuppS,ispH,STM,Metabolic,SeD_A0243,SeD_A0053,B5FJ21,B5FHE3,312,3060,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nispA,ispH,STM,Metabolic,SeD_A0464,SeD_A0053,B5FKS8,B5FHE3,277,3060,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nidi,ispH,STM BioModels,Metabolic,SeD_A3375,SeD_A0053,B5FUF2,B5FHE3,1793,3060,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A3747,ispH,Lit Ecoli IntAct,PPI,SeD_A3747,SeD_A0053,B5FIW5,B5FHE3,2370,3060,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nfis,ispH,Salm,Transcriptional_regulatory,SeD_A3746,SeD_A0053,B5FIW4,B5FHE3,1300,3060,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5FHE3",
-                                        name: "ispH",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="ispH,ispG,STM,Metabolic,SeD_A0053,SeD_A2892,B5FHE3,B5FR63,3060,2055,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+ispB,ispH,STM,Metabolic,SeD_A3664,SeD_A0053,B5FIN5,B5FHE3,2699,3060,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+uppS,ispH,STM,Metabolic,SeD_A0243,SeD_A0053,B5FJ21,B5FHE3,312,3060,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+ispA,ispH,STM,Metabolic,SeD_A0464,SeD_A0053,B5FKS8,B5FHE3,277,3060,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+idi,ispH,STM BioModels,Metabolic,SeD_A3375,SeD_A0053,B5FUF2,B5FHE3,1793,3060,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A3747,ispH,Lit Ecoli IntAct,PPI,SeD_A3747,SeD_A0053,B5FIW5,B5FHE3,2370,3060,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+fis,ispH,Salm,Transcriptional_regulatory,SeD_A3746,SeD_A0053,B5FIW4,B5FHE3,1300,3060,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "ispH_ispG", "source": "ispH", "target": "ispG"}}, {"data": {"id": "ispB_ispH", "source": "ispB", "target": "ispH"}}, {"data": {"id": "uppS_ispH", "source": "uppS", "target": "ispH"}}, {"data": {"id": "ispA_ispH", "source": "ispA", "target": "ispH"}}, {"data": {"id": "idi_ispH", "source": "idi", "target": "ispH"}}, {"data": {"id": "SeD_A3747_ispH", "source": "SeD_A3747", "target": "ispH"}}, {"data": {"id": "fis_ispH", "source": "fis", "target": "ispH"}}, {"data": {"id": "ispH", "main": true}}, {"data": {"id": "ispG", "main": false}}, {"data": {"id": "ispB", "main": false}}, {"data": {"id": "uppS", "main": false}}, {"data": {"id": "ispA", "main": false}}, {"data": {"id": "idi", "main": false}}, {"data": {"id": "SeD_A3747", "main": false}}, {"data": {"id": "fis", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5FHE3.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;ispH_ispG&#34;, &#34;source&#34;: &#34;ispH&#34;, &#34;target&#34;: &#34;ispG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ispB_ispH&#34;, &#34;source&#34;: &#34;ispB&#34;, &#34;target&#34;: &#34;ispH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;uppS_ispH&#34;, &#34;source&#34;: &#34;uppS&#34;, &#34;target&#34;: &#34;ispH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ispA_ispH&#34;, &#34;source&#34;: &#34;ispA&#34;, &#34;target&#34;: &#34;ispH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;idi_ispH&#34;, &#34;source&#34;: &#34;idi&#34;, &#34;target&#34;: &#34;ispH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A3747_ispH&#34;, &#34;source&#34;: &#34;SeD_A3747&#34;, &#34;target&#34;: &#34;ispH&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_ispH&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;ispH&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ispH&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ispG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ispB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;uppS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ispA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;idi&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A3747&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

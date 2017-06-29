@@ -77,169 +77,22 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'dxr,thiH,BioModels,Metabolic,SNSL254_A0242,SNSL254_A4491,B4SV02,B4T0Z1,1058,2016,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\niscS,thiH,STM,Metabolic,SNSL254_A2742,SNSL254_A4491,B4T0S2,B4T0Z1,3518,2016,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nthiH,thiI,STM,Metabolic,SNSL254_A4491,SNSL254_A0472,B4T0Z1,B4SWR7,2016,2071,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nthiH,thiG,STM BioModels,Metabolic,SNSL254_A4491,SNSL254_A4492,B4T0Z1,B4T0Z2,2016,1749,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nthiH,thiS,STM,Metabolic,SNSL254_A4491,SNSL254_A4493,B4T0Z1,B4T0Z3,2016,1494,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nthiF,thiH,STM,Metabolic,SNSL254_A4494,SNSL254_A4491,B4T0Z4,B4T0Z1,1509,2016,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nthiE,thiH,STM,Metabolic,SNSL254_A4495,SNSL254_A4491,B4T0Z5,B4T0Z1,307,2016,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nthiG,thiH,IntAct,PPI,SNSL254_A4492,SNSL254_A4491,B4T0Z2,B4T0Z1,1749,2016,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1504,thiH,Salm,Transcriptional_regulatory,SNSL254_A1504,SNSL254_A4491,B4T4T3,B4T0Z1,549,2016,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B4T0Z1",
-                                        name: "thiH",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="dxr,thiH,BioModels,Metabolic,SNSL254_A0242,SNSL254_A4491,B4SV02,B4T0Z1,1058,2016,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+iscS,thiH,STM,Metabolic,SNSL254_A2742,SNSL254_A4491,B4T0S2,B4T0Z1,3518,2016,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+thiH,thiI,STM,Metabolic,SNSL254_A4491,SNSL254_A0472,B4T0Z1,B4SWR7,2016,2071,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+thiH,thiG,STM BioModels,Metabolic,SNSL254_A4491,SNSL254_A4492,B4T0Z1,B4T0Z2,2016,1749,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+thiH,thiS,STM,Metabolic,SNSL254_A4491,SNSL254_A4493,B4T0Z1,B4T0Z3,2016,1494,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+thiF,thiH,STM,Metabolic,SNSL254_A4494,SNSL254_A4491,B4T0Z4,B4T0Z1,1509,2016,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+thiE,thiH,STM,Metabolic,SNSL254_A4495,SNSL254_A4491,B4T0Z5,B4T0Z1,307,2016,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+thiG,thiH,IntAct,PPI,SNSL254_A4492,SNSL254_A4491,B4T0Z2,B4T0Z1,1749,2016,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1504,thiH,Salm,Transcriptional_regulatory,SNSL254_A1504,SNSL254_A4491,B4T4T3,B4T0Z1,549,2016,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "dxr_thiH", "source": "dxr", "target": "thiH"}}, {"data": {"id": "iscS_thiH", "source": "iscS", "target": "thiH"}}, {"data": {"id": "thiH_thiI", "source": "thiH", "target": "thiI"}}, {"data": {"id": "thiH_thiG", "source": "thiH", "target": "thiG"}}, {"data": {"id": "thiH_thiS", "source": "thiH", "target": "thiS"}}, {"data": {"id": "thiF_thiH", "source": "thiF", "target": "thiH"}}, {"data": {"id": "thiE_thiH", "source": "thiE", "target": "thiH"}}, {"data": {"id": "thiG_thiH", "source": "thiG", "target": "thiH"}}, {"data": {"id": "SNSL254_A1504_thiH", "source": "SNSL254_A1504", "target": "thiH"}}, {"data": {"id": "dxr", "main": false}}, {"data": {"id": "thiH", "main": true}}, {"data": {"id": "iscS", "main": false}}, {"data": {"id": "thiI", "main": false}}, {"data": {"id": "thiG", "main": false}}, {"data": {"id": "thiS", "main": false}}, {"data": {"id": "thiF", "main": false}}, {"data": {"id": "thiE", "main": false}}, {"data": {"id": "SNSL254_A1504", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B4T0Z1.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;dxr_thiH&#34;, &#34;source&#34;: &#34;dxr&#34;, &#34;target&#34;: &#34;thiH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;iscS_thiH&#34;, &#34;source&#34;: &#34;iscS&#34;, &#34;target&#34;: &#34;thiH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiH_thiI&#34;, &#34;source&#34;: &#34;thiH&#34;, &#34;target&#34;: &#34;thiI&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiH_thiG&#34;, &#34;source&#34;: &#34;thiH&#34;, &#34;target&#34;: &#34;thiG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiH_thiS&#34;, &#34;source&#34;: &#34;thiH&#34;, &#34;target&#34;: &#34;thiS&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiF_thiH&#34;, &#34;source&#34;: &#34;thiF&#34;, &#34;target&#34;: &#34;thiH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiE_thiH&#34;, &#34;source&#34;: &#34;thiE&#34;, &#34;target&#34;: &#34;thiH&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiG_thiH&#34;, &#34;source&#34;: &#34;thiG&#34;, &#34;target&#34;: &#34;thiH&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1504_thiH&#34;, &#34;source&#34;: &#34;SNSL254_A1504&#34;, &#34;target&#34;: &#34;thiH&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dxr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiH&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;iscS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiI&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;thiE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1504&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

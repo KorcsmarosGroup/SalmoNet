@@ -77,169 +77,23 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'hemF,yggW,BioModels,Metabolic,SG2483,SG2998,B5RCS3,B5RE64,3160,1110,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nyggW,bioB,BioModels,Metabolic,SG2998,SG0772,B5RE64,B5R761,1110,1192,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nyggW,hemE,BioModels,Metabolic,SG2998,SG3439,B5RE64,B5RFI7,1110,2897,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nyggW,hemG,BioModels,Metabolic,SG2998,SG3465,B5RE64,B5RFL2,1110,817,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nSG3413,yggW,BioModels,Metabolic,SG3413,SG2998,B5RFG1,B5RE64,1107,1110,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nhemN,yggW,BioModels,Metabolic,SG3420,SG2998,B5RFG8,B5RE64,676,1110,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nyggW,hydN,Lit Ecoli IntAct,PPI,SG2998,SG2746,B5RE64,B5RDG8,1110,3570,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nyggW,hypO,Lit Ecoli IntAct,PPI,SG2998,SG3046,B5RE64,B5REA9,1110,2290,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nyggW,fixX,Lit Ecoli IntAct,PPI,SG2998,SG0081,B5RE64,B5RGB1,1110,2000,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nyggW,crp,Lit Ecoli IntAct,PPI,SG2998,SG3973,B5RE64,B5RGZ0,1110,2484,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5RE64",
-                                        name: "yggW",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="hemF,yggW,BioModels,Metabolic,SG2483,SG2998,B5RCS3,B5RE64,3160,1110,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+yggW,bioB,BioModels,Metabolic,SG2998,SG0772,B5RE64,B5R761,1110,1192,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+yggW,hemE,BioModels,Metabolic,SG2998,SG3439,B5RE64,B5RFI7,1110,2897,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+yggW,hemG,BioModels,Metabolic,SG2998,SG3465,B5RE64,B5RFL2,1110,817,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+SG3413,yggW,BioModels,Metabolic,SG3413,SG2998,B5RFG1,B5RE64,1107,1110,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+hemN,yggW,BioModels,Metabolic,SG3420,SG2998,B5RFG8,B5RE64,676,1110,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+yggW,hydN,Lit Ecoli IntAct,PPI,SG2998,SG2746,B5RE64,B5RDG8,1110,3570,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+yggW,hypO,Lit Ecoli IntAct,PPI,SG2998,SG3046,B5RE64,B5REA9,1110,2290,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+yggW,fixX,Lit Ecoli IntAct,PPI,SG2998,SG0081,B5RE64,B5RGB1,1110,2000,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+yggW,crp,Lit Ecoli IntAct,PPI,SG2998,SG3973,B5RE64,B5RGZ0,1110,2484,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "hemF_yggW", "source": "hemF", "target": "yggW"}}, {"data": {"id": "yggW_bioB", "source": "yggW", "target": "bioB"}}, {"data": {"id": "yggW_hemE", "source": "yggW", "target": "hemE"}}, {"data": {"id": "yggW_hemG", "source": "yggW", "target": "hemG"}}, {"data": {"id": "SG3413_yggW", "source": "SG3413", "target": "yggW"}}, {"data": {"id": "hemN_yggW", "source": "hemN", "target": "yggW"}}, {"data": {"id": "yggW_hydN", "source": "yggW", "target": "hydN"}}, {"data": {"id": "yggW_hypO", "source": "yggW", "target": "hypO"}}, {"data": {"id": "yggW_fixX", "source": "yggW", "target": "fixX"}}, {"data": {"id": "yggW_crp", "source": "yggW", "target": "crp"}}, {"data": {"id": "hemF", "main": false}}, {"data": {"id": "yggW", "main": true}}, {"data": {"id": "bioB", "main": false}}, {"data": {"id": "hemE", "main": false}}, {"data": {"id": "hemG", "main": false}}, {"data": {"id": "SG3413", "main": false}}, {"data": {"id": "hemN", "main": false}}, {"data": {"id": "hydN", "main": false}}, {"data": {"id": "hypO", "main": false}}, {"data": {"id": "fixX", "main": false}}, {"data": {"id": "crp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5RE64.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;hemF_yggW&#34;, &#34;source&#34;: &#34;hemF&#34;, &#34;target&#34;: &#34;yggW&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW_bioB&#34;, &#34;source&#34;: &#34;yggW&#34;, &#34;target&#34;: &#34;bioB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW_hemE&#34;, &#34;source&#34;: &#34;yggW&#34;, &#34;target&#34;: &#34;hemE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW_hemG&#34;, &#34;source&#34;: &#34;yggW&#34;, &#34;target&#34;: &#34;hemG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG3413_yggW&#34;, &#34;source&#34;: &#34;SG3413&#34;, &#34;target&#34;: &#34;yggW&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hemN_yggW&#34;, &#34;source&#34;: &#34;hemN&#34;, &#34;target&#34;: &#34;yggW&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW_hydN&#34;, &#34;source&#34;: &#34;yggW&#34;, &#34;target&#34;: &#34;hydN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW_hypO&#34;, &#34;source&#34;: &#34;yggW&#34;, &#34;target&#34;: &#34;hypO&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW_fixX&#34;, &#34;source&#34;: &#34;yggW&#34;, &#34;target&#34;: &#34;fixX&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW_crp&#34;, &#34;source&#34;: &#34;yggW&#34;, &#34;target&#34;: &#34;crp&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hemF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yggW&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;bioB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hemE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hemG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG3413&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hemN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hydN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypO&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fixX&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

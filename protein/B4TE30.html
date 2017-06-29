@@ -77,169 +77,28 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'SeHA_C0502,SeHA_C2865,STM,Metabolic,SeHA_C0502,SeHA_C2865,B4T8P2,B4TE30,90,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nahpC,SeHA_C2865,STM,Metabolic,SeHA_C0720,SeHA_C2865,B4TAF9,B4TE30,1258,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\ntrxA,SeHA_C2865,STM,Metabolic,SeHA_C4245,SeHA_C2865,B4TB14,B4TE30,3171,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\ntrxB,SeHA_C2865,STM,Metabolic,SeHA_C1057,SeHA_C2865,B4TD19,B4TE30,3448,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C2865,dsbG,STM,Metabolic,SeHA_C2865,SeHA_C0719,B4TE30,B4TAF8,2524,3048,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C2865,cysC,STM,Metabolic,SeHA_C2865,SeHA_C3123,B4TE30,B4TFX0,2524,2794,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\ndipZ,SeHA_C2865,STM,Metabolic,SeHA_C4741,SeHA_C2865,B4TF73,B4TE30,1334,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nmsrA,SeHA_C2865,STM,Metabolic,SeHA_C4827,SeHA_C2865,B4TFF2,B4TE30,1157,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\ncysH,SeHA_C2865,STM,Metabolic,SeHA_C3141,SeHA_C2865,B4TFY3,B4TE30,240,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nmsrB,SeHA_C2865,STM,Metabolic,SeHA_C1418,SeHA_C2865,B4TGC8,B4TE30,3580,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C3274,SeHA_C2865,STM,Metabolic,SeHA_C3274,SeHA_C2865,B4TGW2,B4TE30,1179,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C2865,SeHA_C1132,Lit Ecoli IntAct,PPI,SeHA_C2865,SeHA_C1132,B4TE30,B4TDV1,2524,4301,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nSeHA_C2865,ptsP,Lit Ecoli IntAct,PPI,SeHA_C2865,SeHA_C3216,B4TE30,B4TGQ8,2524,3085,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\noxyR,SeHA_C2865,Ecoli,Transcriptional_regulatory,SeHA_C4453,SeHA_C2865,B4TCQ7,B4TE30,3398,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22\nompR,SeHA_C2865,Salm,Transcriptional_regulatory,SeHA_C3809,SeHA_C2865,B4TKS8,B4TE30,3552,2524,\x22serovar Heidelberg SL476\x22,\x22serovar Heidelberg SL476\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B4TE30",
-                                        name: "SeHA_C2865",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="SeHA_C0502,SeHA_C2865,STM,Metabolic,SeHA_C0502,SeHA_C2865,B4T8P2,B4TE30,90,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+ahpC,SeHA_C2865,STM,Metabolic,SeHA_C0720,SeHA_C2865,B4TAF9,B4TE30,1258,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+trxA,SeHA_C2865,STM,Metabolic,SeHA_C4245,SeHA_C2865,B4TB14,B4TE30,3171,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+trxB,SeHA_C2865,STM,Metabolic,SeHA_C1057,SeHA_C2865,B4TD19,B4TE30,3448,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C2865,dsbG,STM,Metabolic,SeHA_C2865,SeHA_C0719,B4TE30,B4TAF8,2524,3048,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C2865,cysC,STM,Metabolic,SeHA_C2865,SeHA_C3123,B4TE30,B4TFX0,2524,2794,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+dipZ,SeHA_C2865,STM,Metabolic,SeHA_C4741,SeHA_C2865,B4TF73,B4TE30,1334,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+msrA,SeHA_C2865,STM,Metabolic,SeHA_C4827,SeHA_C2865,B4TFF2,B4TE30,1157,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+cysH,SeHA_C2865,STM,Metabolic,SeHA_C3141,SeHA_C2865,B4TFY3,B4TE30,240,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+msrB,SeHA_C2865,STM,Metabolic,SeHA_C1418,SeHA_C2865,B4TGC8,B4TE30,3580,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C3274,SeHA_C2865,STM,Metabolic,SeHA_C3274,SeHA_C2865,B4TGW2,B4TE30,1179,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C2865,SeHA_C1132,Lit Ecoli IntAct,PPI,SeHA_C2865,SeHA_C1132,B4TE30,B4TDV1,2524,4301,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+SeHA_C2865,ptsP,Lit Ecoli IntAct,PPI,SeHA_C2865,SeHA_C3216,B4TE30,B4TGQ8,2524,3085,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+oxyR,SeHA_C2865,Ecoli,Transcriptional_regulatory,SeHA_C4453,SeHA_C2865,B4TCQ7,B4TE30,3398,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;
+ompR,SeHA_C2865,Salm,Transcriptional_regulatory,SeHA_C3809,SeHA_C2865,B4TKS8,B4TE30,3552,2524,&#34;serovar Heidelberg SL476&#34;,&#34;serovar Heidelberg SL476&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "SeHA_C0502_SeHA_C2865", "source": "SeHA_C0502", "target": "SeHA_C2865"}}, {"data": {"id": "ahpC_SeHA_C2865", "source": "ahpC", "target": "SeHA_C2865"}}, {"data": {"id": "trxA_SeHA_C2865", "source": "trxA", "target": "SeHA_C2865"}}, {"data": {"id": "trxB_SeHA_C2865", "source": "trxB", "target": "SeHA_C2865"}}, {"data": {"id": "SeHA_C2865_dsbG", "source": "SeHA_C2865", "target": "dsbG"}}, {"data": {"id": "SeHA_C2865_cysC", "source": "SeHA_C2865", "target": "cysC"}}, {"data": {"id": "dipZ_SeHA_C2865", "source": "dipZ", "target": "SeHA_C2865"}}, {"data": {"id": "msrA_SeHA_C2865", "source": "msrA", "target": "SeHA_C2865"}}, {"data": {"id": "cysH_SeHA_C2865", "source": "cysH", "target": "SeHA_C2865"}}, {"data": {"id": "msrB_SeHA_C2865", "source": "msrB", "target": "SeHA_C2865"}}, {"data": {"id": "SeHA_C3274_SeHA_C2865", "source": "SeHA_C3274", "target": "SeHA_C2865"}}, {"data": {"id": "SeHA_C2865_SeHA_C1132", "source": "SeHA_C2865", "target": "SeHA_C1132"}}, {"data": {"id": "SeHA_C2865_ptsP", "source": "SeHA_C2865", "target": "ptsP"}}, {"data": {"id": "oxyR_SeHA_C2865", "source": "oxyR", "target": "SeHA_C2865"}}, {"data": {"id": "ompR_SeHA_C2865", "source": "ompR", "target": "SeHA_C2865"}}, {"data": {"id": "SeHA_C0502", "main": false}}, {"data": {"id": "SeHA_C2865", "main": true}}, {"data": {"id": "ahpC", "main": false}}, {"data": {"id": "trxA", "main": false}}, {"data": {"id": "trxB", "main": false}}, {"data": {"id": "dsbG", "main": false}}, {"data": {"id": "cysC", "main": false}}, {"data": {"id": "dipZ", "main": false}}, {"data": {"id": "msrA", "main": false}}, {"data": {"id": "cysH", "main": false}}, {"data": {"id": "msrB", "main": false}}, {"data": {"id": "SeHA_C3274", "main": false}}, {"data": {"id": "SeHA_C1132", "main": false}}, {"data": {"id": "ptsP", "main": false}}, {"data": {"id": "oxyR", "main": false}}, {"data": {"id": "ompR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B4TE30.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C0502_SeHA_C2865&#34;, &#34;source&#34;: &#34;SeHA_C0502&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ahpC_SeHA_C2865&#34;, &#34;source&#34;: &#34;ahpC&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxA_SeHA_C2865&#34;, &#34;source&#34;: &#34;trxA&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxB_SeHA_C2865&#34;, &#34;source&#34;: &#34;trxB&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C2865_dsbG&#34;, &#34;source&#34;: &#34;SeHA_C2865&#34;, &#34;target&#34;: &#34;dsbG&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C2865_cysC&#34;, &#34;source&#34;: &#34;SeHA_C2865&#34;, &#34;target&#34;: &#34;cysC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dipZ_SeHA_C2865&#34;, &#34;source&#34;: &#34;dipZ&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;msrA_SeHA_C2865&#34;, &#34;source&#34;: &#34;msrA&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cysH_SeHA_C2865&#34;, &#34;source&#34;: &#34;cysH&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;msrB_SeHA_C2865&#34;, &#34;source&#34;: &#34;msrB&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C3274_SeHA_C2865&#34;, &#34;source&#34;: &#34;SeHA_C3274&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C2865_SeHA_C1132&#34;, &#34;source&#34;: &#34;SeHA_C2865&#34;, &#34;target&#34;: &#34;SeHA_C1132&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C2865_ptsP&#34;, &#34;source&#34;: &#34;SeHA_C2865&#34;, &#34;target&#34;: &#34;ptsP&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;oxyR_SeHA_C2865&#34;, &#34;source&#34;: &#34;oxyR&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ompR_SeHA_C2865&#34;, &#34;source&#34;: &#34;ompR&#34;, &#34;target&#34;: &#34;SeHA_C2865&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C0502&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C2865&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ahpC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dsbG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cysC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dipZ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;msrA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cysH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;msrB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C3274&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeHA_C1132&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ptsP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;oxyR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ompR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

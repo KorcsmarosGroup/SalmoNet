@@ -77,169 +77,31 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'hypO,hycE,STM,Metabolic,SC3091,SC2782,Q57JW5,Q57KS4,2290,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhybC,hycE,STM,Metabolic,SC3088,SC2782,Q57JW8,Q57KS4,631,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhycE,hycB,STM,Metabolic,SC2782,SC2785,Q57KS4,Q57KS1,126,4039,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhycE,hycC,STM,Metabolic,SC2782,SC2784,Q57KS4,Q57KS2,126,2222,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhycE,hycD,STM,Metabolic,SC2782,SC2783,Q57KS4,Q57KS3,126,376,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhycE,mbhS,STM,Metabolic,SC2782,SC1782,Q57KS4,Q57NM3,126,3144,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhycF,hycE,STM,Metabolic,SC2781,SC2782,Q57KS5,Q57KS4,1226,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhycG,hycE,STM,Metabolic,SC2780,SC2782,Q57KS6,Q57KS4,602,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\ncybH,hycE,STM,Metabolic,SC1783,SC2782,Q57NM2,Q57KS4,904,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\ngroEL,hycE,IntAct,PPI,SC4209,SC2782,Q57GP7,Q57KS4,1880,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nslyD,hycE,IntAct,PPI,SC3389,SC2782,Q57J17,Q57KS4,3489,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhybG,hycE,Lit Ecoli IntAct,PPI,SC3084,SC2782,Q57JX2,Q57KS4,3620,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhypE,hycE,Lit Ecoli IntAct,PPI,SC2791,SC2782,Q57KR5,Q57KS4,71,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhypB,hycE,IntAct,PPI,SC2788,SC2782,Q57KR8,Q57KS4,170,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nhypA,hycE,IntAct,PPI,SC2787,SC2782,Q57KR9,Q57KS4,2740,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\ndnaK,hycE,IntAct,PPI,SC0012,SC2782,Q57TP3,Q57KS4,2512,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nfhlA,hycE,Ecoli,Transcriptional_regulatory,SC2792,SC2782,Q57KR4,Q57KS4,791,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nyjeB,hycE,Ecoli,Transcriptional_regulatory,SC4243,SC2782,Q57GL3,Q57KS4,2218,126,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q57KS4",
-                                        name: "hycE",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="hypO,hycE,STM,Metabolic,SC3091,SC2782,Q57JW5,Q57KS4,2290,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hybC,hycE,STM,Metabolic,SC3088,SC2782,Q57JW8,Q57KS4,631,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hycE,hycB,STM,Metabolic,SC2782,SC2785,Q57KS4,Q57KS1,126,4039,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hycE,hycC,STM,Metabolic,SC2782,SC2784,Q57KS4,Q57KS2,126,2222,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hycE,hycD,STM,Metabolic,SC2782,SC2783,Q57KS4,Q57KS3,126,376,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hycE,mbhS,STM,Metabolic,SC2782,SC1782,Q57KS4,Q57NM3,126,3144,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hycF,hycE,STM,Metabolic,SC2781,SC2782,Q57KS5,Q57KS4,1226,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hycG,hycE,STM,Metabolic,SC2780,SC2782,Q57KS6,Q57KS4,602,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+cybH,hycE,STM,Metabolic,SC1783,SC2782,Q57NM2,Q57KS4,904,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+groEL,hycE,IntAct,PPI,SC4209,SC2782,Q57GP7,Q57KS4,1880,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+slyD,hycE,IntAct,PPI,SC3389,SC2782,Q57J17,Q57KS4,3489,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hybG,hycE,Lit Ecoli IntAct,PPI,SC3084,SC2782,Q57JX2,Q57KS4,3620,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hypE,hycE,Lit Ecoli IntAct,PPI,SC2791,SC2782,Q57KR5,Q57KS4,71,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hypB,hycE,IntAct,PPI,SC2788,SC2782,Q57KR8,Q57KS4,170,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+hypA,hycE,IntAct,PPI,SC2787,SC2782,Q57KR9,Q57KS4,2740,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+dnaK,hycE,IntAct,PPI,SC0012,SC2782,Q57TP3,Q57KS4,2512,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+fhlA,hycE,Ecoli,Transcriptional_regulatory,SC2792,SC2782,Q57KR4,Q57KS4,791,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+yjeB,hycE,Ecoli,Transcriptional_regulatory,SC4243,SC2782,Q57GL3,Q57KS4,2218,126,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "hypO_hycE", "source": "hypO", "target": "hycE"}}, {"data": {"id": "hybC_hycE", "source": "hybC", "target": "hycE"}}, {"data": {"id": "hycE_hycB", "source": "hycE", "target": "hycB"}}, {"data": {"id": "hycE_hycC", "source": "hycE", "target": "hycC"}}, {"data": {"id": "hycE_hycD", "source": "hycE", "target": "hycD"}}, {"data": {"id": "hycE_mbhS", "source": "hycE", "target": "mbhS"}}, {"data": {"id": "hycF_hycE", "source": "hycF", "target": "hycE"}}, {"data": {"id": "hycG_hycE", "source": "hycG", "target": "hycE"}}, {"data": {"id": "cybH_hycE", "source": "cybH", "target": "hycE"}}, {"data": {"id": "groEL_hycE", "source": "groEL", "target": "hycE"}}, {"data": {"id": "slyD_hycE", "source": "slyD", "target": "hycE"}}, {"data": {"id": "hybG_hycE", "source": "hybG", "target": "hycE"}}, {"data": {"id": "hypE_hycE", "source": "hypE", "target": "hycE"}}, {"data": {"id": "hypB_hycE", "source": "hypB", "target": "hycE"}}, {"data": {"id": "hypA_hycE", "source": "hypA", "target": "hycE"}}, {"data": {"id": "dnaK_hycE", "source": "dnaK", "target": "hycE"}}, {"data": {"id": "fhlA_hycE", "source": "fhlA", "target": "hycE"}}, {"data": {"id": "yjeB_hycE", "source": "yjeB", "target": "hycE"}}, {"data": {"id": "hypO", "main": false}}, {"data": {"id": "hycE", "main": true}}, {"data": {"id": "hybC", "main": false}}, {"data": {"id": "hycB", "main": false}}, {"data": {"id": "hycC", "main": false}}, {"data": {"id": "hycD", "main": false}}, {"data": {"id": "mbhS", "main": false}}, {"data": {"id": "hycF", "main": false}}, {"data": {"id": "hycG", "main": false}}, {"data": {"id": "cybH", "main": false}}, {"data": {"id": "groEL", "main": false}}, {"data": {"id": "slyD", "main": false}}, {"data": {"id": "hybG", "main": false}}, {"data": {"id": "hypE", "main": false}}, {"data": {"id": "hypB", "main": false}}, {"data": {"id": "hypA", "main": false}}, {"data": {"id": "dnaK", "main": false}}, {"data": {"id": "fhlA", "main": false}}, {"data": {"id": "yjeB", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q57KS4.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;hypO_hycE&#34;, &#34;source&#34;: &#34;hypO&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybC_hycE&#34;, &#34;source&#34;: &#34;hybC&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE_hycB&#34;, &#34;source&#34;: &#34;hycE&#34;, &#34;target&#34;: &#34;hycB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE_hycC&#34;, &#34;source&#34;: &#34;hycE&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE_hycD&#34;, &#34;source&#34;: &#34;hycE&#34;, &#34;target&#34;: &#34;hycD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE_mbhS&#34;, &#34;source&#34;: &#34;hycE&#34;, &#34;target&#34;: &#34;mbhS&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycF_hycE&#34;, &#34;source&#34;: &#34;hycF&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycG_hycE&#34;, &#34;source&#34;: &#34;hycG&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cybH_hycE&#34;, &#34;source&#34;: &#34;cybH&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL_hycE&#34;, &#34;source&#34;: &#34;groEL&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;slyD_hycE&#34;, &#34;source&#34;: &#34;slyD&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybG_hycE&#34;, &#34;source&#34;: &#34;hybG&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypE_hycE&#34;, &#34;source&#34;: &#34;hypE&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypB_hycE&#34;, &#34;source&#34;: &#34;hypB&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypA_hycE&#34;, &#34;source&#34;: &#34;hypA&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaK_hycE&#34;, &#34;source&#34;: &#34;dnaK&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fhlA_hycE&#34;, &#34;source&#34;: &#34;fhlA&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yjeB_hycE&#34;, &#34;source&#34;: &#34;yjeB&#34;, &#34;target&#34;: &#34;hycE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypO&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mbhS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cybH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;groEL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;slyD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hypA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaK&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fhlA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yjeB&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

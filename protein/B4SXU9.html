@@ -77,169 +77,23 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'entB,SNSL254_A0648,STM BioModels,Metabolic,SNSL254_A0650,SNSL254_A0648,B4SXU9,B4SXU7,3159,1506,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nentB,SNSL254_A2495,STM BioModels,Metabolic,SNSL254_A0650,SNSL254_A2495,B4SXU9,B4SYY2,3159,207,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nentA,entB,STM,Metabolic,SNSL254_A0651,SNSL254_A0650,B4SXV0,B4SXU9,3447,3159,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nentE,entB,Lit Ecoli IntAct Interactome3d,PPI,SNSL254_A0649,SNSL254_A0650,B4SXU8,B4SXU9,614,3159,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nentB,SNSL254_A0652,IntAct,PPI,SNSL254_A0650,SNSL254_A0652,B4SXU9,B4SXV1,3159,1007,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A2406,entB,Lit Ecoli IntAct,PPI,SNSL254_A2406,SNSL254_A0650,B4SY48,B4SXU9,3710,3159,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1100,entB,Lit Ecoli IntAct,PPI,SNSL254_A1100,SNSL254_A0650,B4T1Y9,B4SXU9,804,3159,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A1462,entB,Lit Ecoli IntAct Interactome3d,PPI,SNSL254_A1462,SNSL254_A0650,B4T4P5,B4SXU9,614,3159,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\nSNSL254_A0752,entB,Ecoli,Transcriptional_regulatory,SNSL254_A0752,SNSL254_A0650,B4SYP6,B4SXU9,552,3159,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22\ncrp,entB,Ecoli,Transcriptional_regulatory,SNSL254_A3737,SNSL254_A0650,B4SUW7,B4SXU9,2484,3159,\x22serovar Newport SL254\x22,\x22serovar Newport SL254\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B4SXU9",
-                                        name: "entB",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="entB,SNSL254_A0648,STM BioModels,Metabolic,SNSL254_A0650,SNSL254_A0648,B4SXU9,B4SXU7,3159,1506,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+entB,SNSL254_A2495,STM BioModels,Metabolic,SNSL254_A0650,SNSL254_A2495,B4SXU9,B4SYY2,3159,207,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+entA,entB,STM,Metabolic,SNSL254_A0651,SNSL254_A0650,B4SXV0,B4SXU9,3447,3159,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+entE,entB,Lit Ecoli IntAct Interactome3d,PPI,SNSL254_A0649,SNSL254_A0650,B4SXU8,B4SXU9,614,3159,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+entB,SNSL254_A0652,IntAct,PPI,SNSL254_A0650,SNSL254_A0652,B4SXU9,B4SXV1,3159,1007,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A2406,entB,Lit Ecoli IntAct,PPI,SNSL254_A2406,SNSL254_A0650,B4SY48,B4SXU9,3710,3159,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1100,entB,Lit Ecoli IntAct,PPI,SNSL254_A1100,SNSL254_A0650,B4T1Y9,B4SXU9,804,3159,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A1462,entB,Lit Ecoli IntAct Interactome3d,PPI,SNSL254_A1462,SNSL254_A0650,B4T4P5,B4SXU9,614,3159,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+SNSL254_A0752,entB,Ecoli,Transcriptional_regulatory,SNSL254_A0752,SNSL254_A0650,B4SYP6,B4SXU9,552,3159,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;
+crp,entB,Ecoli,Transcriptional_regulatory,SNSL254_A3737,SNSL254_A0650,B4SUW7,B4SXU9,2484,3159,&#34;serovar Newport SL254&#34;,&#34;serovar Newport SL254&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "entB_SNSL254_A0648", "source": "entB", "target": "SNSL254_A0648"}}, {"data": {"id": "entB_SNSL254_A2495", "source": "entB", "target": "SNSL254_A2495"}}, {"data": {"id": "entA_entB", "source": "entA", "target": "entB"}}, {"data": {"id": "entE_entB", "source": "entE", "target": "entB"}}, {"data": {"id": "entB_SNSL254_A0652", "source": "entB", "target": "SNSL254_A0652"}}, {"data": {"id": "SNSL254_A2406_entB", "source": "SNSL254_A2406", "target": "entB"}}, {"data": {"id": "SNSL254_A1100_entB", "source": "SNSL254_A1100", "target": "entB"}}, {"data": {"id": "SNSL254_A1462_entB", "source": "SNSL254_A1462", "target": "entB"}}, {"data": {"id": "SNSL254_A0752_entB", "source": "SNSL254_A0752", "target": "entB"}}, {"data": {"id": "crp_entB", "source": "crp", "target": "entB"}}, {"data": {"id": "entB", "main": true}}, {"data": {"id": "SNSL254_A0648", "main": false}}, {"data": {"id": "SNSL254_A2495", "main": false}}, {"data": {"id": "entA", "main": false}}, {"data": {"id": "entE", "main": false}}, {"data": {"id": "SNSL254_A0652", "main": false}}, {"data": {"id": "SNSL254_A2406", "main": false}}, {"data": {"id": "SNSL254_A1100", "main": false}}, {"data": {"id": "SNSL254_A1462", "main": false}}, {"data": {"id": "SNSL254_A0752", "main": false}}, {"data": {"id": "crp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B4SXU9.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;entB_SNSL254_A0648&#34;, &#34;source&#34;: &#34;entB&#34;, &#34;target&#34;: &#34;SNSL254_A0648&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;entB_SNSL254_A2495&#34;, &#34;source&#34;: &#34;entB&#34;, &#34;target&#34;: &#34;SNSL254_A2495&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;entA_entB&#34;, &#34;source&#34;: &#34;entA&#34;, &#34;target&#34;: &#34;entB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;entE_entB&#34;, &#34;source&#34;: &#34;entE&#34;, &#34;target&#34;: &#34;entB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;entB_SNSL254_A0652&#34;, &#34;source&#34;: &#34;entB&#34;, &#34;target&#34;: &#34;SNSL254_A0652&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A2406_entB&#34;, &#34;source&#34;: &#34;SNSL254_A2406&#34;, &#34;target&#34;: &#34;entB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1100_entB&#34;, &#34;source&#34;: &#34;SNSL254_A1100&#34;, &#34;target&#34;: &#34;entB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1462_entB&#34;, &#34;source&#34;: &#34;SNSL254_A1462&#34;, &#34;target&#34;: &#34;entB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A0752_entB&#34;, &#34;source&#34;: &#34;SNSL254_A0752&#34;, &#34;target&#34;: &#34;entB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_entB&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;entB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;entB&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A0648&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A2495&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;entA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;entE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A0652&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A2406&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1100&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A1462&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SNSL254_A0752&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

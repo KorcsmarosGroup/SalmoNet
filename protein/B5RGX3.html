@@ -77,169 +77,25 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'eutC,ugpQ,STM,Metabolic,SG2488,SG3884,B5RCS8,B5RGX3,2957,216,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\neutB,ugpQ,STM,Metabolic,SG2489,SG3884,B5RCS9,B5RGX3,2614,216,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,psd,BioModels,Metabolic,SG3884,SG4191,B5RGX3,B5R9A9,216,721,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,aas,BioModels,Metabolic,SG3884,SG2919,B5RGX3,B5RDY6,216,3199,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,pldB,STM BioModels,Metabolic,SG3884,SG3490,B5RGX3,B5RFN7,216,3534,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,ugpB,STM,Metabolic,SG3884,SG3880,B5RGX3,B5RGW9,216,163,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,ugpA,STM,Metabolic,SG3884,SG3881,B5RGX3,B5RGX0,216,3015,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,ugpE,STM,Metabolic,SG3884,SG3882,B5RGX3,B5RGX1,216,3418,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,gph,Lit Ecoli IntAct,PPI,SG3884,SG3956,B5RGX3,B5R7N2,216,1323,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nugpQ,rnc,Lit Ecoli IntAct,PPI,SG3884,SG2618,B5RGX3,B5RD49,216,2354,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nphoB,ugpQ,Ecoli,Transcriptional_regulatory,SG0409,SG3884,B5R6P9,B5RGX3,197,216,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ncrp,ugpQ,Ecoli,Transcriptional_regulatory,SG3973,SG3884,B5RGZ0,B5RGX3,2484,216,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5RGX3",
-                                        name: "ugpQ",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="eutC,ugpQ,STM,Metabolic,SG2488,SG3884,B5RCS8,B5RGX3,2957,216,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+eutB,ugpQ,STM,Metabolic,SG2489,SG3884,B5RCS9,B5RGX3,2614,216,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,psd,BioModels,Metabolic,SG3884,SG4191,B5RGX3,B5R9A9,216,721,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,aas,BioModels,Metabolic,SG3884,SG2919,B5RGX3,B5RDY6,216,3199,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,pldB,STM BioModels,Metabolic,SG3884,SG3490,B5RGX3,B5RFN7,216,3534,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,ugpB,STM,Metabolic,SG3884,SG3880,B5RGX3,B5RGW9,216,163,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,ugpA,STM,Metabolic,SG3884,SG3881,B5RGX3,B5RGX0,216,3015,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,ugpE,STM,Metabolic,SG3884,SG3882,B5RGX3,B5RGX1,216,3418,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,gph,Lit Ecoli IntAct,PPI,SG3884,SG3956,B5RGX3,B5R7N2,216,1323,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ugpQ,rnc,Lit Ecoli IntAct,PPI,SG3884,SG2618,B5RGX3,B5RD49,216,2354,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+phoB,ugpQ,Ecoli,Transcriptional_regulatory,SG0409,SG3884,B5R6P9,B5RGX3,197,216,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+crp,ugpQ,Ecoli,Transcriptional_regulatory,SG3973,SG3884,B5RGZ0,B5RGX3,2484,216,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "eutC_ugpQ", "source": "eutC", "target": "ugpQ"}}, {"data": {"id": "eutB_ugpQ", "source": "eutB", "target": "ugpQ"}}, {"data": {"id": "ugpQ_psd", "source": "ugpQ", "target": "psd"}}, {"data": {"id": "ugpQ_aas", "source": "ugpQ", "target": "aas"}}, {"data": {"id": "ugpQ_pldB", "source": "ugpQ", "target": "pldB"}}, {"data": {"id": "ugpQ_ugpB", "source": "ugpQ", "target": "ugpB"}}, {"data": {"id": "ugpQ_ugpA", "source": "ugpQ", "target": "ugpA"}}, {"data": {"id": "ugpQ_ugpE", "source": "ugpQ", "target": "ugpE"}}, {"data": {"id": "ugpQ_gph", "source": "ugpQ", "target": "gph"}}, {"data": {"id": "ugpQ_rnc", "source": "ugpQ", "target": "rnc"}}, {"data": {"id": "phoB_ugpQ", "source": "phoB", "target": "ugpQ"}}, {"data": {"id": "crp_ugpQ", "source": "crp", "target": "ugpQ"}}, {"data": {"id": "eutC", "main": false}}, {"data": {"id": "ugpQ", "main": true}}, {"data": {"id": "eutB", "main": false}}, {"data": {"id": "psd", "main": false}}, {"data": {"id": "aas", "main": false}}, {"data": {"id": "pldB", "main": false}}, {"data": {"id": "ugpB", "main": false}}, {"data": {"id": "ugpA", "main": false}}, {"data": {"id": "ugpE", "main": false}}, {"data": {"id": "gph", "main": false}}, {"data": {"id": "rnc", "main": false}}, {"data": {"id": "phoB", "main": false}}, {"data": {"id": "crp", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5RGX3.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;eutC_ugpQ&#34;, &#34;source&#34;: &#34;eutC&#34;, &#34;target&#34;: &#34;ugpQ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;eutB_ugpQ&#34;, &#34;source&#34;: &#34;eutB&#34;, &#34;target&#34;: &#34;ugpQ&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_psd&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;psd&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_aas&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;aas&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_pldB&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;pldB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_ugpB&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;ugpB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_ugpA&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;ugpA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_ugpE&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;ugpE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_gph&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;gph&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ_rnc&#34;, &#34;source&#34;: &#34;ugpQ&#34;, &#34;target&#34;: &#34;rnc&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoB_ugpQ&#34;, &#34;source&#34;: &#34;phoB&#34;, &#34;target&#34;: &#34;ugpQ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_ugpQ&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;ugpQ&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;eutC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpQ&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;eutB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;psd&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;aas&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pldB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ugpE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gph&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rnc&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

@@ -77,169 +77,22 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'gmhA,talB,BioModels,Metabolic,STM0310,STM0007,P63223,P66955,931,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ntktA,talB,BioModels,Metabolic,STM3076,STM0007,Q8ZM63,P66955,2398,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ntktB,talB,BioModels,Metabolic,STM2474,STM0007,Q8ZN82,P66955,3649,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ntalA,talB,STM,Metabolic,STM2473,STM0007,Q8ZN83,P66955,873,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nSTM2341,talB,BioModels,Metabolic,STM2341,STM0007,Q8ZND4,P66955,434,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nSTM2340,talB,BioModels,Metabolic,STM2340,STM0007,Q8ZND5,P66955,2994,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nleuD1,talB,Lit Ecoli IntAct,PPI,STM0110,STM0007,P04787,P66955,3377,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ntrxA,talB,IntAct,PPI,STM3915,STM0007,P0AA28,P66955,3171,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfis,talB,Exp(HT),Transcriptional_regulatory,STM3385,STM0007,P0A6R6,P66955,1300,3087,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_P66955",
-                                        name: "talB",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="gmhA,talB,BioModels,Metabolic,STM0310,STM0007,P63223,P66955,931,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+tktA,talB,BioModels,Metabolic,STM3076,STM0007,Q8ZM63,P66955,2398,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+tktB,talB,BioModels,Metabolic,STM2474,STM0007,Q8ZN82,P66955,3649,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+talA,talB,STM,Metabolic,STM2473,STM0007,Q8ZN83,P66955,873,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+STM2341,talB,BioModels,Metabolic,STM2341,STM0007,Q8ZND4,P66955,434,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+STM2340,talB,BioModels,Metabolic,STM2340,STM0007,Q8ZND5,P66955,2994,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+leuD1,talB,Lit Ecoli IntAct,PPI,STM0110,STM0007,P04787,P66955,3377,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+trxA,talB,IntAct,PPI,STM3915,STM0007,P0AA28,P66955,3171,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+fis,talB,Exp(HT),Transcriptional_regulatory,STM3385,STM0007,P0A6R6,P66955,1300,3087,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "gmhA_talB", "source": "gmhA", "target": "talB"}}, {"data": {"id": "tktA_talB", "source": "tktA", "target": "talB"}}, {"data": {"id": "tktB_talB", "source": "tktB", "target": "talB"}}, {"data": {"id": "talA_talB", "source": "talA", "target": "talB"}}, {"data": {"id": "STM2341_talB", "source": "STM2341", "target": "talB"}}, {"data": {"id": "STM2340_talB", "source": "STM2340", "target": "talB"}}, {"data": {"id": "leuD1_talB", "source": "leuD1", "target": "talB"}}, {"data": {"id": "trxA_talB", "source": "trxA", "target": "talB"}}, {"data": {"id": "fis_talB", "source": "fis", "target": "talB"}}, {"data": {"id": "gmhA", "main": false}}, {"data": {"id": "talB", "main": true}}, {"data": {"id": "tktA", "main": false}}, {"data": {"id": "tktB", "main": false}}, {"data": {"id": "talA", "main": false}}, {"data": {"id": "STM2341", "main": false}}, {"data": {"id": "STM2340", "main": false}}, {"data": {"id": "leuD1", "main": false}}, {"data": {"id": "trxA", "main": false}}, {"data": {"id": "fis", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_P66955.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;gmhA_talB&#34;, &#34;source&#34;: &#34;gmhA&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tktA_talB&#34;, &#34;source&#34;: &#34;tktA&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tktB_talB&#34;, &#34;source&#34;: &#34;tktB&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;talA_talB&#34;, &#34;source&#34;: &#34;talA&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM2341_talB&#34;, &#34;source&#34;: &#34;STM2341&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM2340_talB&#34;, &#34;source&#34;: &#34;STM2340&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;leuD1_talB&#34;, &#34;source&#34;: &#34;leuD1&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxA_talB&#34;, &#34;source&#34;: &#34;trxA&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis_talB&#34;, &#34;source&#34;: &#34;fis&#34;, &#34;target&#34;: &#34;talB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gmhA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;talB&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tktA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tktB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;talA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM2341&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM2340&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;leuD1&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fis&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

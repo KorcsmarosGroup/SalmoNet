@@ -77,169 +77,29 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'fabD,accD,STM,Metabolic,STM1194,STM2366,O85140,Q7CQ41,2177,2027,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccA,accD,STM BioModels,Metabolic,STM0232,STM2366,P0A1C3,Q7CQ41,501,2027,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nacpP,accD,STM,Metabolic,STM1196,STM2366,P0A6B1,Q7CQ41,883,2027,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nbirA,accD,BioModels,Metabolic,STM4138,STM2366,P37416,Q7CQ41,1145,2027,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,accC,STM BioModels,Metabolic,STM2366,STM3380,Q7CQ41,Q7CPM0,2027,1824,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,accB,STM BioModels,Metabolic,STM2366,STM3379,Q7CQ41,Q7CPM1,2027,1341,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,yadF,STM,Metabolic,STM2366,STM0172,Q7CQ41,Q8ZRS0,2027,3047,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,accA,Lit Ecoli IntAct Interactome3d,PPI,STM2366,STM0232,Q7CQ41,P0A1C3,2027,501,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,umuD,Lit Ecoli IntAct,PPI,STM2366,STM1998,Q7CQ41,P22493,2027,3407,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,minC,Lit Ecoli IntAct,PPI,STM2366,STM1814,Q7CQ41,P65359,2027,970,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,yhdJ,Lit Ecoli IntAct,PPI,STM2366,STM3386,Q7CQ41,Q7CPL9,2027,2370,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,accC,Lit Ecoli IntAct,PPI,STM2366,STM3380,Q7CQ41,Q7CPM0,2027,1824,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,fhuF,Lit Ecoli IntAct,PPI,STM2366,STM4550,Q7CQ41,Q8ZJW9,2027,1758,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,yfiO,Lit Ecoli IntAct,PPI,STM2366,STM2663,Q7CQ41,Q8ZMW8,2027,2793,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,ycbG,Lit Ecoli IntAct,PPI,STM2366,STM1069,Q7CQ41,Q8ZQ68,2027,2375,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\naccD,yecG,Lit Ecoli IntAct,PPI,STM2366,STM1927,Q7CQ41,Q9RM66,2027,2493,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q7CQ41",
-                                        name: "accD",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="fabD,accD,STM,Metabolic,STM1194,STM2366,O85140,Q7CQ41,2177,2027,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accA,accD,STM BioModels,Metabolic,STM0232,STM2366,P0A1C3,Q7CQ41,501,2027,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+acpP,accD,STM,Metabolic,STM1196,STM2366,P0A6B1,Q7CQ41,883,2027,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+birA,accD,BioModels,Metabolic,STM4138,STM2366,P37416,Q7CQ41,1145,2027,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,accC,STM BioModels,Metabolic,STM2366,STM3380,Q7CQ41,Q7CPM0,2027,1824,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,accB,STM BioModels,Metabolic,STM2366,STM3379,Q7CQ41,Q7CPM1,2027,1341,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,yadF,STM,Metabolic,STM2366,STM0172,Q7CQ41,Q8ZRS0,2027,3047,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,accA,Lit Ecoli IntAct Interactome3d,PPI,STM2366,STM0232,Q7CQ41,P0A1C3,2027,501,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,umuD,Lit Ecoli IntAct,PPI,STM2366,STM1998,Q7CQ41,P22493,2027,3407,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,minC,Lit Ecoli IntAct,PPI,STM2366,STM1814,Q7CQ41,P65359,2027,970,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,yhdJ,Lit Ecoli IntAct,PPI,STM2366,STM3386,Q7CQ41,Q7CPL9,2027,2370,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,accC,Lit Ecoli IntAct,PPI,STM2366,STM3380,Q7CQ41,Q7CPM0,2027,1824,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,fhuF,Lit Ecoli IntAct,PPI,STM2366,STM4550,Q7CQ41,Q8ZJW9,2027,1758,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,yfiO,Lit Ecoli IntAct,PPI,STM2366,STM2663,Q7CQ41,Q8ZMW8,2027,2793,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,ycbG,Lit Ecoli IntAct,PPI,STM2366,STM1069,Q7CQ41,Q8ZQ68,2027,2375,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+accD,yecG,Lit Ecoli IntAct,PPI,STM2366,STM1927,Q7CQ41,Q9RM66,2027,2493,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "fabD_accD", "source": "fabD", "target": "accD"}}, {"data": {"id": "accA_accD", "source": "accA", "target": "accD"}}, {"data": {"id": "acpP_accD", "source": "acpP", "target": "accD"}}, {"data": {"id": "birA_accD", "source": "birA", "target": "accD"}}, {"data": {"id": "accD_accC", "source": "accD", "target": "accC"}}, {"data": {"id": "accD_accB", "source": "accD", "target": "accB"}}, {"data": {"id": "accD_yadF", "source": "accD", "target": "yadF"}}, {"data": {"id": "accD_accA", "source": "accD", "target": "accA"}}, {"data": {"id": "accD_umuD", "source": "accD", "target": "umuD"}}, {"data": {"id": "accD_minC", "source": "accD", "target": "minC"}}, {"data": {"id": "accD_yhdJ", "source": "accD", "target": "yhdJ"}}, {"data": {"id": "accD_accC", "source": "accD", "target": "accC"}}, {"data": {"id": "accD_fhuF", "source": "accD", "target": "fhuF"}}, {"data": {"id": "accD_yfiO", "source": "accD", "target": "yfiO"}}, {"data": {"id": "accD_ycbG", "source": "accD", "target": "ycbG"}}, {"data": {"id": "accD_yecG", "source": "accD", "target": "yecG"}}, {"data": {"id": "fabD", "main": false}}, {"data": {"id": "accD", "main": true}}, {"data": {"id": "accA", "main": false}}, {"data": {"id": "acpP", "main": false}}, {"data": {"id": "birA", "main": false}}, {"data": {"id": "accC", "main": false}}, {"data": {"id": "accB", "main": false}}, {"data": {"id": "yadF", "main": false}}, {"data": {"id": "umuD", "main": false}}, {"data": {"id": "minC", "main": false}}, {"data": {"id": "yhdJ", "main": false}}, {"data": {"id": "fhuF", "main": false}}, {"data": {"id": "yfiO", "main": false}}, {"data": {"id": "ycbG", "main": false}}, {"data": {"id": "yecG", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q7CQ41.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;fabD_accD&#34;, &#34;source&#34;: &#34;fabD&#34;, &#34;target&#34;: &#34;accD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accA_accD&#34;, &#34;source&#34;: &#34;accA&#34;, &#34;target&#34;: &#34;accD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;acpP_accD&#34;, &#34;source&#34;: &#34;acpP&#34;, &#34;target&#34;: &#34;accD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;birA_accD&#34;, &#34;source&#34;: &#34;birA&#34;, &#34;target&#34;: &#34;accD&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_accC&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;accC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_accB&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;accB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_yadF&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;yadF&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_accA&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;accA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_umuD&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;umuD&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_minC&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;minC&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_yhdJ&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;yhdJ&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_accC&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;accC&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_fhuF&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;fhuF&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_yfiO&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;yfiO&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_ycbG&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;ycbG&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_yecG&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;yecG&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fabD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;acpP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;birA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yadF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;umuD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;minC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yhdJ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fhuF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yfiO&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ycbG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yecG&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

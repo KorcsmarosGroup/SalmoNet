@@ -77,169 +77,21 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'dcuA,dcuB,STM,Metabolic,STM4325,STM4301,Q8ZKC2,Q8ZKE1,210,1810,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ndcuB,STM3599,STM,Metabolic,STM4301,STM3599,Q8ZKE1,Q8ZLD2,1810,2575,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ndcuB,dcuC,STM,Metabolic,STM4301,STM0627,Q8ZKE1,Q8ZR07,1810,862,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nfnr,dcuB,Ecoli,Transcriptional_regulatory,STM1660.S,STM4301,P0A2T8,Q8ZKE1,147,1810,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nnarL,dcuB,Ecoli,Transcriptional_regulatory,STM1767,STM4301,Q8ZP34,Q8ZKE1,265,1810,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\nhilA,dcuB,Salm,Transcriptional_regulatory,STM2876,STM4301,P43015,Q8ZKE1,1036,1810,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ncrp,dcuB,Ecoli,Transcriptional_regulatory,STM3466,STM4301,P0A2T6,Q8ZKE1,2484,1810,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22\ndcuR,dcuB,Ecoli,Transcriptional_regulatory,STM4303,STM4301,Q8ZKD9,Q8ZKE1,4086,1810,\x22serovar Typhimurium LT2\x22,\x22serovar Typhimurium LT2\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q8ZKE1",
-                                        name: "dcuB",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="dcuA,dcuB,STM,Metabolic,STM4325,STM4301,Q8ZKC2,Q8ZKE1,210,1810,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+dcuB,STM3599,STM,Metabolic,STM4301,STM3599,Q8ZKE1,Q8ZLD2,1810,2575,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+dcuB,dcuC,STM,Metabolic,STM4301,STM0627,Q8ZKE1,Q8ZR07,1810,862,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+fnr,dcuB,Ecoli,Transcriptional_regulatory,STM1660.S,STM4301,P0A2T8,Q8ZKE1,147,1810,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+narL,dcuB,Ecoli,Transcriptional_regulatory,STM1767,STM4301,Q8ZP34,Q8ZKE1,265,1810,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+hilA,dcuB,Salm,Transcriptional_regulatory,STM2876,STM4301,P43015,Q8ZKE1,1036,1810,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+crp,dcuB,Ecoli,Transcriptional_regulatory,STM3466,STM4301,P0A2T6,Q8ZKE1,2484,1810,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;
+dcuR,dcuB,Ecoli,Transcriptional_regulatory,STM4303,STM4301,Q8ZKD9,Q8ZKE1,4086,1810,&#34;serovar Typhimurium LT2&#34;,&#34;serovar Typhimurium LT2&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "dcuA_dcuB", "source": "dcuA", "target": "dcuB"}}, {"data": {"id": "dcuB_STM3599", "source": "dcuB", "target": "STM3599"}}, {"data": {"id": "dcuB_dcuC", "source": "dcuB", "target": "dcuC"}}, {"data": {"id": "fnr_dcuB", "source": "fnr", "target": "dcuB"}}, {"data": {"id": "narL_dcuB", "source": "narL", "target": "dcuB"}}, {"data": {"id": "hilA_dcuB", "source": "hilA", "target": "dcuB"}}, {"data": {"id": "crp_dcuB", "source": "crp", "target": "dcuB"}}, {"data": {"id": "dcuR_dcuB", "source": "dcuR", "target": "dcuB"}}, {"data": {"id": "dcuA", "main": false}}, {"data": {"id": "dcuB", "main": true}}, {"data": {"id": "STM3599", "main": false}}, {"data": {"id": "dcuC", "main": false}}, {"data": {"id": "fnr", "main": false}}, {"data": {"id": "narL", "main": false}}, {"data": {"id": "hilA", "main": false}}, {"data": {"id": "crp", "main": false}}, {"data": {"id": "dcuR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q8ZKE1.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;dcuA_dcuB&#34;, &#34;source&#34;: &#34;dcuA&#34;, &#34;target&#34;: &#34;dcuB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuB_STM3599&#34;, &#34;source&#34;: &#34;dcuB&#34;, &#34;target&#34;: &#34;STM3599&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuB_dcuC&#34;, &#34;source&#34;: &#34;dcuB&#34;, &#34;target&#34;: &#34;dcuC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr_dcuB&#34;, &#34;source&#34;: &#34;fnr&#34;, &#34;target&#34;: &#34;dcuB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narL_dcuB&#34;, &#34;source&#34;: &#34;narL&#34;, &#34;target&#34;: &#34;dcuB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hilA_dcuB&#34;, &#34;source&#34;: &#34;hilA&#34;, &#34;target&#34;: &#34;dcuB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp_dcuB&#34;, &#34;source&#34;: &#34;crp&#34;, &#34;target&#34;: &#34;dcuB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR_dcuB&#34;, &#34;source&#34;: &#34;dcuR&#34;, &#34;target&#34;: &#34;dcuB&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuB&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STM3599&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fnr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;narL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hilA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;crp&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dcuR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

@@ -77,169 +77,22 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'tyrB,pheP,STM,Metabolic,SC4127,SC0605,Q57GX9,Q57S00,1188,218,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\nilvE,pheP,STM,Metabolic,SC3808,SC0605,Q57HU8,Q57S00,1118,218,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\ntyrP,pheP,STM,Metabolic,SC1943,SC0605,Q57N62,Q57S00,2532,218,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\npheT,pheP,STM,Metabolic,SC1357,SC0605,Q57PU8,Q57S00,1404,218,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\npheS,pheP,STM,Metabolic,SC1356,SC0605,Q57PU9,Q57S00,3297,218,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\naspC,pheP,STM,Metabolic,SC0955,SC0605,Q57R00,Q57S00,2397,218,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\npheP,ompF,STM,Metabolic,SC0605,SC0956,Q57S00,Q57QZ9,218,2449,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\npheP,aroP,STM,Metabolic,SC0605,SC0149,Q57S00,Q57TA6,218,3270,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22\ncueR,pheP,Salm,Transcriptional_regulatory,SC0540,SC0605,Q57S65,Q57S00,687,218,\x22serovar Choleraesuis SC-B67\x22,\x22serovar Choleraesuis SC-B67\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q57S00",
-                                        name: "pheP",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="tyrB,pheP,STM,Metabolic,SC4127,SC0605,Q57GX9,Q57S00,1188,218,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+ilvE,pheP,STM,Metabolic,SC3808,SC0605,Q57HU8,Q57S00,1118,218,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+tyrP,pheP,STM,Metabolic,SC1943,SC0605,Q57N62,Q57S00,2532,218,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+pheT,pheP,STM,Metabolic,SC1357,SC0605,Q57PU8,Q57S00,1404,218,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+pheS,pheP,STM,Metabolic,SC1356,SC0605,Q57PU9,Q57S00,3297,218,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+aspC,pheP,STM,Metabolic,SC0955,SC0605,Q57R00,Q57S00,2397,218,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+pheP,ompF,STM,Metabolic,SC0605,SC0956,Q57S00,Q57QZ9,218,2449,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+pheP,aroP,STM,Metabolic,SC0605,SC0149,Q57S00,Q57TA6,218,3270,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;
+cueR,pheP,Salm,Transcriptional_regulatory,SC0540,SC0605,Q57S65,Q57S00,687,218,&#34;serovar Choleraesuis SC-B67&#34;,&#34;serovar Choleraesuis SC-B67&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "tyrB_pheP", "source": "tyrB", "target": "pheP"}}, {"data": {"id": "ilvE_pheP", "source": "ilvE", "target": "pheP"}}, {"data": {"id": "tyrP_pheP", "source": "tyrP", "target": "pheP"}}, {"data": {"id": "pheT_pheP", "source": "pheT", "target": "pheP"}}, {"data": {"id": "pheS_pheP", "source": "pheS", "target": "pheP"}}, {"data": {"id": "aspC_pheP", "source": "aspC", "target": "pheP"}}, {"data": {"id": "pheP_ompF", "source": "pheP", "target": "ompF"}}, {"data": {"id": "pheP_aroP", "source": "pheP", "target": "aroP"}}, {"data": {"id": "cueR_pheP", "source": "cueR", "target": "pheP"}}, {"data": {"id": "tyrB", "main": false}}, {"data": {"id": "pheP", "main": true}}, {"data": {"id": "ilvE", "main": false}}, {"data": {"id": "tyrP", "main": false}}, {"data": {"id": "pheT", "main": false}}, {"data": {"id": "pheS", "main": false}}, {"data": {"id": "aspC", "main": false}}, {"data": {"id": "ompF", "main": false}}, {"data": {"id": "aroP", "main": false}}, {"data": {"id": "cueR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q57S00.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;tyrB_pheP&#34;, &#34;source&#34;: &#34;tyrB&#34;, &#34;target&#34;: &#34;pheP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvE_pheP&#34;, &#34;source&#34;: &#34;ilvE&#34;, &#34;target&#34;: &#34;pheP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tyrP_pheP&#34;, &#34;source&#34;: &#34;tyrP&#34;, &#34;target&#34;: &#34;pheP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pheT_pheP&#34;, &#34;source&#34;: &#34;pheT&#34;, &#34;target&#34;: &#34;pheP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pheS_pheP&#34;, &#34;source&#34;: &#34;pheS&#34;, &#34;target&#34;: &#34;pheP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;aspC_pheP&#34;, &#34;source&#34;: &#34;aspC&#34;, &#34;target&#34;: &#34;pheP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pheP_ompF&#34;, &#34;source&#34;: &#34;pheP&#34;, &#34;target&#34;: &#34;ompF&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pheP_aroP&#34;, &#34;source&#34;: &#34;pheP&#34;, &#34;target&#34;: &#34;aroP&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cueR_pheP&#34;, &#34;source&#34;: &#34;cueR&#34;, &#34;target&#34;: &#34;pheP&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tyrB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pheP&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;tyrP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pheT&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pheS&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;aspC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ompF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;aroP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cueR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

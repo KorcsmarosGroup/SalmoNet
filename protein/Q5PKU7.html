@@ -77,169 +77,25 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'frr,dnaN,Lit Ecoli IntAct,PPI,SPA0226,SPA3681,Q5PD60,Q5PKU7,424,3473,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaQ,dnaN,IntAct,PPI,SPA2505,SPA3681,Q5PFD9,Q5PKU7,3713,3473,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaN,dnaE,Lit Ecoli IntAct,PPI,SPA3681,SPA0238,Q5PKU7,Q5PD70,3473,587,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaN,yejG,Lit Ecoli IntAct,PPI,SPA3681,SPA0631,Q5PKU7,Q5PE28,3473,3746,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaN,dinP,IntAct Interactome3d,PPI,SPA3681,SPA2442,Q5PKU7,Q5PF76,3473,1616,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaN,holC,IntAct,PPI,SPA3681,SPA4277,Q5PKU7,Q5PJB7,3473,156,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaN,holD,IntAct,PPI,SPA3681,SPA4371,Q5PKU7,Q5PK15,3473,2169,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaN,yfgE,Lit Ecoli IntAct,PPI,SPA3681,SPA0371,Q5PKU7,Q5PL41,3473,1743,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaN,holA,Lit Ecoli IntAct Interactome3d,PPI,SPA3681,SPA2088,Q5PKU7,Q5PM86,3473,298,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\nrpe,dnaN,Lit Ecoli IntAct,PPI,SPA3348,SPA3681,Q5PLX5,Q5PKU7,3757,3473,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ngph,dnaN,IntAct,PPI,SPA3347,SPA3681,Q5PLX6,Q5PKU7,1323,3473,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22\ndnaA,dnaN,Ecoli,Transcriptional_regulatory,SPA3682,SPA3681,Q5PKU6,Q5PKU7,195,3473,\x22serovar Paratyphi A ATCC 9150\x22,\x22serovar Paratyphi A ATCC 9150\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q5PKU7",
-                                        name: "dnaN",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="frr,dnaN,Lit Ecoli IntAct,PPI,SPA0226,SPA3681,Q5PD60,Q5PKU7,424,3473,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaQ,dnaN,IntAct,PPI,SPA2505,SPA3681,Q5PFD9,Q5PKU7,3713,3473,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaN,dnaE,Lit Ecoli IntAct,PPI,SPA3681,SPA0238,Q5PKU7,Q5PD70,3473,587,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaN,yejG,Lit Ecoli IntAct,PPI,SPA3681,SPA0631,Q5PKU7,Q5PE28,3473,3746,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaN,dinP,IntAct Interactome3d,PPI,SPA3681,SPA2442,Q5PKU7,Q5PF76,3473,1616,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaN,holC,IntAct,PPI,SPA3681,SPA4277,Q5PKU7,Q5PJB7,3473,156,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaN,holD,IntAct,PPI,SPA3681,SPA4371,Q5PKU7,Q5PK15,3473,2169,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaN,yfgE,Lit Ecoli IntAct,PPI,SPA3681,SPA0371,Q5PKU7,Q5PL41,3473,1743,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaN,holA,Lit Ecoli IntAct Interactome3d,PPI,SPA3681,SPA2088,Q5PKU7,Q5PM86,3473,298,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+rpe,dnaN,Lit Ecoli IntAct,PPI,SPA3348,SPA3681,Q5PLX5,Q5PKU7,3757,3473,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+gph,dnaN,IntAct,PPI,SPA3347,SPA3681,Q5PLX6,Q5PKU7,1323,3473,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;
+dnaA,dnaN,Ecoli,Transcriptional_regulatory,SPA3682,SPA3681,Q5PKU6,Q5PKU7,195,3473,&#34;serovar Paratyphi A ATCC 9150&#34;,&#34;serovar Paratyphi A ATCC 9150&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "frr_dnaN", "source": "frr", "target": "dnaN"}}, {"data": {"id": "dnaQ_dnaN", "source": "dnaQ", "target": "dnaN"}}, {"data": {"id": "dnaN_dnaE", "source": "dnaN", "target": "dnaE"}}, {"data": {"id": "dnaN_yejG", "source": "dnaN", "target": "yejG"}}, {"data": {"id": "dnaN_dinP", "source": "dnaN", "target": "dinP"}}, {"data": {"id": "dnaN_holC", "source": "dnaN", "target": "holC"}}, {"data": {"id": "dnaN_holD", "source": "dnaN", "target": "holD"}}, {"data": {"id": "dnaN_yfgE", "source": "dnaN", "target": "yfgE"}}, {"data": {"id": "dnaN_holA", "source": "dnaN", "target": "holA"}}, {"data": {"id": "rpe_dnaN", "source": "rpe", "target": "dnaN"}}, {"data": {"id": "gph_dnaN", "source": "gph", "target": "dnaN"}}, {"data": {"id": "dnaA_dnaN", "source": "dnaA", "target": "dnaN"}}, {"data": {"id": "frr", "main": false}}, {"data": {"id": "dnaN", "main": true}}, {"data": {"id": "dnaQ", "main": false}}, {"data": {"id": "dnaE", "main": false}}, {"data": {"id": "yejG", "main": false}}, {"data": {"id": "dinP", "main": false}}, {"data": {"id": "holC", "main": false}}, {"data": {"id": "holD", "main": false}}, {"data": {"id": "yfgE", "main": false}}, {"data": {"id": "holA", "main": false}}, {"data": {"id": "rpe", "main": false}}, {"data": {"id": "gph", "main": false}}, {"data": {"id": "dnaA", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q5PKU7.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;frr_dnaN&#34;, &#34;source&#34;: &#34;frr&#34;, &#34;target&#34;: &#34;dnaN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaQ_dnaN&#34;, &#34;source&#34;: &#34;dnaQ&#34;, &#34;target&#34;: &#34;dnaN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN_dnaE&#34;, &#34;source&#34;: &#34;dnaN&#34;, &#34;target&#34;: &#34;dnaE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN_yejG&#34;, &#34;source&#34;: &#34;dnaN&#34;, &#34;target&#34;: &#34;yejG&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN_dinP&#34;, &#34;source&#34;: &#34;dnaN&#34;, &#34;target&#34;: &#34;dinP&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN_holC&#34;, &#34;source&#34;: &#34;dnaN&#34;, &#34;target&#34;: &#34;holC&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN_holD&#34;, &#34;source&#34;: &#34;dnaN&#34;, &#34;target&#34;: &#34;holD&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN_yfgE&#34;, &#34;source&#34;: &#34;dnaN&#34;, &#34;target&#34;: &#34;yfgE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN_holA&#34;, &#34;source&#34;: &#34;dnaN&#34;, &#34;target&#34;: &#34;holA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpe_dnaN&#34;, &#34;source&#34;: &#34;rpe&#34;, &#34;target&#34;: &#34;dnaN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gph_dnaN&#34;, &#34;source&#34;: &#34;gph&#34;, &#34;target&#34;: &#34;dnaN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaA_dnaN&#34;, &#34;source&#34;: &#34;dnaA&#34;, &#34;target&#34;: &#34;dnaN&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;frr&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaN&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaQ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yejG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dinP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;holC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;holD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yfgE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;holA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;rpe&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;gph&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;dnaA&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

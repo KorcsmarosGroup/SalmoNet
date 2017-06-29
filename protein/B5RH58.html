@@ -77,169 +77,31 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'ftsI,mrcA,STM,Metabolic,SG0123,SG3945,B5RH58,B5R7M1,3143,3788,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsI,mrdA,STM,Metabolic,SG0123,SG0644,B5RH58,B5R7Y8,3143,2244,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsI,pbpC,STM,Metabolic,SG0123,SG2566,B5RH58,B5RD00,3143,3411,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsI,mrcB,STM,Metabolic,SG0123,SG0194,B5RH58,B5RHC9,3143,2681,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\ndamX,ftsI,IntAct,PPI,SG3953,SG0123,B5R7M9,B5RH58,2025,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsB,ftsI,IntAct,PPI,SG2834,SG0123,B5RDQ4,B5RH58,981,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmtgA,ftsI,Lit Ecoli IntAct,PPI,SG3216,SG0123,B5RES4,B5RH58,3795,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmreB,ftsI,IntAct,PPI,SG3264,SG0123,B5REX2,B5RH58,624,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsN,ftsI,IntAct,PPI,SG3327,SG0123,B5RF78,B5RH58,2083,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsL,ftsI,IntAct,PPI,SG0122,SG0123,B5RH57,B5RH58,229,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsW,ftsI,IntAct,PPI,SG0128,SG0123,B5RH63,B5RH58,3007,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmurC,ftsI,Lit Ecoli IntAct,PPI,SG0130,SG0123,B5RH65,B5RH58,1143,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsQ,ftsI,IntAct,PPI,SG0132,SG0123,B5RH67,B5RH58,398,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nftsA,ftsI,IntAct,PPI,SG0133,SG0123,B5RH68,B5RH58,363,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nmrcB,ftsI,IntAct Interactome3d,PPI,SG0194,SG0123,B5RHC9,B5RH58,2681,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\npdhR,ftsI,Ecoli,Transcriptional_regulatory,SG0153,SG0123,B5RH89,B5RH58,848,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nbasR,ftsI,Salm,Transcriptional_regulatory,SG4137,SG0123,B5R957,B5RH58,3574,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22\nSG4157,ftsI,Salm,Transcriptional_regulatory,SG4157,SG0123,B5R976,B5RH58,3923,3143,\x22serovar Gallinarum 287 91\x22,\x22serovar Gallinarum 287 91\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5RH58",
-                                        name: "ftsI",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="ftsI,mrcA,STM,Metabolic,SG0123,SG3945,B5RH58,B5R7M1,3143,3788,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsI,mrdA,STM,Metabolic,SG0123,SG0644,B5RH58,B5R7Y8,3143,2244,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsI,pbpC,STM,Metabolic,SG0123,SG2566,B5RH58,B5RD00,3143,3411,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsI,mrcB,STM,Metabolic,SG0123,SG0194,B5RH58,B5RHC9,3143,2681,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+damX,ftsI,IntAct,PPI,SG3953,SG0123,B5R7M9,B5RH58,2025,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsB,ftsI,IntAct,PPI,SG2834,SG0123,B5RDQ4,B5RH58,981,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+mtgA,ftsI,Lit Ecoli IntAct,PPI,SG3216,SG0123,B5RES4,B5RH58,3795,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+mreB,ftsI,IntAct,PPI,SG3264,SG0123,B5REX2,B5RH58,624,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsN,ftsI,IntAct,PPI,SG3327,SG0123,B5RF78,B5RH58,2083,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsL,ftsI,IntAct,PPI,SG0122,SG0123,B5RH57,B5RH58,229,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsW,ftsI,IntAct,PPI,SG0128,SG0123,B5RH63,B5RH58,3007,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+murC,ftsI,Lit Ecoli IntAct,PPI,SG0130,SG0123,B5RH65,B5RH58,1143,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsQ,ftsI,IntAct,PPI,SG0132,SG0123,B5RH67,B5RH58,398,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+ftsA,ftsI,IntAct,PPI,SG0133,SG0123,B5RH68,B5RH58,363,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+mrcB,ftsI,IntAct Interactome3d,PPI,SG0194,SG0123,B5RHC9,B5RH58,2681,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+pdhR,ftsI,Ecoli,Transcriptional_regulatory,SG0153,SG0123,B5RH89,B5RH58,848,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+basR,ftsI,Salm,Transcriptional_regulatory,SG4137,SG0123,B5R957,B5RH58,3574,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;
+SG4157,ftsI,Salm,Transcriptional_regulatory,SG4157,SG0123,B5R976,B5RH58,3923,3143,&#34;serovar Gallinarum 287 91&#34;,&#34;serovar Gallinarum 287 91&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "ftsI_mrcA", "source": "ftsI", "target": "mrcA"}}, {"data": {"id": "ftsI_mrdA", "source": "ftsI", "target": "mrdA"}}, {"data": {"id": "ftsI_pbpC", "source": "ftsI", "target": "pbpC"}}, {"data": {"id": "ftsI_mrcB", "source": "ftsI", "target": "mrcB"}}, {"data": {"id": "damX_ftsI", "source": "damX", "target": "ftsI"}}, {"data": {"id": "ftsB_ftsI", "source": "ftsB", "target": "ftsI"}}, {"data": {"id": "mtgA_ftsI", "source": "mtgA", "target": "ftsI"}}, {"data": {"id": "mreB_ftsI", "source": "mreB", "target": "ftsI"}}, {"data": {"id": "ftsN_ftsI", "source": "ftsN", "target": "ftsI"}}, {"data": {"id": "ftsL_ftsI", "source": "ftsL", "target": "ftsI"}}, {"data": {"id": "ftsW_ftsI", "source": "ftsW", "target": "ftsI"}}, {"data": {"id": "murC_ftsI", "source": "murC", "target": "ftsI"}}, {"data": {"id": "ftsQ_ftsI", "source": "ftsQ", "target": "ftsI"}}, {"data": {"id": "ftsA_ftsI", "source": "ftsA", "target": "ftsI"}}, {"data": {"id": "mrcB_ftsI", "source": "mrcB", "target": "ftsI"}}, {"data": {"id": "pdhR_ftsI", "source": "pdhR", "target": "ftsI"}}, {"data": {"id": "basR_ftsI", "source": "basR", "target": "ftsI"}}, {"data": {"id": "SG4157_ftsI", "source": "SG4157", "target": "ftsI"}}, {"data": {"id": "ftsI", "main": true}}, {"data": {"id": "mrcA", "main": false}}, {"data": {"id": "mrdA", "main": false}}, {"data": {"id": "pbpC", "main": false}}, {"data": {"id": "mrcB", "main": false}}, {"data": {"id": "damX", "main": false}}, {"data": {"id": "ftsB", "main": false}}, {"data": {"id": "mtgA", "main": false}}, {"data": {"id": "mreB", "main": false}}, {"data": {"id": "ftsN", "main": false}}, {"data": {"id": "ftsL", "main": false}}, {"data": {"id": "ftsW", "main": false}}, {"data": {"id": "murC", "main": false}}, {"data": {"id": "ftsQ", "main": false}}, {"data": {"id": "ftsA", "main": false}}, {"data": {"id": "pdhR", "main": false}}, {"data": {"id": "basR", "main": false}}, {"data": {"id": "SG4157", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5RH58.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;ftsI_mrcA&#34;, &#34;source&#34;: &#34;ftsI&#34;, &#34;target&#34;: &#34;mrcA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsI_mrdA&#34;, &#34;source&#34;: &#34;ftsI&#34;, &#34;target&#34;: &#34;mrdA&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsI_pbpC&#34;, &#34;source&#34;: &#34;ftsI&#34;, &#34;target&#34;: &#34;pbpC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsI_mrcB&#34;, &#34;source&#34;: &#34;ftsI&#34;, &#34;target&#34;: &#34;mrcB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;damX_ftsI&#34;, &#34;source&#34;: &#34;damX&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsB_ftsI&#34;, &#34;source&#34;: &#34;ftsB&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mtgA_ftsI&#34;, &#34;source&#34;: &#34;mtgA&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mreB_ftsI&#34;, &#34;source&#34;: &#34;mreB&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsN_ftsI&#34;, &#34;source&#34;: &#34;ftsN&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsL_ftsI&#34;, &#34;source&#34;: &#34;ftsL&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsW_ftsI&#34;, &#34;source&#34;: &#34;ftsW&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murC_ftsI&#34;, &#34;source&#34;: &#34;murC&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsQ_ftsI&#34;, &#34;source&#34;: &#34;ftsQ&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsA_ftsI&#34;, &#34;source&#34;: &#34;ftsA&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mrcB_ftsI&#34;, &#34;source&#34;: &#34;mrcB&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdhR_ftsI&#34;, &#34;source&#34;: &#34;pdhR&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;basR_ftsI&#34;, &#34;source&#34;: &#34;basR&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG4157_ftsI&#34;, &#34;source&#34;: &#34;SG4157&#34;, &#34;target&#34;: &#34;ftsI&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsI&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mrcA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mrdA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pbpC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mrcB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;damX&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mtgA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;mreB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsL&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsW&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;murC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsQ&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ftsA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdhR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;basR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SG4157&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

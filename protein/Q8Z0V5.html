@@ -77,169 +77,26 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'hisF,t4593,Lit Ecoli IntAct,PPI,t0796,t4593,P0A1R3,Q8Z0V5,1098,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nhupB,t4593,Lit Ecoli IntAct,PPI,t2409,t4593,P0A1R9,Q8Z0V5,2776,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\npdhR,t4593,Lit Ecoli IntAct,PPI,t0157,t4593,P0A2S3,Q8Z0V5,848,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\naccD,t4593,Lit Ecoli IntAct,PPI,t0498,t4593,Q8XFJ5,Q8Z0V5,2027,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt4593,trxA,Lit Ecoli IntAct,PPI,t4593,t3381,Q8Z0V5,P0AA29,1758,3171,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt4593,nikR,Lit Ecoli IntAct,PPI,t4593,t3938,Q8Z0V5,P64414,1758,2652,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt4593,phnR,Lit Ecoli IntAct,PPI,t4593,t2433,Q8Z0V5,P96061,1758,253,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt4593,lysR,Lit Ecoli IntAct,PPI,t4593,t2924,Q8Z0V5,Q8XGD5,1758,2198,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt4593,STY0671,Lit Ecoli IntAct,PPI,t4593,STY0671,Q8Z0V5,Q8Z8I9,1758,220,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\natpG,t4593,Lit Ecoli IntAct,PPI,t3653,t4593,Q8Z2Q5,Q8Z0V5,3194,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nyedD,t4593,Lit Ecoli IntAct,PPI,t0913,t4593,Q8Z5S4,Q8Z0V5,2929,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nfur,t4593,Ecoli,Transcriptional_regulatory,STY0731;t2182,t4593,Q8XFG1,Q8Z0V5,552,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\noxyR,t4593,Ecoli,Transcriptional_regulatory,t3500,t4593,Q8XF66,Q8Z0V5,3398,1758,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q8Z0V5",
-                                        name: "t4593",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="hisF,t4593,Lit Ecoli IntAct,PPI,t0796,t4593,P0A1R3,Q8Z0V5,1098,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+hupB,t4593,Lit Ecoli IntAct,PPI,t2409,t4593,P0A1R9,Q8Z0V5,2776,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+pdhR,t4593,Lit Ecoli IntAct,PPI,t0157,t4593,P0A2S3,Q8Z0V5,848,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+accD,t4593,Lit Ecoli IntAct,PPI,t0498,t4593,Q8XFJ5,Q8Z0V5,2027,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t4593,trxA,Lit Ecoli IntAct,PPI,t4593,t3381,Q8Z0V5,P0AA29,1758,3171,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t4593,nikR,Lit Ecoli IntAct,PPI,t4593,t3938,Q8Z0V5,P64414,1758,2652,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t4593,phnR,Lit Ecoli IntAct,PPI,t4593,t2433,Q8Z0V5,P96061,1758,253,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t4593,lysR,Lit Ecoli IntAct,PPI,t4593,t2924,Q8Z0V5,Q8XGD5,1758,2198,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t4593,STY0671,Lit Ecoli IntAct,PPI,t4593,STY0671,Q8Z0V5,Q8Z8I9,1758,220,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+atpG,t4593,Lit Ecoli IntAct,PPI,t3653,t4593,Q8Z2Q5,Q8Z0V5,3194,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+yedD,t4593,Lit Ecoli IntAct,PPI,t0913,t4593,Q8Z5S4,Q8Z0V5,2929,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+fur,t4593,Ecoli,Transcriptional_regulatory,STY0731;t2182,t4593,Q8XFG1,Q8Z0V5,552,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+oxyR,t4593,Ecoli,Transcriptional_regulatory,t3500,t4593,Q8XF66,Q8Z0V5,3398,1758,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "hisF_t4593", "source": "hisF", "target": "t4593"}}, {"data": {"id": "hupB_t4593", "source": "hupB", "target": "t4593"}}, {"data": {"id": "pdhR_t4593", "source": "pdhR", "target": "t4593"}}, {"data": {"id": "accD_t4593", "source": "accD", "target": "t4593"}}, {"data": {"id": "t4593_trxA", "source": "t4593", "target": "trxA"}}, {"data": {"id": "t4593_nikR", "source": "t4593", "target": "nikR"}}, {"data": {"id": "t4593_phnR", "source": "t4593", "target": "phnR"}}, {"data": {"id": "t4593_lysR", "source": "t4593", "target": "lysR"}}, {"data": {"id": "t4593_STY0671", "source": "t4593", "target": "STY0671"}}, {"data": {"id": "atpG_t4593", "source": "atpG", "target": "t4593"}}, {"data": {"id": "yedD_t4593", "source": "yedD", "target": "t4593"}}, {"data": {"id": "fur_t4593", "source": "fur", "target": "t4593"}}, {"data": {"id": "oxyR_t4593", "source": "oxyR", "target": "t4593"}}, {"data": {"id": "hisF", "main": false}}, {"data": {"id": "t4593", "main": true}}, {"data": {"id": "hupB", "main": false}}, {"data": {"id": "pdhR", "main": false}}, {"data": {"id": "accD", "main": false}}, {"data": {"id": "trxA", "main": false}}, {"data": {"id": "nikR", "main": false}}, {"data": {"id": "phnR", "main": false}}, {"data": {"id": "lysR", "main": false}}, {"data": {"id": "STY0671", "main": false}}, {"data": {"id": "atpG", "main": false}}, {"data": {"id": "yedD", "main": false}}, {"data": {"id": "fur", "main": false}}, {"data": {"id": "oxyR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q8Z0V5.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;hisF_t4593&#34;, &#34;source&#34;: &#34;hisF&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hupB_t4593&#34;, &#34;source&#34;: &#34;hupB&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdhR_t4593&#34;, &#34;source&#34;: &#34;pdhR&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD_t4593&#34;, &#34;source&#34;: &#34;accD&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t4593_trxA&#34;, &#34;source&#34;: &#34;t4593&#34;, &#34;target&#34;: &#34;trxA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t4593_nikR&#34;, &#34;source&#34;: &#34;t4593&#34;, &#34;target&#34;: &#34;nikR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t4593_phnR&#34;, &#34;source&#34;: &#34;t4593&#34;, &#34;target&#34;: &#34;phnR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t4593_lysR&#34;, &#34;source&#34;: &#34;t4593&#34;, &#34;target&#34;: &#34;lysR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t4593_STY0671&#34;, &#34;source&#34;: &#34;t4593&#34;, &#34;target&#34;: &#34;STY0671&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;atpG_t4593&#34;, &#34;source&#34;: &#34;atpG&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yedD_t4593&#34;, &#34;source&#34;: &#34;yedD&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fur_t4593&#34;, &#34;source&#34;: &#34;fur&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;oxyR_t4593&#34;, &#34;source&#34;: &#34;oxyR&#34;, &#34;target&#34;: &#34;t4593&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hisF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t4593&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hupB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;pdhR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;accD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trxA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nikR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phnR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;lysR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;STY0671&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;atpG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yedD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;fur&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;oxyR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

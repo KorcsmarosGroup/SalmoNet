@@ -77,169 +77,19 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'avtA,SeAg_B3732,BioModels,Metabolic,SeAg_B3879,SeAg_B3732,B5EX76,B5F8P7,3287,3667,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nSeAg_B2471,SeAg_B3732,BioModels,Metabolic,SeAg_B2471,SeAg_B3732,B5EZL3,B5F8P7,961,3667,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nleuA,SeAg_B3732,BioModels,Metabolic,SeAg_B0129,SeAg_B3732,B5F7U9,B5F8P7,3577,3667,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\npanB,SeAg_B3732,BioModels,Metabolic,SeAg_B0216,SeAg_B3732,B5F833,B5F8P7,418,3667,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nSeAg_B3732,ilvE,BioModels,Metabolic,SeAg_B3732,SeAg_B4128,B5F8P7,B5EZ27,3667,1118,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22\nSeAg_B3732,SeAg_B4134,BioModels,Metabolic,SeAg_B3732,SeAg_B4134,B5F8P7,B5EZ33,3667,1832,\x22serovar Agona SL483\x22,\x22serovar Agona SL483\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5F8P7",
-                                        name: "SeAg_B3732",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="avtA,SeAg_B3732,BioModels,Metabolic,SeAg_B3879,SeAg_B3732,B5EX76,B5F8P7,3287,3667,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+SeAg_B2471,SeAg_B3732,BioModels,Metabolic,SeAg_B2471,SeAg_B3732,B5EZL3,B5F8P7,961,3667,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+leuA,SeAg_B3732,BioModels,Metabolic,SeAg_B0129,SeAg_B3732,B5F7U9,B5F8P7,3577,3667,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+panB,SeAg_B3732,BioModels,Metabolic,SeAg_B0216,SeAg_B3732,B5F833,B5F8P7,418,3667,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+SeAg_B3732,ilvE,BioModels,Metabolic,SeAg_B3732,SeAg_B4128,B5F8P7,B5EZ27,3667,1118,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;
+SeAg_B3732,SeAg_B4134,BioModels,Metabolic,SeAg_B3732,SeAg_B4134,B5F8P7,B5EZ33,3667,1832,&#34;serovar Agona SL483&#34;,&#34;serovar Agona SL483&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "avtA_SeAg_B3732", "source": "avtA", "target": "SeAg_B3732"}}, {"data": {"id": "SeAg_B2471_SeAg_B3732", "source": "SeAg_B2471", "target": "SeAg_B3732"}}, {"data": {"id": "leuA_SeAg_B3732", "source": "leuA", "target": "SeAg_B3732"}}, {"data": {"id": "panB_SeAg_B3732", "source": "panB", "target": "SeAg_B3732"}}, {"data": {"id": "SeAg_B3732_ilvE", "source": "SeAg_B3732", "target": "ilvE"}}, {"data": {"id": "SeAg_B3732_SeAg_B4134", "source": "SeAg_B3732", "target": "SeAg_B4134"}}, {"data": {"id": "avtA", "main": false}}, {"data": {"id": "SeAg_B3732", "main": true}}, {"data": {"id": "SeAg_B2471", "main": false}}, {"data": {"id": "leuA", "main": false}}, {"data": {"id": "panB", "main": false}}, {"data": {"id": "ilvE", "main": false}}, {"data": {"id": "SeAg_B4134", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5F8P7.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;avtA_SeAg_B3732&#34;, &#34;source&#34;: &#34;avtA&#34;, &#34;target&#34;: &#34;SeAg_B3732&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B2471_SeAg_B3732&#34;, &#34;source&#34;: &#34;SeAg_B2471&#34;, &#34;target&#34;: &#34;SeAg_B3732&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;leuA_SeAg_B3732&#34;, &#34;source&#34;: &#34;leuA&#34;, &#34;target&#34;: &#34;SeAg_B3732&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;panB_SeAg_B3732&#34;, &#34;source&#34;: &#34;panB&#34;, &#34;target&#34;: &#34;SeAg_B3732&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B3732_ilvE&#34;, &#34;source&#34;: &#34;SeAg_B3732&#34;, &#34;target&#34;: &#34;ilvE&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B3732_SeAg_B4134&#34;, &#34;source&#34;: &#34;SeAg_B3732&#34;, &#34;target&#34;: &#34;SeAg_B4134&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;avtA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B3732&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B2471&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;leuA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;panB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ilvE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeAg_B4134&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

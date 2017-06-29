@@ -77,169 +77,23 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'cyaY,steE,Lit Ecoli IntAct,PPI,t3354,t2860,Q8Z3A4,Q8Z452,3161,112,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nsteE,trpR,Lit Ecoli IntAct,PPI,t2860,t4622,Q8Z452,P58699,112,2479,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nsteE,yjfN,Lit Ecoli IntAct,PPI,t2860,t4429,Q8Z452,Q8Z175,112,2026,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nsteE,glgX,Lit Ecoli IntAct,PPI,t2860,t3983,Q8Z452,Q8Z234,112,1239,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nsteE,ygbF,Lit Ecoli IntAct,PPI,t2860,t2838,Q8Z452,Q8Z468,112,391,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nsteE,orgA,IntAct,PPI,t2860,t2771,Q8Z452,Q8Z4A4,112,2510,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nyifE,steE,Lit Ecoli IntAct,PPI,t3448,t2860,Q9L6T3,Q8Z452,186,112,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\ncueR,steE,Salm,Transcriptional_regulatory,t2361,t2860,Q8Z8S3,Q8Z452,687,112,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nphoP,steE,Salm,Transcriptional_regulatory,t1689,t2860,Q8Z7H2,Q8Z452,1432,112,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22\nt2052,steE,Salm,Transcriptional_regulatory,t2052,t2860,P67711,Q8Z452,2413,112,\x22serovar Typhi strain CT18\x22,\x22serovar Typhi strain CT18\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_Q8Z452",
-                                        name: "steE",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="cyaY,steE,Lit Ecoli IntAct,PPI,t3354,t2860,Q8Z3A4,Q8Z452,3161,112,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+steE,trpR,Lit Ecoli IntAct,PPI,t2860,t4622,Q8Z452,P58699,112,2479,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+steE,yjfN,Lit Ecoli IntAct,PPI,t2860,t4429,Q8Z452,Q8Z175,112,2026,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+steE,glgX,Lit Ecoli IntAct,PPI,t2860,t3983,Q8Z452,Q8Z234,112,1239,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+steE,ygbF,Lit Ecoli IntAct,PPI,t2860,t2838,Q8Z452,Q8Z468,112,391,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+steE,orgA,IntAct,PPI,t2860,t2771,Q8Z452,Q8Z4A4,112,2510,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+yifE,steE,Lit Ecoli IntAct,PPI,t3448,t2860,Q9L6T3,Q8Z452,186,112,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+cueR,steE,Salm,Transcriptional_regulatory,t2361,t2860,Q8Z8S3,Q8Z452,687,112,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+phoP,steE,Salm,Transcriptional_regulatory,t1689,t2860,Q8Z7H2,Q8Z452,1432,112,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;
+t2052,steE,Salm,Transcriptional_regulatory,t2052,t2860,P67711,Q8Z452,2413,112,&#34;serovar Typhi strain CT18&#34;,&#34;serovar Typhi strain CT18&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "cyaY_steE", "source": "cyaY", "target": "steE"}}, {"data": {"id": "steE_trpR", "source": "steE", "target": "trpR"}}, {"data": {"id": "steE_yjfN", "source": "steE", "target": "yjfN"}}, {"data": {"id": "steE_glgX", "source": "steE", "target": "glgX"}}, {"data": {"id": "steE_ygbF", "source": "steE", "target": "ygbF"}}, {"data": {"id": "steE_orgA", "source": "steE", "target": "orgA"}}, {"data": {"id": "yifE_steE", "source": "yifE", "target": "steE"}}, {"data": {"id": "cueR_steE", "source": "cueR", "target": "steE"}}, {"data": {"id": "phoP_steE", "source": "phoP", "target": "steE"}}, {"data": {"id": "t2052_steE", "source": "t2052", "target": "steE"}}, {"data": {"id": "cyaY", "main": false}}, {"data": {"id": "steE", "main": true}}, {"data": {"id": "trpR", "main": false}}, {"data": {"id": "yjfN", "main": false}}, {"data": {"id": "glgX", "main": false}}, {"data": {"id": "ygbF", "main": false}}, {"data": {"id": "orgA", "main": false}}, {"data": {"id": "yifE", "main": false}}, {"data": {"id": "cueR", "main": false}}, {"data": {"id": "phoP", "main": false}}, {"data": {"id": "t2052", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_Q8Z452.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;cyaY_steE&#34;, &#34;source&#34;: &#34;cyaY&#34;, &#34;target&#34;: &#34;steE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;steE_trpR&#34;, &#34;source&#34;: &#34;steE&#34;, &#34;target&#34;: &#34;trpR&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;steE_yjfN&#34;, &#34;source&#34;: &#34;steE&#34;, &#34;target&#34;: &#34;yjfN&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;steE_glgX&#34;, &#34;source&#34;: &#34;steE&#34;, &#34;target&#34;: &#34;glgX&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;steE_ygbF&#34;, &#34;source&#34;: &#34;steE&#34;, &#34;target&#34;: &#34;ygbF&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;steE_orgA&#34;, &#34;source&#34;: &#34;steE&#34;, &#34;target&#34;: &#34;orgA&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yifE_steE&#34;, &#34;source&#34;: &#34;yifE&#34;, &#34;target&#34;: &#34;steE&#34;, &#34;type&#34;: &#34;PPI&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cueR_steE&#34;, &#34;source&#34;: &#34;cueR&#34;, &#34;target&#34;: &#34;steE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoP_steE&#34;, &#34;source&#34;: &#34;phoP&#34;, &#34;target&#34;: &#34;steE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t2052_steE&#34;, &#34;source&#34;: &#34;t2052&#34;, &#34;target&#34;: &#34;steE&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cyaY&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;steE&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;trpR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yjfN&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;glgX&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;ygbF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;orgA&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;yifE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cueR&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;phoP&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;t2052&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">

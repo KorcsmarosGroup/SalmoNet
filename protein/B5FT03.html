@@ -77,169 +77,27 @@
         <div class="uk-width-medium-1-2">
             <h2>Interactions</h2>
             <div id="interactiontablediv" ></div>
-            <script>
-                interactiontablediv = webix.ui({
-                    container:"interactiontablediv",
-                    autowidth:true,
-        			rows: [
-                    {
-                        id: "interactiontable",
-                        view: "datatable",
-                        css: "salmonet_table",
-                        columns: [
-                            {id: "data0", header: ["Interactor", {content: "textFilter"}], css: "rank", adjust:true},
-                            {id: "data1", header: ["Interactor", {content: "textFilter"}], adjust:true},
-                            {id: "data2", header: "Source <a style='color: #1F2421 !important;' href='#legend' class='uk-icon-justify uk-icon-question-circle'></a>", fillspace:true},
-                            {id: "data3", header: ["Layer", {content: "selectFilter"}], adjust:true},
-                            {id: "data4", hidden:true},
-                            {id: "data5", hidden:true},
-                            {id: "data6", hidden:true},
-                            {id: "data7", hidden:true},
-                            {id: "data8", hidden:true},
-                            {id: "data9", hidden:true},
-                            {id: "data10", hidden:true},
-                            {id: "data11", hidden:true}
-                        ],
-                        height: 450,
-                        autowidth:true,
-                        datatype: "csv",
-                        data: 'hycG,hycC,STM,Metabolic,SeD_A3157,SeD_A3161,B5FSZ9,B5FT03,602,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhycF,hycC,STM,Metabolic,SeD_A3158,SeD_A3161,B5FT00,B5FT03,1226,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhycE,hycC,STM,Metabolic,SeD_A3159,SeD_A3161,B5FT01,B5FT03,126,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhycD,hycC,STM,Metabolic,SeD_A3160,SeD_A3161,B5FT02,B5FT03,376,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhycC,SeD_A1797,STM,Metabolic,SeD_A3161,SeD_A1797,B5FT03,B5FHL6,2222,3144,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhycC,SeD_A1798,STM,Metabolic,SeD_A3161,SeD_A1798,B5FT03,B5FHL7,2222,1280,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhycC,hycB,STM,Metabolic,SeD_A3161,SeD_A3162,B5FT03,B5FT04,2222,4039,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhycC,SeD_A1532,STM,Metabolic,SeD_A3161,SeD_A1532,B5FT03,B5FU04,2222,3144,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\ncybH,hycC,STM,Metabolic,SeD_A1530,SeD_A3161,B5FTP5,B5FT03,904,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A1531,hycC,STM,Metabolic,SeD_A1531,SeD_A3161,B5FTP6,B5FT03,1363,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhybC,hycC,STM,Metabolic,SeD_A3495,SeD_A3161,B5FV12,B5FT03,631,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nhybO,hycC,STM,Metabolic,SeD_A3498,SeD_A3161,B5FV15,B5FT03,2290,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nSeD_A3169,hycC,Ecoli,Transcriptional_regulatory,SeD_A3169,SeD_A3161,B5FT11,B5FT03,791,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22\nnsrR,hycC,Ecoli,Transcriptional_regulatory,SeD_A4764,SeD_A3161,B5FRN4,B5FT03,2218,2222,\x22serovar Dublin CT 02021853\x22,\x22serovar Dublin CT 02021853\x22'
-                    },
-                    {
-    					view: "form",
-    					css: "toolbar",
-    					paddingY: 5,
-    					paddingX: 10,
-                        autowidth:true,
-    					cols:[
-    						{
-    							view: "button", label: "Download table", width: 200, click:function(){
-    								webix.toExcel($$("interactiontable"), {
-                                        filename: "SalmoNet_B5FT03",
-                                        name: "hycC",
-                                        columns:{
-                                            "data0":{header: "node_a_name"},
-                                            "data1":{header: "node_b_name"},
-                                            "data2":{header: "source"},
-                                            "data3":{header: "layer"},
-                                            "data4":{header: "node_a_locus"},
-                                            "data5":{header: "node_b_locus"},
-                                            "data6":{header: "node_a_uniprot"},
-                                            "data7":{header: "node_b_uniprot"},
-                                            "data8":{header: "node_a_ortholog_group"},
-                                            "data9":{header: "node_b_ortholog_group"},
-                                            "data10":{header: "node_a_strain"},
-                                            "data11":{header: "node_b_strain"}
-                                        }
-                                    });
-    							}
-    						}
-    					]
-                    }]
-                });
-                interactiontablediv
-                $(window).resize(function() {
-                    if ($(window).width() < 850){
-                        $$('interactiontable').hideColumn("data2");
-                        
-                        
-                        
-                    }
-                    if ($(window).width() >= 850){
-                        $$('interactiontable').showColumn("data2");
-                        
-                        
-                        
-                    }
-                });
-                if ($(window).width() < 850){
-                    $$('interactiontable').hideColumn("data2");
-                    
-                    
-                };
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </script>
+            <input id="interactiontabledata" type="hidden" name="interactiontabledata" value="hycG,hycC,STM,Metabolic,SeD_A3157,SeD_A3161,B5FSZ9,B5FT03,602,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hycF,hycC,STM,Metabolic,SeD_A3158,SeD_A3161,B5FT00,B5FT03,1226,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hycE,hycC,STM,Metabolic,SeD_A3159,SeD_A3161,B5FT01,B5FT03,126,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hycD,hycC,STM,Metabolic,SeD_A3160,SeD_A3161,B5FT02,B5FT03,376,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hycC,SeD_A1797,STM,Metabolic,SeD_A3161,SeD_A1797,B5FT03,B5FHL6,2222,3144,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hycC,SeD_A1798,STM,Metabolic,SeD_A3161,SeD_A1798,B5FT03,B5FHL7,2222,1280,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hycC,hycB,STM,Metabolic,SeD_A3161,SeD_A3162,B5FT03,B5FT04,2222,4039,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hycC,SeD_A1532,STM,Metabolic,SeD_A3161,SeD_A1532,B5FT03,B5FU04,2222,3144,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+cybH,hycC,STM,Metabolic,SeD_A1530,SeD_A3161,B5FTP5,B5FT03,904,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A1531,hycC,STM,Metabolic,SeD_A1531,SeD_A3161,B5FTP6,B5FT03,1363,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hybC,hycC,STM,Metabolic,SeD_A3495,SeD_A3161,B5FV12,B5FT03,631,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+hybO,hycC,STM,Metabolic,SeD_A3498,SeD_A3161,B5FV15,B5FT03,2290,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+SeD_A3169,hycC,Ecoli,Transcriptional_regulatory,SeD_A3169,SeD_A3161,B5FT11,B5FT03,791,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;
+nsrR,hycC,Ecoli,Transcriptional_regulatory,SeD_A4764,SeD_A3161,B5FRN4,B5FT03,2218,2222,&#34;serovar Dublin CT 02021853&#34;,&#34;serovar Dublin CT 02021853&#34;">
+            <p class="uk-text-small">(Download may not work in Safari)</p>
         </div>
         <div class="uk-width-medium-1-2">
             <h2>&nbsp;</h2>
             <div id="interactionnetworkdiv" style="height: 453px;"></div>
             <div id="interactionnetworkcontrolldiv" style="width: 100%;"></div>
-            <script>
-                var cy = cytoscape({
-                    container: $('#interactionnetworkdiv'),
-                    elements: [{"data": {"id": "hycG_hycC", "source": "hycG", "target": "hycC"}}, {"data": {"id": "hycF_hycC", "source": "hycF", "target": "hycC"}}, {"data": {"id": "hycE_hycC", "source": "hycE", "target": "hycC"}}, {"data": {"id": "hycD_hycC", "source": "hycD", "target": "hycC"}}, {"data": {"id": "hycC_SeD_A1797", "source": "hycC", "target": "SeD_A1797"}}, {"data": {"id": "hycC_SeD_A1798", "source": "hycC", "target": "SeD_A1798"}}, {"data": {"id": "hycC_hycB", "source": "hycC", "target": "hycB"}}, {"data": {"id": "hycC_SeD_A1532", "source": "hycC", "target": "SeD_A1532"}}, {"data": {"id": "cybH_hycC", "source": "cybH", "target": "hycC"}}, {"data": {"id": "SeD_A1531_hycC", "source": "SeD_A1531", "target": "hycC"}}, {"data": {"id": "hybC_hycC", "source": "hybC", "target": "hycC"}}, {"data": {"id": "hybO_hycC", "source": "hybO", "target": "hycC"}}, {"data": {"id": "SeD_A3169_hycC", "source": "SeD_A3169", "target": "hycC"}}, {"data": {"id": "nsrR_hycC", "source": "nsrR", "target": "hycC"}}, {"data": {"id": "hycG", "main": false}}, {"data": {"id": "hycC", "main": true}}, {"data": {"id": "hycF", "main": false}}, {"data": {"id": "hycE", "main": false}}, {"data": {"id": "hycD", "main": false}}, {"data": {"id": "SeD_A1797", "main": false}}, {"data": {"id": "SeD_A1798", "main": false}}, {"data": {"id": "hycB", "main": false}}, {"data": {"id": "SeD_A1532", "main": false}}, {"data": {"id": "cybH", "main": false}}, {"data": {"id": "SeD_A1531", "main": false}}, {"data": {"id": "hybC", "main": false}}, {"data": {"id": "hybO", "main": false}}, {"data": {"id": "SeD_A3169", "main": false}}, {"data": {"id": "nsrR", "main": false}}],
-                    userZoomingEnabled: false,
-                    layout: {
-                        name: 'cose-bilkent'
-                    },
-                    style: [
-                        {
-                            selector: 'node[main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#39B4B5',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'node[!main]',
-                            style: {
-                                'height': 30,
-                                'width': function( ele ){ return ele.data('id').length*15 },
-                                'shape': 'roundrectangle',
-                                'background-color': '#216869',
-                                'label': 'data(id)',
-                                'text-halign': 'center',
-                                'text-valign': 'center'
-                            }
-                        },
-                        {
-                            selector: 'edge',
-                            style: {
-                              'width': 3,
-                              'line-color': '#000',
-                              'target-arrow-color': '#000',
-                              'target-arrow-shape': 'triangle'
-                            }
-                        }
-                    ]
-                });
-                cy.fit();
-                interactionnetworkcontrolldiv = webix.ui({
-                    container:"interactionnetworkcontrolldiv",
-                    view: "form",
-                    borderless:true,
-                    paddingY: 5,
-                    paddingX: 10,
-                    cols:[
-                        {view: "button", label: "Download image", width: 200, click:function(){webix.html.download(cy.png(), "SalmoNet_B5FT03.png")}},
-                        {view: "button", type:"iconButton", icon: "arrows-alt", align:"right", width: 35, click:function(){cy.fit()}},
-                        {view: "button", type:"iconButton", icon: "plus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()+0.5)}},
-                        {view: "button", type:"iconButton", icon: "minus", width: 35, align:"right", click:function(){cy.zoom(cy.zoom()-0.5)}},
-                    ]
-                });
-                interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                interactionnetworkcontrolldiv.resize();
-                $(window).resize(function() {
-                    interactionnetworkcontrolldiv.define("width", $("#interactionnetworkcontrolldiv").width());
-                    interactionnetworkcontrolldiv.resize();
-                });
-            </script>
+            <input id="interactionnetworkdata" type="hidden" name="interactionnetworkdata" value="[{&#34;data&#34;: {&#34;id&#34;: &#34;hycG_hycC&#34;, &#34;source&#34;: &#34;hycG&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycF_hycC&#34;, &#34;source&#34;: &#34;hycF&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE_hycC&#34;, &#34;source&#34;: &#34;hycE&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycD_hycC&#34;, &#34;source&#34;: &#34;hycD&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycC_SeD_A1797&#34;, &#34;source&#34;: &#34;hycC&#34;, &#34;target&#34;: &#34;SeD_A1797&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycC_SeD_A1798&#34;, &#34;source&#34;: &#34;hycC&#34;, &#34;target&#34;: &#34;SeD_A1798&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycC_hycB&#34;, &#34;source&#34;: &#34;hycC&#34;, &#34;target&#34;: &#34;hycB&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycC_SeD_A1532&#34;, &#34;source&#34;: &#34;hycC&#34;, &#34;target&#34;: &#34;SeD_A1532&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cybH_hycC&#34;, &#34;source&#34;: &#34;cybH&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A1531_hycC&#34;, &#34;source&#34;: &#34;SeD_A1531&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybC_hycC&#34;, &#34;source&#34;: &#34;hybC&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybO_hycC&#34;, &#34;source&#34;: &#34;hybO&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Metabolic&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A3169_hycC&#34;, &#34;source&#34;: &#34;SeD_A3169&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nsrR_hycC&#34;, &#34;source&#34;: &#34;nsrR&#34;, &#34;target&#34;: &#34;hycC&#34;, &#34;type&#34;: &#34;Transcriptional_regulatory&#34;}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycG&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycC&#34;, &#34;main&#34;: true}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycF&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycE&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycD&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A1797&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A1798&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hycB&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A1532&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;cybH&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A1531&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybC&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;hybO&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;SeD_A3169&#34;, &#34;main&#34;: false}}, {&#34;data&#34;: {&#34;id&#34;: &#34;nsrR&#34;, &#34;main&#34;: false}}]">
         </div>
     </div>
     <hr class="uk-grid-divider">
